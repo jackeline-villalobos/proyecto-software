@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 //Se declaran todos los accesos de los archivos routes.
-
+const impuesto = require('./routes/impuesto.route');
 
 
 const app = express();
@@ -53,3 +53,4 @@ function handleError(res, reason, message, code) {
 
 
 // Conexión a todas la rutas.
+app.use('/api', impuesto);
