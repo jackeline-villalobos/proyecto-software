@@ -6,3 +6,49 @@
 #000000 Negro
 */
 
+input {
+    height: 32px;
+    width: 172px;
+    border-radius: 10px;
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
+}
+
+button {
+    height: 32px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #F2610A;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    height: 32px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #1EBB2D;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-left: 1px;
+}
+
+footer {
+    display: flow-root;
+    background-color: #616161;
+    color: #FFFFFF;
+}
+
+footer i {
+    color: #FFFFFF;
+}
