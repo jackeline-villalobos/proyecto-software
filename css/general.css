@@ -1,10 +1,37 @@
-/*Colores
+/*
+Colores
 #F2610A Anaranjado
 #1EBB2D Verde
 #616161 Gris
 #FFFFFF Blanco
 #000000 Negro
+
+Tipografías
+<link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
 */
+header{
+    background-color: #000000;
+    display: flow-root;
+}
+.botones-header{
+    float: right;
+    margin-top: -65px;
+    margin-right: 100px;
+    display: flex;
+}
+.logo-header{
+    height: 80px;
+    margin: 10px 0px 10px 70px;
+}
+#btn-registrarse{
+    color: #F2610A;
+    border: none;
+    margin-left: 20px;
+    background-color: #FFFFFF;
+}
+#btn-registrarse:hover{
+    margin-left: 20px !important;
+}
 
 input {
     height: 32px;
@@ -29,7 +56,7 @@ button {
     justify-content: center;
 }
 
-button:hover {
+button:hover, #btn-registrarse:hover {
     height: 32px;
     width: 100px;
     border-radius: 10px;
@@ -39,16 +66,54 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 1px;
 }
 
 footer {
     display: flow-root;
-    background-color: #616161;
+    background-color: #000000;
     color: #FFFFFF;
+    padding: 17px 20px;
+    font-family: 'Cantarell', sans-serif;
 }
-
+footer div{
+    float: left;
+    margin: 0px 60px;
+}
+footer div h3{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+footer div p{
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+footer a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 13px;
+}
 footer i {
     color: #FFFFFF;
+    margin-right: 20px;
+    font-size: 25px;
+    margin-top: 24px;
+}
+footer li{
+    list-style-type: none;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+footer li:hover, footer i:hover, footer p:hover, footer a:hover{
+    color:#1EBB2D;
+    cursor: pointer;
+}
+.logo-footer{
+    height: 150px;
+    margin-left: -50px !important;
+}
+#i-facebook{
+    margin-left: 20px;
 }

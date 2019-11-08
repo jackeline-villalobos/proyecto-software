@@ -3,12 +3,23 @@
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <title>Ejemplo</title>
 </head>
 
 <body>
+    <header>
+        <div><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></div>
+        <div class="botones-header">
+            <button type="button">Iniciar sesión</button>
+            <button type="button" id="btn-registrarse">Registrarse</button>
+        </div>
+    </header>
+
     <label for="search"></label>
-    <input type="search" id="search" placeholder="buscar">
+    <input type="search" id="search" placeholder="Buscar">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
 
     <div>
         <button type="button">Buscar</button>
@@ -16,12 +27,16 @@
     <footer>
 
         <div>
-
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
         </div>
-        <div>
+        <div >
             <h3>Contactos</h3>
             <p>Tel: 2233-4455</p>
-            <p>Correo: soporte@ticketpixel.cr</p>
+            <a href="#">Terminos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a> </p>
+            
         </div>
         <div>
             <h3>Eventos</h3>
@@ -30,10 +45,10 @@
             <li>Culturales</li>
             <li>Comedia</li>
         </div>
-        <div>
+        <div class="redes-footer">
             <h3>Siguenos en</h3>
             <ul>
-                <i class="fab fa-facebook"></i>
+                <i class="fab fa-facebook" id="i-facebook"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter"></i>
             </ul>
