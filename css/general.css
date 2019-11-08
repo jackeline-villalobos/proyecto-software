@@ -23,21 +23,30 @@ header{
     height: 80px;
     margin: 10px 0px 10px 70px;
 }
-#btn-registrarse{
+.btn-registrarse{
     color: #F2610A;
     border: none;
     margin-left: 20px;
     background-color: #FFFFFF;
 }
-#btn-registrarse:hover{
+.btn-registrarse:hover{
     margin-left: 20px !important;
 }
 
-input {
+.input-buscar{
     height: 32px;
     width: 172px;
     border-radius: 10px;
     background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
+}
+input{
+    height: 32px;
+    width: 172px;
+    border-radius: 10px;
     background-position: 10px 7px;
     background-size: 15px 15px;
     background-repeat: no-repeat;
@@ -56,7 +65,7 @@ button {
     justify-content: center;
 }
 
-button:hover, #btn-registrarse:hover {
+button:hover, .btn-registrarse:hover {
     height: 32px;
     width: 100px;
     border-radius: 10px;
@@ -114,6 +123,6 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover{
     height: 150px;
     margin-left: -50px !important;
 }
-#i-facebook{
+.i-facebook{
     margin-left: 20px;
 }
