@@ -61,8 +61,7 @@ form input {
     margin-top: 17px;
 }
 
-#btn-guardar {
-    display: block;
+#btn-registrar {
     margin-top: 30px;
     margin-left: 25%;
     width: 50%;
@@ -70,7 +69,7 @@ form input {
     text-align: center;
 }
 
-#btn-guardar:hover {
+#btn-registrar:hover {
     display: block;
     margin-top: 31px;
     margin-left: 25%;
