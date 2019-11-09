@@ -1,11 +1,11 @@
 main{
     width: 80%;
-    margin: 0px auto 50px auto;
+    margin: 0px auto 70px auto;
 }
 
 .main-container{
-    padding: 2%;
-    width: 80%;
+    /* background: darkgray; */
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 4fr 1.5fr;
@@ -29,4 +29,7 @@ main{
     width: 200px;
     background: url(/imagenes/registrar-evento/outlined_placeholder-512.png);
     background-size: contain;
+}
+.error {
+    border: 2px solid #d63031;
 }
