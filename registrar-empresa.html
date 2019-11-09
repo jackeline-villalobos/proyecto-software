@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registrar empresa</title>
+    <meta name="author" content="Gabriel">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-empresa.css">
@@ -29,7 +30,7 @@
             <div>
                 <img id="img-avatarPlaceholder" src="imagenes/imagenes_generales/avatar_placeholder.jpg">
             </div>
-            <h5>Subir avatar</h5>
+            <h5>Subir Logo</h5>
 
             <input type="file" id="file-logo" placeholder="Subir">
 
@@ -48,11 +49,11 @@
                     <input type="text" id="txt-cedulaJuridica" placeholder="Cedula Juridica">
 
 
-                    <input type="text" id="txt-telefonoContacto" placeholder="Telefono de contacto">
+                    <input type="text" id="txt-telefono" placeholder="Telefono de contacto">
 
-
-                    <input list="datalist-direccion" placeholder="Dirección">
-                    <datalist id="datalist-direccion">
+                    <input type="text" placeholder="Direccion" id="txt-direccion">
+                    <input list="datalist-provincia" placeholder="Provincia">
+                    <datalist id="datalist-provincia">
                         <option value="San José">San José</option>
                         <option value="Alajuela">Alajuela</option>
                         <option value="Cartago">Cartago</option>
@@ -115,8 +116,8 @@
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/registrar-impuesto-controlador.js"></script>
-    <script src="js/impuestos-servicio.js"></script>
+    <script src="js/registrar-empresa-controlador.js"></script>
+    <script src="js/empresas-servicio.js"></script>
 </body>
 
 </html>
