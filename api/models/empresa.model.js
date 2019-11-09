@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const empresaSchema = new mongoose.Schema(
 
     {
-        nombre: { type: String, required: true, unique: true },
+        nombreEmpresa: { type: String, required: true, unique: true },
         razonSocial: { type: String, required: true, unique: true },
         cedulaJuridica: { type: Number, required: true, unique: true },
         telefono: { type: String, required: true, unique: false },
@@ -18,4 +18,4 @@ const empresaSchema = new mongoose.Schema(
 
 );
 
-module.exports = mongoose.model('Empresa', eventoSchema, 'empresas');
+module.exports = mongoose.model('Empresa', empresaSchema, 'empresas');

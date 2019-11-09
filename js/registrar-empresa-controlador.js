@@ -81,12 +81,14 @@ let validar = () => {
 
 
 let resetForm = () => {
-    input_nombre.value = '';
-    input_fecha.value = '';
-    input_tipo_de_eventos = '';
-    input_lugar = '';
-    input_hora = '';
-    input_descripcion = '';
+    input_nombreEmpresa.value = '';
+    input_razonSocial.value = '';
+    input_cedulaJuridica = '';
+    input_telefono = '';
+    input_direccion = '';
+    input_provincia = '';
+    input_canton = '';
+    input_distrito = '';
 };
 let obtener_datos = () => {
 
@@ -109,7 +111,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion);
+        registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito);
         Swal.fire({
             type: 'success',
             title: 'Registro realizado con éxito',

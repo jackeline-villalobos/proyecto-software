@@ -8,8 +8,8 @@ const express = require("express"),
 router.post('/registrar-empresa', function(req, res) {
     let body = req.body;
 
-    let nuevoEvento = new Empresa({
-        nombre: body.nombre,
+    let nuevoEmpresa = new Empresa({
+        nombreEmpresa: body.nombreEmpresa,
         razonSocial: body.razonSocial,
         cedulaJuridica: body.cedulaJuridica,
         telefono: body.telefono,
