@@ -94,7 +94,7 @@ let validar = () => {
               })
     
         }else{
-            registrar_persona(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion);
+            registrar_evento(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion);
             Swal.fire({
                 type: 'success',
                 title: 'Registro realizado con éxito',
