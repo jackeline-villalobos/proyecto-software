@@ -5,13 +5,13 @@ const input_razonSocial = document.querySelector('#txt-razonSocial');
 const input_cedulaJuridica = document.querySelector('#txt-cedulaJuridica');
 const input_telefono = document.querySelector('#txt-telefono');
 const input_direccion = document.querySelector('#txt-direccion');
-const input_datalist_provincia = document.querySelector('#txt-datalist-provincia');
-const input_canton = document.querySelector('#txt-datalist-canton');
-const input_distrito = document.querySelector('#txt-datalist-distrito');
+const input_provincia = document.querySelector('#txt-provincia');
+const input_canton = document.querySelector('#txt-canton');
+const input_distrito = document.querySelector('#txt-distrito');
 // Falta el logo
 
 
-const btn_guardar = document.querySelector('#btn-guardar');
+const btn_guardar = document.querySelector('#btn-registrar');
 
 
 let validar = () => {
@@ -52,11 +52,11 @@ let validar = () => {
         input_direccion.classList.remove("error");
     };
 
-    if (input_datalist_provincia.value == "") {
+    if (input_provincia.value == "") {
         error = true;
-        input_datalist_provincia.classList.add("error");
+        input_provincia.classList.add("error");
     } else {
-        input_datalist_provincia.classList.remove("error");
+        input_provincia.classList.remove("error");
     };
 
     if (input_canton.value == "") {
@@ -83,12 +83,12 @@ let validar = () => {
 let resetForm = () => {
     input_nombreEmpresa.value = '';
     input_razonSocial.value = '';
-    input_cedulaJuridica = '';
-    input_telefono = '';
-    input_direccion = '';
-    input_provincia = '';
-    input_canton = '';
-    input_distrito = '';
+    input_cedulaJuridica.value = '';
+    input_telefono.value = '';
+    input_direccion.value = '';
+    input_provincia.value = '';
+    input_canton.value = '';
+    input_distrito.value = '';
 };
 let obtener_datos = () => {
 
@@ -104,19 +104,21 @@ let obtener_datos = () => {
 
     if (validar()) {
         Swal.fire({
-            type: 'warning',
+            icon: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
             text: 'Por favor, revise los campos en rojo.',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'OK'
         })
 
     } else {
+
         registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito);
+
         Swal.fire({
-            type: 'success',
+            icon: 'success',
             title: 'Registro realizado con éxito',
             text: 'El usuario ha sido almacenado',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'OK'
         });
         resetForm();
     }
