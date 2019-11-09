@@ -51,7 +51,24 @@
                     <input type="text" id="txt-telefonoContacto" placeholder="Telefono de contacto">
 
 
-                    <input type="text" id="txt-direccion" placeholder="Direccion">
+                    <input list="datalist-direccion" placeholder="Dirección">
+                    <datalist id="datalist-direccion">
+                        <option value="San José">San José</option>
+                        <option value="Alajuela">Alajuela</option>
+                        <option value="Cartago">Cartago</option>
+                        <option value="Heredia">Heredia</option>
+                        <option value="Guanacaste">Guanacaste</option>
+                        <option value="Puntarenas">Puntarenas</option>
+                        <option value="Limón">Limón</option>
+                    </datalist>
+
+                    <input list="datalist-canton" placeholder="Cantón">
+                    <datalist id="datalist-canton">
+                    </datalist>
+
+                    <input list="datalist-distrito" placeholder="Distrito">
+                    <datalist id="datalist-distrito">
+                    </datalist>
 
 
                     <button type="button" id="btn-guardar">Registrar</button>
