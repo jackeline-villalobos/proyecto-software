@@ -1,8 +1,8 @@
 'use strict';
 
-const inputNombre = document.querySelector('#txt_nombreImpuesto');
-const inputPorcentaje = document.querySelector('#txt_porcentaje');
-const btnGuardar = document.querySelector('#btn_guardar');
+const inputNombre = document.querySelector('#txt-nombreImpuesto');
+const inputPorcentaje = document.querySelector('#txt-porcentaje');
+const btnGuardar = document.querySelector('#btn-guardar');
 
 let validar = () => {
     let error = false;

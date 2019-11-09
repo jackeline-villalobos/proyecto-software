@@ -22,3 +22,19 @@ let registrarImpuesto = async(nombre, porcentaje) => {
     });
     
 };
+
+let listarImpuestos = async() => {
+    let listaImpuestos;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-impuestos',
+        responseType: 'json'
+    })
+    .then(function(req, res) {
+        listaImpuestos = res.data.impuesto;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+
+};
