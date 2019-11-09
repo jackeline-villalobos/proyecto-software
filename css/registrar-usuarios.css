@@ -1,0 +1,32 @@
+.info-registro .datalist-genero{
+    height: 32px;
+    width: 172px;
+    border-radius: 10px;
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    padding-left: 34px;
+}
+main{
+    display: flow-root;
+}
+.input-fecha{
+    height: 34px !important;
+    color: #616161;
+}
+
+.subir-img-registro{
+    width: 500px;
+    float: left;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.avatar-usuario{
+    width: 300px;
+}
+.info-registro{
+    width: 500px;
+    float: right;
+    margin-top: 20px;
+}

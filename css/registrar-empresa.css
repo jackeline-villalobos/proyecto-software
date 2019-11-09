@@ -1,0 +1,85 @@
+/*El sistema debe permitir al administrador registrar el 
+
+nombre de la empresa, 
+el logo, 
+la razón social, 
+cédula jurídica,
+ teléfonos de contacto 
+ y la dirección exacta 
+ 
+ de la aplicación*/
+
+.grid-central {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50% 50%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: -100px;
+}
+
+.grid-central form {
+    border-radius: 10px;
+    margin-left: 20%;
+    height: 350px;
+}
+
+.subir-logoEmpresa {
+    margin-left: 50%;
+}
+
+.subir-logoEmpresa img {
+    margin-left: 35px;
+}
+
+h5 {
+    text-align: center;
+}
+
+#file-logo {
+    display: block;
+    margin-top: 30px;
+    margin-left: 25%;
+    width: 50%;
+    padding: 1% 0;
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    border: 1px solid black;
+    margin: auto;
+    padding: 1% 0;
+    text-align: center;
+    margin-bottom: 30px;
+    height: 100% !important;
+}
+
+form input {
+    display: block;
+    margin: auto;
+    margin-top: 17px;
+}
+
+#btn-guardar {
+    display: block;
+    margin-top: 30px;
+    margin-left: 25%;
+    width: 50%;
+    padding: 1% 0;
+    text-align: center;
+}
+
+#btn-guardar:hover {
+    display: block;
+    margin-top: 31px;
+    margin-left: 25%;
+    width: 50%;
+    padding: 1% 0;
+    text-align: center;
+}
+
+#img-avatarPlaceholder {
+    height: 300px;
+    width: auto;
+}

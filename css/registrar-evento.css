@@ -1,0 +1,35 @@
+main{
+    width: 80%;
+    margin: 0px auto 70px auto;
+}
+
+.main-container{
+    /* background: darkgray; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1.5fr;
+    grid-gap: 30px;
+}
+.h2-registrar-evento{
+    font-size: 18px;
+    grid-column-start: 1;
+}
+.form-registrar-evento{
+    grid-column-start: 1;
+}
+#btn-guardar-registrar-evento{
+    grid-column-start: 1;
+}
+.slider-fotos-registrar-evento{
+    align-self: center;
+}
+.carrusel-placeholder{
+    height: 200px;
+    width: 200px;
+    background: url(/imagenes/registrar-evento/outlined_placeholder-512.png);
+    background-size: contain;
+}
+.error {
+    border: 2px solid #d63031;
+}

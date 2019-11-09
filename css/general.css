@@ -8,7 +8,14 @@ Colores
 
 Tipografías
 <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> H1
+
+Icono de la pestaña
+<link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 */
+
+
+/*HEADER*/
 header{
     background-color: #000000;
     display: flow-root;
@@ -23,17 +30,53 @@ header{
     height: 80px;
     margin: 10px 0px 10px 70px;
 }
-#btn-registrarse{
+.btn-registrarse{
     color: #F2610A;
     border: none;
     margin-left: 20px;
     background-color: #FFFFFF;
 }
-#btn-registrarse:hover{
+.btn-registrarse:hover{
     margin-left: 20px !important;
 }
 
-input {
+/*Titulos*/
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    margin: 30px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+h2, h3, h4, h5, h6{
+    margin: 15px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+    font-size: 35px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+h4{
+    font-size: 25px;
+}
+
+h5{
+    font-size: 20px;
+}
+
+h6{
+    font-size: 18px;
+}
+
+
+/*Inpust*/
+
+.input-buscar{
     height: 32px;
     width: 172px;
     border-radius: 10px;
@@ -42,8 +85,20 @@ input {
     background-size: 15px 15px;
     background-repeat: no-repeat;
     padding-left: 34px;
+    margin-bottom: 10px;
+}
+input{
+    height: 32px;
+    width: 172px;
+    border-radius: 10px;
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    padding-left: 34px;
+    margin-bottom: 10px;
 }
 
+
+/*Botones*/
 button {
     height: 32px;
     width: 100px;
@@ -56,7 +111,7 @@ button {
     justify-content: center;
 }
 
-button:hover, #btn-registrarse:hover {
+button:hover, .btn-registrarse:hover {
     height: 32px;
     width: 100px;
     border-radius: 10px;
@@ -69,6 +124,9 @@ button:hover, #btn-registrarse:hover {
     margin-top: 1px;
     margin-left: 1px;
 }
+
+
+/*FOOTER*/
 
 footer {
     display: flow-root;
@@ -114,6 +172,6 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover{
     height: 150px;
     margin-left: -50px !important;
 }
-#i-facebook{
+.i-facebook{
     margin-left: 20px;
 }
