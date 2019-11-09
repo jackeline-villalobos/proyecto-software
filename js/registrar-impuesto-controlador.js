@@ -35,7 +35,7 @@ let validar = () => {
 
 
 
-let obtenerDatos = () => {
+let obtenerDatos = async () => {
     let nombre = inputNombre.value;
     let porcentaje = inputPorcentaje.value;
     porcentaje = porcentaje/100;
@@ -53,16 +53,25 @@ let obtenerDatos = () => {
 
     } else {
 
-          registrarImpuesto(nombre, porcentaje);
+          let error =  await registrarImpuesto(nombre, porcentaje);
 
-        Swal.fire(
-            {
-                icon: 'success',
-                title: 'Registro realizado con éxito',
-                text: 'El impuesto ha sido almacenado',
-                confirmButtonText: "Entendido"
-            }
-        )
+          if(error.resultado == false){
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'El impuesto ya existe en el sistema',
+                confirmButtonText: 'Entendido'
+            })
+
+          } else {
+            Swal.fire({
+                    icon: 'success',
+                    title: 'Registro realizado con éxito',
+                    text: 'El impuesto ha sido almacenado',
+                    confirmButtonText: "Entendido"
+                })
+          }
+       
             inputNombre.value = '';
             inputPorcentaje.value = '';
     }

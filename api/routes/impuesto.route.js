@@ -42,7 +42,7 @@ router.get('/listar-impuestos', function(req, res) {
                     resultado: false,
                     msg: 'No se encontraron impuestos',
                     err
-                })
+                });
             } else {
                 res.json({
                     resultado: true,
