@@ -16,67 +16,82 @@ Icono de la pestaña
 
 
 /*HEADER*/
-header{
+
+header {
     background-color: #000000;
     display: flow-root;
 }
-.botones-header{
+
+.botones-header {
     float: right;
     margin-top: -65px;
     margin-right: 100px;
     display: flex;
 }
-.logo-header{
+
+.logo-header {
     height: 80px;
     margin: 10px 0px 10px 70px;
 }
-.btn-registrarse{
+
+.btn-registrarse {
     color: #F2610A;
     border: none;
     margin-left: 20px;
     background-color: #FFFFFF;
 }
-.btn-registrarse:hover{
+
+.btn-registrarse:hover {
     margin-left: 20px !important;
 }
 
+
 /*Titulos*/
 
-h1{
+h1 {
     text-align: center;
     font-size: 40px;
     margin: 30px 0px;
     font-family: 'Montserrat', sans-serif;
 }
-h2, h3, h4, h5, h6{
+
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 15px 0px;
     font-family: 'Montserrat', sans-serif;
 }
 
-h2{
+h2 {
     font-size: 35px;
 }
 
-h3{
+h3 {
     font-size: 30px;
 }
 
-h4{
+h4 {
     font-size: 25px;
 }
 
-h5{
+h5 {
     font-size: 20px;
 }
 
-h6{
+h6 {
     font-size: 18px;
+}
+
+.error {
+    border: 2px solid #d63031;
 }
 
 
 /*Inpust*/
 
-.input-buscar{
+.input-buscar {
     height: 32px;
     width: 172px;
     border-radius: 10px;
@@ -87,7 +102,8 @@ h6{
     padding-left: 34px;
     margin-bottom: 10px;
 }
-input{
+
+input {
     height: 32px;
     width: 172px;
     border-radius: 10px;
@@ -99,6 +115,7 @@ input{
 
 
 /*Botones*/
+
 button {
     height: 32px;
     width: 100px;
@@ -111,7 +128,8 @@ button {
     justify-content: center;
 }
 
-button:hover, .btn-registrarse:hover {
+button:hover,
+.btn-registrarse:hover {
     height: 32px;
     width: 100px;
     border-radius: 10px;
@@ -135,43 +153,55 @@ footer {
     padding: 17px 20px;
     font-family: 'Cantarell', sans-serif;
 }
-footer div{
+
+footer div {
     float: left;
     margin: 0px 60px;
 }
-footer div h3{
+
+footer div h3 {
     font-size: 20px;
     text-align: center;
     margin-bottom: 30px;
 }
-footer div p{
+
+footer div p {
     margin-bottom: 12px;
     font-size: 13px;
 }
-footer a{
+
+footer a {
     text-decoration: none;
     color: #FFFFFF;
     font-size: 13px;
 }
+
 footer i {
     color: #FFFFFF;
     margin-right: 20px;
     font-size: 25px;
     margin-top: 24px;
 }
-footer li{
+
+footer li {
     list-style-type: none;
     margin-bottom: 8px;
     font-size: 13px;
 }
-footer li:hover, footer i:hover, footer p:hover, footer a:hover{
-    color:#1EBB2D;
+
+footer li:hover,
+footer i:hover,
+footer p:hover,
+footer a:hover {
+    color: #1EBB2D;
     cursor: pointer;
 }
-.logo-footer{
+
+.logo-footer {
     height: 150px;
     margin-left: -50px !important;
 }
-.i-facebook{
+
+.i-facebook {
     margin-left: 20px;
 }
