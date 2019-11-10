@@ -11,22 +11,22 @@ a {
     margin: 2% 0 0 20%;
 }
 
-#tbl-tipo-evento {
+#tbl-tipoEventos {
     margin-left: 30%;
     width: 30%;
 }
 
-#tbl-tipo-evento thead tr th {
+#tbl-tipoEventos thead tr th {
     border: 2px solid #616161;
     padding: 1% 0;
     color: #F2610A;
 }
 
-#tbl-tipo-evento tbody {
+#tbl-tipoEventos tbody {
     text-align: center;
 }
 
-#tbl-tipo-evento tbody td {
+#tbl-tipoEventos tbody td {
     border: 2px solid #616161;
     padding: 1% 0;
     color: #F2610A;

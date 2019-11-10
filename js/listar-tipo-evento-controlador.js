@@ -7,9 +7,9 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let llenarTabla = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     listatipoEventos = await listartipoEventos();
-    /*
+
     tableBody.innerHTML = '';
-    */
+
     for (let i = 0; i < listatipoEventos.length; i++) {
         let nombre = listatipoEventos[i]['nombre'].toLowerCase();
 
