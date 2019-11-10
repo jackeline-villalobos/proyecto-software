@@ -10,6 +10,7 @@ require('dotenv').config();
 const impuesto = require('./routes/impuesto.route');
 const evento = require('./routes/evento.route');
 const empresa = require("./routes/empresa.route")
+const descuento = require('./routes/descuento.route');
 
 
 const app = express();
@@ -58,3 +59,4 @@ function handleError(res, reason, message, code) {
 app.use('/api', impuesto);
 app.use('/api', evento);
 app.use("/api", empresa);
+app.use('/api', descuento);
