@@ -14,9 +14,9 @@ let llenarTabla = async() => {
 
         if (nombre.includes(filtro)) {
             let fila = tableBody.insertRow();
-
+            let porcentaje = (listaImpuestos[i]['porcentaje']) * 100;
             fila.insertCell().innerHTML = listaImpuestos[i]['nombre'];
-            fila.insertCell().innerHTML = listaImpuestos[i]['porcentaje'];
+            fila.insertCell().innerHTML = porcentaje + '%';
         }
     };
 };

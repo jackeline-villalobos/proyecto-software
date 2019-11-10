@@ -7,7 +7,7 @@ const btnGuardar = document.querySelector('#btn-guardar');
 let validar = () => {
     let error = false;
 
-    if(inputNombre.value == 0) {
+    if (inputNombre.value == 0) {
 
         error = true;
         inputNombre.classList.add('error');
@@ -18,7 +18,7 @@ let validar = () => {
 
     }
 
-    if(inputPorcentaje.value == 0) {
+    if (inputPorcentaje.value <= 0) {
 
         error = true;
         inputPorcentaje.classList.add('error');
@@ -38,24 +38,23 @@ let validar = () => {
 let obtenerDatos = async () => {
     let nombre = inputNombre.value;
     let porcentaje = inputPorcentaje.value;
-    porcentaje = porcentaje/100;
+    porcentaje = porcentaje / 100;
 
-    if(validar()) {
+    if (validar()) {
 
-        Swal.fire(
-            {
-                icon: 'warning',
-                title: 'Algunos de los campos se encuentran vacíos',
-                text: 'Por favor revise los campos en rojo',
-                confirmButtonText: "Entendido"
-            }
-        )
+        Swal.fire({
+            icon: 'warning',
+            title: 'Algunos campos se encuentran vacíos o son incorrectos',
+            text: 'Por favor inténtelo de nuevo',
+            confirmButtonText: 'Entendido'
+        })
+
 
     } else {
 
-          let error =  await registrarImpuesto(nombre, porcentaje);
+        let error = await registrarImpuesto(nombre, porcentaje);
 
-          if(error.resultado == false){
+        if (error.resultado == false) {
 
             Swal.fire({
                 icon: 'warning',
@@ -63,17 +62,17 @@ let obtenerDatos = async () => {
                 confirmButtonText: 'Entendido'
             })
 
-          } else {
+        } else {
             Swal.fire({
-                    icon: 'success',
-                    title: 'Registro realizado con éxito',
-                    text: 'El impuesto ha sido almacenado',
-                    confirmButtonText: "Entendido"
-                })
-          }
-       
-            inputNombre.value = '';
-            inputPorcentaje.value = '';
+                icon: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El impuesto ha sido almacenado',
+                confirmButtonText: "Entendido"
+            })
+        }
+
+        inputNombre.value = '';
+        inputPorcentaje.value = '';
     }
 
 }
