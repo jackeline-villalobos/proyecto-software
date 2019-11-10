@@ -10,9 +10,6 @@ router.post('/registrar-tipo-evento', function(req, res) {
 
     let nuevotipoEvento = new tipoEvento({
         nombre: body.nombre,
-
-
-
     });
     nuevotipoEvento.save(
         function(err, tipoEventoBD) {
@@ -34,7 +31,7 @@ router.post('/registrar-tipo-evento', function(req, res) {
 
 router.get('/listar-tipo-evento', function(req, res) {
 
-    Impuesto.find(
+    tipoEvento.find(
         function(err, tipoEventosBD) {
             if (err) {
                 res.json({
@@ -45,7 +42,7 @@ router.get('/listar-tipo-evento', function(req, res) {
             } else {
                 res.json({
                     resultado: true,
-                    impuestos: tipoEventosBD
+                    tipoEventos: tipoEventosBD
                 });
             }
         }

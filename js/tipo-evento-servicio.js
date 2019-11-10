@@ -32,7 +32,7 @@ let listartipoEventos = async() => {
             responseType: 'json'
         })
         .then(function(res) {
-            listatipoEvento = res.data.tipoEventos;
+            listatipoEventos = res.data.tipoEventos;
         })
         .catch(function(error) {
             console.log(error);
