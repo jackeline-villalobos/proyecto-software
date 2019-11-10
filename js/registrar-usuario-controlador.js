@@ -10,6 +10,7 @@ const  input_genero= document.querySelector('#txt_genero');
 const  slt_provicias= document.querySelector('#provincias');
 const  slt_cantones= document.querySelector('#cantones');
 const  slt_distritos= document.querySelector('#distritos');
+const  input_direccion= document.querySelector('#direccion');
 const  btn_registrar= document.querySelector('#btn-registrar');
 
 
@@ -74,6 +75,37 @@ let validar = () =>{
     }else{
         input_genero.classList.remove('error');
     };
+
+
+    if(slt_provicias == ''){
+        error = true;
+        slt_provicias.classList.add('error');
+    }else{
+        slt_provicias.classList.remove('error')
+    };
+
+    if(slt_cantones == ''){
+        error = true;
+        slt_cantones.classList.add('error');
+    }else{
+        slt_cantones.classList.remove('error')
+    };
+
+    if(slt_distritos == ''){
+        error = true;
+        slt_distritos.classList.add('error');
+    }else{
+        slt_distritos.classList.remove('error')
+    };
+    
+    if(input_direccion == ''){
+        error = true;
+        input_direccion.classList.add('error');
+    }else{
+        input_direccion.classList.remove('error')
+    };
+
+    //Validaciones de provincia cantones distritos y direccion
 };
 
 
@@ -85,6 +117,10 @@ let obtener_datos = ()=>{
     let correo = input_correo.value;
     let fechaDeNacimiento = input_fechaDeNacimiento.value;
     let genero = input_genero.value;
+    let provincia = slt_provicias.value;
+    let canton = slt_cantones.value;
+    let distrito = slt_distritos.value;
+    let direccion = input_direccion.value;
 
 
     if (validar()){
@@ -96,7 +132,7 @@ let obtener_datos = ()=>{
         })
 
     }else{
-        console.log(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero);
+        console.log(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
         
         Swal.fire({
             type: 'success',
