@@ -2,7 +2,7 @@
 
 const express = require('express'),
     router = express.Router(),
-    Evento = require('../models/eventos.model'),
+    Usuario = require('../models/usuarios.model'),
     mongoose = require('mongoose');
 
 router.post('/registrar-usuario', function(req, res){
@@ -16,7 +16,7 @@ router.post('/registrar-usuario', function(req, res){
         segundoApellido: body.segundoApellido,
         correo: body.correo,
         fechaDeNacimiento: body.fechaDeNacimiento,
-        direccion: direccion
+        direccion: body.direccion
     })
 
 

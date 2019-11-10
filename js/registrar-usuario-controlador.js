@@ -7,6 +7,9 @@ const  input_segundoApellido= document.querySelector('#txt_segundoApellido');
 const  input_correo= document.querySelector('#txt_correo');
 const  input_fechaDeNacimiento= document.querySelector('#txt_fechaDeNacimiento');
 const  input_genero= document.querySelector('#txt_genero');
+const  slt_provicias= document.querySelector('#provincias');
+const  slt_cantones= document.querySelector('#cantones');
+const  slt_distritos= document.querySelector('#distritos');
 const  btn_registrar= document.querySelector('#btn-registrar');
 
 
