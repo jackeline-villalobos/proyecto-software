@@ -12,15 +12,10 @@ let llenarTabla = async() => {
 
     for (let i = 0; i < listatipoEventos.length; i++) {
         let nombre = listatipoEventos[i]['nombre'].toLowerCase();
-
-        /*
-        if (nombre.includes(filtro)) {
+        if(nombre.includes(filtro)) {
             let fila = tableBody.insertRow();
-            let porcentaje = (listaImpuestos[i]['porcentaje']) * 100;
-            fila.insertCell().innerHTML = listaImpuestos[i]['nombre'];
-            fila.insertCell().innerHTML = porcentaje + '%';
+            fila.insertCell().innerHTML = listatipoEventos[i]['nombre'];
         }
-        */
     };
 };
 
