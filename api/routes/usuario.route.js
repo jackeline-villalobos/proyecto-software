@@ -2,14 +2,14 @@
 
 const express = require('express'),
     router = express.Router(),
-    usuario = require('../models/usuarios.model'),
+    usuarios = require('../models/usuarios.model'),
     mongoose = require('mongoose');
 
-router.post('/registrar-usuario', function(req, res){
+router.post('/registrar-usuario', function(req, res) {
 
-    let body= req.body;
+    let body = req.body;
 
-    let nuevoUsuario= new Usuario({
+    let nuevoUsuario = new Usuario({
         primerNombre: body.primerNombre,
         segundoNombre: body.segundoNombre,
         primerApellido: body.primerApellido,
@@ -19,8 +19,9 @@ router.post('/registrar-usuario', function(req, res){
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
-        direccion: body.direccion
-    })
+        direccion: body.direccion,
+        estado: "activo"
+    });
 
     nuevoUsuario.save(
         function(err, usuarioBD) {
@@ -36,10 +37,10 @@ router.post('/registrar-usuario', function(req, res){
                     usuarioBD
                 });
             }
-    });
+        });
 });
 
-
+module.exports = router;
 
 
 
