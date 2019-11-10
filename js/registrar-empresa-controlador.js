@@ -8,6 +8,7 @@ const input_direccion = document.querySelector('#txt-direccion');
 const input_provincia = document.querySelector('#txt-provincia');
 const input_canton = document.querySelector('#txt-canton');
 const input_distrito = document.querySelector('#txt-distrito');
+
 // Falta el logo
 
 
@@ -16,59 +17,69 @@ const btn_guardar = document.querySelector('#btn-registrar');
 
 let validar = () => {
     let error = false;
+    let errorCodigo;
 
-    if (input_nombreEmpresa.value == "") {
+
+    if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " ") {
         error = true;
         input_nombreEmpresa.classList.add("error");
+        errorCodigo = 1;
     } else {
         input_nombreEmpresa.classList.remove("error");
     };
 
-    if (input_razonSocial.value == "") {
+    if (input_razonSocial.value == "" || input_razonSocial.value == " ") {
         error = true;
         input_razonSocial.classList.add("error");
+        errorCodigo = 2;
     } else {
         input_razonSocial.classList.remove("error");
     };
 
-    if (input_cedulaJuridica.value == "") {
+    if (input_cedulaJuridica.value == "" || input_cedulaJuridica == " ") {
         error = true;
         input_cedulaJuridica.classList.add("error");
+        errorCodigo = 3;
     } else {
         input_cedulaJuridica.classList.remove("error");
     };
 
-    if (input_telefono.value == "" || input_telefono.value.length < 8) {
+    if (input_telefono.value == "" || input_telefono.value.length > 8 || input_telefono.value == " ") {
         error = true;
         input_telefono.classList.add("error");
+        errorCodigo = 4;
     } else {
         input_telefono.classList.remove("error");
     };
 
-    if (input_direccion.value == "") {
+    if (input_direccion.value == "" || input_direccion.value == " ") {
         error = true;
         input_direccion.classList.add("error");
+        errorCodigo = 5;
     } else {
         input_direccion.classList.remove("error");
     };
 
-    if (input_provincia.value == "") {
+    if (input_provincia.value == "" || input_provincia.value == " ") {
         error = true;
         input_provincia.classList.add("error");
+        errorCodigo = 6;
     } else {
         input_provincia.classList.remove("error");
     };
 
-    if (input_canton.value == "") {
+    if (input_canton.value == "" || input_canton.value == " ") {
         error = true;
         input_canton.classList.add("error");
+        errorCodigo = 7;
     } else {
         input_canton.classList.remove("error");
     };
 
-    if (input_distrito.value == "") {
+    if (input_distrito.value == "" || input_distrito.value == " ") {
         error = true;
         input_distrito.classList.add("error");
+        errorCodigo = 8;
     } else {
         input_distrito.classList.remove("error");
     };
@@ -102,13 +113,16 @@ let obtener_datos = () => {
     let distrito = input_distrito.value;
 
 
+
     if (validar()) {
+
         Swal.fire({
             icon: 'warning',
-            title: 'Algunos de los campos se encuentran incorrectos.',
+            title: 'Algunos de los campos no se ingresaron correctamente.',
             text: 'Por favor, revise los campos en rojo.',
             confirmButtonText: 'OK'
         })
+
 
     } else {
 

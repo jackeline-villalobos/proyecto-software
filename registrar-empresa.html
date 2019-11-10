@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registrar empresa</title>
     <meta name="author" content="Gabriel">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-empresa.css">
@@ -27,12 +28,12 @@
 
         <div class="subir-logoEmpresa">
 
-            <div>
-                <img id="img-avatarPlaceholder" src="imagenes/imagenes_generales/avatar_placeholder.jpg">
+            <div id="img-avatarPlaceholder">
+
             </div>
             <h5>Subir Logo</h5>
 
-            <input type="file" id="file-logo" placeholder="Subir">
+            <input type="file" id="file-logo" accept=".jpg, .png , .jpeg" placeholder="Subir">
 
         </div>
 
@@ -52,24 +53,16 @@
                     <input type="text" id="txt-telefono" placeholder="Telefono de contacto">
 
                     <input type="text" placeholder="Direccion" id="txt-direccion">
-                    <input list="datalist-provincia" placeholder="Provincia" id="txt-provincia">
-                    <datalist id="datalist-provincia">
-                        <option value="San José">San José</option>
-                        <option value="Alajuela">Alajuela</option>
-                        <option value="Cartago">Cartago</option>
-                        <option value="Heredia">Heredia</option>
-                        <option value="Guanacaste">Guanacaste</option>
-                        <option value="Puntarenas">Puntarenas</option>
-                        <option value="Limón">Limón</option>
-                    </datalist>
 
-                    <input list="datalist-canton" placeholder="Cantón" id="txt-canton">
-                    <datalist id="datalist-canton">
-                    </datalist>
+                    <input list="datalist-provincia" placeholder="Provincia" id="txt-provincia" name="provincia">
+                    <option value="" hidden class="form_input">Provincia</option>
+
+
+                    <input list="datalist-canton" placeholder="Cantón" id="txt-canton" name="canton">
+                    <option value="" hidden class="form_input">Cantón</option>
 
                     <input list="datalist-distrito" placeholder="Distrito" id="txt-distrito">
-                    <datalist id="datalist-distrito">
-                    </datalist>
+                    <option value="" hidden class="form_input">Distrito</option>
 
 
                     <button type="button" id="btn-registrar">Registrar</button>
@@ -116,8 +109,10 @@
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/lugares_ubicaciones.js"></script>
     <script src="js/registrar-empresa-controlador.js"></script>
     <script src="js/empresas-servicio.js"></script>
+
 </body>
 
 </html>
