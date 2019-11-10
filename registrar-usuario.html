@@ -27,20 +27,29 @@
     <main>
         <h1>Registrarse</h1>
         <section class="section-main">
+            <!--Subir foto de perfil-->
             <div class="subir-img-registro">
                 <img src="imagenes/registrar-usuario/frame.png" class="avatar-usuario">
                 <h5>subir imagen</h5>
                 <input type="file" id="file-logo" placeholder="Subir foto"  accept="image/png, image/jpeg">
             </div>
+
+            <!--Formulario de registro-->
             <div class="info-registro">
                 <form action="">
-                    <input type="text" placeholder="Primer nombre">
-                    <input type="text" placeholder="Segundo nombre">
-                    <input type="text" placeholder="Primer apellido">
-                    <input type="text" placeholder="Segundo apellido">
-                    <input type="text" autocomplete="email" placeholder="Correo">
-                    <input type="date" placeholder="Fecha de nacimiento" class="input-fecha">
-                    <input list="datalist-genero" autocomplete="sex" placeholder="Género">
+                    <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
+
+                    <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
+
+                    <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
+
+                    <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
+
+                    <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
+
+                    <input type="date" placeholder="Fecha de nacimiento" class="input-fecha" id="txt_fechaDeNacimiento">
+
+                    <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
                     <datalist id="datalist-genero">
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
@@ -69,7 +78,7 @@
 
                 </form>
 
-                <button type="button" class="btn-registar">Registrase</button>
+                <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>
             </div>
         </section>
 
@@ -109,6 +118,8 @@
     </footer>
 
     <script src="js/lugares_ubicaciones.js"></script>
+    <script src="js/registrar-usuario-controlador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </body>
 
 </html>

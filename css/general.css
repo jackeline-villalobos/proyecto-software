@@ -204,4 +204,12 @@ footer a:hover {
 
 .i-facebook {
     margin-left: 20px;
+
+}
+
+/*VALIDACIONES*/
+
+.error {
+    border: 2px solid #d63031;
+
 }
