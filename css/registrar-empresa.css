@@ -28,7 +28,11 @@ cédula jurídica,
     margin-left: 50%;
 }
 
-.subir-logoEmpresa img {
+.subir-logoEmpresa #img-avatarPlaceholder {
+    background-image: url(../imagenes/imagenes_generales/avatar_placeholder.jpg);
+    background-size: 300px;
+    width: auto;
+    background-repeat: no-repeat;
     margin-left: 35px;
 }
 
@@ -81,4 +85,8 @@ form input {
 #img-avatarPlaceholder {
     height: 300px;
     width: auto;
+}
+
+.error {
+    border: 2px solid #d63031;
 }

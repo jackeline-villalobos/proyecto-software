@@ -13,7 +13,8 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
                 direccion: direccion,
                 provincia: provincia,
                 canton: canton,
-                distrito: distrito
+                distrito: distrito,
+
 
             }
         })
