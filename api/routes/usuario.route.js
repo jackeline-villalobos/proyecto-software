@@ -16,6 +16,7 @@ router.post('/registrar-usuario', function(req, res) {
         segundoApellido: body.segundoApellido,
         correo: body.correo,
         fechaDeNacimiento: body.fechaDeNacimiento,
+        genero: body.genero,
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
