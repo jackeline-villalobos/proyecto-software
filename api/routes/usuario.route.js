@@ -2,7 +2,7 @@
 
 const express = require('express'),
     router = express.Router(),
-    usuarios = require('../models/usuarios.model'),
+    Usuario = require('../models/usuarios.model'),
     mongoose = require('mongoose');
 
 router.post('/registrar-usuario', function(req, res) {
@@ -41,7 +41,3 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 module.exports = router;
-
-
-
-//falta el get para lo del listar usuarios

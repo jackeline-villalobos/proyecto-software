@@ -26,6 +26,6 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
             console.log(error)
         });
 
-    return resultado;
+    //return resultado;
 
 };

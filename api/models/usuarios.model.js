@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const registrarUsuarioSchema = new mongoose.Schema({
+const usuarioSchema = new mongoose.Schema({
     primerNombre: { type: String, required: true, unique: false },
     segundoNombre: { type: String, required: false, unique: false },
     primerApellido: { type: String, required: true, unique: false },
@@ -18,4 +18,4 @@ const registrarUsuarioSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('usuario', registrarUsuarioSchema, 'usuarios');
+module.exports = mongoose.model('Usuario', usuarioSchema, 'usuarios');
