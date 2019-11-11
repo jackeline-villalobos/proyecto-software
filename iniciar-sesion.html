@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/iniciar-sesion.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+    
 </head>
 
 <body>
@@ -50,11 +52,11 @@
         </figure>
 
         <div>
-            <input type="text" placeholder="Dirección de correo electrónico">
-            <input type="password" placeholder="Contraseña">
+            <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
+            <input type="password" id="txt-contraseña" placeholder="Contraseña">
             <a href="#">¿Olvidaste tu contraseña?</a>
             <label for=""><input type="checkbox" id="chbox-recordarContraseña">Recordar contraseña</label>
-            <button type="button">Iniciar sesión</button>
+            <button type="button" id="btn-iniciarSesionConCredenciales">Iniciar sesión</button>
 
         </div>
     </main>
@@ -89,6 +91,7 @@
             </ul>
         </div>
     </footer>
+    <script src="js/iniciar-sesion-controlador.js"></script>
 </body>
 
 </html>
