@@ -7,16 +7,15 @@ const input_segundoApellido = document.querySelector('#txt_segundoApellido');
 const input_correo = document.querySelector('#txt_correo');
 const input_fechaDeNacimiento = document.querySelector('#txt_fechaDeNacimiento');
 const input_genero = document.querySelector('#txt_genero');
-/*
 const  slt_provicias= document.querySelector('#provincias');
 const  slt_cantones= document.querySelector('#cantones');
 const  slt_distritos= document.querySelector('#distritos');
 const  input_direccion= document.querySelector('#direccion');
-*/
+
 const btn_registrar = document.querySelector('#btn-registrar');
 
 
-//obtener datos
+//obtener datoss
 
 let validar = () => {
 
@@ -77,7 +76,6 @@ let validar = () => {
     } else {
         input_genero.classList.remove('error');
     };
-    /*
 
     if (slt_provicias == '') {
         error = true;
@@ -106,7 +104,7 @@ let validar = () => {
     } else {
         input_direccion.classList.remove('error')
     };
-    */
+    
 
     //Validaciones de provincia cantones distritos y direccion
 };
@@ -120,12 +118,11 @@ let obtener_datos = () => {
     let correo = input_correo.value;
     let fechaDeNacimiento = input_fechaDeNacimiento.value;
     let genero = input_genero.value;
-    /*
     let provincia = slt_provicias.value;
     let canton = slt_cantones.value;
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
-    */
+    
 
 
     if (validar()) {
@@ -137,7 +134,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        console.log(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero /*, provincia, canton, distrito, direccion*/ );
+        console.log(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
 
         Swal.fire({
             type: 'success',
@@ -145,8 +142,6 @@ let obtener_datos = () => {
             text: 'El producto ha sido almacenado',
             confirmButtonText: 'Entendido'
         });
-
-
     }
 
 
