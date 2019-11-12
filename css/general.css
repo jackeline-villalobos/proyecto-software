@@ -89,7 +89,7 @@ h6 {
 }
 
 
-/*Inpust*/
+/*Inpust y select*/
 
 .input-buscar {
     height: 32px;
@@ -113,6 +113,15 @@ input {
     margin-bottom: 10px;
 }
 
+select{
+    height: 38px;
+    width: 210px;
+    border-radius: 10px;
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    padding-left: 34px;
+    margin-bottom: 10px;
+}
 
 /*Botones*/
 
@@ -139,7 +148,7 @@ button:hover,
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1px;
+    margin-top: 0,5px;
     margin-left: 1px;
 }
 
@@ -209,7 +218,6 @@ footer a:hover {
 
 /*VALIDACIONES*/
 
-.error {
+.error{
     border: 2px solid #d63031;
-
 }

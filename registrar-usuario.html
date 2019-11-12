@@ -9,7 +9,8 @@
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <title>Registrar usuario</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
@@ -36,17 +37,25 @@
             <!--Formulario de registro-->
             <div class="info-registro">
                 <form action="">
-                    <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
 
-                    <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
+                    <div class="nombres">
+                        <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
 
-                    <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
+                        <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
+                    </div>
 
-                    <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
+                    <div class="apellidos">
+                        <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
 
-                    <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
+                        <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
+                    </div>
 
-                    <input type="date" placeholder="Fecha de nacimiento" class="input-fecha" id="txt_fechaDeNacimiento">
+                    <div class="correo-fecha">
+                        <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
+
+                        <input type="date" placeholder="Fecha de nacimiento" class="input-fecha"
+                            id="txt_fechaDeNacimiento">
+                    </div>
 
                     <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
                     <datalist id="datalist-genero">
@@ -56,28 +65,42 @@
                         <option value="Prefiero no decirlo">Prefiero no decirlo</option>
                     </datalist>
 
-                    
+
+
+                    <!--Direccion-->
                     <div class="direccion">
-                        <label for="">Dirección</label>
-                        <div class="form_control">
-                            <select class="form_input" name="provincia" id="provincias">
-                                <option value="" hidden>Provincia</option>
-                            </select>
-                        </div>
-                        <div class="form_control">
-                            <select class="form_input" name="canton" id="cantones">
-                                <option value="" hidden>Cantón</option>
-                            </select>
-                        </div>
-                        <div class="form_control">
-                            <select class="form_input" name="distrito" id="distritos">
-                                <option value="" hidden>Distrito</option>
-                            </select>
+                        <h6 for="">Dirección</h6>
+
+                        <div class="provincia-canton">
+
+                            <div class="form_control">
+                                <select class="form_input" name="provincia" id="provincias">
+                                    <option value="" hidden>Provincia</option>
+                                </select>
+                            </div>
+                            <div class="form_control">
+                                <select class="form_input" name="canton" id="cantones">
+                                    <option value="" hidden>Cantón</option>
+                                </select>
+                            </div>
+
                         </div>
 
-                        <input type="text" placeholder="Dirección" id="direccion">
+                        <div class="distrito-direccion">
+
+                            <div class="form_control">
+                                <select class="form_input" name="distrito" id="distritos">
+                                    <option value="" hidden>Distrito</option>
+                                </select>
+                            </div>
+
+                            <input type="text" placeholder="Dirección" id="direccion">
+
+                        </div>
+
+
                     </div>
-                    
+
                 </form>
 
                 <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>

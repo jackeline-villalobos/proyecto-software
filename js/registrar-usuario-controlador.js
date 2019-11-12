@@ -7,10 +7,10 @@ const input_segundoApellido = document.querySelector('#txt_segundoApellido');
 const input_correo = document.querySelector('#txt_correo');
 const input_fechaDeNacimiento = document.querySelector('#txt_fechaDeNacimiento');
 const input_genero = document.querySelector('#txt_genero');
-const  slt_provicias= document.querySelector('#provincias');
-const  slt_cantones= document.querySelector('#cantones');
-const  slt_distritos= document.querySelector('#distritos');
-const  input_direccion= document.querySelector('#direccion');
+const slt_provicias = document.querySelector('#provincias');
+const slt_cantones = document.querySelector('#cantones');
+const slt_distritos = document.querySelector('#distritos');
+const input_direccion = document.querySelector('#direccion');
 
 const btn_registrar = document.querySelector('#btn-registrar');
 
@@ -29,7 +29,7 @@ let validar = () => {
     };
 
 
-    if (input_segundoNombre == '') {
+    if (input_segundoNombre.value == '') {
         error = true;
         input_segundoNombre.classList.add('error');
     } else {
@@ -37,7 +37,7 @@ let validar = () => {
     };
 
 
-    if (input_primerApellido == '') {
+    if (input_primerApellido.value == '') {
         error = true;
         input_primerApellido.classList.add('error');
     } else {
@@ -45,7 +45,7 @@ let validar = () => {
     };
 
 
-    if (input_segundoApellido == '') {
+    if (input_segundoApellido.value == '') {
         error = true;
         input_segundoApellido.classList.add('error');
     } else {
@@ -54,7 +54,7 @@ let validar = () => {
 
 
 
-    if (input_correo == '') {
+    if (input_correo.value == '') {
         error = true;
         input_correo.classList.add('error');
     } else {
@@ -62,55 +62,65 @@ let validar = () => {
     };
 
 
-    if (input_fechaDeNacimiento == '') {
+    if (input_fechaDeNacimiento.value == '') {
         error = true;
         input_fechaDeNacimiento.classList.add('error');
     } else {
         input_fechaDeNacimiento.classList.remove('error');
     };
 
+    if(input_fechaDeNacimiento.value <= '01/01/2001'){
+        error = true;
+        input_fechaDeNacimiento.classList.add('error');
+        console.log('El usuario no tiene la suficiente edad para ser registrado');
+    }else{
+        input_fechaDeNacimiento.classList.remove('error');
+    };
+    
 
-    if (input_genero == '') {
+    if (input_genero.value == '') {
         error = true;
         input_genero.classList.add('error');
     } else {
         input_genero.classList.remove('error');
     };
 
-    if (slt_provicias == '') {
+    if (slt_provicias.value == '') {
         error = true;
         slt_provicias.classList.add('error');
     } else {
         slt_provicias.classList.remove('error')
     };
 
-    if (slt_cantones == '') {
+    if (slt_cantones.value == '') {
         error = true;
         slt_cantones.classList.add('error');
     } else {
         slt_cantones.classList.remove('error')
     };
 
-    if (slt_distritos == '') {
+    if (slt_distritos.value == '') {
         error = true;
         slt_distritos.classList.add('error');
     } else {
         slt_distritos.classList.remove('error')
     };
 
-    if (input_direccion == '') {
+    if (input_direccion.value == '') {
         error = true;
         input_direccion.classList.add('error');
     } else {
         input_direccion.classList.remove('error')
     };
-    
+
+
+    return error
 
     //Validaciones de provincia cantones distritos y direccion
 };
 
 
-let obtener_datos = () => {
+let obtener_datos =async () => {
     let primerNombre = input_primerNombre.value;
     let segundoNombre = input_segundoNombre.value;
     let primerApellido = input_primerApellido.value;
@@ -122,7 +132,7 @@ let obtener_datos = () => {
     let canton = slt_cantones.value;
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
-    
+
 
 
     if (validar()) {
@@ -134,23 +144,44 @@ let obtener_datos = () => {
         })
 
     } else {
-        console.log(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
+        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
 
-        Swal.fire({
-            type: 'success',
-            title: 'Registro realizado con éxiro',
-            text: 'El producto ha sido almacenado',
-            confirmButtonText: 'Entendido'
-        });
+        if (error.resultado == false) {
+
+            Swal.fire({
+                type: 'warning',
+                title: 'El usuario ya ha sido registrado',
+                confirmButtonText: 'Entendido'
+            });
+
+        }else{
+
+            Swal.fire({
+                type: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El usuario ha sido registrado',
+                confirmButtonText: 'Entendido'
+            });
+
+        }
+
+        input_primerNombre.value= '';
+        input_segundoNombre.value= '';
+        input_primerApellido.value= '';
+        input_segundoApellido.value= '';
+        input_correo.value= '';
+        input_fechaDeNacimiento= '';
+        input_genero= '';
+        slt_provicias= '';
+        slt_cantones= '';
+        slt_distritos= '';
+        input_direccion= '';
+
+
     }
 
 
 };
 
-
-
-
-
-//Botones
 
 btn_registrar.addEventListener('click', obtener_datos);

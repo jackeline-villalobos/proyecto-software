@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose');
 
-const usuarioSchema = new mongoose.Schema({
+const usuarioSchema = new mongoose.Schema(
+    {
+
     primerNombre: { type: String, required: true, unique: false },
     segundoNombre: { type: String, required: false, unique: false },
     primerApellido: { type: String, required: true, unique: false },
@@ -14,8 +16,17 @@ const usuarioSchema = new mongoose.Schema({
     canton: { type: String, required: true, unique: false },
     distrito: { type: String, required: true, unique: false },
     direccion: { type: String, required: true, unique: false },
-    estado: { type: String, required: true }
+    estado: { type: String, required: true },
+    contrasenna: {type: String, required: true, unique: false},
+    tarjeta:[
+        {
+            
+        }
+    ]
 
-});
+
+
+}
+);
 
 module.exports = mongoose.model('Usuario', usuarioSchema, 'usuarios');
