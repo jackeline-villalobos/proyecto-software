@@ -1,28 +1,28 @@
 'use strict';
 
 const inputDireccionCorreo = document.querySelector('#txt-direccionCorreo');
-const inputContraseña = document.querySelector('#txt-contraseña');
+const inputContrasenna = document.querySelector('#txt-contrasenna');
 
 const btnIniciarSesionConCredenciales = document.querySelector('#btn-iniciarSesionConCredenciales');
 
 
 console.log(inputDireccionCorreo);
-console.log(inputContraseña);
+console.log(inputContrasenna);
 
 
 
 // console.log(direccionCorreo);
 
-// console.log(contraseña);
+// console.log(contrasenna);
 
 
 
 let obtenerDatos = () => {
     let direccionCorreo = inputDireccionCorreo.value;
-    let contraseña = inputContraseña.value;
+    let contrasenna = inputContrasenna.value;
 
     console.log('dirección de correo: ', direccionCorreo);
-    console.log('contraseña: ', contraseña);
+    console.log('contraseña: ', contrasenna);
 
 
 };
