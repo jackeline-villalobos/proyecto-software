@@ -1,3 +1,11 @@
+MongoDB:
 equiponebula2019@gmail.com
-
 krashcenfo
+
+
+
+Cloudinary:
+pw : Krashcenfo1!
+cloud name : proyecto1-nebula
+api key : 658182659239913
+preset : nebula
