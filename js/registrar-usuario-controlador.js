@@ -70,8 +70,6 @@ let validar = () => {
     };
 
     if(input_fechaDeNacimiento.value <= '01/01/2001'){
-        error = true;
-        input_fechaDeNacimiento.classList.add('error');
         console.log('El usuario no tiene la suficiente edad para ser registrado');
     }else{
         input_fechaDeNacimiento.classList.remove('error');
@@ -144,7 +142,7 @@ let obtener_datos =async () => {
         })
 
     } else {
-        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
+        let error = await registrar_usuario();
 
         if (error.resultado == false) {
 
@@ -163,25 +161,26 @@ let obtener_datos =async () => {
                 confirmButtonText: 'Entendido'
             });
 
-        }
+        
 
         input_primerNombre.value= '';
         input_segundoNombre.value= '';
         input_primerApellido.value= '';
         input_segundoApellido.value= '';
         input_correo.value= '';
-        input_fechaDeNacimiento= '';
-        input_genero= '';
-        slt_provicias= '';
-        slt_cantones= '';
-        slt_distritos= '';
-        input_direccion= '';
+        input_fechaDeNacimiento.value= '';
+        input_genero.value= '';
+        slt_provicias.value= '';
+        slt_cantones.value= '';
+        slt_distritos.value= '';
+        input_direccion.value= ''
 
 
     }
 
 
 };
+}
 
 
 btn_registrar.addEventListener('click', obtener_datos);

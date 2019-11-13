@@ -16,7 +16,7 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
             provincia: provincia,
             canton: canton,
             distrito: distrito,
-            direccion: direccion
+            direccion: direccion,
         }
     })
 

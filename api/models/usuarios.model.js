@@ -20,11 +20,13 @@ const usuarioSchema = new mongoose.Schema(
     contrasenna: {type: String, required: true, unique: false},
     tarjeta:[
         {
-            
+            nombre: {type: String, required: true, unique: false},
+            marca: {type: String, required: true, unique: false},
+            numero: {type: Number, required: true, unique: true},
+            fechaExpiracion: {type: Date, required: true, unique: false},
+            codigoSeguridad: {type: Number, required: true, unique: false}
         }
     ]
-
-
 
 }
 );
