@@ -29,4 +29,24 @@ router.post('/registrar-descuento', function(req, res) {
     });
 });
 
+router.get('/listar-descuentos', function(req, res) {
+
+   Descuento.find(
+       function(err, descuentosBD){
+           if(err){
+               res.json({
+                    resultado: false,
+                    msg: 'No se encontraron descuentos',
+                    err
+               });
+           } else {
+               res.json({
+                   resultado: true,
+                   descuentos: descuentosBD
+               });
+           }
+       }
+   );
+});
+
 module.exports = router;

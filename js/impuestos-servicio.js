@@ -35,6 +35,7 @@ let listarImpuestos = async() => {
         responseType: 'json'
     })
     .then(function(res) {
+        console.log(res.data);
         listaImpuestos = res.data.impuestos;
     })
     .catch(function(error){
