@@ -51,14 +51,14 @@
 
         </figure>
 
-        <div>
+        <form>
             <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
             <input type="password" id="txt-contrasenna" placeholder="Contraseña">
             <a href="#">¿Olvidaste tu contraseña?</a>
             <label for=""><input type="checkbox" id="chbox-recordarContrasenna">Recordar contraseña</label>
             <button type="button" id="btn-iniciarSesionConCredenciales">Iniciar sesión</button>
 
-        </div>
+        </form>
     </main>
 
     <footer>
@@ -91,6 +91,11 @@
             </ul>
         </div>
     </footer>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/iniciar-sesion-servicio.js"></script>
     <script src="js/iniciar-sesion-controlador.js"></script>
 </body>
 
