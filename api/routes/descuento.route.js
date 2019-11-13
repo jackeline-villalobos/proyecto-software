@@ -42,7 +42,7 @@ router.get('/listar-descuentos', function(req, res) {
            } else {
                res.json({
                    resultado: true,
-                   descuentosBD
+                   descuentos: descuentosBD
                });
            }
        }
