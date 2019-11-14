@@ -130,8 +130,8 @@ let obtener_datos =async () => {
     let canton = slt_cantones.value;
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
-
-
+    //let contrasenna;
+    
 
     if (validar()) {
         Swal.fire({

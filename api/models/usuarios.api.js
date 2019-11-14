@@ -17,9 +17,9 @@ module.exports.registrar = function(req, res){
             canton: req.body.canton,
             distrito: req.body.distrito,
             direccion: req.body.direccion,
-            estado: req.body.estado,
-            contrasenna: req.body.contrasenna,
-            tarjeta: req.body.tarjeta,
+            estado: req.body.estado
+            //contrasenna: req.body.contrasenna
+            //tarjeta: req.body.tarjeta,
         }
     );
 

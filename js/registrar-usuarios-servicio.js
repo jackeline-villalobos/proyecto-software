@@ -1,6 +1,6 @@
 'use strict';
 
-let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, provincia, canton, distrito, direccion) => {
+let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero,provincia, canton, distrito, direccion) => {
     let resultado;
     await axios({
         method: 'post',
@@ -13,10 +13,12 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
             segundoApellido: segundoApellido,
             correo: correo,
             fechaDeNacimiento: fechaDeNacimiento,
+            genero: genero,
             provincia: provincia,
             canton: canton,
             distrito: distrito,
-            direccion: direccion,
+            direccion: direccion
+            //contrasenna: contrasenna
         }
     })
 

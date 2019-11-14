@@ -21,8 +21,8 @@ router.post('/registrar-usuario', function(req, res) {
         canton: body.canton,
         distrito: body.distrito,
         direccion: body.direccion,
-        estado: "activo",
-        contrasenna: "abc"
+        estado: "activo"
+        //contrasenna: "abc"
         
     });
 
@@ -31,7 +31,7 @@ router.post('/registrar-usuario', function(req, res) {
             if (err) {
                 res.json({
                     resultado: false,
-                    msg: 'El tipo de evento no se pudo registrar, ocurrió el siguiente error',
+                    msg: 'El usuario no se pudo registrar, ocurrió el siguiente error',
                     err
                 });
             } else {
