@@ -29,12 +29,13 @@ let validarCredenciales = (correo, contrasenna) => {
 };
 */
 
+/*
 let validarCredenciales = async(correo, contrasenna) => {
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/validarCredenciales',
             responseType: 'json',
-            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             data: {
                 correo: correo,
                 contrasenna: contrasenna
@@ -62,3 +63,41 @@ let validarCredenciales = async(correo, contrasenna) => {
 
 
 };
+
+*/
+
+let validarCredenciales = async(correo, contrasenna) => {
+    await axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/listar-usuarios',
+            responseType: 'json',
+            //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            // data: {
+            //     correo: correo,
+            //     contrasenna: contrasenna
+
+
+            // }
+        })
+        .then(function(res) {
+            console.log(res.data);
+            listaUsuarios = res.data;
+
+            respuesta = response;
+            sessionStorage.setItem('conectado', response.success);
+            sessionStorage.setItem('tipoUsuario', response.usuario.tipo);
+
+        })
+        .catch(function(error) {
+            console.log(error);
+
+            //respuesta = res;
+
+
+        });
+
+        return listaUsuarios;
+
+
+};
+
