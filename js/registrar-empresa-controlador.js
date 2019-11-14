@@ -18,6 +18,7 @@ const btn_guardar = document.querySelector('#btn-registrar');
 let validar = () => {
     let error = false;
     let errorCodigo;
+    let validarTelefono = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "ñ"];
 
 
     if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " ") {
@@ -49,7 +50,15 @@ let validar = () => {
         input_telefono.classList.add("error");
         errorCodigo = 4;
     } else {
-        input_telefono.classList.remove("error");
+        for (i = 0; i <= validarTelefono.length; i++) {
+            if (input_telefono.value.includes(validarTelefono, i)) {
+                error = true;
+                input_telefono.classList.add("error");
+            } else {
+                input_telefono.classList.remove("error");
+            }
+        }
+
     };
 
     if (input_direccion.value == "" || input_direccion.value == " ") {

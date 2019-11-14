@@ -52,17 +52,40 @@
 
                     <input type="text" id="txt-telefono" placeholder="Telefono de contacto">
 
-                    <input type="text" placeholder="Direccion" id="txt-direccion">
 
-                    <input list="datalist-provincia" placeholder="Provincia" id="txt-provincia" name="provincia">
-                    <option value="" hidden class="form_input">Provincia</option>
+                    <div class="direccion">
+
+                        <input type="text" placeholder="Dirección" id="direccion">
+
+                        <div class="provincia-canton">
+
+                            <div class="form_control">
+                                <select class="form_input" name="provincia" id="provincias">
+                                    <option value="" hidden>Provincia</option>
+                                </select>
+                            </div>
+                            <div class="form_control">
+                                <select class="form_input" name="canton" id="cantones">
+                                    <option value="" hidden>Cantón</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="distrito-direccion">
+
+                            <div class="form_control">
+                                <select class="form_input" name="distrito" id="distritos">
+                                    <option value="" hidden>Distrito</option>
+                                </select>
+                            </div>
 
 
-                    <input list="datalist-canton" placeholder="Cantón" id="txt-canton" name="canton">
-                    <option value="" hidden class="form_input">Cantón</option>
 
-                    <input list="datalist-distrito" placeholder="Distrito" id="txt-distrito">
-                    <option value="" hidden class="form_input">Distrito</option>
+                        </div>
+
+
+                    </div>
 
 
                     <button type="button" id="btn-registrar">Registrar</button>
