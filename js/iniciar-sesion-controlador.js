@@ -9,19 +9,12 @@ const inputContrasenna = document.querySelector('#txt-contrasenna');
 const btnIniciarSesionConCredenciales = document.querySelector('#btn-iniciarSesionConCredenciales');
 
 
-console.log(inputDireccionCorreo);
-console.log(inputContrasenna);
-
-
 
 // console.log(direccionCorreo);
 
 // console.log(contrasenna);
 
-let registrarse = () =>{
-    window.location.href = 'registrar-usuario.html'
 
-}
 
 let obtenerDatos = () => {
     let direccionCorreo = inputDireccionCorreo.value;
@@ -33,40 +26,59 @@ let obtenerDatos = () => {
     let errorBlancos = validar(direccionCorreo, contrasenna);
     let usuarioAceptado = false;
 
-    if(!errorBlancos){
-        usuarioAceptado = validarCredenciales(direccionCorreo, contrasenna);
-        if(usuarioAceptado){
-            window.location.href = 'sesion-iniciada.html'
-        }
+    if (errorBlancos) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Algunos de los campos se encuentran incompletos',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText: 'Entendido'
+        })
     }
+    usuarioAceptado = validarCredenciales(direccionCorreo, contrasenna);
+
+    // for(let i = 0; i<listaUsuarios.lenght; i++){
+    //     let correo = listaUsuarios[i]['correo'].lowerCase;
+    //     let contrasenna = listaUsuarios[i]['contrasenna'];
+
+    //     if(correo && contrasenna == )
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // if (!errorBlancos) {
+       
+    //     if (usuarioAceptado) {
+    //         window.location.href = 'sesion-iniciada.html'
+    //     }
+    // }
 };
 
 let validar = (direccionCorreo, contrasenna) => {
     let error = false;
 
-    if(direccionCorreo == ''){
+    if (direccionCorreo == 0) {
         error = true;
         inputDireccionCorreo.classList.add('errorInput');
-        Swal.fire({
-            type: 'warning',
-            title: 'Algunos de los campos se encuentran incompletos',
-            text: 'Por favor revise los campos en rojo',
-            confirmButtonText: 'Entendido'
-        })
-    }else{
+
+    } else {
         inputDireccionCorreo.classList.remove('errorInput');
     }
 
-    if(contrasenna == ''){
+    if (contrasenna == 0) {
         error = true;
         inputContrasenna.classList.add('errorInput');
-        Swal.fire({
-            type: 'warning',
-            title: 'Algunos de los campos se encuentran incompletos',
-            text: 'Por favor revise los campos en rojo',
-            confirmButtonText: 'Entendido'
-        })
-    }else{
+    
+    } else {
         inputContrasenna.classList.remove('errorInput');
     }
 
@@ -75,9 +87,7 @@ let validar = (direccionCorreo, contrasenna) => {
 
 //Eventos asociados a los botones o inputs
 
-btnBotonParaRegistrarse.addEventListener('click' , registrarse)
 
 btnIniciarSesionConCredenciales.addEventListener('click', obtenerDatos);
 
 
- 
