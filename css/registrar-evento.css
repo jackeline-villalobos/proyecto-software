@@ -24,11 +24,8 @@ main{
 .slider-fotos-registrar-evento{
     align-self: center;
 }
-.carrusel-placeholder{
-    height: 200px;
-    width: 200px;
-    background: url(/imagenes/registrar-evento/outlined_placeholder-512.png);
-    background-size: contain;
+.imageHolder img{
+    max-width: 50%;
 }
 .error {
     border: 2px solid #d63031;

@@ -6,7 +6,7 @@ const input_tipo_de_eventos = document.querySelector('#txt-tipo-de-eventos');
 const input_lugar = document.querySelector('#txt-lugar');
 const input_hora = document.querySelector('#txt-hora');
 const input_descripcion = document.querySelector('#txt-descripcion');
-// const input_imagen = document.querySelector('#img-evento');
+const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 
 let validar = () => {
@@ -55,25 +55,25 @@ let validar = () => {
         input_descripcion.classList.remove('error');
     };
 
-    // if(input_imagen.value == ''){
-    //     error = true;
-    //     input_imagen.classList.add('error');
-    // }else{
-    //     input_imagen.classList.remove('error');
-    // };
+    if(input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png'){
+         error = true;
+         input_imagen.classList.add('error');
+     }else{
+         input_imagen.classList.remove('error');
+     };
 
     return error;
 };
 
-    let resetForm = () => {
-        input_nombre.value = '';
-        input_fecha.value = '';
-        input_tipo_de_eventos = '';
-        input_lugar = '';
-        input_hora = '';
-        input_descripcion = '';
-        // input_imagen = '';
-    };
+     let resetForm = () => {
+         input_nombre.value = '';
+         input_fecha.value = '';
+         input_tipo_de_eventos.value = '';
+         input_lugar.value = '';
+         input_hora.value = '';
+         input_descripcion.value = '';
+         input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
+     };
 
     let obtener_datos = () => {
 
@@ -83,7 +83,7 @@ let validar = () => {
         let lugar = input_lugar.value;
         let hora = input_hora.value;
         let descripcion = input_descripcion.value;
-        // let imagen = input_imagen.value;
+        let imagen = imagePreview.src;
     
         if(validar()){
             Swal.fire({
@@ -94,14 +94,14 @@ let validar = () => {
               })
     
         }else{
-            registrar_evento(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion);
+            registrar_evento(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion, imagen);
             Swal.fire({
                 type: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El usuario ha sido almacenado',
                 confirmButtonText: 'Entendio'
               });
-            resetForm();
+             resetForm();
             }
     };
 

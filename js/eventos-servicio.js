@@ -1,6 +1,6 @@
 'use strict';
 
-let registrar_evento = async(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion) => {
+let registrar_evento = async(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion, imagen) => {
     await axios(
         {
             method : 'post' ,
@@ -12,7 +12,8 @@ let registrar_evento = async(nombre, fecha, tipo_de_eventos, lugar, hora, descri
                 tipo_de_eventos : tipo_de_eventos,
                 lugar : lugar,
                 hora : hora,
-                descripcion : descripcion
+                descripcion : descripcion,
+                imagen : imagen
             }
         })
         .then(function(res){
