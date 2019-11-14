@@ -26,7 +26,8 @@ const usuarioSchema = new mongoose.Schema(
             fechaExpiracion: {type: Date, required: false, unique: false},
             codigoSeguridad: {type: Number, required: false, unique: false}
         }
-    ]
+    ],
+    imagen : {type: String, required: true},
 
 }
 );

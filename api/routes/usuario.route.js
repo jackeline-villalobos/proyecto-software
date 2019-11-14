@@ -21,6 +21,7 @@ router.post('/registrar-usuario', function(req, res) {
         canton: body.canton,
         distrito: body.distrito,
         direccion: body.direccion,
+        imagen: req.body.imagen,
         estado: "activo"
         //contrasenna: "abc"
         

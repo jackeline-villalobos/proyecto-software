@@ -11,6 +11,7 @@ const slt_provicias = document.querySelector('#provincias');
 const slt_cantones = document.querySelector('#cantones');
 const slt_distritos = document.querySelector('#distritos');
 const input_direccion = document.querySelector('#direccion');
+const input_imagen = document.querySelector('#imagePreview');
 
 const btn_registrar = document.querySelector('#btn-registrar');
 
@@ -118,6 +119,12 @@ let validar = () => {
         input_direccion.classList.remove('error')
     };
 
+    if(input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png'){
+        error = true;
+        input_imagen.classList.add('error');
+    }else{
+        input_imagen.classList.remove('error');
+    };
 
     return error
 
@@ -138,7 +145,7 @@ let obtener_datos =async () => {
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
     //let contrasenna;
-    
+    let imagen = imagePreview.src;
 
     if (validar()) {
         Swal.fire({
@@ -149,7 +156,7 @@ let obtener_datos =async () => {
         })
 
     } else {
-        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
+        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion, imagen);
 
         if (error.resultado == false) {
 
