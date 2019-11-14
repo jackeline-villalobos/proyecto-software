@@ -20,8 +20,15 @@ let registrarTarjeta = async (numeroTarjeta, fechaExpiración, codigoSeguridad) 
         marca = 'Discover';
     }
 
-    console.log(marca);
+    if(tarjetaDinnersClub(numeroTarjeta)){
+        marca = 'Dinners Club';
+    }
 
+    if(tarjetaJCB(numeroTarjeta)){
+        marca = 'JCB';
+    }
+
+    console.log(marca);
 
 }
 
@@ -65,3 +72,24 @@ let tarjetaDiscover = (numeroTarjeta) => {
     }
 
 }
+
+let tarjetaDinnersClub = (numeroTarjeta) => {
+    let numero = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+    if(numeroTarjeta.match(numero)) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+let tarjetaJCB = (numeroTarjeta) => {
+    let numero = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
+    if(numeroTarjeta.match(numero)){
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
