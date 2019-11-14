@@ -32,4 +32,4 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
 
 };
 
-//listar usuuario
+    

@@ -142,7 +142,7 @@ let obtener_datos =async () => {
         })
 
     } else {
-        let error = await registrar_usuario();
+        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion);
 
         if (error.resultado == false) {
 

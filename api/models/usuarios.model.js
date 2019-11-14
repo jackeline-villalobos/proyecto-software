@@ -17,14 +17,14 @@ const usuarioSchema = new mongoose.Schema(
     distrito: { type: String, required: true, unique: false },
     direccion: { type: String, required: true, unique: false },
     estado: { type: String, required: true },
-    contrasenna: {type: String, required: true, unique: false},
+    contrasenna: {type: String, required: false, unique: false},
     tarjeta:[
         {
-            nombre: {type: String, required: true, unique: false},
-            marca: {type: String, required: true, unique: false},
-            numero: {type: Number, required: true, unique: true},
-            fechaExpiracion: {type: Date, required: true, unique: false},
-            codigoSeguridad: {type: Number, required: true, unique: false}
+            nombre: {type: String, required: false, unique: false},
+            marca: {type: String, required: false, unique: false},
+            numero: {type: Number, required: false, unique: true},
+            fechaExpiracion: {type: Date, required: false, unique: false},
+            codigoSeguridad: {type: Number, required: false, unique: false}
         }
     ]
 

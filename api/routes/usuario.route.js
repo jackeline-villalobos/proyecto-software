@@ -41,4 +41,6 @@ router.post('/registrar-usuario', function(req, res) {
         });
 });
 
+
+
 module.exports = router;
