@@ -1,0 +1,46 @@
+.main-title {
+    height: 63px;
+}
+
+.main-title h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container {
+    height: 340px;
+    margin-bottom: 5%;
+}
+
+.form-container form {
+    width: 35%;
+    border: 1px solid black;
+    margin: auto;
+    padding: 4% 1%;
+    text-align: center;
+}
+
+.form-container .input-form {
+    margin: auto;
+}
+
+.form-container form input {
+    display: block;
+    width: 50%;
+    margin: 3% 0 0 25%;
+    background-image: none;
+    padding-left: 5px;
+}
+
+.form-container form button {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 35%;
+    align-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    border-radius: 0px;
+}
