@@ -71,22 +71,25 @@
                     <div class="direccion">
                         <h6 for="">Dirección</h6>
 
-                        <div class="provincia-canton">
+                        <div class="direccion-provincia">
 
                             <div class="form_control">
+                                <input type="text" placeholder="Dirección" id="direccion">
+
                                 <select class="form_input" name="provincia" id="provincias">
                                     <option value="" hidden>Provincia</option>
                                 </select>
                             </div>
+
+
+                        </div>
+
+                        <div class="canton-distrito">
                             <div class="form_control">
                                 <select class="form_input" name="canton" id="cantones">
                                     <option value="" hidden>Cantón</option>
                                 </select>
                             </div>
-
-                        </div>
-
-                        <div class="distrito-direccion">
 
                             <div class="form_control">
                                 <select class="form_input" name="distrito" id="distritos">
@@ -94,7 +97,6 @@
                                 </select>
                             </div>
 
-                            <input type="text" placeholder="Dirección" id="direccion">
 
                         </div>
 
@@ -104,12 +106,11 @@
                 </form>
 
                 <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>
-                <button type="button" class="btn-facebook" id="btn-facebook" 
-                >Iniciar sesión con Facebook</button>
+                <button type="button" class="btn-facebook" id="btn-facebook">Iniciar sesión con Facebook</button>
             </div>
         </section>
 
-        
+
     </main>
 
     <footer>

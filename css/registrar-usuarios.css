@@ -51,14 +51,14 @@ main{
 
 }
 
-#txt_segundoNombre, #txt_segundoApellido, #txt_fechaDeNacimiento, #cantones, #direccion{
+#txt_segundoNombre, #txt_segundoApellido, #txt_fechaDeNacimiento, #provincias, #distritos{
     margin-left: 15px;
 }
 #txt_genero{
     margin-left: 145px;
 }
 
-.provincia-canton, .distrito-direccion{
+.direccion-provincia, .canton-distrito{
     display: flex;
     flex-direction: row;
     justify-content: center;

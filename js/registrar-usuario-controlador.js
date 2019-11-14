@@ -20,6 +20,7 @@ const btn_registrar = document.querySelector('#btn-registrar');
 let validar = () => {
 
     let error = false;
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
     if (input_primerNombre.value == '') {
         error = true;
@@ -61,6 +62,12 @@ let validar = () => {
         input_correo.classList.remove('error');
     };
 
+    if(revisar_correo.test(input_correo.value) == false){
+        error = true;  
+        input_correo.classList.add('error');
+    }else{
+        input_correo.classList.remove('error');
+    }
 
     if (input_fechaDeNacimiento.value == '') {
         error = true;
