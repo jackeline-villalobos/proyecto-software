@@ -64,4 +64,32 @@ router.get('/listar-usuarios',function(req, res) {
 });
 
 
+router.post('/agregar-tarjeta', function(req, res){
+    Usuario.update({_id: req.body._id}, {
+        $push: {
+            'tarjeta': {
+                marca: req.body.marca ,
+                numero: req.body.numero ,
+                fechaExpiracion: req.body.fechaExpiracion ,
+                codigoSeguridad: req.body.codigoSeguridad
+            }
+        }        
+    }, function (err) {
+        if(err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se puso agregar la tarjeta',
+                err                              
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se agregó la tarjeta correctamente'
+            });
+        }
+    }
+    )
+});
+
+
 module.exports = router;

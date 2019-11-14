@@ -22,7 +22,7 @@ const usuarioSchema = new mongoose.Schema(
         {
             marca: {type: String, required: false, unique: false},
             numero: {type: String, required: false, unique: false},
-            fechaExpiracion: {type: Date, required: false, unique: false},
+            fechaExpiracion: {type: String, required: false, unique: false},
             codigoSeguridad: {type: Number, required: false, unique: false}
         }
     ],
