@@ -45,5 +45,23 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 
+router.get('/listar-usuarios',function(req, res) {
+    Usuario.find(function(err,usuariosBD){
+        if(err){
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron usuarios',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                usuariosBD  
+            })
+        };
+
+    });
+});
+
 
 module.exports = router;
