@@ -2,9 +2,24 @@
 
 let registrarTarjeta = async (numeroTarjeta, fechaExpiración, codigoSeguridad) => {
 
-    let marca;
+    //let marca;
 
-    if(tarjetaAmericanExpress(numeroTarjeta)){
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/tipo-tarjeta',
+        responseType: 'json',
+        data: {
+            numero: numeroTarjeta
+        }
+    })
+    .then(function(res){
+        console.log(res.data.marca);
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    /*if(tarjetaAmericanExpress(numeroTarjeta)){
         marca = 'American Express'
     }
 
@@ -28,11 +43,11 @@ let registrarTarjeta = async (numeroTarjeta, fechaExpiración, codigoSeguridad) 
         marca = 'JCB';
     }
 
-    console.log(marca);
+    console.log(marca);*/
 
 }
 
-let tarjetaAmericanExpress = (numeroTarjeta) => {
+/*let tarjetaAmericanExpress = (numeroTarjeta) => {
     let numero = /^(?:3[47][0-9]{13})$/;
 
     if(numeroTarjeta.match(numero)){
@@ -91,5 +106,5 @@ let tarjetaJCB = (numeroTarjeta) => {
         return false;
     }
 
-}
+}*/
 
