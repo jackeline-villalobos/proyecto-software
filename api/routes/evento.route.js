@@ -14,8 +14,6 @@ router.post('/registrar-evento', function (req, res) {
         pais: body.pais,
         lugar: body.lugar,
         cantidadAsistentes: body.cantidadAsistentes,
-        fecha: body.fecha,
-        hora: body.hora,
         precioEntrada: body.precioEntrada,
         descripcion: body.descripcion,
         impuestos: body.impuestos,
@@ -42,5 +40,29 @@ router.post('/registrar-evento', function (req, res) {
         });
 
 });
+router.post('/agregar-fecha', function (req, res) {
+     Evento.update({ _id: req.body._id }, {
+         $push: {
+             'fechas': {
+                 fecha : req.body.fecha,
+                 hora : req.body.hora,
+             }
+     }
+   },
+     function (error) {
+         if (error) {
+             res.json({
+                 resultado: false,
+                 msg: 'La fecha no se pudo registrar',
+             });
+         } else {
+             res.json({
+                 resultado: true,
+                 msg: 'Se agregó correctamente la fecha'
+             });
+         }
+     }
+ )
+ });
 
 module.exports = router;
