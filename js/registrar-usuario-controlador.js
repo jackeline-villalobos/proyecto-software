@@ -5,7 +5,7 @@ const input_segundoNombre = document.querySelector('#txt_segundoNombre');
 const input_primerApellido = document.querySelector('#txt_primerApellido');
 const input_segundoApellido = document.querySelector('#txt_segundoApellido');
 const input_correo = document.querySelector('#txt_correo');
-const input_fechaDeNacimiento = document.querySelector('#txt_fechaDeNacimiento');
+const input_FechaDeNacimiento = document.querySelector('#txt_fechaNacimiento');
 const input_genero = document.querySelector('#txt_genero');
 const slt_provicias = document.querySelector('#provincias');
 const slt_cantones = document.querySelector('#cantones');
@@ -14,6 +14,11 @@ const input_direccion = document.querySelector('#direccion');
 const input_imagen = document.querySelector('#imagePreview');
 
 const btn_registrar = document.querySelector('#btn-registrar');
+
+
+
+
+
 
 
 //obtener datoss
@@ -54,7 +59,13 @@ let validar = () => {
         input_segundoApellido.classList.remove('error');
     };
 
-
+    if(input_FechaNacimiento.value < '01/01/2001'){
+        error = true;
+        input_FechaNacimiento.classList.add('error');
+        console.log('it works')
+    }else{
+        input_FechaNacimiento.classList.remove('error');
+    }
 
     if (input_correo.value == '') {
         error = true;
@@ -63,10 +74,10 @@ let validar = () => {
         input_correo.classList.remove('error');
     };
 
-    if(revisar_correo.test(input_correo.value) == false){
-        error = true;  
+    if (revisar_correo.test(input_correo.value) == false) {
+        error = true;
         input_correo.classList.add('error');
-    }else{
+    } else {
         input_correo.classList.remove('error');
     }
 
@@ -77,12 +88,6 @@ let validar = () => {
         input_fechaDeNacimiento.classList.remove('error');
     };
 
-    if(input_fechaDeNacimiento.value <= '01/01/2001'){
-        console.log('El usuario no tiene la suficiente edad para ser registrado');
-    }else{
-        input_fechaDeNacimiento.classList.remove('error');
-    };
-    
 
     if (input_genero.value == '') {
         error = true;
@@ -119,10 +124,10 @@ let validar = () => {
         input_direccion.classList.remove('error')
     };
 
-    if(input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png'){
+    if (input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png') {
         error = true;
         input_imagen.classList.add('error');
-    }else{
+    } else {
         input_imagen.classList.remove('error');
     };
 
@@ -132,7 +137,7 @@ let validar = () => {
 };
 
 
-let obtener_datos =async () => {
+let obtener_datos = async () => {
     let primerNombre = input_primerNombre.value;
     let segundoNombre = input_segundoNombre.value;
     let primerApellido = input_primerApellido.value;
@@ -166,7 +171,7 @@ let obtener_datos =async () => {
                 confirmButtonText: 'Entendido'
             });
 
-        }else{
+        } else {
 
             Swal.fire({
                 type: 'success',
@@ -175,25 +180,25 @@ let obtener_datos =async () => {
                 confirmButtonText: 'Entendido'
             });
 
-        
-
-        input_primerNombre.value= '';
-        input_segundoNombre.value= '';
-        input_primerApellido.value= '';
-        input_segundoApellido.value= '';
-        input_correo.value= '';
-        input_fechaDeNacimiento.value= '';
-        input_genero.value= '';
-        slt_provicias.value= '';
-        slt_cantones.value= '';
-        slt_distritos.value= '';
-        input_direccion.value= ''
 
 
-    }
+            input_primerNombre.value = '';
+            input_segundoNombre.value = '';
+            input_primerApellido.value = '';
+            input_segundoApellido.value = '';
+            input_correo.value = '';
+            input_fechaDeNacimiento.value = '';
+            input_genero.value = '';
+            slt_provicias.value = '';
+            slt_cantones.value = '';
+            slt_distritos.value = '';
+            input_direccion.value = ''
 
 
-};
+        }
+
+
+    };
 }
 
 
