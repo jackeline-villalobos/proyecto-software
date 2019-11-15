@@ -104,7 +104,7 @@ let validarCredencialesControlador = (direccionCorreo, contrasenna) =>{
     //     if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
     //         inputDireccionCorreo.classList.remove('errorInput');
     //         usuarioAceptado = true;
-    //         // window.location.href = 'ejemplo.html'
+    //         // window.location.href = 'perfil-usuario.html'
     //     }else{
     //         inputDireccionCorreo.classList.add('errorInput');
     //         // Swal.fire({
@@ -124,7 +124,6 @@ let validarCredencialesControlador = (direccionCorreo, contrasenna) =>{
 // }
 
 //Eventos asociados a los botones o inputs
-
 
 
 btnIniciarSesionConCredenciales.addEventListener('click', obtenerDatos);

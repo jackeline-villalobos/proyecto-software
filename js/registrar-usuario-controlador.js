@@ -167,9 +167,9 @@ let obtener_datos = async () => {
                 text: 'El usuario ha sido registrado',
                 confirmButtonText: 'Entendido',
                 costumClass: 'modal',
-                /*onClose: function(){
+                onClose: function(){
                     location.href = 'perfil-usuario.html';
-                }*/
+                }
             });
 
 
@@ -179,7 +179,7 @@ let obtener_datos = async () => {
             input_primerApellido.value = '';
             input_segundoApellido.value = '';
             input_correo.value = '';
-            input_fechaDeNacimiento.value = '';
+            input_FechaDeNacimiento.value = '';
             input_genero.value = '';
             slt_provicias.value = '';
             slt_cantones.value = '';

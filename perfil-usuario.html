@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/perfil-usuario.css">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+
+    <title>Perfil de usuario</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></div>
+        <div class="botones-header">
+            <button type="button" onclick="location.href='iniciar-sesion.html'">Iniciar sesión</button>
+            <button type="button" class="btn-registrarse">Registrarse</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="parte-de-arriba">
+            <button type="button" class="btn-cerrar-sesion">Cerrar sesión</button>
+        </section>
+
+        <section class="informacion-usuario">
+            <img id="imagen-usuario" class="imagen-usuario">
+            <h4 class="fecha-de-nacimiento" id="fecha-de-nacimiento"></h4>
+            <h6 class="edad" id="edad"></h6>
+            <h6 class="genero" id="genero"></h6>
+        </section>
+
+        <section class="perfil">
+            <h1 class="nombre" id="nombre"></h1>
+
+            <h5 class="direccion" id="direccion"></h5>
+            <p class="correo" id="correo"></p>
+            <p class="tarjetas" id="tarjetas"></p>
+            <p class="intereses" id="intereses"></p>
+
+        </section>
+
+    </main>
+    
+    <footer>
+
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Contactos</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="#">Terminos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
+            </p>
+
+        </div>
+        <div>
+            <h3>Eventos</h3>
+            <li>Deportes</li>
+            <li>Conciertos</li>
+            <li>Culturales</li>
+            <li>Comedia</li>
+        </div>
+        <div class="redes-footer">
+            <h3>Siguenos en</h3>
+            <ul>
+                <i class="fab fa-facebook" class="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
+        type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+    <script src="js/imagen-servicio.js"></script>
+    <script src="js/lugares_ubicaciones.js"></script>
+    <script src="js/perfil-usuario.controlador.js"></script>
+    <script src="js/perfil-usuario.servicio.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>
