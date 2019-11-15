@@ -24,7 +24,7 @@ let obtenerDatos = () => {
     // console.log('contraseña: ', contrasenna);
 
     let errorBlancos = validar(direccionCorreo, contrasenna);
-    let usuarioAceptado = validarCredenciales(direccionCorreo, contrasenna);
+    let usuarioAceptado = validarCredencialesControlador(direccionCorreo, contrasenna);
 
 
     if (errorBlancos) {
@@ -89,34 +89,34 @@ let validar = (direccionCorreo, contrasenna) => {
 };
 
 
-let validarCredenciales = (direccionCorreo, contrasenna) =>{
+let validarCredencialesControlador = (direccionCorreo, contrasenna) =>{
 
     let usuarioAceptado = false;
 
 
-    for(let i = 0; i<listaUsuarios.lenght; i++){
+    // for(let i = 0; i<listaUsuarios.lenght; i++){
 
 
-        let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
-        let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
+    //     let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
+    //     let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
 
         
-        if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
-            inputDireccionCorreo.classList.remove('errorInput');
-            usuarioAceptado = true;
-            // window.location.href = 'ejemplo.html'
-        }else{
-            inputDireccionCorreo.classList.add('errorInput');
-            // Swal.fire({
-            //     icon: 'warning',
-            //     title: 'Dirección de correo y/o contraseña incorrecta.',
-            //     text: 'Por favor escriba los datos de su cuenta correctamente.',
-            //     confirmButtonText: 'Entendido'
+    //     if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
+    //         inputDireccionCorreo.classList.remove('errorInput');
+    //         usuarioAceptado = true;
+    //         // window.location.href = 'ejemplo.html'
+    //     }else{
+    //         inputDireccionCorreo.classList.add('errorInput');
+    //         // Swal.fire({
+    //         //     icon: 'warning',
+    //         //     title: 'Dirección de correo y/o contraseña incorrecta.',
+    //         //     text: 'Por favor escriba los datos de su cuenta correctamente.',
+    //         //     confirmButtonText: 'Entendido'
     
              
-            // })
-        }
-    }
+    //         // })
+    //     }
+    // }
 }
 
 // let validarDireccionCorreo = (direccionCorreo) =>{
