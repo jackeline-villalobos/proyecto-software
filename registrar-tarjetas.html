@@ -20,7 +20,7 @@
     <header>
         <div><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></div>
         <div class="botones-header">
-            <button type="button"><a href="listar-descuentos.html">Lista de descuentos</a></button>
+             <!-- <button type="button"><a href="listar-descuentos.html">Lista de descuentos</a></button> -->
         </div>
     </header>
     <div class="main-title">
@@ -32,7 +32,9 @@
         <form>
             <input type="text" id="txt-numeroTarjeta" placeholder="Número de la tarjeta">
 
-            <input type="number" id="txt-porcentaje" placeholder="Porcentaje">
+            <input type="date" id="txt-fechaExpiracion">
+
+            <input type="number" id="txt-codigoSeguridad" placeholder="Código de seguridad">
 
             <button type="button" id="btn-guardar">Guardar</button>
 
@@ -74,6 +76,8 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/tarjetas-servicio.js"></script>
+    <script src="js/registrar-tarjetas-controlador.js"></script>
     
     
 </body>
