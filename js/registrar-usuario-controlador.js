@@ -5,7 +5,7 @@ const input_segundoNombre = document.querySelector('#txt_segundoNombre');
 const input_primerApellido = document.querySelector('#txt_primerApellido');
 const input_segundoApellido = document.querySelector('#txt_segundoApellido');
 const input_correo = document.querySelector('#txt_correo');
-const input_FechaDeNacimiento = document.querySelector('#txt_fechaNacimiento');
+const input_FechaDeNacimiento = document.querySelector('#txt_fechaDeNacimiento');
 const input_genero = document.querySelector('#txt_genero');
 const slt_provicias = document.querySelector('#provincias');
 const slt_cantones = document.querySelector('#cantones');
@@ -14,11 +14,6 @@ const input_direccion = document.querySelector('#direccion');
 const input_imagen = document.querySelector('#imagePreview');
 
 const btn_registrar = document.querySelector('#btn-registrar');
-
-
-
-
-
 
 
 //obtener datoss
@@ -59,13 +54,6 @@ let validar = () => {
         input_segundoApellido.classList.remove('error');
     };
 
-    if(input_FechaNacimiento.value < '01/01/2001'){
-        error = true;
-        input_FechaNacimiento.classList.add('error');
-        console.log('it works')
-    }else{
-        input_FechaNacimiento.classList.remove('error');
-    }
 
     if (input_correo.value == '') {
         error = true;
@@ -81,11 +69,11 @@ let validar = () => {
         input_correo.classList.remove('error');
     }
 
-    if (input_fechaDeNacimiento.value == '') {
+    if (input_FechaDeNacimiento.value == '') {
         error = true;
-        input_fechaDeNacimiento.classList.add('error');
+        input_FechaDeNacimiento.classList.add('error');
     } else {
-        input_fechaDeNacimiento.classList.remove('error');
+        input_FechaDeNacimiento.classList.remove('error');
     };
 
 
@@ -143,7 +131,7 @@ let obtener_datos = async () => {
     let primerApellido = input_primerApellido.value;
     let segundoApellido = input_segundoApellido.value;
     let correo = input_correo.value;
-    let fechaDeNacimiento = input_fechaDeNacimiento.value;
+    let fechaDeNacimiento = input_FechaDeNacimiento.value;
     let genero = input_genero.value;
     let provincia = slt_provicias.value;
     let canton = slt_cantones.value;
@@ -177,7 +165,11 @@ let obtener_datos = async () => {
                 type: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El usuario ha sido registrado',
-                confirmButtonText: 'Entendido'
+                confirmButtonText: 'Entendido',
+                costumClass: 'modal',
+                /*onClose: function(){
+                    location.href = 'perfil-usuario.html';
+                }*/
             });
 
 
