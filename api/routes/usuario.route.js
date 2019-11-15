@@ -5,7 +5,7 @@ const express = require('express'),
     Usuario = require('../models/usuarios.model'),
     mongoose = require('mongoose');
 
-router.post('/registrar-usuario', function(req, res) {
+router.post('/registrar-usuario', function (req, res) {
 
     let body = req.body;
 
@@ -24,11 +24,11 @@ router.post('/registrar-usuario', function(req, res) {
         imagen: req.body.imagen,
         estado: "activo"
         //contrasenna: "abc"
-        
+
     });
 
     nuevoUsuario.save(
-        function(err, usuarioBD) {
+        function (err, usuarioBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -45,9 +45,9 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 
-router.get('/listar-usuarios',function(req, res) {
-    Usuario.find(function(err,usuariosBD){
-        if(err){
+router.get('/listar-usuarios', function (req, res) {
+    Usuario.find(function (err, usuariosBD) {
+        if (err) {
             res.json({
                 resultado: false,
                 msg: 'No se encontraron usuarios',
@@ -56,11 +56,137 @@ router.get('/listar-usuarios',function(req, res) {
         } else {
             res.json({
                 resultado: true,
-                usuariosBD  
+                usuariosBD
             })
         };
 
     });
+});
+
+
+router.post('/tipo-tarjeta', function (req, res) {
+    let numeroTarjeta = req.body.numero;
+
+    let marca;
+
+    let tarjetaAmericanExpress = (numeroTarjeta) => {
+        let numero = /^(?:3[47][0-9]{13})$/;
+
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+    let tarjetaVisa = (numeroTarjeta) => {
+        let numero = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let tarjetaMasterCard = (numeroTarjeta) => {
+        let numero = /^(?:5[1-5][0-9]{14})$/;
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let tarjetaDiscover = (numeroTarjeta) => {
+        let numero = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    let tarjetaDinnersClub = (numeroTarjeta) => {
+        let numero = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    let tarjetaJCB = (numeroTarjeta) => {
+        let numero = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
+        if (numeroTarjeta.match(numero)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    if (tarjetaAmericanExpress(numeroTarjeta)) {
+        marca = 'American Express';
+    }
+
+    if (tarjetaVisa(numeroTarjeta)) {
+        marca = 'Visa';
+    }
+
+    if (tarjetaMasterCard(numeroTarjeta)) {
+        marca = 'MasterCard';
+    }
+
+    if (tarjetaDiscover(numeroTarjeta)) {
+        marca = 'Discover';
+    }
+
+    if (tarjetaDinnersClub(numeroTarjeta)) {
+        marca = 'Dinners Club';
+    }
+
+    if (tarjetaJCB(numeroTarjeta)) {
+        marca = 'JCB';
+    }
+
+    res.send({
+        msg: 'Validación correcta, la marca es',
+        marca
+    });
+
+});
+
+
+router.post('/agregar-tarjeta', function (req, res) {
+    Usuario.update({ _id: req.body._id }, {
+        $push: {
+            'tarjeta': {
+                marca: req.body.marca,
+                numero: req.body.numero,
+                fechaExpiracion: req.body.fechaExpiracion,
+                codigoSeguridad: req.body.codigoSeguridad
+            }
+        }
+    }, function (err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se puso agregar la tarjeta',
+                err
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se agregó la tarjeta correctamente'
+            });
+        }
+    }
+    )
 });
 
 

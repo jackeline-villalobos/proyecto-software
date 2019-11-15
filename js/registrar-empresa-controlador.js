@@ -4,10 +4,10 @@ const input_nombreEmpresa = document.querySelector('#txt-nombreEmpresa');
 const input_razonSocial = document.querySelector('#txt-razonSocial');
 const input_cedulaJuridica = document.querySelector('#txt-cedulaJuridica');
 const input_telefono = document.querySelector('#txt-telefono');
-const input_direccion = document.querySelector('#txt-direccion');
-const input_provincia = document.querySelector('#txt-provincia');
-const input_canton = document.querySelector('#txt-canton');
-const input_distrito = document.querySelector('#txt-distrito');
+const input_direccion = document.querySelector('#direcciones');
+const input_provincia = document.querySelector('#provincias');
+const input_canton = document.querySelector('#cantones');
+const input_distrito = document.querySelector('#distritos');
 
 // Falta el logo
 
@@ -18,7 +18,7 @@ const btn_guardar = document.querySelector('#btn-registrar');
 let validar = () => {
     let error = false;
     let errorCodigo;
-    let validarTelefono = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "ñ"];
+    let validarTelefono = /^[\+]?[0-9]{4}?[-\s\.]?[0-9]{4}$/im;
 
 
     if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " ") {
@@ -45,21 +45,22 @@ let validar = () => {
         input_cedulaJuridica.classList.remove("error");
     };
 
-    if (input_telefono.value == "" || input_telefono.value.length > 8 || input_telefono.value == " ") {
+    if (input_telefono.value == "" || input_telefono.value.length > 9 || input_telefono.value == " ") {
         error = true;
         input_telefono.classList.add("error");
         errorCodigo = 4;
     } else {
-        for (i = 0; i <= validarTelefono.length; i++) {
-            if (input_telefono.value.includes(validarTelefono, i)) {
-                error = true;
-                input_telefono.classList.add("error");
-            } else {
-                input_telefono.classList.remove("error");
-            }
-        }
+        input_telefono.classList.remove("error");
 
     };
+
+    // Valida si el telefono no tiene formato adecuado
+    if (validarTelefono.test(input_telefono.value) == false) {
+        error = true;
+        input_telefono.classList.add('error');
+    } else {
+        input_telefono.classList.remove('error');
+    }
 
     if (input_direccion.value == "" || input_direccion.value == " ") {
         error = true;
