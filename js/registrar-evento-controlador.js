@@ -1,11 +1,15 @@
 'use strict';
 
 const input_nombre = document.querySelector('#txt-nombre');
-const input_fecha = document.querySelector('#txt-fecha');
-const input_tipo_de_eventos = document.querySelector('#txt-tipo-de-eventos');
+const input_tipoDeEventos = document.querySelector('#txt-tipoDeEventos');
+const input_pais = document.querySelector('#txt-pais');
 const input_lugar = document.querySelector('#txt-lugar');
+const input_cantidadAsistentes = document.querySelector('#txt-cantidadAsistentes');
+const input_fecha = document.querySelector('#txt-fecha');
 const input_hora = document.querySelector('#txt-hora');
 const input_descripcion = document.querySelector('#txt-descripcion');
+const input_precioEntrada = document.querySelector('#txt-precioEntrada');
+const input_impuestos = document.querySelector('#txt-impuestos');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 
@@ -20,18 +24,18 @@ let validar = () => {
         input_nombre.classList.remove('error');
     };
 
-    if(input_fecha.value == ''){
+    if(input_tipoDeEventos.value == ''){
         error = true;
-        input_fecha.classList.add('error');
+        input_tipoDeEventos.classList.add('error');
     }else{
-        input_fecha.classList.remove('error');
+        input_tipoDeEventos.classList.remove('error');
     };
 
-    if(input_tipo_de_eventos.value == ''){
+    if(input_pais.value == ''){
         error = true;
-        input_tipo_de_eventos.classList.add('error');
+        input_pais.classList.add('error');
     }else{
-        input_tipo_de_eventos.classList.remove('error');
+        input_pais.classList.remove('error');
     };
 
     if(input_lugar.value == ''){
@@ -40,6 +44,22 @@ let validar = () => {
     }else{
         input_lugar.classList.remove('error');
     };
+
+    if(input_cantidadAsistentes.value == ''){
+        error = true;
+        input_cantidadAsistentes.classList.add('error');
+    }else{
+        input_cantidadAsistentes.classList.remove('error');
+    };
+
+    if(input_fecha.value == ''){
+        error = true;
+        input_fecha.classList.add('error');
+    }else{
+        input_fecha.classList.remove('error');
+    };
+
+ 
 
     if(input_hora.value == ''){
         error = true;
@@ -55,34 +75,56 @@ let validar = () => {
         input_descripcion.classList.remove('error');
     };
 
+    if(input_precioEntrada.value == ''){
+        error = true;
+        input_precioEntrada.classList.add('error');
+    }else{
+        input_precioEntrada.classList.remove('error');
+    };
+
+    if(input_impuestos.value == ''){
+        error = true;
+        input_impuestos.classList.add('error');
+    }else{
+        input_impuestos.classList.remove('error');
+    };
+
     if(input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png'){
-         error = true;
-         input_imagen.classList.add('error');
-     }else{
-         input_imagen.classList.remove('error');
-     };
+          error = true;
+          input_imagen.classList.add('error');
+      }else{
+          input_imagen.classList.remove('error');
+      };
 
     return error;
 };
 
      let resetForm = () => {
          input_nombre.value = '';
+         input_pais.value = '';
+         input_cantidadAsistentes.value = '';
          input_fecha.value = '';
-         input_tipo_de_eventos.value = '';
+         input_tipoDeEventos.value = '';
          input_lugar.value = '';
+         input_precioEntrada.value = '';
          input_hora.value = '';
          input_descripcion.value = '';
+         input_impuestos.value = '';
          input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
      };
 
     let obtener_datos = () => {
 
         let nombre = input_nombre.value;
+        let pais = input_nombre.value;
+        let cantidadAsistentes = input_cantidadAsistentes.value;
         let fecha = input_fecha.value;
-        let tipo_de_eventos = input_tipo_de_eventos.value;
+        let tipoDeEventos = input_tipoDeEventos.value;
         let lugar = input_lugar.value;
         let hora = input_hora.value;
+        let precioEntrada = input_precioEntrada.value;
         let descripcion = input_descripcion.value;
+        let impuestos = input_impuestos.value;
         let imagen = imagePreview.src;
     
         if(validar()){
@@ -94,14 +136,14 @@ let validar = () => {
               })
     
         }else{
-            registrar_evento(nombre, fecha, tipo_de_eventos, lugar, hora, descripcion, imagen);
+            registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, fecha, hora, precioEntrada, descripcion, impuestos, imagen);
             Swal.fire({
                 type: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El usuario ha sido almacenado',
                 confirmButtonText: 'Entendio'
               });
-             resetForm();
+            //  resetForm();
             }
     };
 
