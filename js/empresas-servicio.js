@@ -1,6 +1,8 @@
 "use strict";
 
 let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen) => {
+    let error;
+
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-empresa',
@@ -19,13 +21,16 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
 
             }
         })
-        .then(function(res) {
-            console.log(res.data);
+        .then(async function(res) {
+            console.log(res.data.resultado);
+            error = await res.data.resultado;
 
         })
         .catch(function(error) {
             console.log(error);
 
         });
+
+    return error;
 
 };

@@ -126,7 +126,7 @@ let resetForm = () => {
     input_distrito.value = '';
     input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
-let obtener_datos = () => {
+let obtener_datos = async() => {
 
     let nombreEmpresa = input_nombreEmpresa.value;
     let razonSocial = input_razonSocial.value;
@@ -151,14 +151,22 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen);
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro realizado con éxito',
-            text: 'El usuario ha sido almacenado',
-            confirmButtonText: 'OK'
-        });
+        let error = await registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen);
+        if (error == false) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Algunos de los campos no se ingresaron correctamente.',
+                text: 'Por favor, revise los campos en rojo.',
+                confirmButtonText: 'OK'
+            })
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El usuario ha sido almacenado',
+                confirmButtonText: 'OK'
+            });
+        }
         resetForm();
     }
 };
