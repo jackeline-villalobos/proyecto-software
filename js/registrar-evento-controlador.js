@@ -5,17 +5,19 @@ const input_tipoDeEventos = document.querySelector('#txt-tipoDeEventos');
 const input_pais = document.querySelector('#txt-pais');
 const input_lugar = document.querySelector('#txt-lugar');
 const input_cantidadAsistentes = document.querySelector('#txt-cantidadAsistentes');
-const input_fecha = document.querySelector('#txt-date-1');
-const input_hora = document.querySelector('#txt-time-1');
-const input_fechas = document.querySelector('.txt-date');
-const input_horas = document.querySelector('.txt-time');
+const input_fecha1 = document.querySelector('#txt-date-1');
+const input_hora2 = document.querySelector('#txt-time-1');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_impuestos = document.querySelector('#txt-impuestos');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
+
 const div_fechaYHora = document.querySelector('.fechaYHora');
+
+const input_fechas = document.querySelector('.txt-date');
+const input_horas = document.querySelector('.txt-time');
 
 let validar = () => {
 
@@ -62,8 +64,6 @@ let validar = () => {
     } else {
         input_fechas.classList.remove('error');
     };
-
-
 
     if (input_horas.value == '') {
         error = true;
@@ -125,8 +125,8 @@ let obtener_datos = () => {
     let tipoDeEventos = input_tipoDeEventos.value;
     let lugar = input_lugar.value;
 
-    let fecha = input_fecha.value;
-    let hora = input_hora.value;
+    let fecha = input_fecha1.value;
+    let hora = input_hora2.value;
     
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
@@ -143,19 +143,21 @@ let obtener_datos = () => {
 
     } else {
         registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, imagen);
-        agregar_fecha(fecha,hora);
+        
         Swal.fire({
             type: 'success',
             title: 'Registro realizado con éxito',
-            text: 'El usuario ha sido almacenado',
+            text: 'El evento ha sido almacenado',
             confirmButtonText: 'Entendio'
         });
+        agregar_fecha(fecha, hora);
         resetForm();
+        
     }
 };
 
 var i = 2;
-let agregarFecha = () => {
+let agregarEspacioFecha = () => {
 
     let dateh4 = document.createElement('h4')
     dateh4.id = 'txt-dateh4-' + i;
@@ -179,11 +181,6 @@ let agregarFecha = () => {
     i++;
 };
 
-let llenarArregloFechas = () => {
-    for(let y = 1; y <= i; y++){
-        
-    }
-};
 
 btn_guardar.addEventListener('click', obtener_datos);
-btn_agregarFecha.addEventListener('click', agregarFecha);
+btn_agregarFecha.addEventListener('click', agregarEspacioFecha);

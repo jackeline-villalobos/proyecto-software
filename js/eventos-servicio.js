@@ -37,7 +37,7 @@ let agregar_fecha = async (fecha, hora) => {
             responseType: 'json',
             data: {
                     fecha: fecha,
-                    hora: hora
+                    hora: hora,
                 }
             })
         .then(function (res) {
