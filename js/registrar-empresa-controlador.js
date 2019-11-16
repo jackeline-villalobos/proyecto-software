@@ -8,6 +8,7 @@ const input_direccion = document.querySelector('#direcciones');
 const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
+const input_imagen = document.querySelector("#imagePreview");
 
 // Falta el logo
 
@@ -19,6 +20,7 @@ let validar = () => {
     let error = false;
     let errorCodigo;
     let validarTelefono = /^[\+]?[0-9]{4}?[-\s\.]?[0-9]{4}$/im;
+    let z2 = /^[0-9]+$/; // 1 o mas
 
 
     if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " ") {
@@ -44,6 +46,12 @@ let validar = () => {
     } else {
         input_cedulaJuridica.classList.remove("error");
     };
+    if (!z2.test(input_cedulaJuridica.value)) {
+        error = true;
+        input_cedulaJuridica.classList.add("error");
+    } else {
+        input_cedulaJuridica.classList.remove("error");
+    }
 
     if (input_telefono.value == "" || input_telefono.value.length > 9 || input_telefono.value == " ") {
         error = true;
@@ -93,10 +101,16 @@ let validar = () => {
     } else {
         input_distrito.classList.remove("error");
     };
+    /*
+    if (input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png') {
+        error = true;
+        input_imagen.classList.add('error');
+    } else {
+        input_imagen.classList.remove('error');
+    };
+    */
 
     return error;
-
-
 
 };
 
@@ -110,6 +124,7 @@ let resetForm = () => {
     input_provincia.value = '';
     input_canton.value = '';
     input_distrito.value = '';
+    input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
 let obtener_datos = () => {
 
@@ -121,7 +136,7 @@ let obtener_datos = () => {
     let provincia = input_provincia.value;
     let canton = input_canton.value;
     let distrito = input_distrito.value;
-
+    let imagen = imagePreview.src;
 
 
     if (validar()) {
@@ -136,7 +151,7 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito);
+        registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen);
 
         Swal.fire({
             icon: 'success',

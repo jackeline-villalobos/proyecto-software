@@ -20,6 +20,7 @@ const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
 
+
 // Falta la geolocalizacion
 
 
@@ -35,7 +36,7 @@ let validar = () => {
 
 
 
-    if (input_nombreRecinto.value == "" || input_nombreRecinto.value == " ") {
+    if (input_nombreRecinto.value == "" || input_nombreRecinto.value == " " || input_nombreRecinto.value == 0) {
         error = true;
         input_nombreRecinto.classList.add("error");
         errorCodigo = 1;
@@ -43,7 +44,7 @@ let validar = () => {
         input_nombreRecinto.classList.remove("error");
     };
 
-    if (input_capacidad.value == "" || input_capacidad.value == " ") {
+    if (input_capacidad.value == "" || input_capacidad.value == " " || input_capacidad.value == 0) {
         error = true;
         input_capacidad.classList.add("error");
         errorCodigo = 2;
@@ -68,8 +69,16 @@ let validar = () => {
         input_capacidadDiscapacitado.classList.remove("error");
     }
 
+    // Valida si capacidad > capacidadDiscapacitados
+    if (input_capacidad < input_capacidadDiscapacitado) {
+        error = true;
+        input_capacidad.classList.add("error");
+        errorCodigo = 2;
+    } else {
+        input_capacidad.classList.remove("error");
+    }
 
-    if (input_direccion.value == "" || input_direccion.value == " ") {
+    if (input_direccion.value == "" || input_direccion.value == " " || input_direccion.value == 0) {
         error = true;
         input_direccion.classList.add("error");
         errorCodigo = 5;
@@ -77,7 +86,7 @@ let validar = () => {
         input_direccion.classList.remove("error");
     };
 
-    if (input_provincia.value == "" || input_provincia.value == " ") {
+    if (input_provincia.value == "" || input_provincia.value == " " || input_provincia.value == 0) {
         error = true;
         input_provincia.classList.add("error");
         errorCodigo = 6;
@@ -85,7 +94,7 @@ let validar = () => {
         input_provincia.classList.remove("error");
     };
 
-    if (input_canton.value == "" || input_canton.value == " ") {
+    if (input_canton.value == "" || input_canton.value == " " || input_canton.value == 0) {
         error = true;
         input_canton.classList.add("error");
         errorCodigo = 7;
@@ -93,7 +102,7 @@ let validar = () => {
         input_canton.classList.remove("error");
     };
 
-    if (input_distrito.value == "" || input_distrito.value == " ") {
+    if (input_distrito.value == "" || input_distrito.value == " " || input_distrito.value == 0) {
         error = true;
         input_distrito.classList.add("error");
         errorCodigo = 8;

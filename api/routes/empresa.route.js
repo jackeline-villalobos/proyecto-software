@@ -17,6 +17,7 @@ router.post('/registrar-empresa', function(req, res) {
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
+        imagen: body.imagen,
 
         estado: "activo"
     });

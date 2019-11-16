@@ -1,6 +1,6 @@
 "use strict";
 
-let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito) => {
+let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen) => {
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-empresa',
@@ -14,6 +14,7 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
                 provincia: provincia,
                 canton: canton,
                 distrito: distrito,
+                imagen: imagen
 
 
             }

@@ -32,12 +32,16 @@ cédula jurídica,
 }
 
 .subir-logoEmpresa #img-avatarPlaceholder {
-    background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);
+    /*background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);*/
     background-size: 200px;
     width: auto;
     background-repeat: no-repeat;
     margin-left: 35px;
     margin-bottom: 20px;
+}
+
+#imagePreview {
+    width: 250px;
 }
 
 .btnSeleccionarImagen {

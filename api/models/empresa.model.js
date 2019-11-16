@@ -13,6 +13,7 @@ const empresaSchema = new mongoose.Schema(
         provincia: { type: String, required: true, unique: false },
         canton: { type: String, required: true, unique: false },
         distrito: { type: String, required: true, unique: false },
+        imagen: { type: String, required: false, unique: false },
 
         estado: { type: String, required: true, unique: false }
     }
