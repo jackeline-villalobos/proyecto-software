@@ -60,18 +60,18 @@ let validar = (direccionCorreo, contrasenna) => {
 
     if (direccionCorreo == 0) {
         error = true;
-        inputDireccionCorreo.classList.add('errorInput');
+        inputDireccionCorreo.classList.add('error');
 
     } else {
-        inputDireccionCorreo.classList.remove('errorInput');
+        inputDireccionCorreo.classList.remove('error');
     }
 
     if (contrasenna == 0) {
         error = true;
-        inputContrasenna.classList.add('errorInput');
+        inputContrasenna.classList.add('error');
     
     } else {
-        inputContrasenna.classList.remove('errorInput');
+        inputContrasenna.classList.remove('error');
     }
 
 
@@ -79,10 +79,10 @@ let validar = (direccionCorreo, contrasenna) => {
 
     if(revisarCorreo.test(inputDireccionCorreo.value) == false){
         error = true;  
-        inputDireccionCorreo.classList.add('errorInput');
+        inputDireccionCorreo.classList.add('error');
         
     }else{
-        inputDireccionCorreo.classList.remove('errorInput');
+        inputDireccionCorreo.classList.remove('error');
     }
 
     return error;
