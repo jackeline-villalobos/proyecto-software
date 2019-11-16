@@ -7,7 +7,7 @@ const btnGuardar = document.querySelector('#btn-guardar');
 let validar = () => {
     let error = false;
 
-    if(inputNumeroTarjeta.value == 0) {
+    if(inputNumeroTarjeta.value.length > 16) {
         error = true;
         inputNumeroTarjeta.classList.add('error');
     } else {
@@ -21,7 +21,7 @@ let validar = () => {
         inputFechaExpiracion.classList.remove('error');
     } 
 
-    if(inputCodigoSeguridad.value == 0) {
+    if(inputCodigoSeguridad.value.length > 4) {
         error = true;
         inputCodigoSeguridad.classList.add('error');
     } else {
@@ -42,7 +42,7 @@ let obtenerDatos = () => {
 
         Swal.fire({
             icon: 'warning',
-            title: 'Algunos campos se encuentran en rojo',
+            title: 'Algunos campos son incorrectos',
             text: 'Por favor, inténtelo de nuevo',
             confirmButtonText: 'Ententido'
         });
@@ -65,5 +65,4 @@ let obtenerDatos = () => {
 
 
 btnGuardar.addEventListener('click', obtenerDatos);
-
 
