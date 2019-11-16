@@ -121,7 +121,7 @@ let validar = () => {
 
     return error
 
-    //Validaciones de provincia cantones distritos y direccion
+    
 };
 
 
@@ -137,7 +137,7 @@ let obtener_datos = async () => {
     let canton = slt_cantones.value;
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
-    //let contrasenna;
+    let contrasenna;
     let imagen = imagePreview.src;
 
     if (validar()) {
