@@ -31,12 +31,12 @@ let validar = () => {
     };
 
 
-    if (input_segundoNombre.value == '') {
+    /*if (input_segundoNombre.value == '') {
         error = true;
         input_segundoNombre.classList.add('error');
     } else {
         input_segundoNombre.classList.remove('error');
-    };
+    };*/
 
 
     if (input_primerApellido.value == '') {
@@ -47,12 +47,12 @@ let validar = () => {
     };
 
 
-    if (input_segundoApellido.value == '') {
+    /*if (input_segundoApellido.value == '') {
         error = true;
         input_segundoApellido.classList.add('error');
     } else {
         input_segundoApellido.classList.remove('error');
-    };
+    };*/
 
 
     if (input_correo.value == '') {
