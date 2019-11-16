@@ -48,7 +48,7 @@ let obtenerDatos = () => {
         });
     } else {
 
-        registrarTarjeta(numeroTarjeta, fechaExpiracion, codigoSeguridad);
+        registrarTarjeta(_id ,numeroTarjeta, fechaExpiracion, codigoSeguridad);
 
         Swal.fire({
             icon: 'success',
