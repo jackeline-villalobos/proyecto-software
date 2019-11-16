@@ -77,6 +77,11 @@ form input {
     margin-top: 17px;
 }
 
+form select {
+    margin-top: 17px;
+    margin-bottom: 0px;
+}
+
 #btn-registrar {
     margin-top: 30px;
     margin-left: 25%;
