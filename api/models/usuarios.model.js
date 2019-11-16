@@ -17,7 +17,7 @@ const usuarioSchema = new mongoose.Schema(
     distrito: { type: String, required: true, unique: false },
     direccion: { type: String, required: true, unique: false },
     estado: { type: String, required: true },
-    /*contrasenna: {type: String, required: false, unique: false},*/
+    contrasenna: {type: String, required: false, unique: false},
     tarjeta:[
         {
             marca: {type: String, required: false, unique: false},

@@ -40,7 +40,7 @@ let listarImpuestos = async() => {
     })
     .catch(function(error){
         console.log(error);
-    })
+    });
 
     return listaImpuestos;
 

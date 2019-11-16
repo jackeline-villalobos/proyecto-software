@@ -22,8 +22,8 @@ router.post('/registrar-usuario', function (req, res) {
         distrito: body.distrito,
         direccion: body.direccion,
         imagen: req.body.imagen,
-        estado: "activo"
-        //contrasenna: "abc"
+        estado: "activo",
+        contrasenna: "abcdef"
 
     });
 
@@ -56,7 +56,7 @@ router.get('/listar-usuarios', function (req, res) {
         } else {
             res.json({
                 resultado: true,
-                usuariosBD
+                usuarios: usuariosBD
             })
         };
 
