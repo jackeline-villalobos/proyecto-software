@@ -35,4 +35,23 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
 
 };
 
+let listarUsuarios = async() => {
+
+    let listaUsuarios;
+    await axios({
+        method : 'get',
+        url : 'http://localhost:3000/api/listar-usuarios',
+        responseType: 'json'
+    })
+    .then(function(res) {
+        console.log(res.data);
+        listaUsuarios = res.data.usuarios;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return listaUsuarios;
+}
+
     

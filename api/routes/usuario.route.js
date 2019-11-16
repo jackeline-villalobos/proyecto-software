@@ -56,7 +56,7 @@ router.get('/listar-usuarios', function (req, res) {
         } else {
             res.json({
                 resultado: true,
-                usuariosBD
+                usuarios: usuariosBD
             })
         };
 
