@@ -3,6 +3,7 @@ const express = require("express");
 const body_parser = require("body-parser");
 const cors = require('cors');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 

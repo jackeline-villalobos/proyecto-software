@@ -30,7 +30,6 @@ let validar = () => {
         input_primerNombre.classList.remove('error');
     };
 
-
     /*if (input_segundoNombre.value == '') {
         error = true;
         input_segundoNombre.classList.add('error');
@@ -137,7 +136,6 @@ let obtener_datos = async () => {
     let canton = slt_cantones.value;
     let distrito = slt_distritos.value;
     let direccion = input_direccion.value;
-    let contrasenna;
     let imagen = imagePreview.src;
 
     if (validar()) {
@@ -159,7 +157,7 @@ let obtener_datos = async () => {
                 confirmButtonText: 'Entendido'
             });
 
-        } else {
+        } else{
 
             Swal.fire({
                 type: 'success',
@@ -171,8 +169,6 @@ let obtener_datos = async () => {
                     location.href = 'perfil-usuario.html';
                 }
             });
-
-
 
             input_primerNombre.value = '';
             input_segundoNombre.value = '';
