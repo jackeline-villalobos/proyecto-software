@@ -29,6 +29,12 @@ let validar = () => {
     let error = false;
     let errorCodigo = 0;
 
+    let z1 = /^[0-9]*$/; // 0 o mas
+    let z2 = /^[0-9]+$/; // 1 o mas
+
+
+
+
     if (input_nombreRecinto.value == "" || input_nombreRecinto.value == " ") {
         error = true;
         input_nombreRecinto.classList.add("error");
@@ -44,6 +50,24 @@ let validar = () => {
     } else {
         input_capacidad.classList.remove("error");
     };
+
+    if (!z2.test(input_capacidad.value)) {
+        error = true;
+        input_capacidad.classList.add("error");
+        errorCodigo = 2;
+
+    } else {
+        input_capacidad.classList.remove("error");
+    }
+
+    if (!z1.test(input_capacidadDiscapacitado.value)) {
+        error = true;
+        input_capacidadDiscapacitado.classList.add("error");
+        errorCodigo = 2;
+    } else {
+        input_capacidadDiscapacitado.classList.remove("error");
+    }
+
 
     if (input_direccion.value == "" || input_direccion.value == " ") {
         error = true;
