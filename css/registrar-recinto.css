@@ -31,7 +31,7 @@ cédula jurídica,
     grid-template-rows: 50% 50%;
 }
 
-.subir-logoEmpresa #img-avatarPlaceholder {
+.subir-logoEmpresa #geolocalizacion-recinto {
     background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);
     background-size: 200px;
     width: auto;
