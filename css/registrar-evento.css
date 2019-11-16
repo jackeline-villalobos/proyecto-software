@@ -24,11 +24,14 @@ header{
     grid-column-start: 1;
     justify-self: center;
 }
-.form-registrar-evento div input{
-    width: 100%;
+.form-registrar-evento input{
+    width: 70%;
+}
+#btn-agregarFecha{
+    margin-bottom: 10px;
 }
 .form-registrar-evento div textarea{
-    width: 100%;
+    width: 70%;
     margin-bottom: 10px;
     border-radius: 10px;
     min-height: 50px;

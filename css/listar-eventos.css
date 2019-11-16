@@ -1,0 +1,18 @@
+.contenedorCards{
+    display: flow-root;
+    padding-top: 40px;
+}
+
+.card{
+    background: #bdc3c7;
+    border: 2px solid #ecf0f1;
+    max-width: 23%;
+    margin: 0px 1% 0px 1%;
+    float: left;
+    box-sizing: border-box;
+}
+.card header{
+    height: 150px;
+    background-image: url(../img/outlined_placeholder-512.png);
+    background-size: cover;
+}

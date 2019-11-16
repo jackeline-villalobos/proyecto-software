@@ -12,8 +12,8 @@ const eventoSchema = new mongoose.Schema(
         cantidadAsistentes: { type: String, required: true, unique: false },
         fechas: [
                 {
-                 fecha : {type: Date, required: true, unique: false},
-                 hora : {type: Date, required: true, unique: false},
+                 fecha : {type: String, required: true, unique: false},
+                 hora : {type: String, required: true, unique: false},
                 }
             ],
         precioEntrada: { type: String, required: true, unique: false },

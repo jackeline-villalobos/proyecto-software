@@ -41,28 +41,38 @@ router.post('/registrar-evento', function (req, res) {
 
 });
 router.post('/agregar-fecha', function (req, res) {
-     Evento.update({ _id: req.body._id }, {
-         $push: {
-             'fechas': {
-                 fecha : req.body.fecha,
-                 hora : req.body.hora,
-             }
-     }
-   },
-     function (error) {
-         if (error) {
-             res.json({
-                 resultado: false,
-                 msg: 'La fecha no se pudo registrar',
-             });
-         } else {
-             res.json({
-                 resultado: true,
-                 msg: 'Se agregó correctamente la fecha'
-             });
-         }
-     }
- )
- });
+    
+    if (req.body._id) {
+        Evento.update({ _id: req.body._id }, {
+            $push: {
+                'fechas': {
+                    fecha: req.body.fecha,
+                    hora: req.body.hora,
+                }
+            }
+        },
+            function (error) {
+                if (error) {
+                    return res.json({
+                        resultado: false,
+                        msg: 'La fecha no se pudo registrar',
+                    });
+                } else {
+                    return res.json({
+                        resultado: true,
+                        msg: 'Se agregó correctamente la fecha'
+                    });
+                }
+            }
+        )
+    }else{
+        return res.json({
+            success: false,
+            msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto'
+
+        });
+    }
+
+});
 
 module.exports = router;
