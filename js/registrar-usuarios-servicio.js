@@ -1,7 +1,9 @@
 'use strict';
 
-let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero,provincia, canton, distrito, direccion, imagen, contrasenna) => {
+let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero,provincia, canton, distrito, direccion,imagen) => {
     let resultado;
+    let pcontrasenna = generarContrasena();
+
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar-usuario',
@@ -18,8 +20,8 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
             canton: canton,
             distrito: distrito,
             direccion: direccion,
-            imagen : imagen,
-            contrasenna: contrasenna
+            contrasenna: pcontrasenna,
+            imagen : imagen
         }
     })
 
@@ -34,6 +36,29 @@ let registrar_usuario = async(primerNombre, segundoNombre, primerApellido, segun
     return resultado;
 
 };
+
+
+
+function generarContrasena(){
+    let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let caracterEspecial = ['!', '@', '#', '$', '%', '=', '&', '*', '?', '_'];
+    // 1 mayúscula
+    let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] + 
+    // 5 minúsculas
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] +
+    // 1 número
+    [Math.floor((Math.random() * 33) + 1)] + 
+    // 1 caracter especial
+    caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
+
+    return contrasena;
+};
+
 
 let listarUsuarios = async() => {
 
@@ -54,4 +79,3 @@ let listarUsuarios = async() => {
     return listaUsuarios;
 }
 
-    
