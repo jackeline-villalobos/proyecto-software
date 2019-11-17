@@ -27,3 +27,21 @@ let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados,
         });
 
 };
+
+let listarRecintos = async() => {
+    let listaRecintos;
+
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-recintos',
+        responseType: 'json'
+    })
+    .then(function(res){
+        listaRecintos = res.data.recintosBD;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return listaRecintos;
+}
