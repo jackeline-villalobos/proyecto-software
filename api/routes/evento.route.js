@@ -75,4 +75,28 @@ router.post('/agregar-fecha', function (req, res) {
 
 });
 
+router.post('/agregar-descuento', function(req, res){
+    Evento.update({_id: req.body._id}, {
+       $push: {
+        'descuentos': {
+            nombre: req.body.nombre,
+            porcentaje: req.body.porcentaje
+        }
+       } 
+    }, function(err){
+        if(err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo agregar el descuento',
+                err 
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se agregó el descuento correctamente'
+            });
+        }
+    });
+});
+
 module.exports = router;
