@@ -28,12 +28,13 @@
 
         <div class="subir-logoEmpresa">
 
-            <div id="geolocalizacion-recinto">
+            <div id="geolocalizacion-recinto" height="400px" width="100%">
 
             </div>
 
             <div>
-                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir logo</button>
+                <input type="text" id="latitud" placeholder="Latitud">
+                <input type="text" id="longitud" placeholder="Longitud">
             </div>
         </div>
 
@@ -130,6 +131,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap" type="text/javascript"></script>
 
     <!-- js -->
     <script src="js/imagen-servicio.js"></script>

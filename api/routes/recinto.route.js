@@ -18,6 +18,9 @@ router.post('/registrar-recinto', function(req, res) {
         canton: body.canton,
         distrito: body.distrito,
 
+        latitud: body.latitud,
+        longitud: body.longitud,
+
         estado: "activo"
     });
 

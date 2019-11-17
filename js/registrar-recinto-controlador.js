@@ -20,6 +20,9 @@ const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
 
+const input_latitud = document.querySelector("#latitud");
+const input_longitud = document.querySelector("#longitud");
+
 
 // Falta la geolocalizacion
 
@@ -78,6 +81,7 @@ let validar = () => {
         input_capacidad.classList.remove("error");
     }
 
+
     if (input_direccion.value == "" || input_direccion.value == " " || input_direccion.value == 0) {
         error = true;
         input_direccion.classList.add("error");
@@ -126,6 +130,8 @@ let resetForm = () => {
     input_provincia.value = '';
     input_canton.value = '';
     input_distrito.value = '';
+    input_latitud = "";
+    input_longitud = "";
 };
 let obtener_datos = () => {
 
@@ -137,6 +143,9 @@ let obtener_datos = () => {
     let provincia = input_provincia.value;
     let canton = input_canton.value;
     let distrito = input_distrito.value;
+
+    let latitud = input_latitud.value;
+    let longitud = input_longitud.value;
 
 
 
@@ -152,7 +161,7 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, direccion, provincia, canton, distrito);
+        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, direccion, provincia, canton, distrito, latitud, longitud);
 
         Swal.fire({
             icon: 'success',
