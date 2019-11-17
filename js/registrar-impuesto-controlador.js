@@ -58,7 +58,7 @@ let obtenerDatos = async () => {
 
             Swal.fire({
                 icon: 'warning',
-                title: 'El impuesto ya existe en el sistema',
+                title: 'El impuesto no ha podido registrarse correctamente',
                 confirmButtonText: 'Entendido'
             })
 
