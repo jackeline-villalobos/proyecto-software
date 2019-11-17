@@ -19,7 +19,6 @@ cédula jurídica,
 }
 
 .grid-central form {
-    border-radius: 10px;
     margin-left: 20%;
     height: 350px;
 }
@@ -70,12 +69,16 @@ h5 {
 
 form {
     width: 50%;
-    border: 1px solid black;
     margin: auto;
     padding: 1% 0;
     text-align: center;
     margin-bottom: 30px;
     height: 100% !important;
+}
+
+.formulario {
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 form input {
@@ -84,9 +87,15 @@ form input {
     margin-top: 17px;
 }
 
+form select {
+    margin-top: 17px;
+    margin-bottom: 0px;
+}
+
 #btn-registrar {
     margin-top: 30px;
     margin-left: 25%;
+    margin-bottom: 15px;
     width: 50%;
     padding: 1% 0;
     text-align: center;

@@ -12,7 +12,7 @@ const recintoSchema = new mongoose.Schema(
         provincia: { type: String, required: true, unique: false },
         canton: { type: String, required: true, unique: false },
         distrito: { type: String, required: true, unique: false },
-        imagen: { type: String, required: false, unique: false },
+        imagen: { type: String, required: true, unique: false },
         latitud: { type: Number },
         longitud: { type: Number },
 
