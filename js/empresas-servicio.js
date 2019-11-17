@@ -1,6 +1,6 @@
 "use strict";
 
-let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito, imagen) => {
+let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
     let error;
 
     await axios({
@@ -12,11 +12,14 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
                 razonSocial: razonSocial,
                 cedulaJuridica: cedulaJuridica,
                 telefono: telefono,
+                correo: correo,
                 direccion: direccion,
                 provincia: provincia,
                 canton: canton,
                 distrito: distrito,
-                imagen: imagen
+                imagen: imagen,
+                latitud: latitud,
+                longitud: longitud
 
 
             }

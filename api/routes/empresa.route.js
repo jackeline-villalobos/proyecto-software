@@ -13,11 +13,14 @@ router.post('/registrar-empresa', function(req, res) {
         razonSocial: body.razonSocial,
         cedulaJuridica: body.cedulaJuridica,
         telefono: body.telefono,
+        correo: body.correo,
         direccion: body.direccion,
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
         imagen: body.imagen,
+        latitud: body.latitud,
+        longitud: body.longitud,
 
         estado: "activo"
     });
