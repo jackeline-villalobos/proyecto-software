@@ -12,6 +12,7 @@ router.post('/registrar-recinto', function(req, res) {
         nombreRecinto: body.nombreRecinto,
         capacidad: body.capacidad,
         capacidadDiscapacitados: body.capacidadDiscapacitados,
+        correoEncargado: body.correoEncargado,
 
         direccion: body.direccion,
         provincia: body.provincia,

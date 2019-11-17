@@ -1,6 +1,6 @@
 "use strict";
 
-let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
+let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-recinto',
@@ -9,6 +9,7 @@ let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados,
                 nombreRecinto: nombreRecinto,
                 capacidad: capacidad,
                 capacidadDiscapacitados: capacidadDiscapacitados,
+                correoEncargado: correoEncargado,
                 direccion: direccion,
                 provincia: provincia,
                 canton: canton,

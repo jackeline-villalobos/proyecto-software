@@ -14,6 +14,7 @@ Capacidad (cantidad asientos tradicionales + discapacidados)
 const input_nombreRecinto = document.querySelector('#txt-nombreRecinto');
 const input_capacidad = document.querySelector('#txt-capacidad');
 const input_capacidadDiscapacitado = document.querySelector('#txt-capacidadDiscapacitado');
+const input_correoEncargado = document.querySelector("#correo-encargado");
 
 const input_direccion = document.querySelector('#direcciones');
 const input_provincia = document.querySelector('#provincias');
@@ -37,6 +38,8 @@ let validar = () => {
 
     let z1 = /^[0-9]*$/; // 0 o mas
     let z2 = /^[0-9]+$/; // 1 o mas
+
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
 
 
@@ -81,6 +84,12 @@ let validar = () => {
         errorCodigo = 2;
     } else {
         input_capacidad.classList.remove("error");
+    }
+    if (revisar_correo.test(input_correoEncargado.value) == false) {
+        error = true;
+        input_correoEncargado.classList.add('error');
+    } else {
+        input_correoEncargado.classList.remove('error');
     }
 
 
@@ -136,6 +145,7 @@ let resetForm = () => {
     input_nombreRecinto.value = '';
     input_capacidad.value = '';
     input_capacidadDiscapacitado.value = "";
+    input_correoEncargado.value = "";
 
     input_direccion.value = '';
     input_provincia.value = '';
@@ -150,6 +160,7 @@ let obtener_datos = () => {
     let nombreRecinto = input_nombreRecinto.value;
     let capacidad = input_capacidad.value;
     let capacidadDiscapacitado = input_capacidadDiscapacitado.value;
+    let correoEncargado = input_correoEncargado.value;
 
     let direccion = input_direccion.value;
     let provincia = input_provincia.value;
@@ -175,7 +186,7 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
+        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
 
         Swal.fire({
             icon: 'success',
