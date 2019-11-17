@@ -1,6 +1,6 @@
 "use strict";
 
-let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, direccion, provincia, canton, distrito, latitud, longitud) => {
+let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-recinto',
@@ -13,6 +13,7 @@ let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados,
                 provincia: provincia,
                 canton: canton,
                 distrito: distrito,
+                imagen: imagen,
                 latitud: latitud,
                 longitud: longitud
             }
@@ -32,16 +33,16 @@ let listarRecintos = async() => {
     let listaRecintos;
 
     await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-recintos',
-        responseType: 'json'
-    })
-    .then(function(res){
-        listaRecintos = res.data.recintosBD;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+            method: 'get',
+            url: 'http://localhost:3000/api/listar-recintos',
+            responseType: 'json'
+        })
+        .then(function(res) {
+            listaRecintos = res.data.recintosBD;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 
     return listaRecintos;
 }

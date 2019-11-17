@@ -24,15 +24,26 @@ cédula jurídica,
     height: 350px;
 }
 
-.subir-logoEmpresa {
+.grid-izquierda {
+    display: grid;
     margin-left: 50%;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+}
+
+#img-avatarPlaceholder {
+    height: 100px;
+    width: auto;
+}
+
+.mapa {
+    margin-left: 0;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50% 50%;
 }
 
-.subir-logoEmpresa #geolocalizacion-recinto {
-    /*background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);*/
+.mapa #geolocalizacion-recinto {
     background-size: 200px;
     width: auto;
     background-repeat: no-repeat;

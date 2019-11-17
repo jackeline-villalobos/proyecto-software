@@ -17,6 +17,7 @@ router.post('/registrar-recinto', function(req, res) {
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
+        imagen: body.imagen,
 
         latitud: body.latitud,
         longitud: body.longitud,

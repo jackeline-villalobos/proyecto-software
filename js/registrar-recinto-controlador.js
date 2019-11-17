@@ -19,6 +19,7 @@ const input_direccion = document.querySelector('#direcciones');
 const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
+const input_imagen = document.querySelector('#imagePreview');
 
 let input_latitud = document.querySelector("#latitud");
 let input_longitud = document.querySelector("#longitud");
@@ -133,6 +134,7 @@ let resetForm = () => {
     input_distrito.value = '';
     input_latitud = "";
     input_longitud = "";
+    input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
 let obtener_datos = () => {
 
@@ -144,6 +146,7 @@ let obtener_datos = () => {
     let provincia = input_provincia.value;
     let canton = input_canton.value;
     let distrito = input_distrito.value;
+    let imagen = imagePreview.src;
 
     let latitud = input_latitud.value;
     let longitud = input_longitud.value;
@@ -163,7 +166,7 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, direccion, provincia, canton, distrito, latitud, longitud);
+        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
 
         Swal.fire({
             icon: 'success',
