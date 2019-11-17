@@ -116,6 +116,15 @@ let validar = () => {
         input_distrito.classList.remove("error");
     };
 
+    if (input_imagen == 0) {
+        error = true;
+        input_imagen.classList.add("error");
+
+    } else {
+        input_imagen.classList.remove("error");
+    }
+
+
     return error;
 
 
