@@ -61,5 +61,22 @@ router.get('/listar-recintos', function(req, res) {
     });
 });
 
+router.get('/buscar-encargado', function(req, res){
+    Encargado.find(function(err, encargadosBD) {
+        if(err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron encargados',
+                err                
+            });
+        } else {
+           res.json({
+                resultado: true,
+                encargados: encargadosBD
+           });
+        }
+    });
+});
+
 
 module.exports = router;

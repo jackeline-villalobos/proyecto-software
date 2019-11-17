@@ -2,6 +2,19 @@
 
 let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
     let resultado;
+
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/buscar-encargado',
+        responseType: 'json'
+    })
+    .then(function(res){
+        console.log(res.data);
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
     await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-recinto',
@@ -50,4 +63,4 @@ let listarRecintos = async() => {
         });
 
     return listaRecintos;
-}
+};
