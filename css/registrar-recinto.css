@@ -32,7 +32,7 @@ cédula jurídica,
 }
 
 .subir-logoEmpresa #geolocalizacion-recinto {
-    background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);
+    /*background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);*/
     background-size: 200px;
     width: auto;
     background-repeat: no-repeat;

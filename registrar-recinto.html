@@ -28,13 +28,16 @@
 
         <div class="subir-logoEmpresa">
 
-            <div id="geolocalizacion-recinto" height="400px" width="100%">
+            <div id="map" style="height:300px; width:400px">
+                <script src="js/geolocalizacion.js"></script>>
+
 
             </div>
 
-            <div>
+            <div style="margin-top:100px">
                 <input type="text" id="latitud" placeholder="Latitud">
                 <input type="text" id="longitud" placeholder="Longitud">
+                <button type="button" id="coordenadas">Ubicar</button>
             </div>
         </div>
 
@@ -136,6 +139,7 @@
     <!-- js -->
     <script src="js/imagen-servicio.js"></script>
     <script src="js/lugares_ubicaciones.js"></script>
+    <!---<script src="js/geolocalizacion.js"></script>-->
     <script src="js/registrar-recinto-controlador.js"></script>
     <script src="js/recinto-servicio.js"></script>
 

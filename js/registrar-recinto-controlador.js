@@ -20,9 +20,10 @@ const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
 
+/*
 const input_latitud = document.querySelector("#latitud");
 const input_longitud = document.querySelector("#longitud");
-
+*/
 
 // Falta la geolocalizacion
 
