@@ -155,7 +155,7 @@ let resetForm = () => {
     input_longitud = "";
     input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
-let obtener_datos = () => {
+let obtener_datos = async () => {
 
     let nombreRecinto = input_nombreRecinto.value;
     let capacidad = input_capacidad.value;
@@ -186,14 +186,23 @@ let obtener_datos = () => {
 
     } else {
 
-        registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
+        let error = await registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
 
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro realizado con éxito',
-            text: 'El recinto ha sido almacenado',
-            confirmButtonText: 'OK'
-        });
+        if (error.resultado == false) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'El recinto no ha podido registrarse correctamente',
+                confirmButtonText: 'Entendido'
+            })
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El recinto ha sido almacenado',
+                confirmButtonText: 'OK'
+            });
+        }
+        
         resetForm();
     }
 };
