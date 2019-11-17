@@ -12,12 +12,16 @@ let mostrarCards = async() => {
 
     for(let i = 0; i < listaRecintos.length; i++){
         let nombre = listaRecintos[i]['nombreRecinto'].toLowerCase();
+        let imagen = listaRecintos[i]['imagen'];
         if(nombre.includes(filtro)) {
             let divCard = document.createElement('div');
             divCard.classList.add('card');
 
             let header = document.createElement('header');
-            header.style.backgroundImage = "url('../imagenes/Registrar-evento/outlined_placeholder-512.png')";
+            header.style.backgroundImage = 'url, (`${imagen}`)';
+            console.log(imagen);
+            let img = document.createElement('img');
+            img.src = `${imagen}`;            
 
             let titulo = document.createElement('h2');
             titulo.innerText = listaRecintos[i]['nombreRecinto'];
@@ -40,6 +44,7 @@ let mostrarCards = async() => {
 
             contenedor.appendChild(divCard);
             divCard.appendChild(header);
+            header.appendChild(img);
             divCard.appendChild(titulo);
             divCard.appendChild(provincia);
             divCard.appendChild(capacidad);
