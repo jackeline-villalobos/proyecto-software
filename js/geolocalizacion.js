@@ -1,43 +1,28 @@
-const input_latitud = document.querySelector("#latitud");
-const input_longitud = document.querySelector("#longitud");
-
-const btnCoordenadas = document.querySelector("#coordenadas");
-
-
-let latitud = input_latitud.value;
-let longitud = input_longitud.value;
-
+/*
+Coordenadas San Jose
+lat: 9.9333296
+lng: -84.0833282
+*/
 
 
 // Initialize and add the map
 function initMap() {
 
+    let input_latitud = document.querySelector("#latitud");
+    let input_longitud = document.querySelector("#longitud");
 
-    // The location of Uluru
-    var uluru = { lat: 9.9281, lng: 84.0907 };
-    // The map, centered at Uluru
+    // Convierte los inputs en Floats
+    var latitud = parseFloat(input_latitud.value);
+    var longitud = parseFloat(input_longitud.value);
+
+    // Obicacion de las coordenadas
+    var locacion = { lat: latitud, lng: longitud };
+    // El mapa centrado en las coordenadas
     var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 4, center: uluru });
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({ position: uluru, map: map });
+        document.getElementById('map'), { zoom: 7, center: locacion });
+    // El pin centrado en las coordenadas
+    var marker = new google.maps.Marker({ position: locacion, map: map });
 
+    return locacion;
 
 }
-
-btnCoordenadas.addEventListener('click', initMap);
-
-/*
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(latitud, longitud),
-        map: map,
-    });
-
-    function myMap(latitud, longitud) {
-        var mapProp = {
-            center: new google.maps.LatLng(latitud, longitud),
-            zoom: 5,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    }
-
-    */

@@ -20,15 +20,15 @@ const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
 
-/*
-const input_latitud = document.querySelector("#latitud");
-const input_longitud = document.querySelector("#longitud");
-*/
+let input_latitud = document.querySelector("#latitud");
+let input_longitud = document.querySelector("#longitud");
 
-// Falta la geolocalizacion
-
+const btnCoordenadas = document.querySelector("#coordenadas");
 
 const btn_guardar = document.querySelector('#btn-registrar');
+
+
+
 
 let validar = () => {
     let error = false;
@@ -147,6 +147,7 @@ let obtener_datos = () => {
 
     let latitud = input_latitud.value;
     let longitud = input_longitud.value;
+    var locacion;
 
 
 
@@ -175,3 +176,4 @@ let obtener_datos = () => {
 };
 
 btn_guardar.addEventListener('click', obtener_datos);
+btnCoordenadas.addEventListener('click', initMap);

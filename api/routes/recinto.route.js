@@ -42,9 +42,9 @@ router.post('/registrar-recinto', function(req, res) {
         });
 });
 
-router.get('/listar-recintos', function(req, res){
-    Recinto.find(function(err, recintosBD){
-        if(err){
+router.get('/listar-recintos', function(req, res) {
+    Recinto.find(function(err, recintosBD) {
+        if (err) {
             res.json({
                 resultado: false,
                 msg: 'No se encontraron recintos',
@@ -53,7 +53,7 @@ router.get('/listar-recintos', function(req, res){
         } else {
             res.json({
                 resultado: true,
-                recintosBD  
+                recintosBD
             });
         }
     });
