@@ -20,26 +20,33 @@
 
 <body>
     <header>
-        <div><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></div>
+        <div><a href=”index.html” ><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a></div>
         <div class="botones-header">
-            <button type="button">Iniciar sesión</button>
+            <div class="buscar">
+                <input type="search" class="input-buscar" placeholder="Buscar evento">
+                <button type="button" id="btn-buscar">Buscar</button>
+            </div>
+            <!-- <button type="button">Iniciar sesión</button> -->
             <button type="button" class="btn-registrarse">Registrarse</button>
         </div>
     </header>
 
 
     <main>
-        <img src="imagenes/imagenes_iniciar_sesion/photo_2019-11-10_14-42-28.jpg" class="imagen-morat">
+        <!-- <div class="contenedorMain"> -->
+            <img src="imagenes/imagenes_iniciar_sesion/photo_2019-11-10_14-42-28.jpg" class="imagen-morat">
 
 
-        <form>
-            <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
-            <input type="password" id="txt-contrasenna" placeholder="Contraseña">
-            <a href="#">¿Olvidaste tu contraseña?</a>
-            <label for=""><input type="checkbox" id="chbox-recordarContrasenna">Recordar contraseña</label>
-            <button type="button" id="btn-iniciarSesionConCredenciales">Iniciar sesión</button>
-
-        </form>
+            <form>
+                <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
+                <input type="password" id="txt-contrasenna" placeholder="Contraseña">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <label for=""><input type="checkbox" id="chbox-recordarContrasenna">Recordar contraseña</label>
+                <button type="button" id="btn-iniciarSesionConCredenciales">Iniciar sesión</button>
+    
+            </form>
+        <!-- </div> -->
+        
     </main>
 
     <footer>
