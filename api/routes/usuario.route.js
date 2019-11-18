@@ -23,8 +23,8 @@ router.post('/registrar-usuario', function (req, res) {
         direccion: body.direccion,
         contrasenna: body.contrasenna,
         estado: "activo",
-        imagen: req.body.imagen
-
+        imagen: req.body.imagen,
+        grado: '4'
     });
 
     nuevoUsuario.save(

@@ -27,7 +27,7 @@ const usuarioSchema = new mongoose.Schema(
         }
     ],
     imagen : {type: String, required: true},
-
+    grado: {type: String, required: false, unique: false}
 }
 );
 
