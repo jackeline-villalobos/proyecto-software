@@ -5,12 +5,22 @@ const inputTelefono = document.querySelector('#txt-telefono');
 const inputNombreCompleto = document.querySelector('#txt-nombreCompleto');
 const inputFechaDeNacimiento = document.querySelector('#txt-edad');
 const inputGenero = document.querySelector('#txt-genero');
+
 const btnRegistrar = document.querySelector('#btn-registrar');
+
 
 let validar = () => {
     let error = false;
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
     if (inputCorreoElectronico.value == 0) {
+        error = true;
+        inputCorreoElectronico.classList.add('error')
+    } else {
+        inputCorreoElectronico.classList.remove('error');
+    }
+
+    if (revisar_correo.test(inputCorreoElectronico.value) == false) {
         error = true;
         inputCorreoElectronico.classList.add('error');
     } else {
@@ -85,4 +95,3 @@ let obtenerDatos = () => {
 };
 
 btnRegistrar.addEventListener('click', obtenerDatos);
-
