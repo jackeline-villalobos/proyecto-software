@@ -118,6 +118,26 @@ let validarCredencialesControlador = async(direccionCorreo, contrasenna) =>{
              
             // })
         }
+
+        // // let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
+        // // let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
+
+        
+        // if(listaUsuarios[i].includes(direccionCorreo, contrasenna)){
+        //     inputDireccionCorreo.classList.remove('error');
+        //     usuarioAceptado = true;
+        //     // window.location.href = 'perfil-usuario.html'
+        // }else{
+        //     inputDireccionCorreo.classList.add('error');
+        //     // Swal.fire({
+        //     //     icon: 'warning',
+        //     //     title: 'Dirección de correo y/o contraseña incorrecta.',
+        //     //     text: 'Por favor escriba los datos de su cuenta correctamente.',
+        //     //     confirmButtonText: 'Entendido'
+    
+             
+        //     // })
+        // }
     }
 
     return usuarioAceptado;
