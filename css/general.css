@@ -15,6 +15,7 @@ Icono de la pestaña
 */
 
 
+
 /*HEADER*/
 
 header {
@@ -59,7 +60,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p{
     margin: 15px 0px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -84,10 +86,9 @@ h6 {
     font-size: 18px;
 }
 
-.error {
-    border: 2px solid #d63031;
+p{
+    font-size: 16px;
 }
-
 
 /*Inpust y select*/
 
@@ -150,6 +151,25 @@ button:hover,
     justify-content: center;
     margin-top: 0,5px;
     margin-left: 1px;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #F2610A;
+    color: #fff;
+    font-size: 1.0625em;
+    padding: 0 !important;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #1EBB2D;
+    color: #fff;
+    font-size: 1.0625em;
 }
 
 
@@ -220,4 +240,16 @@ footer a:hover {
 
 .error{
     border: 2px solid #d63031;
+}
+
+/*FORMULARIO*/
+
+.formulario{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px 0px;
+}
+
+#imagePreview{
+    width: 300px auto;
 }
