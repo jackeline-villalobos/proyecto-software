@@ -89,34 +89,38 @@ let validar = (direccionCorreo, contrasenna) => {
 };
 
 
-let validarCredencialesControlador = (direccionCorreo, contrasenna) =>{
+let validarCredencialesControlador = async(direccionCorreo, contrasenna) =>{
+
+    let listaUsuarios = await listarUsuarios();
 
     let usuarioAceptado = false;
 
 
-    // for(let i = 0; i<listaUsuarios.lenght; i++){
+    for(let i = 0; i<listaUsuarios.lenght; i++){
 
 
-    //     let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
-    //     let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
+        let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
+        let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
 
         
-    //     if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
-    //         inputDireccionCorreo.classList.remove('errorInput');
-    //         usuarioAceptado = true;
-    //         // window.location.href = 'perfil-usuario.html'
-    //     }else{
-    //         inputDireccionCorreo.classList.add('errorInput');
-    //         // Swal.fire({
-    //         //     icon: 'warning',
-    //         //     title: 'Dirección de correo y/o contraseña incorrecta.',
-    //         //     text: 'Por favor escriba los datos de su cuenta correctamente.',
-    //         //     confirmButtonText: 'Entendido'
+        if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
+            inputDireccionCorreo.classList.remove('error');
+            usuarioAceptado = true;
+            // window.location.href = 'perfil-usuario.html'
+        }else{
+            inputDireccionCorreo.classList.add('error');
+            // Swal.fire({
+            //     icon: 'warning',
+            //     title: 'Dirección de correo y/o contraseña incorrecta.',
+            //     text: 'Por favor escriba los datos de su cuenta correctamente.',
+            //     confirmButtonText: 'Entendido'
     
              
-    //         // })
-    //     }
-    // }
+            // })
+        }
+    }
+
+    return usuarioAceptado;
 }
 
 // let validarDireccionCorreo = (direccionCorreo) =>{
