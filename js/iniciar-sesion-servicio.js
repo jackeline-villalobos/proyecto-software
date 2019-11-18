@@ -30,15 +30,15 @@ let validarCredenciales = (correo, contrasenna) => {
 */
 
 /*
-let validarCredenciales = async(correo, contrasenna) => {
+let validarCredenciales = async(pcorreo, pcontrasenna) => {
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/validarCredenciales',
+            url: 'http://localhost:3000/api/validar-credenciales',
             responseType: 'json',
-            //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             data: {
-                correo: correo,
-                contrasenna: contrasenna
+                correo: pcorreo,
+                contrasenna: pcontrasenna
 
 
             }
@@ -46,9 +46,9 @@ let validarCredenciales = async(correo, contrasenna) => {
         .then(function(res) {
             console.log(res.data);
 
-            respuesta = response;
-            sessionStorage.setItem('conectado', response.success);
-            sessionStorage.setItem('tipoUsuario', response.usuario.tipo);
+            respuesta = res;
+            sessionStorage.setItem('conectado', res.success);
+            sessionStorage.setItem('tipoUsuario', res.usuario.tipo);
 
         })
         .catch(function(error) {
@@ -65,6 +65,7 @@ let validarCredenciales = async(correo, contrasenna) => {
 };
 
 */
+
 
 let validarCredenciales = async(correo, contrasenna) => {
     await axios({

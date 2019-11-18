@@ -159,7 +159,7 @@ let obtener_datos = () => {
 var i = 2;
 let agregarEspacioFecha = () => {
 
-    let dateh4 = document.createElement('h4')
+    let dateh4 = document.createElement('h6')
     dateh4.id = 'txt-dateh4-' + i;
     dateh4.innerText = 'Fecha ' + i;
 

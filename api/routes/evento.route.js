@@ -74,26 +74,7 @@ router.post('/agregar-fecha', function (req, res) {
     }
 
 });
-router.get('/listar-eventos', function(req, res){
 
-    Evento.find(
-        function(err, eventosBD){
-            if(err){
-                res.json({
-                    resultado: false,
-                    msg: 'No se encontraron eventos',
-                    err
-                })
-            }else{
-                res.json({
-                    resultado: true,
-                    eventos: eventosBD
-                })
-            }
-        }
-    );
-
-});
 router.post('/agregar-descuento', function(req, res){
     Evento.update({_id: req.body._id}, {
        $push: {
@@ -116,6 +97,27 @@ router.post('/agregar-descuento', function(req, res){
             });
         }
     });
+});
+
+router.get('/listar-eventos', function(req, res){
+
+    Evento.find(
+        function(err, eventoBD){
+            if(err){
+                res.json({
+                    resultado: false,
+                    msg: 'No se encontraron eventos',
+                    err
+                })
+            }else{
+                res.json({
+                    resultado: true,
+                    eventos: eventoBD
+                })
+            }
+        }
+    );
+
 });
 
 module.exports = router;
