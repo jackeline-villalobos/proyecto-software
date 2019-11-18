@@ -166,7 +166,7 @@ let obtener_datos = async() => {
                 confirmButtonText: 'Entendido',
                 costumClass: 'modal',
                 onClose: function() {
-                    location.href = 'perfil-usuario.html';
+                    location.href = 'primer-cambio-contrasenna.html';
                 }
             });
 

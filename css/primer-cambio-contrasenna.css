@@ -1,0 +1,17 @@
+p{
+    margin-bottom: 25px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin-bottom: 50px;
+}
