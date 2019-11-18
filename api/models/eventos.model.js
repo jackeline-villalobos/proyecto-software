@@ -11,19 +11,19 @@ const eventoSchema = new mongoose.Schema(
         lugar: { type: String, required: true, unique: false },
         cantidadAsistentes: { type: String, required: true, unique: false },
         fechas: [
-                {
-                 fecha : {type: String, required: true, unique: false},
-                 hora : {type: String, required: true, unique: false},
-                }
-            ],
+            {
+                fecha: { type: String, required: true, unique: false },
+                hora: { type: String, required: true, unique: false }
+            }
+        ],
         precioEntrada: { type: String, required: true, unique: false },
         descripcion: { type: String, required: true, unique: false },
         impuestos: { type: String, required: true, unique: false },
-        imagen : {type: String, required: true},
+        imagen: { type: String, required: true },
         descuentos: [
             {
-                nombre: {type: String, required: true, unique: true},
-                porcentaje: {type: Number, required: true}       
+                nombre: { type: String, required: true, unique: true },
+                porcentaje: { type: Number, required: true }
             }
         ],
         estado: { type: String, required: true, unique: false }
