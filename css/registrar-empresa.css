@@ -89,11 +89,6 @@ form {
     height: 100% !important;
 }
 
-.formulario {
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
 form input {
     display: block;
     margin: auto;

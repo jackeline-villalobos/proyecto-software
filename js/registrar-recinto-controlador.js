@@ -155,7 +155,7 @@ let resetForm = () => {
     input_longitud = "";
     input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
-let obtener_datos = async () => {
+let obtener_datos = async() => {
 
     let nombreRecinto = input_nombreRecinto.value;
     let capacidad = input_capacidad.value;
@@ -180,7 +180,7 @@ let obtener_datos = async () => {
             icon: 'warning',
             title: 'Algunos de los campos no se ingresaron correctamente.',
             text: 'Por favor, revise los campos en rojo.',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'Entendido'
         })
 
 
@@ -199,10 +199,10 @@ let obtener_datos = async () => {
                 icon: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El recinto ha sido almacenado',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'Entendido'
             });
         }
-        
+
         resetForm();
     }
 };

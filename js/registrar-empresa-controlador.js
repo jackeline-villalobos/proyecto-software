@@ -172,7 +172,7 @@ let obtener_datos = async() => {
             icon: 'warning',
             title: 'Algunos de los campos no se ingresaron correctamente.',
             text: 'Por favor, revise los campos en rojo.',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'Entendido'
         })
 
 
@@ -184,14 +184,14 @@ let obtener_datos = async() => {
                 icon: 'warning',
                 title: 'Algunos de los campos no se ingresaron correctamente.',
                 text: 'Por favor, revise los campos en rojo.',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'Entendido'
             })
         } else {
             Swal.fire({
                 icon: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El usuario ha sido almacenado',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'Entendido'
             });
         }
         resetForm();
