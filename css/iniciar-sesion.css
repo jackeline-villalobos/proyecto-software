@@ -20,8 +20,9 @@
 } */
 
 main{
-    display: flow-root;
-    padding: 26px 410px;
+    display: flex;
+    padding: 26px 0;
+    justify-content: center;
 }
 
 .imagen-morat{
