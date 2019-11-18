@@ -4,10 +4,16 @@ a {
 }
 .container-filtro {
     height: 80px;
+    margin-bottom: 2%;
 }
 
 .container-filtro input {
     margin: 2% 0 0 20%;
+}
+
+.container-filtro h1 {
+    display: inline-block;
+    margin-left: 8%;
 }
 
 #tbl-usuarios {

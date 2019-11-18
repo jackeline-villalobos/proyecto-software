@@ -35,7 +35,7 @@ let obtenerDatos = async() => {
             icon: 'warning',
             title: 'Algunos campos se encuentran vacíos o son incorrectos',
             text: 'Por favor inténtelo de nuevo',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'Entendido'
         })
 
 
@@ -48,7 +48,7 @@ let obtenerDatos = async() => {
             icon: 'success',
             title: 'Registro realizado con éxito.',
             text: 'El tipo de evento ha sido almacenado.',
-            confirmButtonText: "OK"
+            confirmButtonText: "Entendido"
         })
 
 

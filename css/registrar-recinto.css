@@ -30,11 +30,6 @@ cédula jurídica,
     grid-template-rows: 50% 50%;
 }
 
-#img-avatarPlaceholder {
-    height: 100px;
-    width: auto;
-}
-
 .mapa {
     margin-left: 0;
     display: grid;
@@ -76,11 +71,6 @@ form {
     height: 100% !important;
 }
 
-.formulario {
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
 form input {
     display: block;
     margin: auto;
@@ -109,9 +99,4 @@ form select {
     width: 50%;
     padding: 1% 0;
     text-align: center;
-}
-
-#img-avatarPlaceholder {
-    height: 300px;
-    width: auto;
 }
