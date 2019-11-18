@@ -4,12 +4,17 @@ const input_nombreEmpresa = document.querySelector('#txt-nombreEmpresa');
 const input_razonSocial = document.querySelector('#txt-razonSocial');
 const input_cedulaJuridica = document.querySelector('#txt-cedulaJuridica');
 const input_telefono = document.querySelector('#txt-telefono');
+const input_correo = document.querySelector("#txt-correo");
 const input_direccion = document.querySelector('#direcciones');
 const input_provincia = document.querySelector('#provincias');
 const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
+const input_imagen = document.querySelector("#imagePreview");
 
-// Falta el logo
+let input_latitud = document.querySelector("#latitud");
+let input_longitud = document.querySelector("#longitud");
+
+const btnCoordenadas = document.querySelector("#coordenadas");
 
 
 const btn_guardar = document.querySelector('#btn-registrar');
@@ -19,9 +24,11 @@ let validar = () => {
     let error = false;
     let errorCodigo;
     let validarTelefono = /^[\+]?[0-9]{4}?[-\s\.]?[0-9]{4}$/im;
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
+    let z2 = /^[0-9]+$/; // 1 o mas
 
 
-    if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " ") {
+    if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " " || input_nombreEmpresa.value == 0) {
         error = true;
         input_nombreEmpresa.classList.add("error");
         errorCodigo = 1;
@@ -29,7 +36,7 @@ let validar = () => {
         input_nombreEmpresa.classList.remove("error");
     };
 
-    if (input_razonSocial.value == "" || input_razonSocial.value == " ") {
+    if (input_razonSocial.value == "" || input_razonSocial.value == " " || input_razonSocial.value == 0) {
         error = true;
         input_razonSocial.classList.add("error");
         errorCodigo = 2;
@@ -37,13 +44,35 @@ let validar = () => {
         input_razonSocial.classList.remove("error");
     };
 
-    if (input_cedulaJuridica.value == "" || input_cedulaJuridica == " ") {
+    if (input_cedulaJuridica.value == "" || input_cedulaJuridica == " " || input_cedulaJuridica == 0) {
         error = true;
         input_cedulaJuridica.classList.add("error");
         errorCodigo = 3;
     } else {
         input_cedulaJuridica.classList.remove("error");
     };
+    if (!z2.test(input_cedulaJuridica.value)) {
+        error = true;
+        input_cedulaJuridica.classList.add("error");
+    } else {
+        input_cedulaJuridica.classList.remove("error");
+    }
+
+    if (input_correo.value == 0) {
+        error = true;
+        input_correo.classList.add("error");
+    } else {
+        input_correo.classList.remove("error");
+    }
+
+
+
+    if (revisar_correo.test(input_correo.value) == false) {
+        error = true;
+        input_correo.classList.add('error');
+    } else {
+        input_correo.classList.remove('error');
+    }
 
     if (input_telefono.value == "" || input_telefono.value.length > 9 || input_telefono.value == " ") {
         error = true;
@@ -93,10 +122,16 @@ let validar = () => {
     } else {
         input_distrito.classList.remove("error");
     };
+    /*
+    if (input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png') {
+        error = true;
+        input_imagen.classList.add('error');
+    } else {
+        input_imagen.classList.remove('error');
+    };
+    */
 
     return error;
-
-
 
 };
 
@@ -106,22 +141,29 @@ let resetForm = () => {
     input_razonSocial.value = '';
     input_cedulaJuridica.value = '';
     input_telefono.value = '';
+    input_correo.value = '';
     input_direccion.value = '';
     input_provincia.value = '';
     input_canton.value = '';
     input_distrito.value = '';
+    input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
+    input_latitud = "";
+    input_longitud = "";
 };
-let obtener_datos = () => {
+let obtener_datos = async() => {
 
     let nombreEmpresa = input_nombreEmpresa.value;
     let razonSocial = input_razonSocial.value;
     let cedulaJuridica = input_cedulaJuridica.value;
     let telefono = input_telefono.value;
+    let correo = input_correo.value;
     let direccion = input_direccion.value;
     let provincia = input_provincia.value;
     let canton = input_canton.value;
     let distrito = input_distrito.value;
-
+    let imagen = imagePreview.src;
+    let latitud = input_latitud.value;
+    let longitud = input_longitud.value;
 
 
     if (validar()) {
@@ -130,20 +172,28 @@ let obtener_datos = () => {
             icon: 'warning',
             title: 'Algunos de los campos no se ingresaron correctamente.',
             text: 'Por favor, revise los campos en rojo.',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'Entendido'
         })
 
 
     } else {
 
-        registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, direccion, provincia, canton, distrito);
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro realizado con éxito',
-            text: 'El usuario ha sido almacenado',
-            confirmButtonText: 'OK'
-        });
+        let error = await registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud);
+        if (error == false) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Algunos de los campos no se ingresaron correctamente.',
+                text: 'Por favor, revise los campos en rojo.',
+                confirmButtonText: 'Entendido'
+            })
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El usuario ha sido almacenado',
+                confirmButtonText: 'Entendido'
+            });
+        }
         resetForm();
     }
 };

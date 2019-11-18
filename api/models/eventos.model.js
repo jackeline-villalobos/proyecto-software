@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const eventoSchema = new mongoose.Schema(
 
     {
-        nombre: { type: String, required: true, unique: false },
+        nombre: { type: String, required: true, unique: true },
         tipoDeEventos: { type: String, required: true, unique: false },
         pais: { type: String, required: true, unique: false },
         lugar: { type: String, required: true, unique: false },
@@ -20,6 +20,12 @@ const eventoSchema = new mongoose.Schema(
         descripcion: { type: String, required: true, unique: false },
         impuestos: { type: String, required: true, unique: false },
         imagen : {type: String, required: true},
+        descuentos: [
+            {
+                nombre: {type: String, required: true, unique: true},
+                porcentaje: {type: Number, required: true}       
+            }
+        ],
         estado: { type: String, required: true, unique: false }
     }
 

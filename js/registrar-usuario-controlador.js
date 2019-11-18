@@ -23,7 +23,7 @@ let validar = () => {
     let error = false;
     let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
-    if (input_primerNombre.value == '') {
+    if (input_primerNombre.value == 0) {
         error = true;
         input_primerNombre.classList.add('error');
     } else {
@@ -38,7 +38,7 @@ let validar = () => {
     };*/
 
 
-    if (input_primerApellido.value == '') {
+    if (input_primerApellido.value == 0) {
         error = true;
         input_primerApellido.classList.add('error');
     } else {
@@ -54,7 +54,7 @@ let validar = () => {
     };*/
 
 
-    if (input_correo.value == '') {
+    if (input_correo.value == 0) {
         error = true;
         input_correo.classList.add('error');
     } else {
@@ -68,7 +68,7 @@ let validar = () => {
         input_correo.classList.remove('error');
     }
 
-    if (input_FechaDeNacimiento.value == '') {
+    if (input_FechaDeNacimiento.value == 0) {
         error = true;
         input_FechaDeNacimiento.classList.add('error');
     } else {
@@ -76,35 +76,35 @@ let validar = () => {
     };
 
 
-    if (input_genero.value == '') {
+    if (input_genero.value == 0) {
         error = true;
         input_genero.classList.add('error');
     } else {
         input_genero.classList.remove('error');
     };
 
-    if (slt_provicias.value == '') {
+    if (slt_provicias.value == 0) {
         error = true;
         slt_provicias.classList.add('error');
     } else {
         slt_provicias.classList.remove('error')
     };
 
-    if (slt_cantones.value == '') {
+    if (slt_cantones.value == 0) {
         error = true;
         slt_cantones.classList.add('error');
     } else {
         slt_cantones.classList.remove('error')
     };
 
-    if (slt_distritos.value == '') {
+    if (slt_distritos.value == 0) {
         error = true;
         slt_distritos.classList.add('error');
     } else {
         slt_distritos.classList.remove('error')
     };
 
-    if (input_direccion.value == '') {
+    if (input_direccion.value == 0) {
         error = true;
         input_direccion.classList.add('error');
     } else {
@@ -120,11 +120,11 @@ let validar = () => {
 
     return error
 
-    
+
 };
 
 
-let obtener_datos = async () => {
+let obtener_datos = async() => {
     let primerNombre = input_primerNombre.value;
     let segundoNombre = input_segundoNombre.value;
     let primerApellido = input_primerApellido.value;
@@ -157,7 +157,7 @@ let obtener_datos = async () => {
                 confirmButtonText: 'Entendido'
             });
 
-        } else{
+        } else {
 
             Swal.fire({
                 type: 'success',
@@ -165,7 +165,7 @@ let obtener_datos = async () => {
                 text: 'El usuario ha sido registrado',
                 confirmButtonText: 'Entendido',
                 costumClass: 'modal',
-                onClose: function(){
+                onClose: function() {
                     location.href = 'perfil-usuario.html';
                 }
             });

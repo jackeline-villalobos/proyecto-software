@@ -12,11 +12,16 @@ router.post('/registrar-recinto', function(req, res) {
         nombreRecinto: body.nombreRecinto,
         capacidad: body.capacidad,
         capacidadDiscapacitados: body.capacidadDiscapacitados,
+        correoEncargado: body.correoEncargado,
 
         direccion: body.direccion,
         provincia: body.provincia,
         canton: body.canton,
         distrito: body.distrito,
+        imagen: body.imagen,
+
+        latitud: body.latitud,
+        longitud: body.longitud,
 
         estado: "activo"
     });
@@ -38,4 +43,40 @@ router.post('/registrar-recinto', function(req, res) {
             }
         });
 });
+
+router.get('/listar-recintos', function(req, res) {
+    Recinto.find(function(err, recintosBD) {
+        if (err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron recintos',
+                err
+            });
+        } else {
+            res.json({
+                resultado: true,
+                recintosBD
+            });
+        }
+    });
+});
+
+router.get('/buscar-encargado', function(req, res){
+    Encargado.find(function(err, encargadosBD) {
+        if(err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron encargados',
+                err                
+            });
+        } else {
+           res.json({
+                resultado: true,
+                encargados: encargadosBD
+           });
+        }
+    });
+});
+
+
 module.exports = router;

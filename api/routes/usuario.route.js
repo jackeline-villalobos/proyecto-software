@@ -257,7 +257,7 @@ router.post('/agregar-tarjeta', function (req, res) {
         if (err) {
             return res.json({
                 resultado: false,
-                msg: 'No se puso agregar la tarjeta',
+                msg: 'No se pudo agregar la tarjeta',
                 err
             });
         } else {

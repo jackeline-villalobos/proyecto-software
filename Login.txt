@@ -9,3 +9,9 @@ pw : Krashcenfo1!
 cloud name : proyecto1-nebula
 api key : 658182659239913
 preset : nebula
+
+
+
+Google API
+
+key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M

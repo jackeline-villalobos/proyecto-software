@@ -19,20 +19,25 @@ cédula jurídica,
 }
 
 .grid-central form {
-    border-radius: 10px;
     margin-left: 20%;
     height: 350px;
 }
 
-.subir-logoEmpresa {
+.grid-izquierda {
+    display: grid;
     margin-left: 50%;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+}
+
+.mapa {
+    margin-left: 0;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50% 50%;
 }
 
-.subir-logoEmpresa #geolocalizacion-recinto {
-    background-image: url(../imagenes/Registrar-evento/outlined_placeholder-512.png);
+.mapa #geolocalizacion-recinto {
     background-size: 200px;
     width: auto;
     background-repeat: no-repeat;
@@ -59,7 +64,6 @@ h5 {
 
 form {
     width: 50%;
-    border: 1px solid black;
     margin: auto;
     padding: 1% 0;
     text-align: center;
@@ -73,9 +77,15 @@ form input {
     margin-top: 17px;
 }
 
+form select {
+    margin-top: 17px;
+    margin-bottom: 0px;
+}
+
 #btn-registrar {
     margin-top: 30px;
     margin-left: 25%;
+    margin-bottom: 15px;
     width: 50%;
     padding: 1% 0;
     text-align: center;
@@ -85,12 +95,8 @@ form input {
     display: block;
     margin-top: 31px;
     margin-left: 25%;
+    margin-bottom: 15px;
     width: 50%;
     padding: 1% 0;
     text-align: center;
-}
-
-#img-avatarPlaceholder {
-    height: 300px;
-    width: auto;
 }
