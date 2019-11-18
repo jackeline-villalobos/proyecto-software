@@ -74,5 +74,24 @@ router.post('/agregar-fecha', function (req, res) {
     }
 
 });
+router.get('/listar-eventos', function(req, res){
 
+    Producto.find(
+        function(err, eventosBD){
+            if(err){
+                res.json({
+                    resultado: false,
+                    msg: 'No se encontraron eventos',
+                    err
+                })
+            }else{
+                res.json({
+                    resultado: true,
+                    productos: eventosBD
+                })
+            }
+        }
+    );
+
+});
 module.exports = router;
