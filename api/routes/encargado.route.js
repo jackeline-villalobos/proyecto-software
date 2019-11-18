@@ -5,7 +5,7 @@ const express = require('express'),
     Encargado = require('../models/encargados.model'),
     mongoose = require('mongoose');
 
-router.post('/registrar-usuario', function (req, res) {
+router.post('/registrar-encargado', function (req, res) {
 
     let body = req.body;
 
@@ -116,3 +116,5 @@ router.post('/registrar-usuario', function (req, res) {
         }
     });
 });
+
+module.exports = router;

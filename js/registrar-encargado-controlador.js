@@ -61,9 +61,9 @@ let validar = () => {
 let resetForm = () => {
     inputCorreoElectronico.value = '';
     inputTelefono.value = '';
-    inputNombreCompleto = '';
-    inputFechaDeNacimiento = '';
-    inputGenero = '';
+    inputNombreCompleto.value = '';
+    inputFechaDeNacimiento.value = '';
+    inputGenero.value = '';
 };
 
 let obtenerDatos = () => {
@@ -90,7 +90,9 @@ let obtenerDatos = () => {
             text: 'El tipo de evento ha sido almacenado.',
             confirmButtonText: "OK"
         })
+
     resetForm();
+
     }
 };
 
