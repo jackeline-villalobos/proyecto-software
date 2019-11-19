@@ -3,8 +3,30 @@ main{
     width: 80%;
     margin: auto;
 }
+.nav-superior{
+    padding-top: 30px ;
+    text-align: center;
+    height: 50px;
+}
+.nav-superior div{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.nav-superior div a{
+    
+    color: #000000;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.nav-superior .linea{
+    width: 2px;
+    height: 20px;
+    background: #000000;
+}
 h1{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 #txt-filtro {
     margin-left: 1%;
