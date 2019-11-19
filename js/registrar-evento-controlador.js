@@ -184,6 +184,23 @@ let agregarEspacioFecha = () => {
     i++;
 };
 
+// listar descuentos e impuestos try
+
+const dtl_descuentos = document.querySelector('#listaDescuentos');
+
+let listarImpuestos = async () => {
+
+    listaDescuentos = await listarDescuentos();
+
+    for(i = 0; i < listarDescuentos; i ++){
+        let option = document.createElement('option');
+        option.classList.add('opcionDescuentos')
+        option.innerHTML(listarEventos[i]);
+    };
+    listarDescuentos.appendChild('opcionDescuentos');
+
+};
+
 
 btn_guardar.addEventListener('click', obtener_datos);
 btn_agregarFecha.addEventListener('click', agregarEspacioFecha);

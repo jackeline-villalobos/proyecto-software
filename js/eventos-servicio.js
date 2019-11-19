@@ -91,3 +91,23 @@ let listarDescuentos = async () => {
 
     return listaDescuentos;
 }
+
+let listarImpuestos = async() => {
+
+    let listaImpuestos;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-impuestos',
+        responseType: 'json'
+    })
+    .then(function(res) {
+        console.log(res.data);
+        listaImpuestos = res.data.impuestos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return listaImpuestos;
+
+};

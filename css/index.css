@@ -18,6 +18,9 @@ main{
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
 }
+..nav-superior div a:hover{
+    color: #F2610A;
+}
 .nav-superior .linea{
     width: 2px;
     height: 20px;
