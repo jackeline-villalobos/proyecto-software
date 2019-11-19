@@ -8,7 +8,7 @@ const recintoSchema = new mongoose.Schema(
         nombreRecinto: { type: String, required: true, unique: true },
         capacidad: { type: Number, required: true, unique: false },
         capacidadDiscapacitados: { type: Number, required: false, unique: false },
-        correoEncargado: { type: String, required: false, unique: true },
+        correoEncargado: { type: String, required: true, unique: false },
         direccion: { type: String, required: true, unique: false },
         provincia: { type: String, required: true, unique: false },
         canton: { type: String, required: true, unique: false },
