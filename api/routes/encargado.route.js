@@ -83,9 +83,9 @@ router.post('/registrar-encargado', function (req, res) {
                     
                     <body>
                     
-                        <h1>Aqui va toda la picha de esa madre</h1>
-                        <p>Y el resto de informacion como gracias y bla bla bla</p>
-                        <p>Se te solicitará que cambiés tu contraseña temporal por una nueva.</p>
+                    <h1>Bienvenido a Ticket pixel</h1>
+                    <p>Este es el primer cambio de contraseña</p>
+                    <p>Se te solicitará que cambiés tu contraseña temporal por una nueva.</p>
                     
                         <div class="info_credenciales">
                             <p>Tus credenciales de acceso:</p>

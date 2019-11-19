@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Registrar Encargado de Recinto</title>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/registrar-encargado.css">
-        <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrar Encargado de Recinto</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/registrar-encargado.css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+</head>
 
 
-    <body>
-        <header>
-            <div><a href="listar-eventos.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header" href='iniciar-sesion.html'></div></a></div>
-            <div class="botones-header">
-                <button type="button">Iniciar sesión</button>
-                <button type="button" class="btn-registrarse">Registrarse</button>
-            </div>
-        </header>
-
-        <div class="main-title">
-            <h1>Registro Encargado de Recintro</h1>
+<body>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
+            </a>
         </div>
-
-        <div class="form-container">
-            <form>
-                <input type="text" id="txt-correoElectronico" placeholder="Correo electrónico">
-
-                <input type="text" id="txt-telefono" placeholder="Teléfono">
-    
-                <input type="text" id="txt-nombreCompleto" placeholder="Nombre Completo">
-    
-                <input type="date" id="txt-edad" placeholder="Edad">
-    
-                <input type="text" id="txt-genero" placeholder="Género">
-        
-                <button type="button" id="btn-registrar">Registrarse</button>
-            </form>
+        <div class="botones-header">
+            <button type="button">Iniciar sesión</button>
+            <button type="button" class="btn-registrarse">Registrarse</button>
         </div>
+    </header>
+
+    <div class="main-title">
+        <h1>Registro Encargado de Recintro</h1>
+    </div>
+
+    <div class="form-container">
+        <form>
+            <input type="text" id="txt-correoElectronico" placeholder="Correo electrónico">
+
+            <input type="text" id="txt-telefono" placeholder="Teléfono">
+
+            <input type="text" id="txt-nombreCompleto" placeholder="Nombre Completo">
+
+            <input type="date" id="txt-edad" placeholder="Edad">
+
+            <input type="text" id="txt-genero" placeholder="Género">
+
+            <button type="button" id="btn-registrar"
+                onclick="location.href='listar-recintos-card.html'">Registrarse</button>
+        </form>
+    </div>
 
 
-        <footer>
+    <footer>
 
-            <div>
-                <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
-            </div>
-            <div >
-                <h3>Contactos</h3>
-                <p>Tel: 2233-4455</p>
-                <a href="#">Terminos y condiciones</a>
-                <br>
-                <br>
-                <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a> </p>
-                
-            </div>
-            <div>
-                <h3>Eventos</h3>
-                <li>Deportes</li>
-                <li>Conciertos</li>
-                <li>Culturales</li>
-                <li>Comedia</li>
-            </div>
-            <div class="redes-footer">
-                <h3>Siguenos en</h3>
-                <ul>
-                    <i class="fab fa-facebook" class="i-facebook"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
-                </ul>
-            </div>
-        </footer>
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Contactos</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="#">Terminos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
+            </p>
+
+        </div>
+        <div>
+            <h3>Eventos</h3>
+            <li>Deportes</li>
+            <li>Conciertos</li>
+            <li>Culturales</li>
+            <li>Comedia</li>
+        </div>
+        <div class="redes-footer">
+            <h3>Siguenos en</h3>
+            <ul>
+                <i class="fab fa-facebook" class="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+    </footer>
 
 
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="js/registrar-encargado-controlador.js"></script>
-        <script src="js/encargado-servicio.js"></script>
-    </body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/registrar-encargado-controlador.js"></script>
+    <script src="js/encargado-servicio.js"></script>
+</body>
+
 </html>
