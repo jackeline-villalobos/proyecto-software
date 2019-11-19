@@ -9,8 +9,8 @@ const input_fecha1 = document.querySelector('#txt-date-1');
 const input_hora1 = document.querySelector('#txt-time-1');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
-const input_impuestos = document.querySelector('#txt-impuestos');
-const input_descuentos = document.querySelector('#txt-descuentos');
+const input_impuestos = document.querySelector('#slc-impuestos');
+const input_descuentos = document.querySelector('#slc-descuentos');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
@@ -145,7 +145,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, fecha, hora, descuentos, imagen);
+        registrar_evento(nombre, tipoDeEventos, pais, lugar, fecha, hora, cantidadAsistentes, descripcion, precioEntrada, impuestos, descuentos, imagen);
 
         Swal.fire({
             type: 'success',
@@ -153,12 +153,12 @@ let obtener_datos = () => {
             text: 'El evento ha sido almacenado',
             confirmButtonText: 'Entendio'
         });
+        
         // agregar_fecha(fecha, hora);
         resetForm();
 
     }
 };
-
 var x = 2;
 let agregarEspacioFecha = () => {
 
@@ -176,9 +176,15 @@ let agregarEspacioFecha = () => {
     time.id = "txt-time-" + x;
     time.classList.add('txt-time');
 
+    let asistentes = document.createElement('input');
+    asistentes.type = "number";
+    asistentes.id = "txt-asistentes-" + x;
+    asistentes.classList.add('txt-asistentes');
+
     div_fechaYHora.appendChild(dateh4);
     div_fechaYHora.appendChild(date);
     div_fechaYHora.appendChild(time);
+    div_fechaYHora.appendChild(asistentes);
 
     event.preventDefault();
     x++;
@@ -201,7 +207,6 @@ let llenarDescuentos = async () => {
     
 
 };
-llenarDescuentos();
 
 const dtl_impuestos = document.querySelector('#listaImpuestos')
 
@@ -217,7 +222,7 @@ let llenarImpuestos = async () => {
     }
     
 };
-llenarImpuestos();
+
 
 
 btn_guardar.addEventListener('click', obtener_datos);
