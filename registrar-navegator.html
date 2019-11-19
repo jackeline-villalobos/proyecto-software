@@ -1,49 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de tipo de eventos</title>
+    <title>Registrar Encargado de Recinto</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/listar-tipo-eventos.css">
+    <link rel="stylesheet" href="css/registrar-encargado.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 </head>
 
 <body>
     <header>
         <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></div>
+        </a>
         </div>
         <div class="botones-header">
-            <button type="button"><a href="registrar-tipo-evento.html">Registrar tipo de evento</a></button>
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
         </div>
     </header>
 
-    <div class="container-filtro">
-        <input type="text" id="txt-filtro" placeholder="Buscar tipo de evento">
-    </div>
 
-    <table id="tbl-tipoEventos">
-        <h1>Perfil de usuario</h1>
-        <thead>
-            <tr>
-                <th style="font-weight: bold;">Nombre</th>
 
-            </tr>
-        </thead>
 
-        <tbody>
+    <h1>Registrar</h1>
+    <button type="button" onclick="location.href='registrar-usuario.html'">Registrar usuario</button>
+    <button type="button" onclick="location.href='registrar-empresa.html'">Registrar empresa</button>
 
-        </tbody>
+    <button type="button" onclick="location.href='registrar-encargado.html'">Registrar encargado</button>
 
-    </table>
+    <button type="button" onclick="location.href='registrar-evento.html'">Registrar evento</button>
+
+
+
+
 
     <footer>
 
@@ -77,11 +76,6 @@
         </div>
     </footer>
 
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/tipo-evento-servicio.js"></script>
-    <script src="js/listar-tipo-evento-controlador.js"></script>
 </body>
 
 </html>
