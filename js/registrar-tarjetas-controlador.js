@@ -34,6 +34,7 @@ let validar = () => {
 
 
 let obtenerDatos = () => {
+    const _id = sessionStorage.getItem('idUsuario');
     const numeroTarjeta = inputNumeroTarjeta.value;
     const fechaExpiracion = inputFechaExpiracion.value;
     const codigoSeguridad = inputCodigoSeguridad.value;
@@ -47,12 +48,12 @@ let obtenerDatos = () => {
             confirmButtonText: 'Ententido'
         });
     } else {
-
+        console.log(fechaExpiracion);
         registrarTarjeta(_id ,numeroTarjeta, fechaExpiracion, codigoSeguridad);
 
         Swal.fire({
             icon: 'success',
-            title: 'Se agregó la tarjeta con éxito',
+            title: 'Se agregó la tarjeta correctamente',
             confirmButtonText: 'Entendido'
         });
     }

@@ -20,10 +20,10 @@ const usuarioSchema = new mongoose.Schema(
     contrasenna: {type: String, required: true, unique: false},
     tarjeta:[
         {
-            marca: {type: String, required: false, unique: false},
-            numero: {type: String, required: false, unique: false},
-            fechaExpiracion: {type: String, required: false, unique: false},
-            codigoSeguridad: {type: Number, required: false, unique: false}
+            marca: {type: String, required: true, unique: false},
+            numero: {type: String, required: true, unique: false},
+            fechaExpiracion: {type: String, required: true, unique: false},
+            codigoSeguridad: {type: Number, required: true, unique: false}
         }
     ],
     imagen : {type: String, required: true},
