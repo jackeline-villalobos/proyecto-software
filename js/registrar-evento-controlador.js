@@ -10,6 +10,7 @@ const input_hora1 = document.querySelector('#txt-time-1');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_impuestos = document.querySelector('#txt-impuestos');
+const input_descuentos = document.querySelector('#txt-descuentos');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
@@ -114,6 +115,7 @@ let resetForm = () => {
     input_horas.value = '';
     input_descripcion.value = '';
     input_impuestos.value = '';
+    input_descuentos.value = '';
     input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
 
@@ -131,6 +133,7 @@ let obtener_datos = () => {
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
     let impuestos = input_impuestos.value;
+    let descuentos = input_descuentos.value;
     let imagen = imagePreview.src;
 
     if (validar()) {
@@ -142,7 +145,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, imagen);
+        registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, fecha, hora, descuentos, imagen);
         
         Swal.fire({
             type: 'success',
@@ -150,7 +153,7 @@ let obtener_datos = () => {
             text: 'El evento ha sido almacenado',
             confirmButtonText: 'Entendio'
         });
-        agregar_fecha(fecha, hora);
+        // agregar_fecha(fecha, hora);
         resetForm();
         
     }
@@ -181,11 +184,6 @@ let agregarEspacioFecha = () => {
     i++;
 };
 
-let obtenerFechas = () => {
-
-};
-
-obtenerFechas();
 
 btn_guardar.addEventListener('click', obtener_datos);
 btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
