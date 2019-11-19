@@ -6,7 +6,7 @@ const input_pais = document.querySelector('#txt-pais');
 const input_lugar = document.querySelector('#txt-lugar');
 const input_cantidadAsistentes = document.querySelector('#txt-cantidadAsistentes');
 const input_fecha1 = document.querySelector('#txt-date-1');
-const input_hora2 = document.querySelector('#txt-time-1');
+const input_hora1 = document.querySelector('#txt-time-1');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_impuestos = document.querySelector('#txt-impuestos');
@@ -126,7 +126,7 @@ let obtener_datos = () => {
     let lugar = input_lugar.value;
 
     let fecha = input_fecha1.value;
-    let hora = input_hora2.value;
+    let hora = input_hora1.value;
     
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
@@ -181,6 +181,11 @@ let agregarEspacioFecha = () => {
     i++;
 };
 
+let obtenerFechas = () => {
+
+};
+
+obtenerFechas();
 
 btn_guardar.addEventListener('click', obtener_datos);
 btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
