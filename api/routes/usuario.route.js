@@ -52,7 +52,7 @@ router.post('/registrar-usuario', function (req, res) {
                 let mailOptions = {
                     from: 'equiponebula2019@gmail.com',
                     to: nuevoUsuario.correo,
-                    subject: 'Bievido a Ticket pixel',
+                    subject: 'Bienvido a Ticket pixel',
                     html: `<!DOCTYPE html>
                     <html lang="en">
                     
