@@ -126,6 +126,33 @@ router.post('/registrar-usuario', function (req, res) {
 });
 
 
+router.post('/iniciar-sesion', function(req, res) {
+    Usuario.findOne({correo: req.body.correo})
+    .then(function(usuarioBD){
+        if(usuarioBD) {
+            if(usuarioBD.contrasenna == req.body.contrasenna) {
+                res.json({
+                    resultado: true,
+                    usuario: usuarioBD 
+                });
+            } else {
+                res.json({
+                    resultado: false
+                });
+            }
+
+        } else {
+             res.json({
+                resultado: false,
+                msg: 'El usuario no existe'
+             });
+        }
+    });
+});
+
+
+
+
 router.get('/listar-usuarios', function (req, res) {
     Usuario.find(function (err, usuariosBD) {
         if (err) {
