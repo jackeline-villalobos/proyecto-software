@@ -6,7 +6,7 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let mostrarCards = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaRecintos = await listarRecintos();
-    console.log(listaRecintos);
+    //console.log(listaRecintos);
 
     contenedor.innerHTML = '';
 
@@ -19,7 +19,7 @@ let mostrarCards = async() => {
 
             let header = document.createElement('header');
             header.style.backgroundImage = 'url, (`${imagen}`)';
-            console.log(imagen);
+            //console.log(imagen);
             let img = document.createElement('img');
             img.src = `${imagen}`;            
 
