@@ -129,7 +129,7 @@ let obtener_datos = () => {
 
     let fecha = input_fecha1.value;
     let hora = input_hora1.value;
-    
+
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
     let impuestos = input_impuestos.value;
@@ -146,7 +146,7 @@ let obtener_datos = () => {
 
     } else {
         registrar_evento(nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, fecha, hora, descuentos, imagen);
-        
+
         Swal.fire({
             type: 'success',
             title: 'Registro realizado con éxito',
@@ -155,51 +155,69 @@ let obtener_datos = () => {
         });
         // agregar_fecha(fecha, hora);
         resetForm();
-        
+
     }
 };
 
-var i = 2;
+var x = 2;
 let agregarEspacioFecha = () => {
 
     let dateh4 = document.createElement('h6')
-    dateh4.id = 'txt-dateh4-' + i;
-    dateh4.innerText = 'Fecha ' + i;
+    dateh4.id = 'txt-dateh4-' + x;
+    dateh4.innerText = 'Fecha ' + x;
 
     let date = document.createElement('input');
     date.type = "date";
-    date.id = "txt-date-" + i;
+    date.id = "txt-date-" + x;
     date.classList.add('txt-date');
 
     let time = document.createElement('input');
     time.type = "time";
-    time.id = "txt-time-" + i; 
+    time.id = "txt-time-" + x;
     time.classList.add('txt-time');
 
     div_fechaYHora.appendChild(dateh4);
     div_fechaYHora.appendChild(date);
     div_fechaYHora.appendChild(time);
-    
+
     event.preventDefault();
-    i++;
+    x++;
 };
 
 // listar descuentos e impuestos try
 
 const dtl_descuentos = document.querySelector('#listaDescuentos');
 
-let listarImpuestos = async () => {
+let llenarDescuentos = async () => {
 
     listaDescuentos = await listarDescuentos();
 
-    for(i = 0; i < listarDescuentos; i ++){
+    for (let i = 0; i < listarDescuentos.length; i++) {
         let option = document.createElement('option');
-        option.classList.add('opcionDescuentos')
-        option.innerHTML(listarEventos[i]);
+        option.classList.add('opcionDescuentos');
+        option.setAttribute.value(listarDescuentos[i]['nombre']);
+        dtl_descuentos.appendChild(option);
     };
-    listarDescuentos.appendChild('opcionDescuentos');
+    
 
 };
+llenarDescuentos();
+
+const dtl_impuestos = document.querySelector('#listaImpuestos')
+
+let llenarImpuestos = async () => {
+
+    listaImpuestos = await listarImpuestos();
+
+    for(let i = 0; i < listarImpuestos.length; i++){
+        let option = document.createElement('option');
+        option.classList.add('opcionImpuestos');
+        option.setAttribute.value(listarImpuestos[i]['nombre']);
+        dtl_impuestos.appendChild(option);
+    }
+    
+};
+llenarImpuestos();
 
 
 btn_guardar.addEventListener('click', obtener_datos);

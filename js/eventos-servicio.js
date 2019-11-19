@@ -81,9 +81,9 @@ let listarDescuentos = async () => {
         url: 'http://localhost:3000/api/listar-descuentos',
         responseType: 'json'
     })
-    .then(function(res){
+    .then(async function(res){
         console.log(res.data);
-        listaDescuentos = res.data.descuentos;
+        listaDescuentos = await res.data.descuentos;
     })
     .catch(function(error){
         console.log(error);
@@ -100,9 +100,9 @@ let listarImpuestos = async() => {
         url: 'http://localhost:3000/api/listar-impuestos',
         responseType: 'json'
     })
-    .then(function(res) {
+    .then(async function(res) {
         console.log(res.data);
-        listaImpuestos = res.data.impuestos;
+        listaImpuestos = await res.data.impuestos;
     })
     .catch(function(error){
         console.log(error);
