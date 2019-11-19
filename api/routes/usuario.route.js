@@ -97,9 +97,9 @@ router.post('/registrar-usuario', function (req, res) {
                         <h2>La mejor manera de comprar entradas en linea</h2>
                     
                         <div class="info_credenciales">
-                            <p>Saludos ${nuevoUsuario.nombre}, le agradecemos por escoger utilizar los sevicios de Ticket pixel</p>
-                            <p>Correo electrónico asociado: <span> ${nuevoUsuario.correo} </span> </p>
-                            <p>Su contraseña temporal es:  <span> ${nuevoUsuario.contrasenna} </span></p>
+                            <p>Saludos XXXX le agradecemos por escoger utilizar los sevicios de Ticket pixel</p>
+                            <p>Correo electrónico asociado: <span> XXXX </span> </p>
+                            <p>Su contraseña temporal es:  <span> XXXX </span></p>
                         </div>
                     
                     </body>

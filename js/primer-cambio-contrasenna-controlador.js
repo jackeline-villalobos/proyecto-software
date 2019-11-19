@@ -44,8 +44,6 @@ let obtener_datos = async () => {
 
     let codigo = input_primerCodigo.value;
     let nuevaContrasenna = input_nuevaContrasenna.value;
-    let verificarContrasenna = input_verificarContrasenna.value;
-
 
     if (validar()) {
         Swal.fire({
