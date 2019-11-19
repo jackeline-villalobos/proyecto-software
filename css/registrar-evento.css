@@ -25,16 +25,24 @@ header{
     justify-self: center;
 }
 .form-registrar-evento input{
-    width: 70%;
+    display: block;
+    width: 100%;
 }
 #btn-agregarFecha{
     margin-bottom: 10px;
 }
 .form-registrar-evento div textarea{
-    width: 70%;
+    width: 100%;
     margin-bottom: 10px;
     border-radius: 10px;
     min-height: 50px;
+}
+.form-registrar-evento select{
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 70px;
+    max-height: 150px;
 }
 .slider-fotos-registrar-evento{
     grid-column-start: 2;

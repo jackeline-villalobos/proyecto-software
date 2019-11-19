@@ -13,10 +13,10 @@ router.post('/registrar-evento', function (req, res) {
         tipoDeEventos: body.tipoDeEventos,
         pais: body.pais,
         lugar: body.lugar,
-        cantidadAsistentes: body.cantidadAsistentes,
         precioEntrada: body.precioEntrada,
         descripcion: body.descripcion,
-        impuestos: body.impuestos,
+        // impuestos: body.impuestos,
+        // descuentos: body.descuentos,
         imagen: body.imagen,
         estado: 'activo'
     });
@@ -48,6 +48,7 @@ router.post('/agregar-fecha', function (req, res) {
                 'fechas': {
                     fecha: req.body.fecha,
                     hora: req.body.hora,
+                    cantidadAsistentes: body.cantidadAsistentes,
                 }
             }
         },
@@ -80,7 +81,6 @@ router.post('/agregar-descuento', function(req, res){
        $push: {
         'descuentos': {
             nombre: req.body.nombre,
-            porcentaje: req.body.porcentaje
         }
        } 
     }, function(err){
@@ -94,6 +94,29 @@ router.post('/agregar-descuento', function(req, res){
             return res.json({
                 resultado: true,
                 msg: 'Se agregó el descuento correctamente'
+            });
+        }
+    });
+});
+
+router.post('/agregar-impuesto', function(req, res){
+    Evento.update({_id: req.body._id}, {
+       $push: {
+        'impuestos': {
+            nombre: req.body.nombre,
+        }
+       } 
+    }, function(err){
+        if(err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo agregar el impuesto',
+                err 
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se agregó el impuesto correctamente'
             });
         }
     });
@@ -119,5 +142,43 @@ router.get('/listar-eventos', function(req, res){
     );
 
 });
+router.get('/listar-impuestos', function(req, res) {
+
+    Impuesto.find(
+        function(err, impuestosBD){
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se encontraron impuestos',
+                    err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    impuestos: impuestosBD
+                });
+            }
+        }
+    );
+});
+router.get('/listar-descuentos', function(req, res) {
+
+    Descuento.find(
+        function(err, descuentosBD){
+            if(err){
+                res.json({
+                     resultado: false,
+                     msg: 'No se encontraron descuentos',
+                     err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    descuentos: descuentosBD
+                });
+            }
+        }
+    );
+ });
 
 module.exports = router;
