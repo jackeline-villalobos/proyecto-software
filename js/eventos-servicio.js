@@ -65,3 +65,22 @@ let listarEventos = async () => {
     });
     return listaEventos;
 };
+
+let listarDescuentos = async () => {
+
+    let listaDescuentos;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-descuentos',
+        responseType: 'json'
+    })
+    .then(function(res){
+        console.log(res.data);
+        listaDescuentos = res.data.descuentos;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+
+    return listaDescuentos;
+}
