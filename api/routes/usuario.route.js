@@ -1,6 +1,6 @@
 'use strict';
 
-const nodeMailer = require('./nodemailer')
+const nodeMailer = require('nodemailer')
 
 const express = require('express'),
     router = express.Router(),
