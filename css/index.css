@@ -3,6 +3,19 @@ main{
     width: 80%;
     margin: auto;
 }
+
+
+/* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
+.botones-header a button {
+    margin: 0;
+    margin: 0 5px;
+}
+
+.botones-header a button:hover {
+    margin-left: 0px;
+    padding: 0px;
+}
+
 .nav-superior{
     padding-top: 30px ;
     text-align: center;
