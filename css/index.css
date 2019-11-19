@@ -6,16 +6,14 @@ main{
 .nav-superior{
     padding-top: 30px ;
     text-align: center;
-    height: 50px;
+    height: 30px;
 }
 .nav-superior div{
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
-
 }
 .nav-superior div a{
-    
     color: #000000;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
@@ -25,8 +23,17 @@ main{
     height: 20px;
     background: #000000;
 }
+.portada{
+    background: url(../imagenes/index/portada.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    color: #FFFFFF;
+    height: 500px;
+    margin-bottom: 30px;
+}
 h1{
-    margin-bottom: 40px;
+    padding-top: 40px;
 }
 #txt-filtro {
     margin-left: 1%;
@@ -56,11 +63,9 @@ h1{
 
 .card header {
     height: 200px;
-    /* background-size: cover; */
 }
 
 .card h2 {
-
     text-align: center;
     font-size: 22px;
 }
@@ -73,7 +78,6 @@ h1{
 .card h4 {
     padding-left: 4%;
     font-size: 14px;
-
 }
 
 .btn-mas {
