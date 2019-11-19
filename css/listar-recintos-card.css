@@ -12,6 +12,11 @@ a {
     color: white;
 }
 
+section {
+    width: 80%;
+    margin: auto;
+}
+
 .card {
     border: 1px solid black;
     max-width: 23%;
@@ -19,6 +24,13 @@ a {
     float: left;
     box-sizing: border-box;
     width: 100%;
+    box-shadow: 0 4px 4px 0 #2d343677;
+    ;
+}
+
+.card:hover {
+    border: 1px solid #F2610A;
+    box-shadow: 0 5px 10px 0 #2d3436;
 }
 
 .card header img {
@@ -36,7 +48,7 @@ a {
     font-size: 22px;
 }
 
-.card h3{
+.card h3 {
     padding-left: 4%;
     font-size: 16px;
 }
@@ -44,12 +56,11 @@ a {
 .card h4 {
     padding-left: 4%;
     font-size: 14px;
-
 }
 
 .btn-mas {
     display: block;
-    margin: 0 0 2% 35%;   
+    margin: 0 0 2% 35%;
     height: 30px;
     width: 80px;
     border-radius: 10px;
@@ -71,5 +82,5 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0 2% 35%;  
+    margin: 0 0 2% 35%;
 }
