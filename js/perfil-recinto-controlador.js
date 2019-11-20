@@ -32,6 +32,14 @@ let llenarPerfil = async () => {
     let direccion = document.createElement('p');
     direccion.innerHTML = 'Dirección de recinto: ' + recinto.recinto.direccion;
 
+    
+    let geolocalizacion = document.createElement('script');
+    geolocalizacion.setAttribute('src','js/geolocalizacion.js');
+
+    let containerMap = document.createElement('div');
+    containerMap.setAttribute('id', 'map');
+    containerMap.appendChild(geolocalizacion);
+
 
     container1divChild.appendChild(imagen);
     container2.appendChild(encargado);
@@ -40,7 +48,8 @@ let llenarPerfil = async () => {
     container2.appendChild(asientosDiscapacitados);
     container2.appendChild(provincia);
     container2.appendChild(direccion);
-
+    //container2.appendChild(geolocalizacion);
+    container2.appendChild(containerMap);
 
 }
 

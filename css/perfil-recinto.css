@@ -6,7 +6,7 @@ section #main-container{
     margin-top: 5%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1%;
+    grid-gap: 5%;
 }
 
 
@@ -42,6 +42,16 @@ section #main-container #container-2 h5 {
 
 section #main-container #container-2 h6 {
     margin-top: 3%;
+}
+
+section #main-container #container-2 div {
+    height: 300px;
+    width: 400px;
+    
+}
+
+section #main-container #container-2 #map {
+    margin-top: 10%;
 }
 
 footer {
