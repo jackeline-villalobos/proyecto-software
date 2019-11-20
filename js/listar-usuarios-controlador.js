@@ -13,10 +13,9 @@ let llenarTabla = async () => {
     for (let i = 0; i < listaUsuarios.length; i++) {
         let nombre = listaUsuarios[i]['primerNombre'].toLowerCase();
         let primerApellido = listaUsuarios[i]['primerApellido'].toLowerCase();
-        let segundoApellido = listaUsuarios[i]['segundoApellido'].toLowerCase();
         let correo = listaUsuarios[i]['correo'].toLowerCase();
 
-        if (nombre.includes(filtro) || primerApellido.includes(filtro) || segundoApellido.includes(segundoApellido) || correo.includes(filtro)) {
+        if (nombre.includes(filtro) || primerApellido.includes(filtro) || correo.includes(filtro)) {
             let fila = tableBody.insertRow();
             let btnPerfil = document.createElement('button');
             btnPerfil.innerHTML = ('Ver más')
