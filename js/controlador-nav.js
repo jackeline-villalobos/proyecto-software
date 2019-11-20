@@ -9,10 +9,10 @@ let conectado = sessionStorage.getItem('conectado');
 if (conectado) {
     botonesHeader[0].classList.add('ocultar');
     botonesHeader[1].classList.add('ocultar');
-} /*else {
+} else {
     botonesHeader[2].classList.add('ocultar');
     botonesHeader[3].classList.add('ocultar');
-}*/
+}
 
 let cerrarSesion = () => {
     sessionStorage.clear();

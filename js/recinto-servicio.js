@@ -56,7 +56,7 @@ let listarRecintos = async() => {
             responseType: 'json'
         })
         .then(function(res) {
-            listaRecintos = res.data.recintosBD;
+            listaRecintos = res.data.recintos;
         })
         .catch(function(error) {
             console.log(error);
@@ -64,3 +64,25 @@ let listarRecintos = async() => {
 
     return listaRecintos;
 };
+
+let buscarRecinto = async (idRecinto) => {
+    let recinto;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/buscar-recinto-id',
+        responseType: 'json',
+        data: {
+            _id: idRecinto
+        }
+    })
+    .then( async function(res){
+        //console.log(res.data);
+        recinto = await res.data;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return recinto;
+}

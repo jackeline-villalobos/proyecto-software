@@ -55,7 +55,7 @@ router.get('/listar-recintos', function(req, res) {
         } else {
             res.json({
                 resultado: true,
-                recintosBD
+                recintos: recintosBD
             });
         }
     });
@@ -76,6 +76,16 @@ router.get('/buscar-encargado', function(req, res){
            });
         }
     });
+});
+
+router.post('/buscar-recinto-id', function(req,res){
+    Recinto.findById({_id: req.body._id})
+    .then(function(recintoBD){
+        res.json({
+            resultado: true,
+            recinto: recintoBD
+        });
+    })
 });
 
 
