@@ -1,5 +1,5 @@
 // Initialize and add the map
-function initMap() {
+function initMap(latitud, longitud) {
 
     // Obicacion de las coordenadas
     var locacion = { lat: latitud, lng: longitud };

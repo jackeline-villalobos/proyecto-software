@@ -1,59 +1,47 @@
 'use strict';
 
 let idRecinto = sessionStorage.getItem('idRecinto');
-const mainContainer = document.querySelector('#main-container');
-const container1 = document.querySelector('#container-1');
-const container1divChild = document.querySelector('#container-1 div');
-const container2 = document.querySelector('#container-2');
+//const mainContainer = document.querySelector('#main-container');
+const imagen = document.querySelector('#imagen');
+const h2 = document.querySelector('#h2-title');
+const h3 = document.querySelector('#h3-title');
+const h4 = document.querySelector('#h4-title');
+const h5 = document.querySelector('#h5-title');
+const h6 = document.querySelector('#h6-title');
+const parrafo = document.querySelector('#parrafo');
 
 
 let llenarPerfil = async() => {
     let recinto = await buscarRecinto(idRecinto);
     console.log(recinto);
     let imagenSource = recinto.recinto.imagen;
-    let imagen = document.createElement('img');
     imagen.src = `${imagenSource}`;
 
-    let encargado = document.createElement('h2');
-    encargado.innerHTML = 'Encargado: ' + recinto.recinto.correoEncargado;
+    let encargado = recinto.recinto.correoEncargado;
+    h2.innerHTML = 'Encargado: ' + encargado;
 
-    let nombreRecinto = document.createElement('h3');
-    nombreRecinto.innerHTML = 'Nombre de recinto: ' + recinto.recinto.nombreRecinto;
+    let nombreRecinto = recinto.recinto.nombreRecinto;
+    h3.innerHTML = 'Nombre de recinto: ' + nombreRecinto; 
 
-    let capacidad = document.createElement('h4');
-    capacidad.innerHTML = 'Capacidad de recinto: ' + recinto.recinto.capacidad;
+    let capacidad = recinto.recinto.capacidad;
+    h4.innerHTML = 'Capacidad de recinto: ' + capacidad; 
 
-    let asientosDiscapacitados = document.createElement('h5');
-    asientosDiscapacitados.innerHTML = 'Asientos para discapacitados: ' + recinto.recinto.capacidadDiscapacitados;
+    let asientosDiscapacitados = recinto.recinto.capacidadDiscapacitados;
+    h5.innerHTML = 'Asientos para discapacitados: ' + asientosDiscapacitados; 
 
-    let provincia = document.createElement('h6');
-    provincia.innerHTML = 'Provincia: ' + recinto.recinto.provincia;
+    let provincia = recinto.recinto.provincia;
+    h6.innerHTML = 'Provincia: ' + provincia; 
 
-    let direccion = document.createElement('p');
-    direccion.innerHTML = 'Dirección de recinto: ' + recinto.recinto.direccion;
+    let direccion = recinto.recinto.direccion;
+    parrafo.innerHTML = 'Dirección de recinto: ' + direccion; 
 
+    let latitud = recinto.recinto.latitud;
+    console.log(latitud);
 
-    let geolocalizacion = document.createElement('script');
-    geolocalizacion.setAttribute('src', 'js/geolocalizacion-card.js');
+    let longitud = recinto.recinto.longitud;
+    console.log(longitud);
 
-
-    let containerMap = document.createElement('div');
-    containerMap.setAttribute('id', 'map');
-    containerMap.appendChild(geolocalizacion);
-
-
-    container1divChild.appendChild(imagen);
-    container2.appendChild(encargado);
-    container2.appendChild(nombreRecinto);
-    container2.appendChild(capacidad);
-    container2.appendChild(asientosDiscapacitados);
-    container2.appendChild(provincia);
-    container2.appendChild(direccion);
-    //container2.appendChild(geolocalizacion);
-    container2.appendChild(containerMap);
-
-    container2.appendChild(latitud);
-    container2.appendChild(longitud);
+    initMap(latitud,longitud);
 
 }
 
