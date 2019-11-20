@@ -58,5 +58,3 @@ let llenarPerfil = async() => {
 }
 
 llenarPerfil();
-
-initMap(latitud, longitud);
