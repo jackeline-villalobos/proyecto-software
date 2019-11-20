@@ -7,9 +7,9 @@ const container1divChild = document.querySelector('#container-1 div');
 const container2 = document.querySelector('#container-2');
 
 
-let llenarPerfil = async () => {
-    let recinto =  await buscarRecinto(idRecinto);
-   console.log(recinto);
+let llenarPerfil = async() => {
+    let recinto = await buscarRecinto(idRecinto);
+    console.log(recinto);
     let imagenSource = recinto.recinto.imagen;
     let imagen = document.createElement('img');
     imagen.src = `${imagenSource}`;
@@ -24,7 +24,7 @@ let llenarPerfil = async () => {
     capacidad.innerHTML = 'Capacidad de recinto: ' + recinto.recinto.capacidad;
 
     let asientosDiscapacitados = document.createElement('h5');
-    asientosDiscapacitados.innerHTML = 'Asientos para discapacitados: ' + recinto.recinto. capacidadDiscapacitados;
+    asientosDiscapacitados.innerHTML = 'Asientos para discapacitados: ' + recinto.recinto.capacidadDiscapacitados;
 
     let provincia = document.createElement('h6');
     provincia.innerHTML = 'Provincia: ' + recinto.recinto.provincia;
@@ -32,9 +32,10 @@ let llenarPerfil = async () => {
     let direccion = document.createElement('p');
     direccion.innerHTML = 'Dirección de recinto: ' + recinto.recinto.direccion;
 
-    
+
     let geolocalizacion = document.createElement('script');
-    geolocalizacion.setAttribute('src','js/geolocalizacion.js');
+    geolocalizacion.setAttribute('src', 'js/geolocalizacion-card.js');
+
 
     let containerMap = document.createElement('div');
     containerMap.setAttribute('id', 'map');
@@ -51,7 +52,11 @@ let llenarPerfil = async () => {
     //container2.appendChild(geolocalizacion);
     container2.appendChild(containerMap);
 
+    container2.appendChild(latitud);
+    container2.appendChild(longitud);
+
 }
 
 llenarPerfil();
 
+initMap(latitud, longitud);
