@@ -150,7 +150,7 @@ let obtener_datos = () => {
             confirmButtonText: 'Entendido'
         })
     } else {
-        enviar_solicitud_organizador(nombreEmpresa, cedulaJuridica, experiencia,
+        registrar_organizadorSolicitante(nombreEmpresa, cedulaJuridica, experiencia,
             nombreComercial, provincia, canton, distrito, sennas, nombreCompleto,
             correo, telefono, genero);
 
@@ -159,8 +159,8 @@ let obtener_datos = () => {
             title: 'La solicitud se envió con éxito',
             text: 'Usted recibirá un correo en las próximas horas',
             confirmButtonText: 'Entendido',
-            onClose: function () {
-                location.href = 'index.html';
+            // onClose: function () {
+            //     location.href = 'index.html';
             }
         });
         resetForm()
