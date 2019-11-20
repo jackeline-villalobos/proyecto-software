@@ -38,8 +38,8 @@ let mostrarCards = async() => {
             boton.dataset._id = listaRecintos[i]['_id'];
 
             boton.addEventListener('click', function() {
-                localStorage.setItem('idProducto', this.dataset._id);
-                window.location.href = '#';
+                sessionStorage.setItem('idRecinto', this.dataset._id);
+                window.location.href = 'perfil-recinto.html';
             });
 
             contenedor.appendChild(divCard);

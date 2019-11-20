@@ -18,11 +18,20 @@ let llenarTabla = async () => {
 
         if (nombre.includes(filtro) || primerApellido.includes(filtro) || segundoApellido.includes(segundoApellido) || correo.includes(filtro)) {
             let fila = tableBody.insertRow();
+            let btnPerfil = document.createElement('button');
+            btnPerfil.innerHTML = ('Ver más')
+            btnPerfil.classList.add('btn-mas');
             fila.insertCell().innerHTML = listaUsuarios[i]['primerNombre'];
             fila.insertCell().innerHTML = listaUsuarios[i]['primerApellido'];
             fila.insertCell().innerHTML = listaUsuarios[i]['segundoApellido'];
             fila.insertCell().innerHTML = listaUsuarios[i]['genero'];
             fila.insertCell().innerHTML = listaUsuarios[i]['correo'];
+            fila.insertCell().appendChild(btnPerfil).innerHTML;
+            btnPerfil.dataset._id = listaUsuarios[i]['_id'];
+            btnPerfil.addEventListener('click', function(){
+                sessionStorage.setItem('idPerfilUsuario', this.dataset._id);
+                window.location.href = 'perfil-usuario.html';
+            });
         };
     };
 };
