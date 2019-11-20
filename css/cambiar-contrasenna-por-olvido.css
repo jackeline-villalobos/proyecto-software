@@ -1,0 +1,107 @@
+main{
+    display: flow-root;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding-top: 40px;
+    padding-bottom: 60px;
+    
+}
+
+main h1{
+    padding: 0 !important;
+    margin-top: 0 !important;
+}
+
+main form input{
+    width: 220px;
+}
+
+main form p{
+    width: 240px;
+}
+
+
+
+main div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+
+    /* width: 330px; */
+
+
+    /* margin: 60px 0; */
+
+
+
+}
+
+main div .primerParrafo{
+    line-height: 20px;
+
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+    width: 330px;
+    float: right;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: 300px;
+    margin-left: 200px;
+
+    border: 1px #000000 solid;
+    border-radius: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    margin: 0;
+
+    padding-bottom: 20px
+
+}
+
+#psw-contrasennaNueva{
+    margin-top: 10px !important;
+}
+
+#psw-verificacionContrasennaNueva{
+    margin-top: 10px !important;
+}
+
+main button{
+    margin-top: 10px;
+    width: 150px;
+}
+
+main button:hover{
+    margin-top: 10px;
+    width: 150px;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px !important;
+}
+
+
+a{
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px !important;
+}
+a:hover{
+    color: #F2610A;
+}
+
+
