@@ -55,7 +55,7 @@ router.get('/listar-recintos', function(req, res) {
         } else {
             res.json({
                 resultado: true,
-                recintosBD
+                recintos: recintosBD
             });
         }
     });

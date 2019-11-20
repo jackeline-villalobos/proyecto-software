@@ -5,44 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registrar tarjetas</title>
+    <title>Lista de tarjetas</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/registrar-tarjetas.css">
+    <link rel="stylesheet" href="css/listar-tarjetas.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 </head>
 
 <body>
     <header>
         <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
+            <a href="index.html">
+                <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
             </a>
         </div>
         <div class="botones-header">
-            <button type="button"><a href="listar-tarjetas.html">Lista de tarjetas</a></button>
+            <!-- <button type="button"><a href="#">Nada xd</a></button> -->
         </div>
     </header>
-    <div class="main-title">
-        <h1>Registrar tarjetas</h1>
+
+    <div class="container-filtro">
+        <input type="text" id="txt-filtro" placeholder="Buscar por marca de tarjeta">
+        <h1>Lista de tarjetas</h1>
     </div>
 
+    <table id="tbl-tarjetas">
+        <thead>
+            <tr>
+                <th>Número de tarjeta</th>
+                <th>Fecha de expiración</th>
+                <th>Marca</th>
+            </tr>
+        </thead>
 
-    <div class="form-container">
-        <form>
-            <input type="number" id="txt-numeroTarjeta" placeholder="Número de la tarjeta">
+        <tbody>
 
-            <input type="date" id="txt-fechaExpiracion" placeholder="Fecha de expiración dd/mm/aa">
+        </tbody>
 
-            <input type="number" id="txt-codigoSeguridad" placeholder="Código de seguridad">
-
-            <button type="button" id="btn-guardar">Guardar</button>
-
-        </form>
-    </div>
+    </table>
 
     <footer>
 
@@ -80,9 +84,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/tarjetas-servicio.js"></script>
-    <script src="js/registrar-tarjetas-controlador.js"></script>
-
-
+    <script src="js/listar-tarjetas-controlador.js"></script>
+    
 </body>
 
 </html>

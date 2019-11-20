@@ -56,7 +56,7 @@ let listarRecintos = async() => {
             responseType: 'json'
         })
         .then(function(res) {
-            listaRecintos = res.data.recintosBD;
+            listaRecintos = res.data.recintos;
         })
         .catch(function(error) {
             console.log(error);
