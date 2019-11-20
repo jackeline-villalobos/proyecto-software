@@ -6,7 +6,7 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let mostrarCards = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaRecintos = await listarRecintos();
-    //console.log(listaRecintos);
+    console.log(listaRecintos);
 
     contenedor.innerHTML = '';
 
