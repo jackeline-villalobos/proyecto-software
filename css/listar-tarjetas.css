@@ -1,0 +1,42 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+.container-filtro {
+    height: 80px;
+    margin-bottom: 2%;
+}
+
+.container-filtro input {
+    margin: 2% 0 0 20%;
+}
+
+.container-filtro h1 {
+    display: inline-block;
+    margin-left: 10%;
+}
+
+#tbl-tarjetas {
+    margin-left: 20%;
+    width: 60%;
+}
+
+#tbl-tarjetas thead tr th {
+    border: 2px solid #616161;
+    padding: 1% 0;
+    color: #F2610A;
+}
+
+#tbl-tarjetas tbody { 
+    text-align: center;
+}
+
+#tbl-tarjetas tbody td {
+    border: 2px solid #616161;
+    padding: 1% 0;
+    color: #F2610A;
+}
+
+footer {
+    margin-top: 21%;
+}
