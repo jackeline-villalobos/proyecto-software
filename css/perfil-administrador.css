@@ -1,0 +1,26 @@
+section {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+}
+
+section #main-container {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5%;
+}
+
+.left-grid {
+    border: 1px solid black;
+}
+
+footer {
+    margin-top: 5%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
