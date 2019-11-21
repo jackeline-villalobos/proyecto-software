@@ -6,6 +6,11 @@ main{
 
 
 /* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
+.botones-header {
+    /* position: relative; */
+}
+
+
 .botones-header a button {
     margin: 0;
     margin: 0 5px;
@@ -14,6 +19,22 @@ main{
 .botones-header a button:hover {
     margin-left: 0px;
     padding: 0px;
+}
+
+.botones-header .href-perfil {
+    margin-left: 10px;
+    margin-top: -8px;
+}
+
+.botones-header a div {
+    /* position: absolute;
+    top: 0; */
+    /* display: inline-block; */
+    /* margin-left: 30px; */
+    width: 50px;
+    height: 50px;
+    background: rebeccapurple;
+    border-radius: 50%;
 }
 
 .nav-superior{
