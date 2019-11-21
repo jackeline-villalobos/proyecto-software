@@ -5,6 +5,8 @@ const nodeMailer = require('nodemailer')
 const express = require('express'),
     router = express.Router(),
     Usuario = require('../models/usuarios.model'),
+    Empresa = require('../models/empresa.model'),
+    Encargado = require('../models/encargados.model'),
     mongoose = require('mongoose');
 
 const transporter = nodeMailer.createTransport({
@@ -140,14 +142,47 @@ router.post('/iniciar-sesion', function(req, res) {
                     resultado: false
                 });
             }
+        } 
+    });
 
-        } else {
-             res.json({
-                resultado: false,
-                msg: 'El usuario no existe'
-             });
+    Empresa.findOne({correo: req.body.correo})
+    .then(function(empresaBD){
+        if(empresaBD){
+            if(empresaBD.contrasenna == req.body.contrasenna) {
+                res.json({
+                    resultado: true,
+                    usuario: empresaBD
+                });
+            } else {
+                res.json({
+                    resultado: false
+                });
+            }
         }
     });
+
+    Encargado.findOne({correo: req.body.correo})
+    .then(function(encargadoBD){
+        if(encargadoBD){
+            if(encargadoBD.contrasenna == req.body.contrasenna) {
+                res.json({
+                    resultado: true,
+                    usuario: encargadoBD
+                });
+            } else {
+                res.json({
+                    resultado: false
+                })
+            }
+        } else {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron usuarios'
+            });
+        }
+    });
+
+
 });
 
 
