@@ -6,7 +6,7 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let mostrarCards = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaRecintos = await listarRecintos();
-    //console.log(listaRecintos);
+    console.log(listaRecintos);
 
     contenedor.innerHTML = '';
 
@@ -38,8 +38,8 @@ let mostrarCards = async() => {
             boton.dataset._id = listaRecintos[i]['_id'];
 
             boton.addEventListener('click', function() {
-                localStorage.setItem('idProducto', this.dataset._id);
-                window.location.href = '#';
+                sessionStorage.setItem('idRecinto', this.dataset._id);
+                window.location.href = 'perfil-recinto.html';
             });
 
             contenedor.appendChild(divCard);

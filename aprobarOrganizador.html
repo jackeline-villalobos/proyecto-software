@@ -1,43 +1,33 @@
-<!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/primer-cambio-contrasenna.css">
+    <link rel="stylesheet" href="css/ejemplo.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Primer cambio de contraseña</title>
+
+    <title>Ejemplo</title>
 </head>
 
 <body>
     <header>
         <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"
+                    href='iniciar-sesion.html'></div></a>
         <div class="botones-header">
             <button type="button">Iniciar sesión</button>
             <button type="button" class="btn-registrarse">Registrarse</button>
         </div>
     </header>
+<!-- frontera con ejemplo -->
 
-    <main>
-        <h1>Primer cambio de contraseña</h1>
-        <p>La contraseña debe tener una letra mayuscula, un número y un caracter especial</p>
-        <section class="formulario">
-            <input type="text" id="primer-codigo" placeholder="Contraseña temporal">
-            <input type="password" id="contrasenna-nueva" placeholder="Nueva contraseña*">
-            <input type="password" id="verificar-contrasenna" placeholder="Verifique su contraseña">
 
-            <button type="buton" id="btn-cambiarContrasenna">Cambiar
-                contraseña</button>
-        </section>
-    </main>
 
+<!-- frontera con ejemplo -->
     <footer>
 
         <div>
@@ -77,15 +67,7 @@
         </div>
     </footer>
 
-    <script src="js/primer-cambio-contrasenna-controlador.js"></script>
-    <script src="js/primer-cambio-contrasenna-servicio.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
-    <script src="js/registrar-usuario-controlador.js"></script>
-    <script src="js/registrar-usuarios-servicio.js"></script>
-    <script src="api/models/usuarios.model.js"></script>
-    <script src="api/routes/usuario.route.js"></script>
+    <script src="js/ejemplo.js"></script>
 </body>
 
 </html>

@@ -1,53 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Iniciar sesión</title>
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/iniciar-sesion.css">
+    <link rel="stylesheet" href="css/ejemplo.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/primer-cambio-contrasenna.css">
+    <link rel="stylesheet" href="css/cambiar-contrasenna-por-olvido.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
-    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+
+    <title>Cambiar contraseña</title>
 
 </head>
-
 <body>
     <header>
         <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
         </div>
-        <div class="botones-header" id="botones-header">
 
-            <!-- <button type="button">Iniciar sesión</button> -->
-            <button type="button" class="btn-registrarse" onclick="location.href='registrar-navegator.html'">Registrarse</button>
-        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+        </div>        
     </header>
 
-
     <main>
+
         <div>
-            <img src="imagenes/imagenes_iniciar_sesion/photo_2019-11-10_14-42-28.jpg" class="imagen-morat">
+            <h1>Cambio de contraseña</h1>
+            <p class="primerParrafo">Por favor digitá en el campo respectivo del formulario el código de seguridad que se te envió por correo electrónico. </p>
+
+            <form action="">
+                <p>Por favor llená los siguientes campos.</p>
+                <input type="text" id="txt-codigoSeguridad" placeholder="Código de seguridad">
+                <input type="password" id="psw-contrasennaNueva" placeholder="Contraseña nueva">
+                <input type="password" id="psw-verificacionContrasennaNueva" placeholder="Verificación de contraseña nueva">
+    
+                <button type="button" id="btn-cambiarContrasenna">Cambiar contraseña</button>
+    
+            </form>
         </div>
-
-        <form class="formulario">
-            <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
-            <input type="password" id="txt-contrasenna" placeholder="Contraseña">
-            <a href="cambiar-contrasenna-por-olvido-pag-1.html" id="enlace-OlvidasteContrasenna">¿Olvidaste tu contraseña?</a>
-            <!---
-            <div><p>Recordar contraseña</p></div> 
----->
-            <button type="button" id="btn-ingresar">Ingresar</button>
-
-        </form>
-
-
+        
     </main>
 
     <footer>
@@ -87,11 +91,9 @@
         </div>
     </footer>
 
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/iniciar-sesion-servicio.js"></script>
-    <script src="js/iniciar-sesion-controlador.js"></script>
+    <script src="js/cambiar-contrasenna-por-olvido-servicio-pag-2.js"></script>
+    <script src="js/cambiar-contrasenna-por-olvido-controlador-pag-2.js"></script>
 </body>
-
 </html>

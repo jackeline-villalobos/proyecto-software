@@ -199,7 +199,11 @@ let obtener_datos = async() => {
                 icon: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El recinto ha sido almacenado',
-                confirmButtonText: 'Entendido'
+                confirmButtonText: 'Entendido',
+                costumClass: 'modal',
+                onClose: function() {
+                    location.href = 'registrar-encargado.html';
+                }
             });
         }
 

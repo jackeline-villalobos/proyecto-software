@@ -1,0 +1,30 @@
+header{
+    margin-bottom: 50px;
+}
+main{
+    width: 60%;
+    margin: auto;
+    margin-bottom: 60px;
+}
+.formulario{
+    padding-bottom: 60px;
+    
+}
+.input{
+    width: 210px;
+    margin-left: 5%;
+}
+select{
+    margin-left: 5%;
+    height: 30px;
+}
+h6{
+    margin-left: 5%;
+}
+textarea{
+    border-radius: 10px;
+    height: 80px;
+}
+.btn-enviarInfo{
+    margin-left: 5%;
+}
