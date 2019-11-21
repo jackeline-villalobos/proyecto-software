@@ -29,11 +29,9 @@ let validar = () => {
         input_verificarContrasenna.classList.remove('error');
     }
 
-}
+    //Contraseñas diferentes
 
-let contrasennas_diferentes = ()=>{
-
-     if (input_nuevaContrasenna.value !== input_verificarContrasenna.value) {
+    if (input_nuevaContrasenna.value !== input_verificarContrasenna.value) {
         error = true;
         input_verificarContrasenna.classList.add('diferente');
         input_nuevaContrasenna.classList.add('diferente');
@@ -44,13 +42,13 @@ let contrasennas_diferentes = ()=>{
         console.log('si son iguales');
     }
 
-    if (input_primerCodigo.value !== nuevoUsuario.codigo ){
+    /*if (input_primerCodigo.value !== nuevoUsuario.codigo) {
         input_primerCodigo.classList.add('diferente');
         console.log('Las contraseñas son diferentes');
-    }else{
+    } else {
         input_primerCodigo.classList.remove('diferente')
         console.log('Los codigos si son iguales');
-    }
+    }*/
 
 }
 
