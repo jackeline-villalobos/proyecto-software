@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Iniciar Sesión</title>
+    <title>Iniciar sesión</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/iniciar-sesion.css">
@@ -23,7 +23,7 @@
             <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
             </a>
         </div>
-        <div class="botones-header">
+        <div class="botones-header" id="botones-header">
 
             <!-- <button type="button">Iniciar sesión</button> -->
             <button type="button" class="btn-registrarse" onclick="location.href='registrar-navegator.html'">Registrarse</button>
@@ -39,11 +39,11 @@
         <form class="formulario">
             <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
             <input type="password" id="txt-contrasenna" placeholder="Contraseña">
-            <a href="#">¿Olvidaste tu contraseña?</a>
+            <a href="cambiar-contrasenna-por-olvido-pag-1.html" id="enlace-OlvidasteContrasenna">¿Olvidaste tu contraseña?</a>
             <!---
             <div><p>Recordar contraseña</p></div> 
 ---->
-            <button type="button" id="btn-iniciarSesionConCredenciales">Iniciar sesión</button>
+            <button type="button" id="btn-ingresar">Ingresar</button>
 
         </form>
 
@@ -78,6 +78,12 @@
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter"></i>
             </ul>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <a href="registrar-organizadorSolicitante.html">
+                <li>Conviértase en organizador</li>
+            </a>
         </div>
     </footer>
 

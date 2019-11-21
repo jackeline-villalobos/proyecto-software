@@ -20,11 +20,16 @@
             margin-top: 15px;
             margin-bottom: 10px;
             font-size: 26px;
+            text-align: center;
         }
 
         p {
             margin-bottom: 5px;
             text-align: justify;
+        }
+
+        span{
+            color: #F2610A;
         }
     </style>
 
@@ -33,18 +38,13 @@
 
 <body>
 
-    <h1>Aqui va toda la picha de esa madre</h1>
-    <p>Y el resto de informacion como gracias y bla bla bla</p>
-    <p>Se te solicitará que cambiés tu contraseña temporal por una nueva.</p>
+    <h1>Bienvenido a Ticket pixel</h1>
+    <h2>La mejor manera de comprar entradas en linea</h2>
 
     <div class="info_credenciales">
-        <p>Tus credenciales de acceso:</p>
-        <div>
-            <span>Nombre de usuario: <span id="nombre_usuario">${req.body.primerNombre}</span></span>
-        </div>
-        <div>
-            <span>Contraseña temporal: <span id="contrasena">${req.body.contrasenna}</span></span>
-        </div>
+        <p>Saludos ${nuevoUsuario.nombre}, le agradecemos por escoger utilizar los sevicios de Ticket pixel</p>
+        <p>Correo electrónico asociado: <span> XXXXX </span> </p>
+        <p>Su contraseña temporal es:  <span> XXXXX </span></p>
     </div>
 
 </body>

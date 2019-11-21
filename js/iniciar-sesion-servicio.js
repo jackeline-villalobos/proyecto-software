@@ -1,104 +1,78 @@
 'use strict';
 
-/*
-let validarCredenciales = (correo, contrasenna) => {
-    let respuesta = '';
-    let peticion = $.ajax({
-        url: 'http://localhost:3000/api/validarCredenciales',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async:false,
-        data:{
+let iniciarSesion = async (correo, contrasenna) => {
+    let resultado;
+    await axios ({
+        method: 'post',
+        url: 'http://localhost:3000/api/iniciar-sesion',
+        responseType: 'json',
+        data: {
             correo: correo,
             contrasenna: contrasenna
         }
+    })
+    .then(async function(res){
+        resultado = await res.data;
+        console.log(res.data);
+
+        if(res.data.resultado) {
+            sessionStorage.setItem('conectado', res.data.resultado);
+            sessionStorage.setItem('idUsuario', res.data.usuario._id);
+            //sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
+        }
+        
+    })
+    .catch(function(error){
+        console.log(error);
     });
 
-    peticion.done(function(response){
-        respuesta = response;
-        sessionStorage.setItem('conectado', response.success);
-        sessionStorage.setItem('tipoUsuario', response.usuario.tipo);
-    });
+    return resultado;
+}
 
-    peticion.fail(function(response){
-        respuesta = response;
-    });
+// let generarCodigoSeguridad = () => {
+//     let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+//     let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+//     let caracterEspecial = ['!', '@', '#', '$', '%', '=', '&', '*', '?', '_'];
+//     // 1 mayúscula
+//     let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] + 
+//     // 5 minúsculas
+//     minusculas[Math.floor(Math.random() * minusculas.length)] + 
+//     minusculas[Math.floor(Math.random() * minusculas.length)] + 
+//     minusculas[Math.floor(Math.random() * minusculas.length)] + 
+//     minusculas[Math.floor(Math.random() * minusculas.length)] + 
+//     minusculas[Math.floor(Math.random() * minusculas.length)] +
+//     // 1 número
+//     [Math.floor((Math.random() * 33) + 1)] + 
+//     // 1 caracter especial
+//     caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
 
-    return respuesta;
-};
-*/
+//     return codigoSeguridad;
+// };
 
-/*
-let validarCredenciales = async(pcorreo, pcontrasenna) => {
-    await axios({
-            method: 'post',
-            url: 'http://localhost:3000/api/validar-credenciales',
-            responseType: 'json',
-                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-            data: {
-                correo: pcorreo,
-                contrasenna: pcontrasenna
+// let correoCorrectoParaRecuperarContrasenna = async (correo) => {
+//     let resultadoParaRecuperarContrasenna;
+//     await axios ({
+//         method: 'post',
+//         url: 'http://localhost:3000/api/iniciar-sesion',
+//         responseType: 'json',
+//         data: {
+//             correo: correo,
+//         }
+//     })
+//     .then(async function(res){
+//         resultado = await res.data;
+//         console.log(res.data);
 
+//         // if(res.data.resultado) {
+//         //     sessionStorage.setItem('conectado', res.data.resultado);
+//         //     sessionStorage.setItem('IdUsuario', res.data.usuario._id);
+//         //     //sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
+//         // }
+        
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     });
 
-            }
-        })
-        .then(function(res) {
-            console.log(res.data);
-
-            respuesta = res;
-            sessionStorage.setItem('conectado', res.success);
-            sessionStorage.setItem('tipoUsuario', res.usuario.tipo);
-
-        })
-        .catch(function(error) {
-            console.log(error);
-
-            respuesta = res;
-
-
-        });
-
-        return res;
-
-
-};
-
-*/
-
-
-let validarCredenciales = async(correo, contrasenna) => {
-    await axios({
-            method: 'get',
-            url: 'http://localhost:3000/api/listar-usuarios',
-            responseType: 'json',
-            //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-            // data: {
-            //     correo: correo,
-            //     contrasenna: contrasenna
-
-
-            // }
-        })
-        .then(function(res) {
-            console.log(res.data);
-            listaUsuarios = res.data;
-
-            respuesta = response;
-            sessionStorage.setItem('conectado', response.success);
-            sessionStorage.setItem('tipoUsuario', response.usuario.tipo);
-
-        })
-        .catch(function(error) {
-            console.log(error);
-
-            //respuesta = res;
-
-
-        });
-
-        return listaUsuarios;
-
-
-};
-
+//     return resultadoParaRecuperarContrasenna;
+// }

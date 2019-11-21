@@ -1,6 +1,6 @@
 'use strict';
 
-let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, cantidadAsistentes, precioEntrada, descripcion, impuestos, fecha, hora, imagen) => {
+let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, fecha, hora, cantidadAsistentes, descripcion, precioEntrada, impuestos, descuentos, imagen) => {
     await axios(
         {
             method: 'post',
@@ -11,16 +11,25 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, cantidadAsiste
                 tipoDeEventos: tipoDeEventos,
                 pais: pais,
                 lugar: lugar,
-                cantidadAsistentes: cantidadAsistentes,
                 precioEntrada: precioEntrada,
                 descripcion: descripcion,
                 fechas: [
                     {
                         fecha: fecha,
-                        hora: hora
+                        hora: hora,
+                        cantidadAsistentes: cantidadAsistentes,
                     }
                 ],
-                impuestos: impuestos,
+                impuestos: [
+                    {
+                        nombre: nombre,
+                    }
+                ],
+                descuentos: [
+                    {
+                        nombre: nombre,
+                    }
+                ],
                 imagen: imagen,
 
             }
@@ -35,7 +44,7 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, cantidadAsiste
         });
 
 };
-let agregar_fecha = async (fecha, hora) => {
+let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
     await axios(
         {
             method: 'post',
@@ -44,6 +53,7 @@ let agregar_fecha = async (fecha, hora) => {
             data: {
                     fecha: fecha,
                     hora: hora,
+                    cantidadAsistentes: cantidadAsistentes,
                 }
             })
         .then(function (res) {

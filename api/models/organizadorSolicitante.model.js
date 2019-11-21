@@ -1,0 +1,23 @@
+'use strict';
+
+const mongoose = require('mongoose');
+const organizadorSolicitante_schema = new mongoose.Schema(
+    {
+        nombreEmpresa : {type : String, required: true},
+        cedulaJuridica : {type : String, required: true},
+        experiencia : {type : Number, required: true},
+        nombreComercial : {type : String, required: true},
+        provincia : {type : String, required: true},
+        canton : {type : String, required: true},
+        distrito : {type : String, required: true},
+        sennas : {type : String, required: true},
+        nombreCompleto : {type : String, required: true},
+        correo : {type : String, required: true},
+        telefono : {type : String, required: true},
+        genero : {type : String, required: true},
+        estado : {type : String, required: true},
+
+    }
+);
+
+module.exports = mongoose.model('OrganizadorSolicitante', organizadorSolicitante_schema, 'organizadorSolicitantes');

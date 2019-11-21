@@ -37,6 +37,13 @@ a {
     color: #F2610A;
 }
 
+#tbl-usuarios tbody td button {
+    display: block;
+    margin: auto;
+    width: 80px;
+    height: 30px;
+}
+
 footer {
     margin-top: 21%;
 }

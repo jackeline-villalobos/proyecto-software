@@ -1,15 +1,26 @@
 'use strict';
 
+const nodeMailer = require('nodemailer')
+
 const express = require('express'),
     router = express.Router(),
     Usuario = require('../models/usuarios.model'),
     mongoose = require('mongoose');
+
+const transporter = nodeMailer.createTransport({
+    service :'gmail',
+    auth: {
+        user: 'equiponebula2019@gmail.com',
+        pass: 'krashcenfo'
+    }
+});
 
 router.post('/registrar-usuario', function (req, res) {
 
     let body = req.body;
 
     let nuevoUsuario = new Usuario({
+
         primerNombre: body.primerNombre,
         segundoNombre: body.segundoNombre,
         primerApellido: body.primerApellido,
@@ -25,6 +36,7 @@ router.post('/registrar-usuario', function (req, res) {
         estado: "activo",
         imagen: req.body.imagen,
         grado: '4'
+
     });
 
     nuevoUsuario.save(
@@ -36,27 +48,12 @@ router.post('/registrar-usuario', function (req, res) {
                     err
                 });
             } else {
-                res.json({
-                    resultado: true,
-                    usuarioBD,
-                    msg: 'El usuario se registró con éxito!'
-                });
-
-
-                let transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'equiponebula2019@gmail.com',
-                        pass: 'krashcenfo'
-                    }
-                });
 
                 let mailOptions = {
-                    from: 'Ticket pixel <equiponebula2019@gmail.com>',
-                    to: req.body.correo,
-                    subject: 'Primer incio de sesión',
-                    html: `
-                    <!DOCTYPE html>
+                    from: 'equiponebula2019@gmail.com',
+                    to: nuevoUsuario.correo,
+                    subject: 'Bienvido a Ticket pixel',
+                    html: `<!DOCTYPE html>
                     <html lang="en">
                     
                     <head>
@@ -78,11 +75,16 @@ router.post('/registrar-usuario', function (req, res) {
                                 margin-top: 15px;
                                 margin-bottom: 10px;
                                 font-size: 26px;
+                                text-align: center;
                             }
                     
                             p {
                                 margin-bottom: 5px;
                                 text-align: justify;
+                            }
+                    
+                            span{
+                                color: #F2610A;
                             }
                         </style>
                     
@@ -92,38 +94,63 @@ router.post('/registrar-usuario', function (req, res) {
                     <body>
                     
                         <h1>Bienvenido a Ticket pixel</h1>
-                        <p>Este es el primer cambio de contraseña</p>
-                        <p>Se te solicitará que cambiés tu contraseña temporal por una nueva.</p>
+                        <h2>La mejor manera de comprar entradas en linea</h2>
                     
                         <div class="info_credenciales">
-                            <p>Tus credenciales de acceso:</p>
-                            <div>
-                                <span>Nombre de usuario: <span id="nombre_usuario">${req.body.primerNombre}</span></span>
-                            </div>
-                            <div>
-                                <span>Contraseña temporal: <span id="contrasena">${req.body.contrasenna}</span></span>
-                            </div>
+                            <p>Saludos ${nuevoUsuario.nombre} le agradecemos por escoger utilizar los sevicios de Ticket pixel</p>
+                            <p>Correo electrónico asociado: <span> ${nuevoUsuario.correo} </span> </p>
+                            <p>Su contraseña temporal es:  <span> ${nuevoUsuario.contrasenna} </span></p>
                         </div>
                     
                     </body>
                     
-                    </html>
-                    `
-
+                    </html>`
                 };
 
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        return console.log(error);
-                    } else {
-                        console.log('El correo se envió correctamente');
+                transporter.sendMail(mailOptions, function (error, info){
+                    if (error){
+                        console.log(error);
+                    }else{
+                        console.log('Correo enviado con éxito' + info.response);
                     }
-                });
+                })
 
+                res.json({
+                    resultado: true,
+                    usuarioBD,
+                    msg: 'El usuario se registró con éxito!'
+                });
 
             }
         });
 });
+
+
+router.post('/iniciar-sesion', function(req, res) {
+    Usuario.findOne({correo: req.body.correo})
+    .then(function(usuarioBD){
+        if(usuarioBD) {
+            if(usuarioBD.contrasenna == req.body.contrasenna) {
+                res.json({
+                    resultado: true,
+                    usuario: usuarioBD 
+                });
+            } else {
+                res.json({
+                    resultado: false
+                });
+            }
+
+        } else {
+             res.json({
+                resultado: false,
+                msg: 'El usuario no existe'
+             });
+        }
+    });
+});
+
+
 
 
 router.get('/listar-usuarios', function (req, res) {
@@ -142,104 +169,6 @@ router.get('/listar-usuarios', function (req, res) {
         };
 
     });
-});
-
-
-router.post('/tipo-tarjeta', function (req, res) {
-    let numeroTarjeta = req.body.numero;
-
-    let marca;
-
-    let tarjetaAmericanExpress = (numeroTarjeta) => {
-        let numero = /^(?:3[47][0-9]{13})$/;
-
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-
-    let tarjetaVisa = (numeroTarjeta) => {
-        let numero = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    let tarjetaMasterCard = (numeroTarjeta) => {
-        let numero = /^(?:5[1-5][0-9]{14})$/;
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    let tarjetaDiscover = (numeroTarjeta) => {
-        let numero = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    let tarjetaDinnersClub = (numeroTarjeta) => {
-        let numero = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    let tarjetaJCB = (numeroTarjeta) => {
-        let numero = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
-        if (numeroTarjeta.match(numero)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    if (tarjetaAmericanExpress(numeroTarjeta)) {
-        marca = 'American Express';
-    }
-
-    if (tarjetaVisa(numeroTarjeta)) {
-        marca = 'Visa';
-    }
-
-    if (tarjetaMasterCard(numeroTarjeta)) {
-        marca = 'MasterCard';
-    }
-
-    if (tarjetaDiscover(numeroTarjeta)) {
-        marca = 'Discover';
-    }
-
-    if (tarjetaDinnersClub(numeroTarjeta)) {
-        marca = 'Dinners Club';
-    }
-
-    if (tarjetaJCB(numeroTarjeta)) {
-        marca = 'JCB';
-    }
-
-    res.send({
-        msg: 'Validación correcta, la marca es',
-        marca
-    });
-
 });
 
 

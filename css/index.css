@@ -3,6 +3,40 @@ main{
     width: 80%;
     margin: auto;
 }
+
+
+/* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
+.botones-header {
+    /* position: relative; */
+}
+
+
+.botones-header a button {
+    margin: 0;
+    margin: 0 5px;
+}
+
+.botones-header a button:hover {
+    margin-left: 0px;
+    padding: 0px;
+}
+
+.botones-header .href-perfil {
+    margin-left: 10px;
+    margin-top: -8px;
+}
+
+.botones-header a div {
+    /* position: absolute;
+    top: 0; */
+    /* display: inline-block; */
+    /* margin-left: 30px; */
+    width: 50px;
+    height: 50px;
+    background: rebeccapurple;
+    border-radius: 50%;
+}
+
 .nav-superior{
     padding-top: 30px ;
     text-align: center;
@@ -49,7 +83,7 @@ h1{
 .card {
     border: 1px solid black;
     max-width: 23%;
-    margin: 0 1% 50px 1%;
+    margin: 0 1% 60px 1%;
     float: left;
     box-sizing: border-box;
     width: 100%;

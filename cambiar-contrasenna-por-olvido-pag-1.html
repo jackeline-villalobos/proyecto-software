@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/ejemplo.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/primer-cambio-contrasenna.css">
+    <link rel="stylesheet" href="css/cambiar-contrasenna-por-olvido.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+
+    <title>Verificar tu cuenta</title>
+
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+        </div>        
+    </header>
+
+    <main>
+
+        <div>
+            <h1>Verificar tu cuenta</h1>
+            <p>Por favor ingresá tu dirección de correo electrónico para enviarte un código de seguridad.</p>
+
+            <form action="">
+
+                <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
+    
+                <button type="submit" id="sbt-enviarCodigoSeguridad">Enviar código</button>
+
+                <button type="button" id="btn-siguiente">Siguiente</button>
+                <!-- <input type="submit"> -->
+
+
+                <!-- <textarea id="myText">
+                        Lorem ipsum...
+                    </textarea>
+                    <button onclick="receiveMail(); return true">Send</button> -->
+    
+            </form>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Contactos</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="#">Términos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
+            </p>
+
+        </div>
+        <div>
+            <h3>Eventos</h3>
+            <li>Deportes</li>
+            <li>Conciertos</li>
+            <li>Culturales</li>
+            <li>Comedia</li>
+        </div>
+        <div class="redes-footer">
+            <h3>Seguinos en</h3>
+            <ul>
+                <i class="fab fa-facebook" id="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <a href="registrar-organizadorSolicitante.html">
+                <li>Conviértase en organizador</li>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/cambiar-contrasenna-por-olvido-servicio-pag-1.js"></script>
+    <script src="js/cambiar-contrasenna-por-olvido-controlador-pag-1.js"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@ let mostrarCards = async() => {
 
             let header = document.createElement('header');
             header.style.backgroundImage = 'url, (`${imagen}`)';
-            console.log(imagen);
+            //console.log(imagen);
             let img = document.createElement('img');
             img.src = `${imagen}`;            
 
@@ -38,8 +38,8 @@ let mostrarCards = async() => {
             boton.dataset._id = listaRecintos[i]['_id'];
 
             boton.addEventListener('click', function() {
-                localStorage.setItem('idProducto', this.dataset._id);
-                window.location.href = '#';
+                sessionStorage.setItem('idRecinto', this.dataset._id);
+                window.location.href = 'perfil-recinto.html';
             });
 
             contenedor.appendChild(divCard);

@@ -1,24 +1,6 @@
 'use strict';
 
-let registrarTarjeta = async (_id ,numeroTarjeta, fechaExpiración, codigoSeguridad) => {
-
-    let marca;
-
-    await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/tipo-tarjeta',
-        responseType: 'json',
-        data: {
-            numero: numeroTarjeta
-        }
-    })
-    .then(function(res){
-        marca = res.data.marca;
-        console.log(res.data.marca);
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+let registrarTarjeta = async (_id ,marca, numeroTarjeta, fechaExpiración, codigoSeguridad) => {
 
     await axios({
         method: 'post',
@@ -28,7 +10,7 @@ let registrarTarjeta = async (_id ,numeroTarjeta, fechaExpiración, codigoSeguri
             _id: _id,
             marca: marca,
             numero: numeroTarjeta,
-            fechaExpiración: fechaExpiración,
+            fechaExpiracion: fechaExpiración,
             codigoSeguridad: codigoSeguridad
         }
     })
@@ -38,4 +20,21 @@ let registrarTarjeta = async (_id ,numeroTarjeta, fechaExpiración, codigoSeguri
     .catch(function(error){
         console.log(error);
     });
+}
+
+let listarTarjetas = async() => {
+    let tarjetas;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-usuarios',
+        responseType: 'json'
+    })
+    .then(async function(res){
+        tarjetas = await res.data.usuarios;
+    })
+    .catch(function(error){
+        console.log(error)
+    });
+
+    return tarjetas;
 }

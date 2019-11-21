@@ -1,155 +1,101 @@
 'use strict';
 
-//const btnBotonParaRegistrarse = document.querySelector('#btn-registrarse');
-
-const inputDireccionCorreo = document.querySelector('#txt-direccionCorreo');
+const inputCorreo = document.querySelector('#txt-direccionCorreo');
 const inputContrasenna = document.querySelector('#txt-contrasenna');
+const btnIngresar = document.querySelector('#btn-ingresar');
+
+// const enlaceOlvidasteContrasenna = document.querySelector('#enlace-OlvidasteContrasenna')
 
 
-const btnIniciarSesionConCredenciales = document.querySelector('#btn-iniciarSesionConCredenciales');
-
-
-
-// console.log(direccionCorreo);
-
-// console.log(contrasenna);
-
-
-
-let obtenerDatos = () => {
-    let direccionCorreo = inputDireccionCorreo.value;
-    let contrasenna = inputContrasenna.value;
-
-    // console.log('dirección de correo: ', direccionCorreo);
-    // console.log('contraseña: ', contrasenna);
-
-    let errorBlancos = validar(direccionCorreo, contrasenna);
-    let usuarioAceptado = validarCredencialesControlador(direccionCorreo, contrasenna);
-
-
-    if (errorBlancos) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Algunos de los campos se encuentran incompletos.',
-            text: 'Por favor revise los campos en rojo.',
-            confirmButtonText: 'Entendido'
-        })
-    }else{
-        if (usuarioAceptado) {
-            window.location.href = 'ejemplo.html'
-        }else{
-            Swal.fire({
-                icon: 'warning',
-                title: 'Dirección de correo y/o contraseña incorrecta.',
-                text: 'Por favor escriba los datos de su cuenta correctamente.',
-                confirmButtonText: 'Entendido'
-            })
-        }
-
-    }
-    // if (!errorBlancos) {
-       
-    //     if (usuarioAceptado) {
-    //         window.location.href = 'ejemplo.html'
-    //     }
-    // }
-};
-
-let validar = (direccionCorreo, contrasenna) => {
+let validar = () => {
     let error = false;
-
-    if (direccionCorreo == 0) {
+    
+    if(inputCorreo.value == 0) {
         error = true;
-        inputDireccionCorreo.classList.add('error');
-
+        inputCorreo.classList.add('error');
     } else {
-        inputDireccionCorreo.classList.remove('error');
+        inputCorreo.classList.remove('error');
     }
 
-    if (contrasenna == 0) {
+    if(inputContrasenna.value == 0) {
         error = true;
         inputContrasenna.classList.add('error');
-    
     } else {
         inputContrasenna.classList.remove('error');
     }
 
-
-    let revisarCorreo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
-
-    if(revisarCorreo.test(inputDireccionCorreo.value) == false){
-        error = true;  
-        inputDireccionCorreo.classList.add('error');
-        
-    }else{
-        inputDireccionCorreo.classList.remove('error');
-    }
-
     return error;
-};
-
-
-let validarCredencialesControlador = async(direccionCorreo, contrasenna) =>{
-
-    let listaUsuarios = await listarUsuarios();
-
-    let usuarioAceptado = false;
-
-
-    for(let i = 0; i<listaUsuarios.lenght; i++){
-
-
-        let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
-        let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
-
-        
-        if(direccionCorreo === direccionCorreoCorrecta && contrasenna === contrasennaCorrecta){
-            inputDireccionCorreo.classList.remove('error');
-            usuarioAceptado = true;
-            // window.location.href = 'perfil-usuario.html'
-        }else{
-            inputDireccionCorreo.classList.add('error');
-            // Swal.fire({
-            //     icon: 'warning',
-            //     title: 'Dirección de correo y/o contraseña incorrecta.',
-            //     text: 'Por favor escriba los datos de su cuenta correctamente.',
-            //     confirmButtonText: 'Entendido'
-    
-             
-            // })
-        }
-
-        // // let direccionCorreoCorrecta = listaUsuarios[i]['correo'].lowerCase;
-        // // let contrasennaCorrecta = listaUsuarios[i]['contrasenna'];
-
-        
-        // if(listaUsuarios[i].includes(direccionCorreo, contrasenna)){
-        //     inputDireccionCorreo.classList.remove('error');
-        //     usuarioAceptado = true;
-        //     // window.location.href = 'perfil-usuario.html'
-        // }else{
-        //     inputDireccionCorreo.classList.add('error');
-        //     // Swal.fire({
-        //     //     icon: 'warning',
-        //     //     title: 'Dirección de correo y/o contraseña incorrecta.',
-        //     //     text: 'Por favor escriba los datos de su cuenta correctamente.',
-        //     //     confirmButtonText: 'Entendido'
-    
-             
-        //     // })
-        // }
-    }
-
-    return usuarioAceptado;
 }
 
-// let validarDireccionCorreo = (direccionCorreo) =>{
+// let validarDireccionCorreoParaContrasennaOlvidada = () => {
+//     let error = false;
     
+//     if(inputCorreo.value == 0) {
+//         error = true;
+//         inputCorreo.classList.add('error');
+//     } else {
+//         inputCorreo.classList.remove('error');
+//     }
+
+//     return error;
+
 // }
 
-//Eventos asociados a los botones o inputs
 
+let obtenerDatos = async () => {
+    const correo = inputCorreo.value;
+    const contrasenna = inputContrasenna.value;
 
-btnIniciarSesionConCredenciales.addEventListener('click', obtenerDatos);
+    if(validar()) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Algunos campos se encuentran vacíos o son incorrectos',
+            text: 'Por favor inténtelo de nuevo',
+            confirmButtonText: 'Entendido'
+        });
 
+    } else {
+        let res = await iniciarSesion(correo, contrasenna);
 
+        if(res.resultado) {
+            window.location.href = 'index.html';
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Ingrese datos correctos',
+                text: 'Por favor inténtelo de nuevo',
+                confirmButtonText: 'Entendido'
+            });
+        }
+    }
+
+    
+}
+
+// let obtenerDireccionCorreo = async () => {
+//     const correo = inputCorreo.value;
+
+//     if(validarDireccionCorreoParaContrasennaOlvidada()){
+//         Swal.fire({
+//             icon: 'warning',
+//             title: 'Por favor escribe tu dirección de correo electrónico.',
+//             confirmButtonText: 'Entendido'
+//         });
+//     }else{
+//         let res = await correoCorrectoParaRecuperarContrasenna(correo);
+
+//         if(res.resultadoParaRecuperarContrasenna){
+//             window.location.href = 'cambiar-contrasenna-por-olvido.html'
+//         }else{
+//             Swal.fire({
+//                 icon: 'warning',
+//                 title: 'No tenemos registrada esa dirección de correo electrónico.',
+//                 text: 'Por favor inténtalo de nuevo.',
+//                 confirmButtonText: 'Entendido'
+//             });
+//         }
+//     }
+// }
+
+// enlaceOlvidasteContrasenna.addEventListener('click', obtenerDireccionCorreo);
+btnIngresar.addEventListener('click', obtenerDatos);

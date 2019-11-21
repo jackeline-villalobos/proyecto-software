@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/perfil-recinto.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+
+    <title>Perfil de recinto</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+        </div>
+    </header>
+
+    <section>
+        <div id="main-container">
+
+            <div id="container-1">
+
+                <div>
+                    <img src="" alt="" id="imagen">
+                </div>
+
+            </div>
+
+            <div id="container-2">
+                <h2 id="h2-title"></h2>
+                <h3 id="h3-title"></h3>
+                <h4 id="h4-title"></h4>
+                <h5 id="h5-title"></h5>
+                <h6 id="h6-title"></h6>
+                <p id="parrafo"></p>
+                <div id="map">
+                    <script src="js/geolocalizacion-card.js"></script>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Contactos</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="#">Terminos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo:
+                    soporte@ticketpixel.cr</a>
+            </p>
+
+        </div>
+        <div>
+            <h3>Eventos</h3>
+            <li>Deportes</li>
+            <li>Conciertos</li>
+            <li>Culturales</li>
+            <li>Comedia</li>
+        </div>
+        <div class="redes-footer">
+            <h3>Siguenos en</h3>
+            <ul>
+                <i class="fab fa-facebook" class="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <a href="registrar-organizadorSolicitante.html">
+                <li>Conviértase en organizador</li>
+            </a>
+        </div>
+    </footer>
+    <div class="under-footer">
+
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap" type="text/javascript"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script> -->
+
+    <script src="js/recinto-servicio.js"></script>
+    <script src="js/perfil-recinto-controlador.js"></script>
+    <script src="js/controlador-nav.js"></script>
+    <script>
+        onload = "initMap()";
+    </script>
+</body>
+
+</html>
