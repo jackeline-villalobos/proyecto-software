@@ -29,23 +29,38 @@ let validar = () => {
         input_verificarContrasenna.classList.remove('error');
     }
 
-    if (input_nuevaContrasenna.value !== input_verificarContrasenna.value) {
+}
+
+let contrasennas_diferentes = ()=>{
+
+     if (input_nuevaContrasenna.value !== input_verificarContrasenna.value) {
         error = true;
-        input_verificarContrasenna.classList.add('error');
-        input_nuevaContrasenna.classList.add('error');
+        input_verificarContrasenna.classList.add('diferente');
+        input_nuevaContrasenna.classList.add('diferente');
         console.log('Las contraseñas son diferentes');
     } else {
-        input_nuevaContrasenna.classList.remove('error');
-        input_verificarContrasenna.classList.remove('error');
+        input_nuevaContrasenna.classList.remove('diferente');
+        input_verificarContrasenna.classList.remove('diferente');
+        console.log('si son iguales');
     }
+
+    if (input_primerCodigo.value !== nuevoUsuario.codigo ){
+        input_primerCodigo.classList.add('diferente');
+        console.log('Las contraseñas son diferentes');
+    }else{
+        input_primerCodigo.classList.remove('diferente')
+        console.log('Los codigos si son iguales');
+    }
+
 }
+
 
 let obtener_datos = async () => {
 
     let codigo = input_primerCodigo.value;
     let nuevaContrasenna = input_nuevaContrasenna.value;
 
-    if (validar()) {
+    /*if (validar()) {
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incompletos',
@@ -78,8 +93,8 @@ let obtener_datos = async () => {
             input_nuevaContrasenna.value = '';
             input_verificarContrasenna.value = '';
         }
-    };
+    };*/
 
 }
 
-btn_cambiarContrasenna.addEventListener('click', obtener_datos);
+btn_cambiarContrasenna.addEventListener('click', validar);

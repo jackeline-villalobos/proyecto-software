@@ -15,3 +15,7 @@ main{
     width: 300px;
     margin-bottom: 50px;
 }
+
+.diferente{
+    border: 2px solid #d63031;
+}
