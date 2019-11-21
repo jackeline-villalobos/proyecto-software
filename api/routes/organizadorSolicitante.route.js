@@ -35,7 +35,7 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
         correo : body.correo,
         telefono : body.telefono,
         genero : body.genero,
-        estado :'activo'
+        estado :'inactivo'
     });
     nuevo_organizadorSolicitante.save(
         function(err, organizadorSolicitanteBD){
@@ -107,7 +107,8 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
                             <p>Teléfono: <span> ${nuevo_organizadorSolicitante.telefono} </span> </p>
                             <p>Género: <span> ${nuevo_organizadorSolicitante.genero} </span> </p>
                         </div>
-                    
+                        <h2>Proceder con la aprobación/reprobación del usuario:</h2>
+                        <a href="aprobarOrganizador.html"></a>
                     </body>
                     
                     </html>`
