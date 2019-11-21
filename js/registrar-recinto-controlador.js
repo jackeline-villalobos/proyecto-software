@@ -30,7 +30,24 @@ const btnCoordenadas = document.querySelector("#coordenadas");
 const btn_guardar = document.querySelector('#btn-registrar');
 
 
-
+// Tavo trying to check the email on the database.
+//let enviarCorreoEncargado = async() =>{
+//    
+//    let listaEncargados = await listarEncargados();
+//    let verificarEncargado = false;
+//
+//    for(let i =0; i<listarEncargados.length; i++){
+//
+//        let correoEncargado = listaEncargados[i]['correoElectronico'].lowerCase;
+//    
+//        if(input_correoEncargado.value.lowerCase === correoEncargado){
+//            
+//        } else {
+//
+//        }
+//    };    
+//
+//}
 
 let validar = () => {
     let error = false;
@@ -40,9 +57,6 @@ let validar = () => {
     let z2 = /^[0-9]+$/; // 1 o mas
 
     let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
-
-
-
 
     if (input_nombreRecinto.value == "" || input_nombreRecinto.value == " " || input_nombreRecinto.value == 0) {
         error = true;
@@ -91,7 +105,6 @@ let validar = () => {
     } else {
         input_correoEncargado.classList.remove('error');
     }
-
 
     if (input_direccion.value == "" || input_direccion.value == " " || input_direccion.value == 0) {
         error = true;

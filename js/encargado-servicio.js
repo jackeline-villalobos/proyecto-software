@@ -28,3 +28,22 @@ let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fech
     
     return resultado;
 };
+
+let listarEncargados = async() => {
+
+    let listaEncargados;
+    await axios({
+        method : 'get',
+        url : 'http://localhost:3000/api/listar-encargados',
+        responseType: 'json'
+    })
+    .then(function(res) {
+        console.log(res.data);
+        listaEncargados = res.data.encargados;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return listaEncargados;
+}
