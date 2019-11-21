@@ -5,10 +5,12 @@ const nodeMailer = require('nodemailer')
 const express = require('express'),
     router = express.Router(),
     Usuario = require('../models/usuarios.model'),
+    Empresa = require('../models/empresa.model'),
+    Encargado = require('../models/encargados.model'),
     mongoose = require('mongoose');
 
 const transporter = nodeMailer.createTransport({
-    service :'gmail',
+    service: 'gmail',
     auth: {
         user: 'equiponebula2019@gmail.com',
         pass: 'krashcenfo'
@@ -107,10 +109,10 @@ router.post('/registrar-usuario', function (req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function (error, info){
-                    if (error){
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
                         console.log(error);
-                    }else{
+                    } else {
                         console.log('Correo enviado con éxito' + info.response);
                     }
                 })
@@ -126,28 +128,53 @@ router.post('/registrar-usuario', function (req, res) {
 });
 
 
-router.post('/iniciar-sesion', function(req, res) {
-    Usuario.findOne({correo: req.body.correo})
-    .then(function(usuarioBD){
-        if(usuarioBD) {
-            if(usuarioBD.contrasenna == req.body.contrasenna) {
-                res.json({
-                    resultado: true,
-                    usuario: usuarioBD 
-                });
-            } else {
-                res.json({
-                    resultado: false
-                });
+router.post('/iniciar-sesion', function (req, res) {
+    Usuario.findOne({ correo: req.body.correo })
+        .then(function (usuarioBD) {
+            if (usuarioBD) {
+                if (usuarioBD.contrasenna == req.body.contrasenna) {
+                    res.json({
+                        resultado: true,
+                        usuario: usuarioBD
+                    });
+                } else {
+                    Empresa.findOne({ correo: req.body.correo })
+                        .then(function (empresaBD) {
+                            if (empresaBD) {
+                                if (empresaBD.contrasenna == req.body.contrasenna) {
+                                    res.json({
+                                        resultado: true,
+                                        usuario: empresaBD
+                                    });
+                                } else {
+                                    Encargado.findOne({ correo: req.body.correo })
+                                        .then(function (encargadoBD) {
+                                            if (encargadoBD) {
+                                                if (encargadoBD.contrasenna == req.body.contrasenna) {
+                                                    res.json({
+                                                        resultado: true,
+                                                        usuario: encargadoBD
+                                                    });
+                                                } 
+                                                } else {
+                                                res.json({
+                                                    resultado: false,
+                                                    msg: 'No se encontraron usuarios'
+                                                });
+                                            }
+                                        });
+                                }
+                            }
+                        });
+                }
             }
+        });
 
-        } else {
-             res.json({
-                resultado: false,
-                msg: 'El usuario no existe'
-             });
-        }
-    });
+
+
+
+
+
 });
 
 

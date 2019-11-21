@@ -159,6 +159,9 @@ let obtener_datos = async() => {
 
         } else {
 
+            sessionStorage.setItem('idNuevoUsuario', error.data._id);
+
+
             Swal.fire({
                 type: 'success',
                 title: 'Registro realizado con éxito',

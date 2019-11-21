@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de organizadores</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/listar-organizadores.css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="index.html">
+                <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
+            </a>
+        </div>
+        <div class="botones-header">
+            
+        </div>
+    </header>
+
+    <div class="container-filtro">
+        
+        <input type="text" id="txt-filtro" placeholder="Buscar organizador">
+        <h1>Lista de organizadores</h1>
+    </div>
+
+    <table id="tbl-organizadores">
+        <thead>
+            <tr>
+                <th>Nombre de la empresa</th>
+                <th>Cédula jurídica</th>
+                <th>Años de experiencia</th>
+                <th>Nombre Comercial</th>
+                <th>Provincia</th>
+                <th>Cantón</th>
+                <th>Distrito</th>
+                <th>Señas</th>
+                <th>Nombre completo</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Género</th>
+                <th>Estado</th>
+                <th colspan="2">Cambiar estado</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <footer>
+
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Contactos</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="#">Terminos y condiciones</a>
+            <br>
+            <br>
+            <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
+            </p>
+
+        </div>
+        <div>
+            <h3>Eventos</h3>
+            <li>Deportes</li>
+            <li>Conciertos</li>
+            <li>Culturales</li>
+            <li>Comedia</li>
+        </div>
+        <div class="redes-footer">
+            <h3>Siguenos en</h3>
+            <ul>
+                <i class="fab fa-facebook" class="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <a href="registrar-organizadorSolicitante.html">
+                <li>Conviértase en organizador</li>
+            </a>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/organizadorSolicitante-servicio.js"></script>
+    <script src="js/listar-organizadores-controlador.js"></script>
+    
+</body>
+
+</html>

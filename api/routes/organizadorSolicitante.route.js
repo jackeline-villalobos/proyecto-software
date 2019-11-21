@@ -108,7 +108,7 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
                             <p>Género: <span> ${nuevo_organizadorSolicitante.genero} </span> </p>
                         </div>
                         <h2>Proceder con la aprobación/reprobación del usuario:</h2>
-                        <a href="aprobarOrganizador.html"></a>
+                        <a href="http://localhost:3000/api/listar-organizadores.html"></a>
                     </body>
                     
                     </html>`
@@ -127,4 +127,67 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
             }
         });
 });
+
+router.get('/listar-organizadorSolicitante', function (req, res) {
+    OrganizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
+        if (err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron organizadores',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                organizadores: organizadorSolicitanteBD
+            })
+        };
+
+    });
+});
+
+router.post('/activar-organizador', function (req, res) {
+    OrganizadorSolicitante.update({ _id: req.body._id }, {
+        $push: {
+            estado :'activo'
+        }
+    }, function (err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo activar el usuario',
+                err
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se activó el usuario correctamente'
+            });
+        }
+    }
+    )
+});
+
+router.post('/desactivar-organizador', function (req, res) {
+    OrganizadorSolicitante.update({ _id: req.body._id }, {
+        $push: {
+            estado :'inactivo'
+        }
+    }, function (err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo desactivar el usuario',
+                err
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se desactivó el usuario correctamente'
+            });
+        }
+    }
+    )
+});
+
 module.exports = router;

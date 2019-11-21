@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registrar empresa</title>
+    <title>Administrador</title>
     <meta name="author" content="Gabriel">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
     <link rel="stylesheet" href="css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
-
+    <link rel="stylesheet" href="css/navegador.css">
     <link rel="stylesheet" href="css/perfil-administrador.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -25,20 +24,79 @@
             </a>
         </div>
         <div class="botones-header">
-            <button type="button">PLACEHOLDER</button>
+            <button type="button">Cerrar session</button>
 
         </div>
     </header>
     <h1>Perfil</h1>
 
-    <div class="grid-central">
+    <section>
+        <div id="main-container">
+
+            <div class="left-grid">
+                <div id="container-2">
+                    <p id="nombre"></p>
+                    <hr>
+                    <p id="correo"></p>
+                    <hr>
+
+                    <p id="genero"></p>
+                    <hr>
+                    <p id="direccion"></p>
+                    <hr>
+                    <p id="provincia"></p>
+                    <hr>
+                    <p id="canton"></p>
+
+                </div>
+
+            </div>
 
 
 
+            <div class="right-grid">
+                <section class="container">
 
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/team.png" class="i">
+                        <button type="button" onclick="location.href='registrar-empresa.html'">Registrar
+                        empresa</button></div>
+
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/employee.png" class="i">
+                        <button type="button" onclick="location.href='registrar-encargado.html'">Registrar
+                                encargado</button></div>
+
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/fireworks.png" class="i">
+                        <button type="button" onclick="location.href='registrar-evento.html'">Registrar
+                                        evento</button></div>
+                </section>
+
+                <section>
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/key.png" class="i">
+                        <button type="button" onclick="location.href='registrar-recinto.html'">Registrar
+                            recinto</button></div>
+
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/piggy-bank.png" class="i">
+                        <button type="button" onclick="location.href='registrar-descuentos.html'">Registrar
+                                    descuentos</button></div>
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/money.png" class="i">
+                        <button type="button" onclick="location.href='registrar-impuestos.html'">Registrar
+                                    impuestos</button></div>
+                    <div class="formulario">
+                        <img src="imagenes/imagenes_generales/spotlights.png" class="i">
+                        <button type="button" onclick="location.href='registrar-tipo-evento.html'">Registrar
+                                         tipo de evento</button></div>
+                </section>
+            </div>
+
+        </div>
+    </section>
     </div>
-
-
 
     <footer>
 
@@ -81,7 +139,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/lugares_ubicaciones.js"></script>
     <script src="js/registrar-empresa-controlador.js"></script>
-    <script src="js/empresas-servicio.js"></script>
+    <script src="js/perfil-administrador-servicio.js"></script>
 
 </body>
 
