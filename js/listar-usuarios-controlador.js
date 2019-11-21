@@ -3,6 +3,12 @@
 const inputFiltro = document.querySelector('#txt-filtro');
 const tableBody = document.querySelector('#tbl-usuarios tbody');
 
+let activar_organizador = async() =>{
+
+    
+
+};
+
 let llenarTabla = async () => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaUsuarios = await listarUsuarios();

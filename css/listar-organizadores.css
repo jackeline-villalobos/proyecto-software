@@ -1,0 +1,49 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+.container-filtro {
+    height: 80px;
+    margin-bottom: 2%;
+}
+
+.container-filtro input {
+    margin: 2% 0 0 20%;
+}
+
+.container-filtro h1 {
+    display: inline-block;
+    margin-left: 8%;
+}
+
+#tbl-organizadores {
+    margin: auto;
+    width: 90%;
+}
+
+#tbl-organizadores thead tr th {
+    border: 2px solid #616161;
+    padding: 1% 0;
+    color: #F2610A;
+}
+
+#tbl-organizadores tbody { 
+    text-align: center;
+}
+
+#tbl-organizadores tbody td {
+    border: 2px solid #616161;
+    padding: 9px 3px;
+    color: #F2610A;
+}
+
+#tbl-organizadores tbody td button {
+    display: block;
+    margin: auto;
+    width: 80px;
+    height: 30px;
+}
+
+footer {
+    margin-top: 60px;
+}

@@ -10,6 +10,10 @@ main{
     padding-bottom: 60px;
     
 }
+.frm-organizador{
+    width: 90%;
+    margin: auto;
+}
 .input{
     width: 210px;
     margin-left: 5%;
