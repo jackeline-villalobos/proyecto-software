@@ -21,19 +21,19 @@ let llenarPerfil = async() => {
     h2.innerHTML = 'Encargado: ' + encargado;
 
     let nombreRecinto = recinto.recinto.nombreRecinto;
-    h3.innerHTML = 'Nombre de recinto: ' + nombreRecinto; 
+    h3.innerHTML = 'Nombre de recinto: ' + nombreRecinto;
 
     let capacidad = recinto.recinto.capacidad;
-    h4.innerHTML = 'Capacidad de recinto: ' + capacidad; 
+    h4.innerHTML = 'Capacidad de recinto: ' + capacidad;
 
     let asientosDiscapacitados = recinto.recinto.capacidadDiscapacitados;
-    h5.innerHTML = 'Asientos para discapacitados: ' + asientosDiscapacitados; 
+    h5.innerHTML = 'Asientos para discapacitados: ' + asientosDiscapacitados;
 
     let provincia = recinto.recinto.provincia;
-    h6.innerHTML = 'Provincia: ' + provincia; 
+    h6.innerHTML = 'Provincia: ' + provincia;
 
     let direccion = recinto.recinto.direccion;
-    parrafo.innerHTML = 'Dirección de recinto: ' + direccion; 
+    parrafo.innerHTML = 'Dirección de recinto: ' + direccion;
 
     let latitud = recinto.recinto.latitud;
     console.log(latitud);
@@ -41,7 +41,7 @@ let llenarPerfil = async() => {
     let longitud = recinto.recinto.longitud;
     console.log(longitud);
 
-    initMap(latitud,longitud);
+    initMap(latitud, longitud);
 
 }
 

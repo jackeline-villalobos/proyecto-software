@@ -1,3 +1,8 @@
+/*
+var latitud = 9.18933434
+var longitud = -84.435435
+*/
+
 // Initialize and add the map
 function initMap(latitud, longitud) {
 
