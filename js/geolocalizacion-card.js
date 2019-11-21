@@ -10,7 +10,7 @@ function initMap(latitud, longitud) {
     var locacion = { lat: latitud, lng: longitud };
     // El mapa centrado en las coordenadas
     var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 7, center: locacion });
+        document.getElementById('map'), { zoom: 8, center: locacion });
     // El pin centrado en las coordenadas
     var marker = new google.maps.Marker({ position: locacion, map: map });
 
