@@ -31,6 +31,10 @@ p {
     height: 15%;
 }
 
+hr {
+    width: 90%;
+}
+
 footer {
     margin-top: 5%;
 }
