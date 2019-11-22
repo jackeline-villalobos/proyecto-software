@@ -54,4 +54,4 @@ let mostrarInfo = async () => {
 
 };
 
-mostrarCards();
+mostrarInfo();

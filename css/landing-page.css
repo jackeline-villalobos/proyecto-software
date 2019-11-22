@@ -1,11 +1,11 @@
 .main-section {
     background-image: url('../imagenes/landing-page/crowd-in-front-of-blue-and-orange-stage-during-a-concert-at-1387174.jpg');
     height: 900px;
+    background-attachment: center !important;
     background-size: cover;
-    background-attachment: center;
  }
  
- 
+     
  
  .main-section .text-container {
     padding-top: 5%;

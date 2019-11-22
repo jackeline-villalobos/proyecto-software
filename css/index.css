@@ -55,9 +55,7 @@ main{
     background-attachment: fixed;
 
 }
-h1{
-    padding-top: 40px;
-}
+
 #txt-filtro {
     margin-left: 1%;
     margin-bottom: 30px;
@@ -125,7 +123,7 @@ h1{
 }
 
 h1{
-    padding-top: 120px;
+    padding-top: 200px;
     font-size: 60px;
     text-shadow: 0px 6px rgba(0, 0, 0, 0.5);
 }
