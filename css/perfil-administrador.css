@@ -11,13 +11,12 @@ section #main-container {
     flex-direction: row;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 5%;
-    margin-left: -23%;
+    width: 100%;
 }
 
 .left-grid {
-    margin-left: -1px;
     border: 1px solid black;
-    width: 70%;
+    width: 15%;
     background-color: #313131;
     color: white;
 }
@@ -26,6 +25,7 @@ section #main-container {
     margin-top: 8%;
     padding-right: 10%;
     margin-bottom: 5%;
+    margin-left: 150px;
 }
 
 #container-2 {
@@ -34,10 +34,9 @@ section #main-container {
     justify-content: space-around !important;
     height: 100%;
     width: 200px;
-    margin-left: 0px;
 }
 
-a {
+.a {
     font-family: 'Montserrat', sans-serif;
     margin-top: 2px;
     margin-bottom: 2.5px;

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/perfil-usuario.css">
-    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-
-    <title>Perfil de usuario</title>
+    <link rel="stylesheet" href="css/registrar-evento.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+    <title>Registrar Evento</title>
+
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
@@ -46,35 +46,45 @@
                 </div>
             </header>
 
+    <!-- frontera con ejemplo -->
     <main>
-        <section class="parte_editar">
-            <a href="#">Editar perfil</a>
-            <a href="#">Tarjetas</a>
-            <a href="#">Carrito de compras</a>
-            <a href="#">Eventos preferidos</a>
-            <a href="#">Eventos pasados</a>
-        </section>
+        <div class="main-container formulario">
+            <div class="h2-registrar-evento">
+                <h2>Registrar Evento</h2>
+            </div>
+            <form class="form-registrar-evento">
+                
+                <div class="fechaYHora">
+                    <h6>Fecha 1</h6>
+                    <input type="date" id="txt-date-1" class="txt-date">
+                    <input type="time" id="txt-time-1" class="txt-time">
+                    <input type="number" id="txt-cantidadAsistentes" placeholder="Asistentes">
+                </div>
+                <button id="btn-agregarFecha">Agregar otra fecha</button>
+                
+                <div>
+                    <h6>Descuentos</h6>
+                    <input type="text" id="txt-nombreDescuento" class="txt-descuento" placeholder="Nombre">
+                    <input type="number" id="txt-porcentajeDescuento" class="descuento" placeholder="Porcentaje">
+                </div>
+                <button id="btn-agregarFecha">Agregar otro descuento</button>
 
-        <section class="perfil">
-            <div class="foto_nombre">
-                <div id="foto_perfil_container"></div>
-                <div id="nombre_container"></div>
-            </div>
-            <hr>
-            <div class="info_perfil">
-                <div class="informacion">
-                    <h5>Información</h5>
-                    <div id="informacion_container"></div>
+                <div>
+                    <h6>Impuestos</h6>
+                    <select id="slt-impuestos" placeholder="Impuestos">
+                        <option value="sin-impuestos">Sin impuestos</option>
+                    </select>
+                    <input type="number" id="txt-porcentajeImpuesto" placeholder="Porcentaje" readonly>
                 </div>
-                <div class="direccion">
-                    <h5>Dirección</h5>
-                    <div id="direccion_container"></div>
-                </div>
-            </div>
-        </section>
+                <button id="btn-agregarFecha">Agregar otro descuento</button>
+            </form>
+
+            <button type="button" id="btn-registrar-evento">Finalizar registro</button>
+        </div>
+
 
     </main>
-
+    <!-- frontera con ejemplo -->
     <footer>
 
         <div>
@@ -113,15 +123,24 @@
         </div>
     </footer>
 
-
+    <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/registrar-usuarios-servicio.js"></script>
-    <script src="js/perfil-usuario.controlador.js"></script>
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
-    <script src="js/controlador-nav.js"></script>
+    <!-- cloudinary -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
+        type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
+    <script src="js/registrar-evento-2pag-controlador.js"></script>
+    <!-- js -->
+    <!-- <script src="js/imagen-servicio.js"></script>
+    <script src="js/eventos-servicio.js"></script>
+    
+    <script src="js/controlador-nav.js"></script> -->
 </body>
 
 </html>
