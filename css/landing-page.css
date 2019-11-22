@@ -1,5 +1,5 @@
 .main-section {
-    background-image: url('../imagenes/landing-page/pexels-photo-1105666.jpeg');
+    background-image: url('../imagenes/landing-page/crowd-in-front-of-blue-and-orange-stage-during-a-concert-at-1387174.jpg');
     height: 900px;
     background-size: cover;
     background-attachment: center;
@@ -8,21 +8,23 @@
  
  
  .main-section .text-container {
-    padding-top: 12%;
+    padding-top: 5%;
  }
 
  .main-section .text-container h1,h2  {
     color: white;
     text-align: center;
+    font-weight: 800;
+    
  }
-
-
-
+ .main-section .text-container h1 {
+     font-size: 40px;
+ }
 
 .main-section .form-container {
     display: block;
     /* position: absolute; */
-    padding-top: 10%;
+    padding-top: 15%;
     width: 100%;
     height: 10px;
     /* background: rebeccapurple; */
