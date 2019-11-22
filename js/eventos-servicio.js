@@ -91,9 +91,9 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, p
 //         url: 'http://localhost:3000/api/listar-impuestos',
 //         responseType: 'json'
 //     })
-//     .then(async function(res) {
+//     .then(function(res) {
 //         console.log(res.data);
-//         listaImpuestos = await res.data.impuestos;
+//         listaImpuestos = res.data.impuestos;
 //     })
 //     .catch(function(error){
 //         console.log(error);
@@ -102,3 +102,40 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, p
 //     return listaImpuestos;
 
 // };
+
+let listartipoEventos = async() => {
+
+    let listatipoEventos;
+    await axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/listar-tipo-evento',
+            responseType: 'json'
+        })
+        .then(function(res) {
+            listatipoEventos = res.data.tipoEventos;
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+
+    return listatipoEventos;
+
+};
+
+let listarRecintos = async() => {
+    let listaRecintos;
+
+    await axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/listar-recintos',
+            responseType: 'json'
+        })
+        .then(function(res) {
+            listaRecintos = res.data.recintos;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+
+    return listaRecintos;
+};

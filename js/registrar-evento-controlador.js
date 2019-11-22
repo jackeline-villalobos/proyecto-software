@@ -111,36 +111,36 @@ let obtener_datos = () => {
 
     }
 };
-var x = 2;
-let agregarEspacioFecha = () => {
+// var x = 2;
+// let agregarEspacioFecha = () => {
 
-    let dateh4 = document.createElement('h6')
-    dateh4.id = 'txt-dateh4-' + x;
-    dateh4.innerText = 'Fecha ' + x;
+//     let dateh4 = document.createElement('h6')
+//     dateh4.id = 'txt-dateh4-' + x;
+//     dateh4.innerText = 'Fecha ' + x;
 
-    let date = document.createElement('input');
-    date.type = "date";
-    date.id = "txt-date-" + x;
-    date.classList.add('txt-date');
+//     let date = document.createElement('input');
+//     date.type = "date";
+//     date.id = "txt-date-" + x;
+//     date.classList.add('txt-date');
 
-    let time = document.createElement('input');
-    time.type = "time";
-    time.id = "txt-time-" + x;
-    time.classList.add('txt-time');
+//     let time = document.createElement('input');
+//     time.type = "time";
+//     time.id = "txt-time-" + x;
+//     time.classList.add('txt-time');
 
-    let asistentes = document.createElement('input');
-    asistentes.type = "number";
-    asistentes.id = "txt-asistentes-" + x;
-    asistentes.classList.add('txt-asistentes');
+//     let asistentes = document.createElement('input');
+//     asistentes.type = "number";
+//     asistentes.id = "txt-asistentes-" + x;
+//     asistentes.classList.add('txt-asistentes');
 
-    div_fechaYHora.appendChild(dateh4);
-    div_fechaYHora.appendChild(date);
-    div_fechaYHora.appendChild(time);
-    div_fechaYHora.appendChild(asistentes);
+//     div_fechaYHora.appendChild(dateh4);
+//     div_fechaYHora.appendChild(date);
+//     div_fechaYHora.appendChild(time);
+//     div_fechaYHora.appendChild(asistentes);
 
-    event.preventDefault();
-    x++;
-};
+//     event.preventDefault();
+//     x++;
+// };
 
 // listar descuentos e impuestos try
 
@@ -159,8 +159,32 @@ let agregarEspacioFecha = () => {
 //     }
     
 // };
+ 
+let listatipoEventos;
 
+let llenarTiposEvento = async () => {
+    listatipoEventos = await listartipoEventos();
+    for(let i = 0; i < listatipoEventos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listatipoEventos[i]['nombre']
+        input_tipoDeEventos.appendChild(option)
+    }
+};
 
+llenarTiposEvento();
+
+let listaRecintos;
+
+let llenarRecintos = async () => {
+    listaRecintos = await listarRecintos();
+    for(let i = 0; i < listaRecintos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listaRecintos[i]['nombreRecinto']
+        input_lugar.appendChild(option)
+    }
+};
+
+llenarRecintos();
 
 btn_guardar.addEventListener('click', obtener_datos);
 // btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
