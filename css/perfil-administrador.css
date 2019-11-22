@@ -15,9 +15,11 @@ section #main-container {
 }
 
 .left-grid {
-    margin-left: 0px;
+    margin-left: -1px;
     border: 1px solid black;
     width: 70%;
+    background-color: #313131;
+    color: white;
 }
 
 .right-grid {
@@ -35,12 +37,13 @@ section #main-container {
     margin-left: 0px;
 }
 
-p {
-    border: 1px solid black;
+a {
+    font-family: 'Montserrat', sans-serif;
     margin-top: 2px;
     margin-bottom: 2.5px;
     height: 10%;
     text-align: center;
+    line-height: 50px;
 }
 
 hr {

@@ -3,13 +3,13 @@
 let idUsuario = sessionStorage.getItem('idUsuario');
 //const mainContainer = document.querySelector('#main-container');
 
-const pNombre = document.querySelector('#nombre');
-const pCorreo = document.querySelector('#correo');
-const pGenero = document.querySelector('#genero');
-const pDireccion = document.querySelector('#direccion');
-const pProvincia = document.querySelector('#provincia');
-const pDistrito = document.querySelector('#distrito');
-const pCanton = document.querySelector("#canton");
+const aNombre = document.querySelector('#nombre');
+const aCorreo = document.querySelector('#correo');
+const aGenero = document.querySelector('#genero');
+const aDireccion = document.querySelector('#direccion');
+const aProvincia = document.querySelector('#provincia');
+const aDistrito = document.querySelector('#distrito');
+const aCanton = document.querySelector("#canton");
 
 
 
