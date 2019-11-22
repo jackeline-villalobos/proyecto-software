@@ -102,9 +102,12 @@ let obtener_datos = () => {
 
         Swal.fire({
             type: 'success',
-            title: 'Registro realizado con éxito',
+            title: 'Datos ingresados con éxito',
             text: 'El evento ha sido almacenado',
-            confirmButtonText: 'Entendio'
+            confirmButtonText: 'Continuar',
+            onClose: function() {
+                location.href = 'registrar-evento-2pag.html';
+            }
         });
         
         resetForm();

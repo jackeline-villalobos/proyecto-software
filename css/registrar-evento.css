@@ -63,3 +63,12 @@ header{
 .error {
     border: 2px solid #d63031;
 }
+#btn-registrar-evento{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    justify-self: center;
+    align-self: center;
+    min-width: 20%;
+    min-height: 50px;
+}
