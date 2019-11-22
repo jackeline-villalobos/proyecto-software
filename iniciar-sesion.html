@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/iniciar-sesion.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
@@ -26,29 +27,52 @@
         <div class="botones-header" id="botones-header">
 
             <!-- <button type="button">Iniciar sesión</button> -->
-            <button type="button" class="btn-registrarse" onclick="location.href='registrar-navegator.html'">Registrarse</button>
+           <a href="registrar-usuario.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+           </a>
         </div>
     </header>
 
+    <section class="main-section">
 
-    <main>
-        <div>
-            <img src="imagenes/imagenes_iniciar_sesion/photo_2019-11-10_14-42-28.jpg" class="imagen-morat">
+        <div class="main-container">
+
+            <div class="form-container">
+                
+                <div class="title-container">
+                        <div>
+                                <img src="imagenes/imagenes_generales/logo sin letras.png" alt="">
+                            </div>
+                     <h1>Ticket Pixel</h1>
+                </div>
+
+                
+                <form>
+
+                    <label for="txt-direccionCorreo">Correo electrónico</label>
+                    <input type="text" id="txt-direccionCorreo">
+
+                    <label for="txt-contrasenna">Contraseña</label>
+                    <input type="password" id="txt-contrasenna">
+                    
+                    <button type="button" id="btn-ingresar">Ingresar</button>
+                    <a href="cambiar-contrasenna-por-olvido-pag-1.html" id="enlace-OlvidasteContrasenna">Olvidaste tu
+                            contraseña?</a>
+    
+                </form>
+            </div>
+
         </div>
 
-        <form class="formulario">
-            <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
-            <input type="password" id="txt-contrasenna" placeholder="Contraseña">
-            <a href="cambiar-contrasenna-por-olvido-pag-1.html" id="enlace-OlvidasteContrasenna">¿Olvidaste tu contraseña?</a>
-            <!---
-            <div><p>Recordar contraseña</p></div> 
----->
-            <button type="button" id="btn-ingresar">Ingresar</button>
-
-        </form>
 
 
-    </main>
+
+    </section>
+
+
+
+
+
 
     <footer>
         <div>
