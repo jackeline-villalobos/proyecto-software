@@ -1,9 +1,8 @@
 'use strict';
 
-let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, experiencia,
-    nombreComercial, provincia, canton, distrito, sennas, nombreCompleto,
-    correo, telefono, genero) => {
-
+let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
+    
+    let pcontrasenna = generarContrasena();
     await axios(
         {
             method: 'post',
@@ -20,6 +19,7 @@ let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, exp
                 sennas: sennas,
                 nombreCompleto: nombreCompleto,
                 correo: correo,
+                contrasenna: pcontrasenna,
                 telefono: telefono,
                 genero: genero
             }
@@ -32,7 +32,27 @@ let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, exp
     .catch(function(error){
         console.log(error);
     });
+    
+};
 
+function generarContrasena(){
+    let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let caracterEspecial = ['!', '@', '#', '$', '%', '=', '&', '*', '?', '_'];
+    // 1 mayúscula
+    let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] + 
+    // 5 minúsculas
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] + 
+    minusculas[Math.floor(Math.random() * minusculas.length)] +
+    // 1 número
+    [Math.floor((Math.random() * 33) + 1)] + 
+    // 1 caracter especial
+    caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
+
+    return contrasena;
 };
 
 let listar_organizadorSolicitantes = async () => {
@@ -54,42 +74,38 @@ let listar_organizadorSolicitantes = async () => {
     return lista_organizadorSolicitantes;
 };
 
-let activar_organizador = async () => {
-    await axios(
-        {
-            method: 'post',
-            url: 'http://localhost:3000/api/activar-organizador',
-            responseType: 'json',
-            data: {
-                estado :'activo'
-                }
-            })
-        .then(function (res) {
-            console.log(res.data);
+// let activar_organizador = async () => {
+//     await axios(
+//         {
+//             method: 'post',
+//             url: 'http://localhost:3000/api/activar-organizador',
+//             responseType: 'json',
+//             data: 'activo'
+//             })
+//         .then(function (res) {
+//             console.log(res.data);
 
-        })
-        .catch(function (error) {
-            console.log(error);
+//         })
+//         .catch(function (error) {
+//             console.log(error);
 
-        });
-};
+//         });
+// };
 
-let desactivar_organizador = async () => {
-    await axios(
-        {
-            method: 'post',
-            url: 'http://localhost:3000/api/desactivar-organizador',
-            responseType: 'json',
-            data: {
-                estado :'inactivo'
-                }
-            })
-        .then(function (res) {
-            console.log(res.data);
+// let desactivar_organizador = async () => {
+//     await axios(
+//         {
+//             method: 'post',
+//             url: 'http://localhost:3000/api/desactivar-organizador',
+//             responseType: 'json',
+//             data: 'inactivo'
+//             })
+//         .then(function (res) {
+//             console.log(res.data);
 
-        })
-        .catch(function (error) {
-            console.log(error);
+//         })
+//         .catch(function (error) {
+//             console.log(error);
 
-        });
-};
+//         });
+// };

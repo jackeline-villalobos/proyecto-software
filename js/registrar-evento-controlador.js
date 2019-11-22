@@ -4,21 +4,14 @@ const input_nombre = document.querySelector('#txt-nombre');
 const input_tipoDeEventos = document.querySelector('#txt-tipoDeEventos');
 const input_pais = document.querySelector('#txt-pais');
 const input_lugar = document.querySelector('#txt-lugar');
-const input_cantidadAsistentes = document.querySelector('#txt-cantidadAsistentes');
-const input_fecha1 = document.querySelector('#txt-date-1');
-const input_hora1 = document.querySelector('#txt-time-1');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
-const input_impuestos = document.querySelector('#slc-impuestos');
-const input_descuentos = document.querySelector('#slc-descuentos');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
-const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
 
-const div_fechaYHora = document.querySelector('.fechaYHora');
+// const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
 
-const input_fechas = document.querySelector('.txt-date');
-const input_horas = document.querySelector('.txt-time');
+
 
 let validar = () => {
 
@@ -52,27 +45,6 @@ let validar = () => {
         input_lugar.classList.remove('error');
     };
 
-    if (input_cantidadAsistentes.value == '') {
-        error = true;
-        input_cantidadAsistentes.classList.add('error');
-    } else {
-        input_cantidadAsistentes.classList.remove('error');
-    };
-
-    if (input_fechas.value == '') {
-        error = true;
-        input_fechas.classList.add('error');
-    } else {
-        input_fechas.classList.remove('error');
-    };
-
-    if (input_horas.value == '') {
-        error = true;
-        input_horas.classList.add('error');
-    } else {
-        input_horas.classList.remove('error');
-    };
-
     if (input_descripcion.value == '') {
         error = true;
         input_descripcion.classList.add('error');
@@ -85,13 +57,6 @@ let validar = () => {
         input_precioEntrada.classList.add('error');
     } else {
         input_precioEntrada.classList.remove('error');
-    };
-
-    if (input_impuestos.value == '') {
-        error = true;
-        input_impuestos.classList.add('error');
-    } else {
-        input_impuestos.classList.remove('error');
     };
 
     if (input_imagen.src == 'imagenes/registrar-evento/outlined_placeholder-512.png') {
@@ -107,15 +72,10 @@ let validar = () => {
 let resetForm = () => {
     input_nombre.value = '';
     input_pais.value = '';
-    input_cantidadAsistentes.value = '';
-    input_fechas.value = '';
     input_tipoDeEventos.value = '';
     input_lugar.value = '';
     input_precioEntrada.value = '';
-    input_horas.value = '';
     input_descripcion.value = '';
-    input_impuestos.value = '';
-    input_descuentos.value = '';
     input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
 
@@ -123,17 +83,10 @@ let obtener_datos = () => {
 
     let nombre = input_nombre.value;
     let pais = input_nombre.value;
-    let cantidadAsistentes = input_cantidadAsistentes.value;
     let tipoDeEventos = input_tipoDeEventos.value;
     let lugar = input_lugar.value;
-
-    let fecha = input_fecha1.value;
-    let hora = input_hora1.value;
-
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
-    let impuestos = input_impuestos.value;
-    let descuentos = input_descuentos.value;
     let imagen = imagePreview.src;
 
     if (validar()) {
@@ -145,85 +98,96 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, tipoDeEventos, pais, lugar, fecha, hora, cantidadAsistentes, descripcion, precioEntrada, impuestos, descuentos, imagen);
+        registrar_evento(nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, imagen);
 
         Swal.fire({
             type: 'success',
-            title: 'Registro realizado con éxito',
+            title: 'Datos ingresados con éxito',
             text: 'El evento ha sido almacenado',
-            confirmButtonText: 'Entendio'
+            confirmButtonText: 'Continuar',
+            onClose: function() {
+                location.href = 'registrar-evento-2pag.html';
+            }
         });
         
-        // agregar_fecha(fecha, hora);
         resetForm();
 
     }
 };
-var x = 2;
-let agregarEspacioFecha = () => {
+// var x = 2;
+// let agregarEspacioFecha = () => {
 
-    let dateh4 = document.createElement('h6')
-    dateh4.id = 'txt-dateh4-' + x;
-    dateh4.innerText = 'Fecha ' + x;
+//     let dateh4 = document.createElement('h6')
+//     dateh4.id = 'txt-dateh4-' + x;
+//     dateh4.innerText = 'Fecha ' + x;
 
-    let date = document.createElement('input');
-    date.type = "date";
-    date.id = "txt-date-" + x;
-    date.classList.add('txt-date');
+//     let date = document.createElement('input');
+//     date.type = "date";
+//     date.id = "txt-date-" + x;
+//     date.classList.add('txt-date');
 
-    let time = document.createElement('input');
-    time.type = "time";
-    time.id = "txt-time-" + x;
-    time.classList.add('txt-time');
+//     let time = document.createElement('input');
+//     time.type = "time";
+//     time.id = "txt-time-" + x;
+//     time.classList.add('txt-time');
 
-    let asistentes = document.createElement('input');
-    asistentes.type = "number";
-    asistentes.id = "txt-asistentes-" + x;
-    asistentes.classList.add('txt-asistentes');
+//     let asistentes = document.createElement('input');
+//     asistentes.type = "number";
+//     asistentes.id = "txt-asistentes-" + x;
+//     asistentes.classList.add('txt-asistentes');
 
-    div_fechaYHora.appendChild(dateh4);
-    div_fechaYHora.appendChild(date);
-    div_fechaYHora.appendChild(time);
-    div_fechaYHora.appendChild(asistentes);
+//     div_fechaYHora.appendChild(dateh4);
+//     div_fechaYHora.appendChild(date);
+//     div_fechaYHora.appendChild(time);
+//     div_fechaYHora.appendChild(asistentes);
 
-    event.preventDefault();
-    x++;
-};
+//     event.preventDefault();
+//     x++;
+// };
 
 // listar descuentos e impuestos try
 
-const dtl_descuentos = document.querySelector('#listaDescuentos');
 
-let llenarDescuentos = async () => {
+// const dtl_impuestos = document.querySelector('#listaImpuestos')
 
-    listaDescuentos = await listarDescuentos();
+// let llenarImpuestos = async () => {
 
-    for (let i = 0; i < listarDescuentos.length; i++) {
-        let option = document.createElement('option');
-        option.classList.add('opcionDescuentos');
-        option.setAttribute.value(listarDescuentos[i]['nombre']);
-        dtl_descuentos.appendChild(option);
-    };
+//     listaImpuestos = await listarImpuestos();
+
+//     for(let i = 0; i < listarImpuestos.length; i++){
+//         let option = document.createElement('option');
+//         option.classList.add('opcionImpuestos');
+//         option.setAttribute.value(listarImpuestos[i]['nombre']);
+//         dtl_impuestos.appendChild(option);
+//     }
     
+// };
+ 
+let listatipoEventos;
 
-};
-
-const dtl_impuestos = document.querySelector('#listaImpuestos')
-
-let llenarImpuestos = async () => {
-
-    listaImpuestos = await listarImpuestos();
-
-    for(let i = 0; i < listarImpuestos.length; i++){
-        let option = document.createElement('option');
-        option.classList.add('opcionImpuestos');
-        option.setAttribute.value(listarImpuestos[i]['nombre']);
-        dtl_impuestos.appendChild(option);
+let llenarTiposEvento = async () => {
+    listatipoEventos = await listartipoEventos();
+    for(let i = 0; i < listatipoEventos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listatipoEventos[i]['nombre']
+        input_tipoDeEventos.appendChild(option)
     }
-    
 };
 
+llenarTiposEvento();
 
+let listaRecintos;
+
+let llenarRecintos = async () => {
+    listaRecintos = await listarRecintos();
+    for(let i = 0; i < listaRecintos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listaRecintos[i]['nombreRecinto']
+        input_lugar.appendChild(option)
+    }
+};
+
+llenarRecintos();
 
 btn_guardar.addEventListener('click', obtener_datos);
-btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
+// btn_agregarFecha.addEventListener('click', agregarEspacioFecha);

@@ -3,6 +3,7 @@
 const express = require('express'),
     router = express.Router(),
     Evento = require('../models/eventos.model'),
+    Recinto = require('../models/recinto.model'),
     mongoose = require('mongoose');
 
 router.post('/registrar-evento', function (req, res) {
@@ -15,8 +16,6 @@ router.post('/registrar-evento', function (req, res) {
         lugar: body.lugar,
         precioEntrada: body.precioEntrada,
         descripcion: body.descripcion,
-        // impuestos: body.impuestos,
-        // descuentos: body.descuentos,
         imagen: body.imagen,
         estado: 'activo'
     });
@@ -40,87 +39,87 @@ router.post('/registrar-evento', function (req, res) {
         });
 
 });
-router.post('/agregar-fecha', function (req, res) {
+// router.post('/agregar-fecha', function (req, res) {
     
-    if (req.body._id) {
-        Evento.update({ _id: req.body._id }, {
-            $push: {
-                'fechas': {
-                    fecha: req.body.fecha,
-                    hora: req.body.hora,
-                    cantidadAsistentes: body.cantidadAsistentes,
-                }
-            }
-        },
-            function (error) {
-                if (error) {
-                    return res.json({
-                        resultado: false,
-                        msg: 'La fecha no se pudo registrar',
-                    });
-                } else {
-                    return res.json({
-                        resultado: true,
-                        msg: 'Se agregó correctamente la fecha'
-                    });
-                }
-            }
-        )
-    }else{
-        return res.json({
-            success: false,
-            msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto'
+//     if (req.body._id) {
+//         Evento.update({ _id: req.body._id }, {
+//             $push: {
+//                 'fechas': {
+//                     fecha: req.body.fecha,
+//                     hora: req.body.hora,
+//                     cantidadAsistentes: body.cantidadAsistentes,
+//                 }
+//             }
+//         },
+//             function (error) {
+//                 if (error) {
+//                     return res.json({
+//                         resultado: false,
+//                         msg: 'La fecha no se pudo registrar',
+//                     });
+//                 } else {
+//                     return res.json({
+//                         resultado: true,
+//                         msg: 'Se agregó correctamente la fecha'
+//                     });
+//                 }
+//             }
+//         )
+//     }else{
+//         return res.json({
+//             success: false,
+//             msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto'
 
-        });
-    }
+//         });
+//     }
 
-});
+// });
 
-router.post('/agregar-descuento', function(req, res){
-    Evento.update({_id: req.body._id}, {
-       $push: {
-        'descuentos': {
-            nombre: req.body.nombre,
-        }
-       } 
-    }, function(err){
-        if(err) {
-            return res.json({
-                resultado: false,
-                msg: 'No se pudo agregar el descuento',
-                err 
-            });
-        } else {
-            return res.json({
-                resultado: true,
-                msg: 'Se agregó el descuento correctamente'
-            });
-        }
-    });
-});
+// router.post('/agregar-descuento', function(req, res){
+//     Evento.update({_id: req.body._id}, {
+//        $push: {
+//         'descuentos': {
+//             nombre: req.body.nombre,
+//         }
+//        } 
+//     }, function(err){
+//         if(err) {
+//             return res.json({
+//                 resultado: false,
+//                 msg: 'No se pudo agregar el descuento',
+//                 err 
+//             });
+//         } else {
+//             return res.json({
+//                 resultado: true,
+//                 msg: 'Se agregó el descuento correctamente'
+//             });
+//         }
+//     });
+// });
 
-router.post('/agregar-impuesto', function(req, res){
-    Evento.update({_id: req.body._id}, {
-       $push: {
-        'impuestos': {
-            nombre: req.body.nombre,
-        }
-       } 
-    }, function(err){
-        if(err) {
-            return res.json({
-                resultado: false,
-                msg: 'No se pudo agregar el impuesto',
-                err 
-            });
-        } else {
-            return res.json({
-                resultado: true,
-                msg: 'Se agregó el impuesto correctamente'
-            });
-        }
-    });
-});
+// router.post('/agregar-impuesto', function(req, res){
+//     Evento.update({_id: req.body._id}, {
+//        $push: {
+//         'impuestos': {
+//             nombre: req.body.nombre,
+//         }
+//        } 
+//     }, function(err){
+//         if(err) {
+//             return res.json({
+//                 resultado: false,
+//                 msg: 'No se pudo agregar el impuesto',
+//                 err 
+//             });
+//         } else {
+//             return res.json({
+//                 resultado: true,
+//                 msg: 'Se agregó el impuesto correctamente'
+//             });
+//         }
+//     });
+// });
 
 router.get('/listar-eventos', function(req, res){
 
@@ -142,43 +141,82 @@ router.get('/listar-eventos', function(req, res){
     );
 
 });
-router.get('/listar-impuestos', function(req, res) {
 
-    Impuesto.find(
-        function(err, impuestosBD){
+// router.get('/listar-impuestos', function(req, res) {
+
+//     Impuesto.find(
+//         function(err, impuestosBD){
+//             if (err) {
+//                 res.json({
+//                     resultado: false,
+//                     msg: 'No se encontraron impuestos',
+//                     err
+//                 });
+//             } else {
+//                 res.json({
+//                     resultado: true,
+//                     impuestos: impuestosBD
+//                 });
+//             }
+//         }
+//     );
+// });
+
+// router.get('/listar-descuentos', function(req, res) {
+
+//     Descuento.find(
+//         function(err, descuentosBD){
+//             if(err){
+//                 res.json({
+//                      resultado: false,
+//                      msg: 'No se encontraron descuentos',
+//                      err
+//                 });
+//             } else {
+//                 res.json({
+//                     resultado: true,
+//                     descuentos: descuentosBD
+//                 });
+//             }
+//         }
+//     );
+//  });
+
+router.get('/listar-tipo-evento', function(req, res) {
+
+    tipoEvento.find(
+        function(err, tipoEventosBD) {
             if (err) {
                 res.json({
                     resultado: false,
-                    msg: 'No se encontraron impuestos',
+                    msg: 'No se encontraron tipos de evento',
                     err
                 });
             } else {
                 res.json({
                     resultado: true,
-                    impuestos: impuestosBD
+                    tipoEventos: tipoEventosBD
                 });
             }
         }
     );
 });
-router.get('/listar-descuentos', function(req, res) {
 
-    Descuento.find(
-        function(err, descuentosBD){
-            if(err){
-                res.json({
-                     resultado: false,
-                     msg: 'No se encontraron descuentos',
-                     err
-                });
-            } else {
-                res.json({
-                    resultado: true,
-                    descuentos: descuentosBD
-                });
-            }
+router.get('/listar-recintos', function(req, res) {
+    Recinto.find(function(err, recintosBD) {
+        if (err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron recintos',
+                err
+            });
+        } else {
+            res.json({
+                resultado: true,
+                recintos: recintosBD
+            });
         }
-    );
- });
+    });
+});
 
 module.exports = router;

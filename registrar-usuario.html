@@ -16,74 +16,120 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-        <div class="botones-header">
-            <button type="button" onclick="location.href='iniciar-sesion.html'">Iniciar sesión</button>
-        </div>
-    </header>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
 
     <main>
-        <h1>Registrarse</h1>
-        <section class="section-main">
-            <!--Subir foto de perfil-->
-            <div class="subir-img-registro">
-                <figure class="imageHolder">
-                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
-                        id="imagePreview">
-                </figure>
 
-                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
-            </div>
+        <section class="section-main">
 
             <!--Formulario de registro-->
             <div class="info-registro formulario">
+
+                <h1>Regístrese</h1>
+
                 <form>
-
+                    <h4>Información personal</h4>
                     <div class="nombres">
-                        <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
 
-                        <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
+                        <div class="label_elementos">
+                            <label for="txt_primerNombre">Primer nombre: </label>
+                            <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
+                        </div>
+
+                        <div class="label_elementos2">
+                            <label for="txt_segundoNombre">Segundo nombre: </label>
+                            <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
+                        </div>
                     </div>
 
                     <div class="apellidos">
-                        <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
 
-                        <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
+                        <div class="label_elementos">
+                            <label for="txt_primerApellido">Primer apellido: </label>
+                            <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
+                        </div>
+
+                        <div class="label_elementos2">
+                            <label for="txt_segundoApellido">Segundo apellido</label>
+                            <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
+                        </div>
+
+
+
                     </div>
 
                     <div class="correo-fecha">
-                        <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
+                        <div class="label_elementos">
+                            <label for="txt_correo">Correo electrónico: </label>
+                            <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
+                        </div>
 
-                        <input type="date" placeholder="Fecha de nacimiento" class="input-fecha"
-                            id="txt_fechaDeNacimiento">
+                        <div class="label_elementos2">
+                            <label for="input-fecha">Fecha de nacimiento</label>
+                            <input type="date" placeholder="Fecha de nacimiento" class="input-fecha"
+                                id="txt_fechaDeNacimiento">
+                        </div>
+
                     </div>
 
+                    <div class="genero">
+                       <label for="txt_genero">Género: </label>
                     <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
                     <datalist id="datalist-genero">
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Otro">Otro</option>
                         <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-                    </datalist>
+                    </datalist> 
+                    </div>
+                    
 
 
 
                     <!--Direccion-->
                     <div class="direccion">
-                        <h6 for="">Dirección</h6>
+                        <h4>Dirección</h4>
 
                         <div class="direccion-provincia">
 
                             <div class="form_control">
                                 <input type="text" placeholder="Dirección" id="direccion">
 
-                                <select class="form_input" name="provincia" id="provincias">
+                                
+                                  <select class="form_input label_elementos2" name="provincia" id="provincias" >
                                     <option value="" hidden>Provincia</option>
-                                </select>
+                                </select>  
+                                
+                                
                             </div>
 
 
@@ -96,20 +142,31 @@
                                 </select>
                             </div>
 
-                            <div class="form_control">
+                            <div class="form_control label_elementos2">
                                 <select class="form_input" name="distrito" id="distritos">
                                     <option value="" hidden>Distrito</option>
                                 </select>
                             </div>
-
 
                         </div>
                     </div>
 
                 </form>
 
-                <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>
+                <!--Subir foto de perfil-->
+                <div class="subir-img-registro">
+                    <figure class="imageHolder">
+                        <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
+                            id="imagePreview">
+                    </figure>
+
+                    <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
                 </div>
+
+
+
+                <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>
+            </div>
 
         </section>
 
@@ -166,6 +223,7 @@
     <script src="js/registrar-usuario-controlador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="js/imagen-servicio.js"></script>
+    <script src="js/controlador-nav.js"></script>
 </body>
 
 </html>

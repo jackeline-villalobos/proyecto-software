@@ -17,16 +17,36 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html">
-                <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-        <div class="botones-header">
-            
-        </div>
-    </header>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
 
     <div class="container-filtro">
         <input type="text" id="txt-filtro" placeholder="Buscar usuario">
@@ -38,9 +58,9 @@
             <tr>
                 <th>Nombre</th>
                 <th>Primer apellido</th>
-                <th>Segundo apellido</th>
-                <th>Género</th>
+                <!-- <th>Género</th> -->
                 <th>Correo</th>
+                <th>Rol</th>
                 <th>Perfil</th>
             </tr>
         </thead>
@@ -94,6 +114,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/registrar-usuarios-servicio.js"></script>
     <script src="js/listar-usuarios-controlador.js"></script>
+    <script src="js/controlador-nav.js"></script>
     
 </body>
 

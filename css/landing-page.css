@@ -1,0 +1,96 @@
+.main-section {
+    background-image: url('../imagenes/landing-page/crowd-in-front-of-blue-and-orange-stage-during-a-concert-at-1387174.jpg');
+    height: 900px;
+    background-attachment: center !important;
+    background-size: cover;
+ }
+ 
+     
+ 
+ .main-section .text-container {
+    padding-top: 5%;
+ }
+
+ .main-section .text-container h1,h2  {
+    color: white;
+    text-align: center;
+    font-weight: 800;
+    
+ }
+ .main-section .text-container h1 {
+     font-size: 40px;
+ }
+
+.main-section .form-container {
+    display: block;
+    /* position: absolute; */
+    padding-top: 15%;
+    width: 100%;
+    height: 10px;
+    /* background: rebeccapurple; */
+}
+
+.main-section .form-container form {
+    padding: 2%;
+    height: 100px;
+    width: 700px;
+    /* background: black; */
+    background: RGBA(255, 255, 255, 255, 1);
+    margin: auto;
+}
+
+.main-section .form-container form input {
+    margin-top: 3%;
+    display: inline-block;
+    height: 50px;
+    width: 350px;
+    font-size: 20px;
+    margin-right: 2%;
+    margin-left: 5%;
+    /* background: none; */
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+    color: white;
+}
+
+.main-section .form-container form input::placeholder {
+    color: white;
+}
+
+.main-section .form-container form button {
+    display: inline-block;
+    height: 50px;
+    width: 250px;
+    font-size: 20px;
+    border: 1px solid white;
+}
+
+h1, h2{
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+
+ /* .main-section .form {
+     position: absolute;
+     display: block;
+     top: 50%;
+     right: 10%;
+     background-color: rgba(0, 0, 0, 0.2);
+     width: 300px;
+     height: 200px;
+     padding: 2%;
+     border: 1px solid black;
+ }
+ 
+ .main-section .form input {
+     width: 100%;
+     margin-bottom: 20%;
+ }
+ 
+ .main-section .form button {
+     margin-top: 10%;
+     width: 70%;
+     display: block;
+     margin: auto;
+ } */

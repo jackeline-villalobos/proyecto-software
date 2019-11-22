@@ -1,79 +1,55 @@
-.info-registro .datalist-genero{
-    height: 32px;
-    width: 172px;
-    border-radius: 10px;
-    background-position: 10px 7px;
-    background-size: 15px 15px;
-    padding-left: 34px;
-}
-main{
-    display: flow-root;
-}
-
-.section-main{
-    display: flex;
-    justify-content: space-around;
+.info-registro{
+    width: 800px;  
+    margin-left: 18%;
     margin-bottom: 60px;
 }
 
-.input-fecha{
-    height: 34px !important;
-    color: #616161;
+.formulario{
+    margin-top: 50px;
 }
 
-.subir-img-registro{
-    width: 350px;
-    float: left;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
+.nombres{
+    margin-top: 40px;
 }
+
+.genero{
+    margin-left: 90px;
+}
+
+.nombres, .correo-fecha, .apellidos, .canton-distrito, .direccion-provincia{
+    display: flex;
+    flex-direction: row;
+    padding-left: 90px;
+}
+h4{
+    padding-left: 90px;
+    margin-top: 50px; 
+}
+
+label{
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.label_elementos2{
+    margin-left: 30px;
+}
+
 #imagePreview{
     width: 300px;
-}
-.info-registro{
-    width: 500px;
-    float: left;
-    margin-top: 20px;
-    display: flow-root;
-    display: flex;
-    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
-.nombres, .apellidos, .correo-fecha{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
+.botonImagen, .btn-registar{
+    margin-left: 42%;
+    margin-bottom: 30px;
 }
 
-#txt_segundoNombre, #txt_segundoApellido, #txt_fechaDeNacimiento, #provincias, #distritos{
-    margin-left: 15px;
+.btn-registar:hover{
+    margin: none !important;
+    padding: none !important;
 }
-#txt_genero{
-    margin-left: 145px;
-}
-
-.direccion-provincia, .canton-distrito{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-h6{
-    text-align: center;
-}
-
-.btn-registar{
-    margin-top: 30px;
-    align-self: center;
-}
-.btn-facebook{
-    margin-top: 10px;
-    align-self: center;
-}
-

@@ -49,6 +49,28 @@ a{
     margin-left: 20px !important;
 }
 
+.botones-header .href-perfil {
+    margin-left: 10px;
+    margin-top: -8px;
+}
+
+.botones-header .href-perfil div {
+    /* position: absolute;
+    top: 0; */
+    /* display: inline-block; */
+    /* margin-left: 30px; */
+    width: 50px;
+    height: 50px;
+    background: rebeccapurple;
+    border-radius: 50%;
+}
+
+.botones-header .href-perfil div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 
 /*Titulos*/
 
@@ -141,19 +163,13 @@ button {
     justify-content: center;
 }
 
-button:hover,
-.btn-registrarse:hover {
-    height: 32px;
-    width: 100px;
-    border-radius: 10px;
+button:hover, .btn-registrarse:hover {
     background-color: #1EBB2D;
     border: none;
     color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0,5px; 
-    margin-left: 1px;
 }
 
 .swal2-styled.swal2-confirm {

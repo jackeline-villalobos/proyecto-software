@@ -159,8 +159,7 @@ let obtener_datos = async() => {
 
         } else {
 
-            sessionStorage.setItem('idNuevoUsuario', error.data._id);
-
+            //sessionStorage.setItem('idNuevoUsuario', error.data._id);
 
             Swal.fire({
                 type: 'success',
@@ -169,7 +168,7 @@ let obtener_datos = async() => {
                 confirmButtonText: 'Entendido',
                 costumClass: 'modal',
                 onClose: function() {
-                    location.href = 'primer-cambio-contrasenna.html';
+                    location.href = 'index.html';
                 }
             });
 
