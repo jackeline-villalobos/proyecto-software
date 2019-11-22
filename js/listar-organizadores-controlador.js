@@ -44,8 +44,8 @@ let llenarTabla = async () => {
              fila.insertCell().appendChild(btnActivar).innerHTML;
              fila.insertCell().appendChild(btnDesactivar).innerHTML;
 
-             btnActivar.addEventListener('click', activar_organizador);
-             btnDesactivar.addEventListener('click', desactivar_organizador);
+            //  btnActivar.addEventListener('click', activar_organizador);
+            //  btnDesactivar.addEventListener('click', desactivar_organizador);
 
          }
      };
