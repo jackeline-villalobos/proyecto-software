@@ -3,6 +3,7 @@
 const express = require('express'),
     router = express.Router(),
     Evento = require('../models/eventos.model'),
+    Recinto = require('../models/recinto.model'),
     mongoose = require('mongoose');
 
 router.post('/registrar-evento', function (req, res) {
@@ -160,6 +161,7 @@ router.get('/listar-eventos', function(req, res){
 //         }
 //     );
 // });
+
 // router.get('/listar-descuentos', function(req, res) {
 
 //     Descuento.find(
@@ -179,5 +181,42 @@ router.get('/listar-eventos', function(req, res){
 //         }
 //     );
 //  });
+
+router.get('/listar-tipo-evento', function(req, res) {
+
+    tipoEvento.find(
+        function(err, tipoEventosBD) {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se encontraron tipos de evento',
+                    err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    tipoEventos: tipoEventosBD
+                });
+            }
+        }
+    );
+});
+
+router.get('/listar-recintos', function(req, res) {
+    Recinto.find(function(err, recintosBD) {
+        if (err) {
+            res.json({
+                resultado: false,
+                msg: 'No se encontraron recintos',
+                err
+            });
+        } else {
+            res.json({
+                resultado: true,
+                recintos: recintosBD
+            });
+        }
+    });
+});
 
 module.exports = router;
