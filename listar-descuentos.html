@@ -16,17 +16,36 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-
-
-        <div class="botones-header">
-            <button type="button"><a href="registrar-descuentos.html">Registrar descuentos</a></button>
-        </div>
-    </header>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
 
     <div class="container-filtro">
         <input type="text" id="txt-filtro" placeholder="Buscar descuento">
@@ -89,6 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/descuentos-servicio.js"></script>
     <script src="js/listar-descuentos-controlador.js"></script>
+    <script src="js/controlador-nav.js"></script>
 
 </body>
 

@@ -49,6 +49,28 @@ a{
     margin-left: 20px !important;
 }
 
+.botones-header .href-perfil {
+    margin-left: 10px;
+    margin-top: -8px;
+}
+
+.botones-header .href-perfil div {
+    /* position: absolute;
+    top: 0; */
+    /* display: inline-block; */
+    /* margin-left: 30px; */
+    width: 50px;
+    height: 50px;
+    background: rebeccapurple;
+    border-radius: 50%;
+}
+
+.botones-header .href-perfil div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 
 /*Titulos*/
 

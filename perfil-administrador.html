@@ -19,16 +19,36 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-        <div class="botones-header">
-            <button type="button">Cerrar session</button>
-
-        </div>
-    </header>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
     <main>
         <section>
 
@@ -161,6 +181,7 @@
 
     <script src="js/perfil-administrador-controlador.js"></script>
     <script src="js/perfil-administrador-servicio.js"></script>
+    <script src="js/controlador-nav.js"></script>
 
 </body>
 
