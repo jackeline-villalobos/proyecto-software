@@ -252,21 +252,66 @@ router.post('/iniciar-sesion', function (req, res) {
 
 
 router.get('/listar-usuarios', function (req, res) {
+    // Usuario.find(function (err, usuariosBD) {
+    //     if (err) {
+    //         res.json({
+    //             resultado: false,
+    //             msg: 'No se encontraron usuarios',
+    //             err
+    //         })
+    //     } else {
+    //         res.json({
+    //             resultado: true,
+    //             usuarios: usuariosBD
+    //         })
+    //     };
+
+    // });
+
     Usuario.find(function (err, usuariosBD) {
-        if (err) {
-            res.json({
-                resultado: false,
-                msg: 'No se encontraron usuarios',
-                err
-            })
+        if (usuariosBD) {
+            organizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
+                if (organizadorSolicitanteBD) {
+                    Empresa.find(function (err, empresaBD) {
+                        if (empresaBD) {
+                            Encargado.find(function(err, encargadoBD){
+                                if(encargadoBD) {
+                                    res.json({
+                                        resultado: true,
+                                        clientes: usuariosBD,
+                                        organizadores: organizadorSolicitanteBD,
+                                        empresas: empresaBD,
+                                        encargados: encargadoBD
+                                    });
+                                } else {
+                                    res.json({
+                                        resultado: false,
+                                        msg: 'Error en encargado'
+                                    })
+                                }
+                            });
+                        } else {
+                            res.json({
+                                resultado: false,
+                                msg: 'Error en empresa'
+                            });
+                        }
+                    });
+                } else {
+                    res.json({
+                        resultado: false,
+                        msg: 'Error en organizador'
+                    });
+                }
+            });
         } else {
             res.json({
-                resultado: true,
-                usuarios: usuariosBD
-            })
-        };
-
+                resultado: false,
+                msg: 'Error en usuarios'
+            });
+        }
     });
+
 });
 
 
