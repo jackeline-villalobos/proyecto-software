@@ -34,10 +34,9 @@ section #main-container {
     justify-content: space-around !important;
     height: 100%;
     width: 200px;
-    margin-left: 0px;
 }
 
-a {
+.a {
     font-family: 'Montserrat', sans-serif;
     margin-top: 2px;
     margin-bottom: 2.5px;

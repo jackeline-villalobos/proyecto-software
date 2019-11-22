@@ -2,8 +2,16 @@
 Coordenadas San Jose
 lat: 9.9333296
 lng: -84.0833282
-*/
 
+
+
+if (marker && marker.setMap) {
+        marker.setMap(null);
+}
+
+
+*/
+var marker;
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -11,15 +19,19 @@ function initMap() {
         center: { lat: 9.9333296, lng: -84.0833282 }
     });
 
-    map.addListener('click', function(e) {
+    google.maps.event.addListener(map, "click", function(e) {
 
         placeMarkerAndPanTo(e.latLng, map);
     });
+
 }
 
 function placeMarkerAndPanTo(latLng, map) {
-
-
+    /*
+    if (marker) {
+        marker.setMap(null);
+    }
+    */
     var marker = new google.maps.Marker({
         position: latLng,
         map: map
