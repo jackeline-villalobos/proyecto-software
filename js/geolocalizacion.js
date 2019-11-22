@@ -27,11 +27,9 @@ function initMap() {
 }
 
 function placeMarkerAndPanTo(latLng, map) {
-    /*
-    if (marker) {
-        marker.setMap(null);
-    }
-    */
+
+
+
     var marker = new google.maps.Marker({
         position: latLng,
         map: map
