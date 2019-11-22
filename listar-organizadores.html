@@ -17,16 +17,36 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html">
-                <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-        <div class="botones-header">
-            
-        </div>
-    </header>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
 
     <div class="container-filtro">
         
@@ -103,6 +123,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/organizadorSolicitante-servicio.js"></script>
     <script src="js/listar-organizadores-controlador.js"></script>
+    <script src="js/controlador-nav.js"></script>
     
 </body>
 

@@ -26,7 +26,8 @@ header{
 }
 .form-registrar-evento input{
     display: block;
-    width: 100%;
+    width: 210px;
+    margin: 0px auto 10px auto;
 }
 #btn-agregarFecha{
     margin-bottom: 10px;
@@ -38,11 +39,8 @@ header{
     min-height: 50px;
 }
 .form-registrar-evento select{
-    width: 100%;
-    margin-bottom: 10px;
+    margin: 0px auto 10px auto;
     border-radius: 10px;
-    height: 70px;
-    max-height: 150px;
 }
 .slider-fotos-registrar-evento{
     grid-column-start: 2;
@@ -64,4 +62,13 @@ header{
 
 .error {
     border: 2px solid #d63031;
+}
+#btn-registrar-evento{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    justify-self: center;
+    align-self: center;
+    min-width: 20%;
+    min-height: 50px;
 }

@@ -21,22 +21,6 @@ main{
     padding: 0px;
 }
 
-.botones-header .href-perfil {
-    margin-left: 10px;
-    margin-top: -8px;
-}
-
-.botones-header a div {
-    /* position: absolute;
-    top: 0; */
-    /* display: inline-block; */
-    /* margin-left: 30px; */
-    width: 50px;
-    height: 50px;
-    background: rebeccapurple;
-    border-radius: 50%;
-}
-
 .nav-superior{
     padding-top: 30px ;
     text-align: center;

@@ -13,79 +13,99 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/navegador.css">
+    <link rel="stylesheet" href="css/perfil-usuario.css">
     <link rel="stylesheet" href="css/perfil-administrador.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header">
-            </a>
-        </div>
-        <div class="botones-header">
-            <button type="button">Cerrar session</button>
+        <header>
+                <div>
+                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+                </div>
+                <div class="botones-header" id="btns-header">
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button">Iniciar sesión</button>
+                    </a>
+        
+                    <a href="registrar-navegator.html">
+                        <button type="button" class="btn-registrarse">Registrarse</button>
+                    </a>
+        
+                    <a href="configuracion.html">
+                        <button type="button">Configuración</button>
+                    </a>
+        
+                    <a href="iniciar-sesion.html">
+                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+                    </a>
+        
+                    <a href="#" class="href-perfil">
+                        <div id="foto-usuario">
+        
+                        </div>
+                    </a>
+        
+                </div>
+            </header>
+    <main>
+        <section>
 
-        </div>
-    </header>
+            <div id="main-container">
+
+                <div class="left-grid">
+                    <section id="container-2">
+                        <a id="nombre" class="a">Admin</a>
+
+                        <a id="correo" class="a">Correo@correo.com</a>
 
 
-    <section>
+                        <a id="genero" class="a">Masculino</a>
 
-        <div id="main-container">
+                        <a id="direccion" class="a">Direccion</a>
 
-            <div class="left-grid">
-                <div id="container-2">
-                    <p id="nombre">Admin</p>
-                    <hr>
-                    <p id="correo">Correo@correo.com</p>
-                    <hr>
+                        <a id="provincia" class="a">Provincia</a>
 
-                    <p id="genero">Masculino</p>
-                    <hr>
-                    <p id="direccion">Direccion</p>
-                    <hr>
-                    <p id="provincia">Provincia</p>
-                    <hr>
-                    <p id="canton">Canton</p>
+                        <a id="canton" class="a">Canton</a>
+
+                    </section>
 
                 </div>
 
-            </div>
 
 
+                <div class="right-grid">
+                    <section class="container">
 
-            <div class="right-grid">
-                <section class="container">
-
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/team.png" class="i">
-                        <button type="button" onclick="location.href='registrar-empresa.html'">Registrar
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/team.png" class="i">
+                            <button type="button" onclick="location.href='registrar-empresa.html'">Registrar
                         empresa</button></div>
 
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/employee.png" class="i">
-                        <button type="button" onclick="location.href='registrar-encargado.html'">Registrar
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/employee.png" class="i">
+                            <button type="button" onclick="location.href='registrar-encargado.html'">Registrar
                                 encargado</button>
-                        <button type="button" onclick="location.href='listar-organizadores.html'" class="admin-button">Organizadores</button>
-                    </div>
+                            <button type="button" onclick="location.href='listar-organizadores.html'" class="admin-button">Organizadores</button>
+                        </div>
 
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/fireworks.png" class="i">
-                        <button type="button" onclick="location.href='registrar-evento.html'">Registrar
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/fireworks.png" class="i">
+                            <button type="button" onclick="location.href='registrar-evento.html'">Registrar
                                         evento</button></div>
-                </section>
+                    </section>
 
-                <section>
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/place.png" class="i">
-                        <button type="button" onclick="location.href='registrar-recinto.html'">Registrar
+                    <section>
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/place.png" class="i">
+                            <button type="button" onclick="location.href='registrar-recinto.html'">Registrar
                             recinto</button>
-                        <button type="button" onclick="location.href='listar-recintos-card.html'" class="admin-button">Listar
+                            <button type="button" onclick="location.href='listar-recintos-card.html'" class="admin-button">Listar
                                     recintos</button>
 
-                    </div>
-
+                        </div>
+                        <!------
                     <div class="formulario">
                         <img src="imagenes/imagenes_generales/piggy-bank.png" class="i">
                         <button type="button" onclick="location.href='registrar-descuentos.html'">Registrar
@@ -94,29 +114,30 @@
                                             descuentos</button>
 
                     </div>
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/money.png" class="i">
-                        <button type="button" onclick="location.href='registrar-impuestos.html'">Registrar
+                    -->
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/money.png" class="i">
+                            <button type="button" onclick="location.href='registrar-impuestos.html'">Registrar
                                     impuestos</button>
-                        <button type="button" onclick="location.href='listar-impuestos.html'" class="admin-button">Listar
+                            <button type="button" onclick="location.href='listar-impuestos.html'" class="admin-button">Listar
                                             impuestos</button>
-                    </div>
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/spotlights.png" class="i">
-                        <button type="button" onclick="location.href='registrar-tipo-evento.html'">Registrar
+                        </div>
+                        <div class="formulario">
+                            <img src="imagenes/imagenes_generales/spotlights.png" class="i">
+                            <button type="button" onclick="location.href='registrar-tipo-evento.html'">Registrar
                                          tipo de evento</button>
-                        <button type="button" onclick="location.href='listar-tipo-evento.html'" class="admin-button">Listar
+                            <button type="button" onclick="location.href='listar-tipo-evento.html'" class="admin-button">Listar
                                                 tipo de evento</button>
 
-                    </div>
-                </section>
+                        </div>
+                    </section>
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-    </div>
+    </main>
 
     <footer>
 
@@ -157,9 +178,10 @@
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/lugares_ubicaciones.js"></script>
+
     <script src="js/perfil-administrador-controlador.js"></script>
     <script src="js/perfil-administrador-servicio.js"></script>
+    <script src="js/controlador-nav.js"></script>
 
 </body>
 

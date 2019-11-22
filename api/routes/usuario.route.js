@@ -5,6 +5,7 @@ const nodeMailer = require('nodemailer')
 const express = require('express'),
     router = express.Router(),
     Usuario = require('../models/usuarios.model'),
+    organizadorSolicitante = require('../models/organizadorSolicitante.model'),
     Empresa = require('../models/empresa.model'),
     Encargado = require('../models/encargados.model'),
     mongoose = require('mongoose');
@@ -160,6 +161,35 @@ router.post('/registrar-usuario', function (req, res) {
 
 
 router.post('/iniciar-sesion', function (req, res) {
+    // Usuario.findOne({ correo: req.body.correo })
+    //     .then(function (err, usuarioBD) {
+    //         if (usuarioBD) {
+    //             if (usuarioBD.contrasenna == req.body.contrasenna) {
+    //                 res.json({
+    //                     resultado: true,
+    //                     usuario: usuarioBD
+    //                 });
+    //             }
+    //         } else if (err) {
+    //             organizadorSolicitante.findOne({ correo: req.body.correo})
+    //             .then(function(err, organizadorSolicitanteBD){
+    //                 if(organizadorSolicitanteBD) {
+    //                     if(organizadorSolicitanteBD.contrasenna == req.body.contrasenna){
+    //                         res.json({
+    //                             resultado: true,
+    //                             usuario: organizadorSolicitanteBD
+    //                         });
+    //                     }
+    //                 } else {
+    //                     res.json({
+    //                         resultado: false,
+    //                         msg: 'No se encontraron usuarios'
+    //                     });
+    //                 }
+    //             })
+    //         }  
+    //     });
+
     Usuario.findOne({ correo: req.body.correo })
         .then(function (usuarioBD) {
             if (usuarioBD) {
@@ -169,64 +199,119 @@ router.post('/iniciar-sesion', function (req, res) {
                         usuario: usuarioBD
                     });
                 } else {
-                    Empresa.findOne({ correo: req.body.correo })
-                        .then(function (empresaBD) {
-                            if (empresaBD) {
-                                if (empresaBD.contrasenna == req.body.contrasenna) {
-                                    res.json({
-                                        resultado: true,
-                                        usuario: empresaBD
-                                    });
-                                } else {
-                                    Encargado.findOne({ correo: req.body.correo })
-                                        .then(function (encargadoBD) {
-                                            if (encargadoBD) {
-                                                if (encargadoBD.contrasenna == req.body.contrasenna) {
-                                                    res.json({
-                                                        resultado: true,
-                                                        usuario: encargadoBD
-                                                    });
-                                                } 
-                                                } else {
-                                                res.json({
-                                                    resultado: false,
-                                                    msg: 'No se encontraron usuarios'
-                                                });
-                                            }
-                                        });
-                                }
-                            }
-                        });
+                    res.json({
+                        resultado: false,
+                        msg: 'La contraseña no coincide usuario'
+                    });
                 }
+            } else {
+                organizadorSolicitante.findOne({ correo: req.body.correo })
+                    .then(function (organizadorSolicitanteBD) {
+                        if (organizadorSolicitanteBD) {
+                            if (organizadorSolicitanteBD.contrasenna == req.body.contrasenna) {
+                                res.json({
+                                    resultado: true,
+                                    usuario: organizadorSolicitanteBD
+                                });
+                            } else {
+                                res.json({
+                                    resultado: false,
+                                    msg: 'La contraseña no coincide organizador solicitante'
+                                });
+                            }
+                        } else {
+                            Empresa.findOne({ correo: req.body.correo })
+                                .then(function (empresaBD) {
+                                    if (empresaBD) {
+                                        if (empresaBD.contrasenna == req.body.contrasenna) {
+                                            res.json({
+                                                resultado: true,
+                                                usuario: empresaBD
+                                            });
+                                        } else {
+                                            res.json({
+                                                resultado: false,
+                                                msg: 'La contraseña no coincide empresa'
+                                            })
+                                        }
+                                    } else {
+                                        res.json({
+                                            resultado: false,
+                                            msg: 'No existe el usuario'
+                                        });
+                                    }
+                                });
+                        }
+                    });
             }
+
         });
-
-
-
-
-
-
 });
 
 
 
 
 router.get('/listar-usuarios', function (req, res) {
+    // Usuario.find(function (err, usuariosBD) {
+    //     if (err) {
+    //         res.json({
+    //             resultado: false,
+    //             msg: 'No se encontraron usuarios',
+    //             err
+    //         })
+    //     } else {
+    //         res.json({
+    //             resultado: true,
+    //             usuarios: usuariosBD
+    //         })
+    //     };
+
+    // });
+
     Usuario.find(function (err, usuariosBD) {
-        if (err) {
-            res.json({
-                resultado: false,
-                msg: 'No se encontraron usuarios',
-                err
-            })
+        if (usuariosBD) {
+            organizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
+                if (organizadorSolicitanteBD) {
+                    Empresa.find(function (err, empresaBD) {
+                        if (empresaBD) {
+                            Encargado.find(function(err, encargadoBD){
+                                if(encargadoBD) {
+                                    res.json({
+                                        resultado: true,
+                                        clientes: usuariosBD,
+                                        organizadores: organizadorSolicitanteBD,
+                                        empresas: empresaBD,
+                                        encargados: encargadoBD
+                                    });
+                                } else {
+                                    res.json({
+                                        resultado: false,
+                                        msg: 'Error en encargado'
+                                    })
+                                }
+                            });
+                        } else {
+                            res.json({
+                                resultado: false,
+                                msg: 'Error en empresa'
+                            });
+                        }
+                    });
+                } else {
+                    res.json({
+                        resultado: false,
+                        msg: 'Error en organizador'
+                    });
+                }
+            });
         } else {
             res.json({
-                resultado: true,
-                usuarios: usuariosBD
-            })
-        };
-
+                resultado: false,
+                msg: 'Error en usuarios'
+            });
+        }
     });
+
 });
 
 
