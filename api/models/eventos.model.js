@@ -21,12 +21,14 @@ const eventoSchema = new mongoose.Schema(
         impuestos: [
             {
                 nombre: { type: String, required: true, unique: false },
+                porcentaje: { type: Number, required: true, unique: false }
             }
         ],
         imagen: { type: String, required: false },
         descuentos: [
             {
                 nombre: { type: String, required: true, unique: true },
+                porcentaje: { type: Number, required: true, unique: false }
             }
         ],
         estado: { type: String, required: true, unique: false }

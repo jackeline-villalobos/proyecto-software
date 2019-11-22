@@ -1,6 +1,6 @@
 'use strict';
 
-let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, fecha, hora, cantidadAsistentes, descripcion, precioEntrada, impuestos, descuentos, imagen) => {
+let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, imagen) => {
     await axios(
         {
             method: 'post',
@@ -13,24 +13,24 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, fecha, hora, c
                 lugar: lugar,
                 precioEntrada: precioEntrada,
                 descripcion: descripcion,
-                fechas: [
-                    {
-                        fecha: fecha,
-                        hora: hora,
-                        cantidadAsistentes: cantidadAsistentes,
-                    }
-                ],
-                impuestos: [
-                    {
-                        nombre: nombre,
-                    }
-                ],
-                descuentos: [
-                    {
-                        nombre: nombre,
-                    }
-                ],
-                imagen: imagen,
+                // fechas: [
+                //     {
+                //         fecha: fecha,
+                //         hora: hora,
+                //         cantidadAsistentes: cantidadAsistentes,
+                //     }
+                // ],
+                // impuestos: [
+                //     {
+                //         nombre: nombre,
+                //     }
+                // ],
+                // descuentos: [
+                //     {
+                //         nombre: nombre,
+                //     }
+                // ],
+                 imagen: imagen,
 
             }
         })
@@ -44,80 +44,61 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, fecha, hora, c
         });
 
 };
-let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
-    await axios(
-        {
-            method: 'post',
-            url: 'http://localhost:3000/api/agregar-fecha',
-            responseType: 'json',
-            data: {
-                    fecha: fecha,
-                    hora: hora,
-                    cantidadAsistentes: cantidadAsistentes,
-                }
-            })
-        .then(function (res) {
-            console.log(res.data);
+// let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
+//     await axios(
+//         {
+//             method: 'post',
+//             url: 'http://localhost:3000/api/agregar-fecha',
+//             responseType: 'json',
+//             data: {
+//                     fecha: fecha,
+//                     hora: hora,
+//                     cantidadAsistentes: cantidadAsistentes,
+//                 }
+//             })
+//         .then(function (res) {
+//             console.log(res.data);
 
-        })
-        .catch(function (error) {
-            console.log(error);
+//         })
+//         .catch(function (error) {
+//             console.log(error);
 
-        });
-};
+//         });
+// };
 
-let listarEventos = async () => {
-    let listaEventos;
-    await axios ({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-eventos',
-        responseType: 'json'
-    })
-    .then(function(res){
-        console.log(res.data);
-        listaEventos = res.data.eventos;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
-    return listaEventos;
-};
+// let listarEventos = async () => {
+//     let listaEventos;
+//     await axios ({
+//         method: 'get',
+//         url: 'http://localhost:3000/api/listar-eventos',
+//         responseType: 'json'
+//     })
+//     .then(function(res){
+//         console.log(res.data);
+//         listaEventos = res.data.eventos;
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     });
+//     return listaEventos;
+// };
 
-let listarDescuentos = async () => {
+// let listarImpuestos = async() => {
 
-    let listaDescuentos;
-    await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-descuentos',
-        responseType: 'json'
-    })
-    .then(async function(res){
-        console.log(res.data);
-        listaDescuentos = await res.data.descuentos;
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+//     let listaImpuestos;
+//     await axios({
+//         method: 'get',
+//         url: 'http://localhost:3000/api/listar-impuestos',
+//         responseType: 'json'
+//     })
+//     .then(async function(res) {
+//         console.log(res.data);
+//         listaImpuestos = await res.data.impuestos;
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     });
 
-    return listaDescuentos;
-}
+//     return listaImpuestos;
 
-let listarImpuestos = async() => {
-
-    let listaImpuestos;
-    await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-impuestos',
-        responseType: 'json'
-    })
-    .then(async function(res) {
-        console.log(res.data);
-        listaImpuestos = await res.data.impuestos;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
-
-    return listaImpuestos;
-
-};
+// };
