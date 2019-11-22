@@ -18,7 +18,7 @@ let iniciarSesion = async (correo, contrasenna) => {
         if(res.data.resultado) {
             sessionStorage.setItem('conectado', res.data.resultado);
             sessionStorage.setItem('idUsuario', res.data.usuario._id);
-            //sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
+            sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
         }
         
     })

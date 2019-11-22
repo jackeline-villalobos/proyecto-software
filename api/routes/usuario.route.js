@@ -5,6 +5,7 @@ const nodeMailer = require('nodemailer')
 const express = require('express'),
     router = express.Router(),
     Usuario = require('../models/usuarios.model'),
+    organizadorSolicitante = require('../models/organizadorSolicitante.model'),
     Empresa = require('../models/empresa.model'),
     Encargado = require('../models/encargados.model'),
     mongoose = require('mongoose');
@@ -160,51 +161,89 @@ router.post('/registrar-usuario', function (req, res) {
 
 
 router.post('/iniciar-sesion', function (req, res) {
-    Usuario.findOne({ correo: req.body.correo })
-        .then(function (usuarioBD) {
-            if (usuarioBD) {
-                if (usuarioBD.contrasenna == req.body.contrasenna) {
-                    res.json({
-                        resultado: true,
-                        usuario: usuarioBD
-                    });
-                } else {
-                    Empresa.findOne({ correo: req.body.correo })
-                        .then(function (empresaBD) {
-                            if (empresaBD) {
-                                if (empresaBD.contrasenna == req.body.contrasenna) {
-                                    res.json({
-                                        resultado: true,
-                                        usuario: empresaBD
-                                    });
-                                } else {
-                                    Encargado.findOne({ correo: req.body.correo })
-                                        .then(function (encargadoBD) {
-                                            if (encargadoBD) {
-                                                if (encargadoBD.contrasenna == req.body.contrasenna) {
-                                                    res.json({
-                                                        resultado: true,
-                                                        usuario: encargadoBD
-                                                    });
-                                                } 
-                                                } else {
-                                                res.json({
-                                                    resultado: false,
-                                                    msg: 'No se encontraron usuarios'
-                                                });
-                                            }
-                                        });
-                                }
-                            }
+    // Usuario.findOne({ correo: req.body.correo })
+    //     .then(function (err, usuarioBD) {
+    //         if (usuarioBD) {
+    //             if (usuarioBD.contrasenna == req.body.contrasenna) {
+    //                 res.json({
+    //                     resultado: true,
+    //                     usuario: usuarioBD
+    //                 });
+    //             }
+    //         } else if (err) {
+    //             organizadorSolicitante.findOne({ correo: req.body.correo})
+    //             .then(function(err, organizadorSolicitanteBD){
+    //                 if(organizadorSolicitanteBD) {
+    //                     if(organizadorSolicitanteBD.contrasenna == req.body.contrasenna){
+    //                         res.json({
+    //                             resultado: true,
+    //                             usuario: organizadorSolicitanteBD
+    //                         });
+    //                     }
+    //                 } else {
+    //                     res.json({
+    //                         resultado: false,
+    //                         msg: 'No se encontraron usuarios'
+    //                     });
+    //                 }
+    //             })
+    //         }  
+    //     });
+
+    let busqueda = 1;
+
+    switch (busqueda) {
+        case 1:
+            Usuario.findOne({ correo: req.body.correo })
+                .then(function (usuarioBD) {
+                    if (usuarioBD) {
+                        if (usuarioBD.contrasenna == req.body.contrasenna) {
+                            res.json({
+                                resultado: true,
+                                usuario: usuarioBD
+                            });
+                        }
+                    }
+                    busqueda++;
+                });
+
+        //break;
+
+        case 2:
+            organizadorSolicitante.findOne({ correo: req.body.correo })
+                .then(function (organizadorSolicitanteBD) {
+                    if (organizadorSolicitanteBD) {
+                        res.json({
+                            resultado: true,
+                            usuario: organizadorSolicitanteBD
                         });
-                }
-            }
-        });
+                    }
+                    busqueda++;
+
+                });
+        // break;
+
+
+        case 3:
+            Empresa.findOne({ correo: req.body.correo })
+                .then(function (empresaBD) {
+                    if (empresaBD) {
+                        res.json({
+                            resultado: true,
+                            usuario: empresaBD
+                        });
+                    } else {
+                        res.json({
+                            resultado: false,
+                            msg: 'No se encontraron usuarios'
+                        });
+                    }
+                });
 
 
 
 
-
+    }
 
 });
 
