@@ -61,13 +61,15 @@ main{
     background: #000000;
 }
 .portada{
-    background: url(../imagenes/index/portada.jpg);
+    background: url('../imagenes/landing-page/pexels-photo-518389.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: top;
     color: #FFFFFF;
-    height: 500px;
+    height: 600px;
     margin-bottom: 30px;
+    background-attachment: fixed;
+
 }
 h1{
     padding-top: 40px;
@@ -136,4 +138,10 @@ h1{
     border: none;
     color: #FFFFFF;
     margin: 0 0 2% 38%;
+}
+
+h1{
+    padding-top: 120px;
+    font-size: 60px;
+    text-shadow: 0px 6px rgba(0, 0, 0, 0.5);
 }

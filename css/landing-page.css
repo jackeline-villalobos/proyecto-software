@@ -1,10 +1,10 @@
 .main-section {
-    background-image: url('../imagenes/landing-page/pexels-photo-518389.jpeg');
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1000px;
+    background-image: url('../imagenes/landing-page/pexels-photo-1105666.jpeg');
+    height: 900px;
+    background-size: cover;
+    background-attachment: center;
  }
+ 
  
  
  .main-section .text-container {
@@ -61,6 +61,11 @@
     width: 250px;
     font-size: 20px;
     border: 1px solid white;
+}
+
+h1, h2{
+    padding-left: 90px;
+    padding-right: 90px;
 }
 
 
