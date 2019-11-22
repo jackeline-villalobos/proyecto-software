@@ -12,7 +12,7 @@ const organizadorSolicitante_schema = new mongoose.Schema(
         distrito : {type : String, required: true},
         sennas : {type : String, required: true},
         nombreCompleto : {type : String, required: true},
-        correo : {type : String, required: true},
+        correo : {type : String, required: true, unique:true},
         contrasenna: {type: String, required: true, unique: false},
         telefono : {type : String, required: true},
         genero : {type : String, required: true},
