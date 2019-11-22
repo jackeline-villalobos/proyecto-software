@@ -27,26 +27,35 @@
     </header>
 
     <main>
-        <h1>Perfil de usuario</h1>
-        <section class="parte-de-arriba">
-            <button type="button" class="btn-cerrar-sesion">Cerrar sesión</button>
-        </section>
-
-        <section class="informacion-usuario">
-            <img id="imagen-usuario" class="imagen-usuario">
-            <h4 class="fecha-de-nacimiento" id="fecha-de-nacimiento"></h4>
-            <h6 class="edad" id="edad"></h6>
-            <h6 class="genero" id="genero"></h6>
+        <section class="parte_editar">
+            <a href="#">Editar perfil</a>
+            <a href="#">Tarjetas</a>
+            <a href="#">Carrito de compras</a>
+            <a href="#">Eventos preferidos</a>
+            <a href="#">Eventos pasados</a>
         </section>
 
         <section class="perfil">
-            <h1 class="nombre" id="nombre"></h1>
-
-            <h5 class="direccion" id="direccion"></h5>
-            <p class="correo" id="correo"></p>
-            <p class="tarjetas" id="tarjetas"></p>
-            <p class="intereses" id="intereses"></p>
-
+            <div class="foto_nombre">
+                <div class="foto_perfil_container"></div>
+                <h3 class="nombre">Nombre Completo aqui</h3>
+            </div>
+            <hr>
+            <div class="info_perfil">
+                <div class="informacion">
+                    <h5>Información</h5>
+                    <p id="fecha_nacimiento"></p>
+                    <p id="correo"></p>
+                    <p id="genero"></p>
+                </div>
+                <div class="direccion">
+                    <h5>Dirección</h5>
+                    <p id="direccion"></p>
+                    <p id="provincia"></p>
+                    <p id="canton"></p>
+                    <p id="distrito"></p>
+                </div>
+            </div>
         </section>
 
     </main>

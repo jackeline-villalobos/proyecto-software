@@ -1,0 +1,56 @@
+main{
+    display: flow-root;
+}
+
+.parte_editar{
+    background-color: #313131;
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    float: left;
+}
+
+a{
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin-bottom: 70px;
+    font-size: 14px !important;
+}
+a:hover{
+    color: #1EBB2D;
+}
+
+.perfil{
+    width: 1060px;
+    height: 520px;
+    float: right;
+}
+
+.foto_nombre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.foto_perfil_container{
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    background-color: darkorange;
+    margin-top: 25px;
+}
+
+hr{
+    width: 670px;
+    border: solid 1px;
+}
+
+.info_perfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
