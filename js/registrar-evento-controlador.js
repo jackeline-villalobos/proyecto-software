@@ -107,9 +107,10 @@ let obtener_datos = () => {
             confirmButtonText: 'Continuar',
             onClose: function() {
                 location.href = 'registrar-evento-2pag.html';
-            }
+             }
         });
-        
+        sessionStorage.setItem('idEvento', _id);
+        window.location.href = 'registrar-evento-2pag.html';
         resetForm();
 
     }
@@ -145,36 +146,17 @@ let obtener_datos = () => {
 //     x++;
 // };
 
-// listar descuentos e impuestos try
-
-
-// const dtl_impuestos = document.querySelector('#listaImpuestos')
-
-// let llenarImpuestos = async () => {
-
-//     listaImpuestos = await listarImpuestos();
-
-//     for(let i = 0; i < listarImpuestos.length; i++){
-//         let option = document.createElement('option');
-//         option.classList.add('opcionImpuestos');
-//         option.setAttribute.value(listarImpuestos[i]['nombre']);
-//         dtl_impuestos.appendChild(option);
-//     }
-    
-// };
  
-let listatipoEventos;
+let listaTipoEventos;
 
-let llenarTiposEvento = async () => {
-    listatipoEventos = await listartipoEventos();
-    for(let i = 0; i < listatipoEventos.length; i++){
+let llenarTipoEventos = async () => {
+    listaTipoEventos = await listartipoEventos();
+    for(let i = 0; i < listaTipoEventos.length; i++){
         let option = document.createElement('option')
-        option.innerHTML = listatipoEventos[i]['nombre']
+        option.innerHTML = listaTipoEventos[i]['nombre']
         input_tipoDeEventos.appendChild(option)
     }
 };
-
-llenarTiposEvento();
 
 let listaRecintos;
 
@@ -189,5 +171,6 @@ let llenarRecintos = async () => {
 
 llenarRecintos();
 
-btn_guardar.addEventListener('click', obtener_datos);
+btn_guardar.addEventListener ('click', obtener_datos)
+
 // btn_agregarFecha.addEventListener('click', agregarEspacioFecha);

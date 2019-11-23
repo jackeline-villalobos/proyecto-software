@@ -43,64 +43,111 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
         });
 
 };
-// let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
-//     await axios(
-//         {
-//             method: 'post',
-//             url: 'http://localhost:3000/api/agregar-fecha',
-//             responseType: 'json',
-//             data: {
-//                     fecha: fecha,
-//                     hora: hora,
-//                     cantidadAsistentes: cantidadAsistentes,
-//                 }
-//             })
-//         .then(function (res) {
-//             console.log(res.data);
 
-//         })
-//         .catch(function (error) {
-//             console.log(error);
 
-//         });
-// };
 
-// let listarEventos = async () => {
-//     let listaEventos;
-//     await axios ({
-//         method: 'get',
-//         url: 'http://localhost:3000/api/listar-eventos',
-//         responseType: 'json'
-//     })
-//     .then(function(res){
-//         console.log(res.data);
-//         listaEventos = res.data.eventos;
-//     })
-//     .catch(function(error){
-//         console.log(error);
-//     });
-//     return listaEventos;
-// };
+let agregar_fecha = async (fecha, hora, cantidadAsistentes, _id) => {
+    await axios(
+        {
+            method: 'post',
+            url: 'http://localhost:3000/api/agregar-fecha',
+            responseType: 'json',
+            data: {
+                    fecha: fecha,
+                    hora: hora,
+                    cantidadAsistentes: cantidadAsistentes,
+                    _id: _id,
+                }
+            })
+        .then(function (res) {
+            console.log(res.data);
 
-// let listarImpuestos = async() => {
+        })
+        .catch(function (error) {
+            console.log(error);
 
-//     let listaImpuestos;
-//     await axios({
-//         method: 'get',
-//         url: 'http://localhost:3000/api/listar-impuestos',
-//         responseType: 'json'
-//     })
-//     .then(function(res) {
-//         console.log(res.data);
-//         listaImpuestos = res.data.impuestos;
-//     })
-//     .catch(function(error){
-//         console.log(error);
-//     });
+        });
+};
 
-//     return listaImpuestos;
+let agregar_descuento = async (nombreDescuento, porcentajeDescuento, _id) => {
+    await axios(
+        {
+            method: 'post',
+            url: 'http://localhost:3000/api/agregar-descuento',
+            responseType: 'json',
+            data: {
+                nombreDescuento: nombreDescuento,
+                porcentajeDescuento: porcentajeDescuento,
+                _id: _id,
+                }
+            })
+        .then(function (res) {
+            console.log(res.data);
 
-// };
+        })
+        .catch(function (error) {
+            console.log(error);
+
+        });
+};
+
+let agregar_impuesto = async (nombreImpuesto, porcentajeImpuesto) => {
+    await axios(
+        {
+            method: 'post',
+            url: 'http://localhost:3000/api/agregar-impuesto',
+            responseType: 'json',
+            data: {
+                nombreImpuesto: nombreImpuesto,
+                porcentajeImpuesto: porcentajeImpuesto,
+                }
+            })
+        .then(function (res) {
+            console.log(res.data);
+
+        })
+        .catch(function (error) {
+            console.log(error);
+
+        });
+};
+
+let listarEventos = async () => {
+    let listaEventos;
+    await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-eventos',
+        responseType: 'json'
+    })
+    .then(function(res){
+        console.log(res.data);
+        listaEventos = res.data.eventos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+    return listaEventos;
+};
+
+let listarImpuestos = async() => {
+
+    let listaImpuestos;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-impuestos',
+        responseType: 'json'
+    })
+    .then(function(res) {
+        console.log(res.data);
+        listaImpuestos = res.data.impuestos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+
+    return listaImpuestos;
+
+};
 
 let listartipoEventos = async() => {
 

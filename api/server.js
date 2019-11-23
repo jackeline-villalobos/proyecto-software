@@ -11,8 +11,8 @@ require('dotenv').config();
 const impuesto = require('./routes/impuesto.route');
 const evento = require('./routes/evento.route');
 const empresa = require("./routes/empresa.route")
-//const primeraContrasenna = require('./cambiar-primera-contrasenna');
-//const descuento = require('./routes/descuento.route');
+    //const primeraContrasenna = require('./cambiar-primera-contrasenna');
+    //const descuento = require('./routes/descuento.route');
 const tipoEvento = require("./routes/tipo-evento.route");
 const usuario = require('./routes/usuario.route');
 const recinto = require('./routes/recinto.route');
