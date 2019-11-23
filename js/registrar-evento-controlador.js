@@ -138,6 +138,7 @@ let llenarRecintos = async () => {
 };
 
 llenarRecintos();
+llenarTipoEventos();
 
 btn_guardar.addEventListener ('click', obtener_datos)
 

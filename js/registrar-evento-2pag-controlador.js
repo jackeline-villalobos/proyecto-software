@@ -8,7 +8,6 @@ const input_nombreDescuento = document.querySelector('#txt-nombreDescuento');
 const input_porcentajeDescuento = document.querySelector('#txt-porcentajeDescuento');
 
 const slt_impuestos = document.querySelector('#slt-impuestos');
-const input_porcentajeImpuesto = document.querySelector('#txt-porcentajeImpuesto');
 
 const btn_guardar = document.querySelector('#btn-registrar-evento');
 const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
@@ -84,7 +83,6 @@ let resetDescuentos = () => {
 };
 let resetImpuestos = () => {
     slt_impuestos.value = '';
-    input_porcentajeImpuesto = '';
 };
 
 let agregarFecha = () => {
@@ -92,7 +90,7 @@ let agregarFecha = () => {
     let fecha = input_fecha.value;
     let hora = input_hora.value;
     let asistentes = input_asistentes.value;
-
+    
     if(validarFechas()){
         Swal.fire({
             type: 'warning',
@@ -109,6 +107,7 @@ let agregarFecha = () => {
 let agregarDescuento= ()=>{
     let nombreDescuento = input_nombreDescuento.value;
     let porcentajeDescuento = input_porcentajeDescuento.value;
+    
     if(validarDescuentos()){
         Swal.fire({
             type: 'warning',
@@ -125,7 +124,6 @@ let agregarDescuento= ()=>{
 let agregarImpuestos = () => {
 
     let nombreImpuesto = slt_impuestos.value;
-    let porcentajeImpuesto = input_porcentajeImpuesto.value;
 
     if (validarImpuestos()) {
         Swal.fire({
@@ -136,7 +134,7 @@ let agregarImpuestos = () => {
         })
 
     } else {
-        agregar_impuesto(nombreImpuesto, porcentajeImpuesto);
+        agregar_impuesto(nombreImpuesto);
         resetImpuestos();
     }
 
@@ -145,7 +143,7 @@ let agregarImpuestos = () => {
 let finalizar =()=>{
     Swal.fire({
         type: 'success',
-        title: 'Datos ingresados con éxito',
+        title: 'Registro de evento finalizado',
         text: 'El evento ha sido almacenado',
         confirmButtonText: 'Continuar',
         onClose: function () {

@@ -103,7 +103,7 @@ main{
 
 .btn-mas {
     display: block;
-    margin: 0 0 2% 38%;
+    margin: 0 auto 10px auto;
     height: 30px;
     width: 80px;
     border-radius: 10px;

@@ -83,8 +83,8 @@ router.post('/agregar-descuento', function (req, res) {
     Evento.update({ _id: req.body._id }, {
         $push: {
             'descuentos': {
-                nombre: req.body.nombre,
-                porcentaje : req.body.porcentaje
+                nombreDescuento: req.body.nombreDescuento,
+                porcentajeDescuento : req.body.porcentajeDescuento
             }
         }
     }, function (err) {
@@ -107,8 +107,7 @@ router.post('/agregar-impuesto', function (req, res) {
     Evento.update({ _id: req.body._id }, {
         $push: {
             'impuestos': {
-                nombre: req.body.nombre,
-                porcentaje : req.body.porcentaje
+                nombreImpuesto: req.body.nombreImpuesto
             }
         }
     }, function (err) {
@@ -170,25 +169,25 @@ router.get('/listar-eventos', function (req, res) {
 // });
 
 
-router.get('/listar-tipo-evento', function (req, res) {
+// router.get('/listar-tipo-evento', function (req, res) {
 
-    tipoEventos.find(
-        function (err, tipoEventosBD) {
-            if (err) {
-                res.json({
-                    resultado: false,
-                    msg: 'No se encontraron tipos de evento',
-                    err
-                });
-            } else {
-                res.json({
-                    resultado: true,
-                    tipoEventos: tipoEventosBD
-                });
-            }
-        }
-    );
-});
+//     tipoEventos.find(
+//         function (err, tipoEventosBD) {
+//             if (err) {
+//                 res.json({
+//                     resultado: false,
+//                     msg: 'No se encontraron tipos de evento',
+//                     err
+//                 });
+//             } else {
+//                 res.json({
+//                     resultado: true,
+//                     tipoEventos: tipoEventosBD
+//                 });
+//             }
+//         }
+//     );
+// });
 
 
 router.get('/listar-recintos', function (req, res) {
