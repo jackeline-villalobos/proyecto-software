@@ -12,29 +12,13 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
                 lugar: lugar,
                 precioEntrada: precioEntrada,
                 descripcion: descripcion,
-                // fechas: [
-                //     {
-                //         fecha: fecha,
-                //         hora: hora,
-                //         cantidadAsistentes: cantidadAsistentes,
-                //     }
-                // ],
-                // impuestos: [
-                //     {
-                //         nombre: nombre,
-                //     }
-                // ],
-                // descuentos: [
-                //     {
-                //         nombre: nombre,
-                //     }
-                // ],
                 imagen: imagen,
 
             }
         })
         .then(function(res) {
             console.log(res.data);
+            sessionStorage.setItem('idEvento', res.data.evento._id);
 
         })
         .catch(function(error) {
@@ -46,7 +30,8 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
 
 
 
-let agregar_fecha = async (fecha, hora, cantidadAsistentes, _id) => {
+let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
+    let _id = sessionStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',
@@ -69,7 +54,8 @@ let agregar_fecha = async (fecha, hora, cantidadAsistentes, _id) => {
         });
 };
 
-let agregar_descuento = async (nombreDescuento, porcentajeDescuento, _id) => {
+let agregar_descuento = async (nombreDescuento, porcentajeDescuento) => {
+    let _id = sessionStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',
@@ -92,6 +78,7 @@ let agregar_descuento = async (nombreDescuento, porcentajeDescuento, _id) => {
 };
 
 let agregar_impuesto = async (nombreImpuesto, porcentajeImpuesto) => {
+    let _id = sessionStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',
@@ -100,6 +87,7 @@ let agregar_impuesto = async (nombreImpuesto, porcentajeImpuesto) => {
             data: {
                 nombreImpuesto: nombreImpuesto,
                 porcentajeImpuesto: porcentajeImpuesto,
+                _id: _id
                 }
             })
         .then(function (res) {
@@ -120,7 +108,6 @@ let listarEventos = async () => {
         responseType: 'json'
     })
     .then(function(res){
-        console.log(res.data);
         listaEventos = res.data.eventos;
     })
     .catch(function(error){
@@ -138,7 +125,6 @@ let listarImpuestos = async() => {
         responseType: 'json'
     })
     .then(function(res) {
-        console.log(res.data);
         listaImpuestos = res.data.impuestos;
     })
     .catch(function(error){

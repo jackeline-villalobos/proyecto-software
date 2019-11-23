@@ -35,7 +35,7 @@ router.post('/registrar-evento', function (req, res) {
             } else {
                 res.json({
                     resultado: true,
-                    eventoBD
+                    evento : eventoBD
                 });
             }
 
