@@ -5,6 +5,7 @@ const express = require('express'),
     Evento = require('../models/eventos.model'),
     Recinto = require('../models/recinto.model'),
     Impuesto = require('../models/impuesto.model'),
+    tipoEvento = require('../models/tipo-evento.model'),
     mongoose = require('mongoose');
 
 router.post('/registrar-evento', function (req, res) {
