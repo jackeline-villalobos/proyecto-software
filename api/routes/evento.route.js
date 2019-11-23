@@ -4,9 +4,10 @@ const express = require('express'),
     router = express.Router(),
     Evento = require('../models/eventos.model'),
     Recinto = require('../models/recinto.model'),
+    // tipoEvento = require("../models/tipo-evento.model"),
     mongoose = require('mongoose');
 
-router.post('/registrar-evento', function (req, res) {
+router.post('/registrar-evento', function(req, res) {
     let body = req.body;
 
     let nuevoEvento = new Evento({
@@ -21,7 +22,7 @@ router.post('/registrar-evento', function (req, res) {
     });
 
     nuevoEvento.save(
-        function (err, eventoBD) {
+        function(err, eventoBD) {
 
             if (err) {
                 res.json({
@@ -40,7 +41,7 @@ router.post('/registrar-evento', function (req, res) {
 
 });
 // router.post('/agregar-fecha', function (req, res) {
-    
+
 //     if (req.body._id) {
 //         Evento.update({ _id: req.body._id }, {
 //             $push: {
@@ -121,17 +122,17 @@ router.post('/registrar-evento', function (req, res) {
 //     });
 // });
 
-router.get('/listar-eventos', function(req, res){
+router.get('/listar-eventos', function(req, res) {
 
     Evento.find(
-        function(err, eventoBD){
-            if(err){
+        function(err, eventoBD) {
+            if (err) {
                 res.json({
                     resultado: false,
                     msg: 'No se encontraron eventos',
                     err
                 })
-            }else{
+            } else {
                 res.json({
                     resultado: true,
                     eventos: eventoBD
@@ -182,9 +183,10 @@ router.get('/listar-eventos', function(req, res){
 //     );
 //  });
 
+/* CODIGO DUPLICADO
 router.get('/listar-tipo-evento', function(req, res) {
 
-    tipoEvento.find(
+    tipoEventos.find(
         function(err, tipoEventosBD) {
             if (err) {
                 res.json({
@@ -201,6 +203,7 @@ router.get('/listar-tipo-evento', function(req, res) {
         }
     );
 });
+*/
 
 router.get('/listar-recintos', function(req, res) {
     Recinto.find(function(err, recintosBD) {
