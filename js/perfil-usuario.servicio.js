@@ -1,5 +1,66 @@
 'use strict'
 
+const correo = sessionStorage.getItem('correoUsuario');
+const grado = sessionStorage.getItem("grado");
+
+let obtener_datos = async() => {
+    await axios({
+
+            method: "post",
+            url: "",
+            responseType: "JSON",
+            data: {
+                _id: _id,
+                correo: correo
+            }
+        })
+        .then(async function(res) {
+            console.log(res);
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 function obtener_datos(id){
     let usuario = '';
     let peticion = $.ajax({
@@ -20,3 +81,4 @@ function obtener_datos(id){
     
     return usuario; 
 }
+*/

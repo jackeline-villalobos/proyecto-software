@@ -1,31 +1,32 @@
 'use strict';
 
-let iniciarSesion = async (correo, contrasenna) => {
+let iniciarSesion = async(correo, contrasenna) => {
     let resultado;
-    await axios ({
-        method: 'post',
-        url: 'http://localhost:3000/api/iniciar-sesion',
-        responseType: 'json',
-        data: {
-            correo: correo,
-            contrasenna: contrasenna
-        }
-    })
-    .then(async function(res){
-        resultado = await res.data;
-        console.log(res.data);
+    await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/iniciar-sesion',
+            responseType: 'json',
+            data: {
+                correo: correo,
+                contrasenna: contrasenna
+            }
+        })
+        .then(async function(res) {
+            resultado = await res.data;
+            console.log(res.data);
 
-        if(res.data.resultado) {
-            sessionStorage.setItem('conectado', res.data.resultado);
-            sessionStorage.setItem('idUsuario', res.data.usuario._id);
-            sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
-            sessionStorage.setItem('fotoUsuario', res.data.usuario.imagen);
-        }
-        
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+            if (res.data.resultado) {
+                sessionStorage.setItem('conectado', res.data.resultado);
+                sessionStorage.setItem('idUsuario', res.data.usuario._id);
+                sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
+                sessionStorage.setItem('fotoUsuario', res.data.usuario.imagen);
+                sessionStorage.setItem('correoUsuario', res.data.usuario.correo);
+            }
+
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 
     return resultado;
 }
@@ -69,7 +70,7 @@ let iniciarSesion = async (correo, contrasenna) => {
 //         //     sessionStorage.setItem('IdUsuario', res.data.usuario._id);
 //         //     //sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
 //         // }
-        
+
 //     })
 //     .catch(function(error){
 //         console.log(error);

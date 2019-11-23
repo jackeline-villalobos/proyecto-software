@@ -8,17 +8,17 @@ const _id = sessionStorage.getItem('idUsuario');
 
 
 
-let mostrarInfo = async () => {
+let mostrarInfo = async() => {
 
     for (let i = 0; i < listarUsuarios.length; i++) {
 
         foto_perfil_container.style.backgroundImage = 'url, (`${imagen}`)';
         let img = document.createElement('img');
         img.src = `${imagen}`;
-    
+
 
         let nombre = document.createElement('h3');
-        nombre.innerText =  listarUsuarios[i]['primerNombre'];
+        nombre.innerText = listarUsuarios[i]['primerNombre'];
         nombre_container.appendChild(nombre);
 
 
