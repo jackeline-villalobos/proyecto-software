@@ -325,6 +325,7 @@ router.post("/buscar-usuario", function(req, res) {
                     resultado: true,
                     usuario: usuarioBD
 
+
                 });
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })

@@ -1,6 +1,6 @@
 'use strict';
 
-const correoUsuario = sessionStorage.getItem('correo');
+const correoUsuario = sessionStorage.getItem('correoUsuario');
 
 let obtenerDatos = async() => {
 

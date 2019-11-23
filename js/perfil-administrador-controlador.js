@@ -13,7 +13,6 @@ const aCanton = document.querySelector("#canton");
 
 const container = document.querySelector("#container-2");
 
-let nombreSS = sessionStorage.getItem("correoUsuario");
 
 let llenarPerfil = async() => {
     let usuario = await obtenerDatos();
@@ -28,19 +27,20 @@ let llenarPerfil = async() => {
 
 
 
-    parafo1.innerHTML = usuario.aNombre;
+    /*
+        parafo1.innerHTML = usuario.aNombre;
 
-    parafo2.innerHTML = usuario.aCorreo;
+        parafo2.innerHTML = usuario.aCorreo;
 
-    parafo3.innerHTML = usuario.genero;
+        parafo3.innerHTML = usuario.genero;
 
-    parafo4.innerHTML = usuario.direccion;
+        parafo4.innerHTML = usuario.direccion;
 
-    parafo5.innerHTML = usuario.provincia;
+        parafo5.innerHTML = usuario.provincia;
 
-    parafo6.innerHTML = usuario.canton;
+        parafo6.innerHTML = usuario.canton;
 
-
+    */
 
     container.appendChild(parafo1);
     container.appendChild(parafo2);
@@ -48,6 +48,8 @@ let llenarPerfil = async() => {
     container.appendChild(parafo4);
     container.appendChild(parafo5);
     container.appendChild(parafo6);
+
+    parafo1.appendChild(correoUsuario);
 
 
     /*
@@ -76,5 +78,6 @@ let llenarPerfil = async() => {
 
 
 }
+
 
 llenarPerfil();
