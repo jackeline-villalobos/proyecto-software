@@ -4,10 +4,13 @@ const correo = sessionStorage.getItem('correoUsuario');
 const grado = sessionStorage.getItem("grado");
 
 let obtener_datos = async() => {
+
+    let usuario;
+
     await axios({
 
             method: "post",
-            url: "",
+            url: "http://localhost:3000/api/buscar-usuario",
             responseType: "JSON",
             data: {
                 _id: _id,
@@ -15,11 +18,13 @@ let obtener_datos = async() => {
             }
         })
         .then(async function(res) {
-            console.log(res);
+            usuario = await res.data.usuario;
         })
         .catch(function(error) {
             console.log(error);
         })
+
+    return usuario;
 
 
 }

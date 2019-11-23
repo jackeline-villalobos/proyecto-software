@@ -9,7 +9,7 @@ require('dotenv').config();
 
 //Se declaran todos los accesos de los archivos routes.
 const impuesto = require('./routes/impuesto.route');
-//const evento = require('./routes/evento.route');
+const evento = require('./routes/evento.route');
 const empresa = require("./routes/empresa.route")
     //const primeraContrasenna = require('./cambiar-primera-contrasenna');
     //const descuento = require('./routes/descuento.route');
@@ -66,7 +66,7 @@ function handleError(res, reason, message, code) {
 
 // Conexión a todas la rutas.
 app.use('/api', impuesto);
-//app.use('/api', evento);
+app.use('/api', evento);
 app.use("/api", empresa);
 //app.use('/api', primeraContrasenna);
 //app.use('/api', descuento);
