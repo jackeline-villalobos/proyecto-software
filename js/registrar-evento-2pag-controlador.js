@@ -115,4 +115,17 @@ let agregarDatos = () => {
 
 };
 
+let listaImpuestos;
+
+let llenarImpuestos = async () => {
+    listaImpuestos = await listarImpuestos();
+    for(let i = 0; i < listaImpuestos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listaImpuestos[i]['nombre']
+        slt_impuestos.appendChild(option)
+    }
+};
+
+llenarImpuestos();
+
 btn_guardar.addEventListener('click', agregarDatos);

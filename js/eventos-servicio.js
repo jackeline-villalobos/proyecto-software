@@ -83,25 +83,25 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, p
 //     return listaEventos;
 // };
 
-// let listarImpuestos = async() => {
+let listarImpuestos = async() => {
 
-//     let listaImpuestos;
-//     await axios({
-//         method: 'get',
-//         url: 'http://localhost:3000/api/listar-impuestos',
-//         responseType: 'json'
-//     })
-//     .then(function(res) {
-//         console.log(res.data);
-//         listaImpuestos = res.data.impuestos;
-//     })
-//     .catch(function(error){
-//         console.log(error);
-//     });
+    let listaImpuestos;
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-impuestos',
+        responseType: 'json'
+    })
+    .then(function(res) {
+        console.log(res.data);
+        listaImpuestos = res.data.impuestos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
 
-//     return listaImpuestos;
+    return listaImpuestos;
 
-// };
+};
 
 let listartipoEventos = async() => {
 
