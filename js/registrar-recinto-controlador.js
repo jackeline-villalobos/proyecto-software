@@ -31,23 +31,23 @@ const btn_guardar = document.querySelector('#btn-registrar');
 
 
 // Tavo trying to check the email on the database.
-//let enviarCorreoEncargado = async() =>{
-//    
-//    let listaEncargados = await listarEncargados();
-//    let verificarEncargado = false;
-//
-//    for(let i =0; i<listarEncargados.length; i++){
-//
-//        let correoEncargado = listaEncargados[i]['correoElectronico'].lowerCase;
-//    
-//        if(input_correoEncargado.value.lowerCase === correoEncargado){
-//            
-//        } else {
-//
-//        }
-//    };    
-//
-//}
+let enviarCorreoEncargado = async() =>{
+    
+    let listaEncargados = await listarEncargados();
+    let verificarEncargado = false;
+
+    for(let i =0; i<listarEncargados.length; i++){
+
+        let correoEncargado = listaEncargados[i]['correoElectronico'].lowerCase;
+    
+        if(input_correoEncargado.value.lowerCase === correoEncargado){
+            agregarRecinto(nombreRecinto);
+        } else {
+
+        }
+    };    
+
+}
 
 let validar = () => {
     let error = false;

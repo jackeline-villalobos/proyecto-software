@@ -66,3 +66,24 @@ let listarEncargados = async() => {
 
     return listaEncargados;
 }
+
+let agregarRecinto = async (nombreRecinto) => {
+    let _id = sessionStorage.getItem('idRecinto') ; 
+    await axios(
+        {
+            method: 'post',
+            url: 'http://localhost:3000/api/agregar-recinto',
+            responseType: 'json',
+            data: {
+                nombreRecinto: nombreRecinto
+                }
+            })
+        .then(function (res) {
+            console.log(res.data);
+
+        })
+        .catch(function (error) {
+             console.log(error);
+
+        });
+};
