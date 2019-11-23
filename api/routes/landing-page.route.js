@@ -17,7 +17,7 @@ router.post('/mail-landing-page', function (req, res) {
     let mailOptions = {
         from: 'Ticket Pixel',
         to: req.body.correo,
-        subject: 'Bienvido a Ticket pixel',
+        subject: 'Bienvenido a Ticket pixel',
         html: `<!DOCTYPE html>
         <html lang="en">
         
@@ -113,7 +113,7 @@ router.post('/mail-landing-page', function (req, res) {
 
     res.json({
         resultado: true,
-        msg: 'El usuario se registró con éxito!'
+        msg: 'Se envió el correo con éxito!'
     });
 
 });
