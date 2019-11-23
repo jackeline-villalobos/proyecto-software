@@ -12,7 +12,7 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-router.post('/mail-landing-page', function(req, res){
+router.post('/mail-landing-page', function (req, res) {
 
     let mailOptions = {
         from: 'Ticket Pixel',
@@ -95,7 +95,7 @@ router.post('/mail-landing-page', function(req, res){
             <br>
             <br>
             <hr>
-            <p class="footer">Este mensaje se envió a ${nuevoUsuario.correo}</p>
+            <p class="footer">Este mensaje se envió a ${req.body.correo}</p>
             <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
         
         </body>
@@ -113,7 +113,6 @@ router.post('/mail-landing-page', function(req, res){
 
     res.json({
         resultado: true,
-        usuarioBD,
         msg: 'El usuario se registró con éxito!'
     });
 
