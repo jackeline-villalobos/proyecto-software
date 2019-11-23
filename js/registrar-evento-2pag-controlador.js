@@ -77,14 +77,18 @@ let resetForm = () => {
 
 };
 
+
 let agregarDatos = () => {
 
     let fecha1 = input_fecha1.value;
     let hora1 = input_hora1.value;
+    let asistentes = input_asistentes.value;
     let nombreDescuento = input_nombreDescuento.value;
     let porcentajeDescuento = input_porcentajeDescuento.value;
-    let impuestos = slt_impuestos.value;
+    let nombreImpuesto = slt_impuestos.value;
     let porcentajeImpuesto = input_porcentajeImpuesto.value;
+
+    let _id =  sessionStorage.idEvento; 
 
     if (validar()) {
         Swal.fire({
@@ -96,8 +100,9 @@ let agregarDatos = () => {
 
     } else {
         
-        console.log(fecha1, hora1, nombreDescuento, porcentajeDescuento, impuestos, porcentajeImpuesto);
-
+        agregar_fecha(fecha1, hora1, asistentes, _id);
+        agregar_descuento(nombreDescuento, porcentajeDescuento, _id);
+        agregar_impuesto(nombreImpuesto, porcentajeImpuesto, _id);
         Swal.fire({
             type: 'success',
             title: 'Datos ingresados con éxito',

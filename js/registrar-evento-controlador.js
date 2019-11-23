@@ -107,9 +107,10 @@ let obtener_datos = () => {
             confirmButtonText: 'Continuar',
             onClose: function() {
                 location.href = 'registrar-evento-2pag.html';
-            }
+             }
         });
-        
+        sessionStorage.setItem('idEvento', _id);
+        window.location.href = 'registrar-evento-2pag.html';
         resetForm();
 
     }
@@ -170,5 +171,6 @@ let llenarRecintos = async () => {
 
 llenarRecintos();
 
-btn_guardar.addEventListener('click', obtener_datos);
+btn_guardar.addEventListener ('click', obtener_datos)
+
 // btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
