@@ -13,41 +13,40 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-empresa.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
-        <header>
-                <div>
-                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="#" class="href-perfil">
+                <div id="foto-usuario">
+
                 </div>
-                <div class="botones-header" id="btns-header">
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button">Iniciar sesión</button>
-                    </a>
-        
-                    <a href="registrar-navegator.html">
-                        <button type="button" class="btn-registrarse">Registrarse</button>
-                    </a>
-        
-                    <a href="configuracion.html">
-                        <button type="button">Configuración</button>
-                    </a>
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
-                    </a>
-        
-                    <a href="#" class="href-perfil">
-                        <div id="foto-usuario">
-        
-                        </div>
-                    </a>
-        
-                </div>
-            </header>
+            </a>
+
+        </div>
+    </header>
     <h1>Registrar Empresa</h1>
 
     <div class="grid-central">
@@ -55,8 +54,7 @@
         <div class="grid-izquierda">
             <div>
                 <div id="img-avatarPlaceholder">
-                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
-                        id="imagePreview" style="height:250px; width:300px">
+                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen" id="imagePreview" style="height:300px; width:400px">
                 </div>
 
                 <div>
@@ -184,12 +182,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- cloudinary -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
-        type='text/javascript'></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap"
-        type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap" type="text/javascript"></script>
 
     <!-- js -->
     <script src="js/imagen-servicio.js"></script>

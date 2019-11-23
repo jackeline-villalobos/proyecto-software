@@ -13,7 +13,7 @@ const aCanton = document.querySelector("#canton");
 
 const container = document.querySelector("#container-2");
 
-
+let nombreSS = sessionStorage.getItem("correoUsuario");
 
 let llenarPerfil = async() => {
     let usuario = await obtenerDatos();
@@ -26,12 +26,11 @@ let llenarPerfil = async() => {
     let parafo5 = document.createElement("p");
     let parafo6 = document.createElement("p");
 
-    //////// Falta los demas
 
 
-    parafo1.innerHTML = usuario.nombre;
+    parafo1.innerHTML = usuario.aNombre;
 
-    parafo2.innerHTML = usuario.correo;
+    parafo2.innerHTML = usuario.aCorreo;
 
     parafo3.innerHTML = usuario.genero;
 
