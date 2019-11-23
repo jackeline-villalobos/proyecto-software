@@ -6,10 +6,10 @@ const express = require('express'),
     Recinto = require('../models/recinto.model'),
 
     Impuesto = require('../models/impuesto.model'),
-
+    tipoEvento = require('../models/tipo-evento.model'),
     mongoose = require('mongoose');
 
-router.post('/registrar-evento', function(req, res) {
+router.post('/registrar-evento', function (req, res) {
     let body = req.body;
 
     let nuevoEvento = new Evento({
@@ -24,7 +24,7 @@ router.post('/registrar-evento', function(req, res) {
     });
 
     nuevoEvento.save(
-        function(err, eventoBD) {
+        function (err, eventoBD) {
 
             if (err) {
                 res.json({
@@ -41,130 +41,97 @@ router.post('/registrar-evento', function(req, res) {
 
         });
 
-}); <<
-<< << < HEAD
-// router.post('/agregar-fecha', function (req, res) {
+});
 
-//     if (req.body._id) {
-//         Evento.update({ _id: req.body._id }, {
-//             $push: {
-//                 'fechas': {
-//                     fecha: req.body.fecha,
-//                     hora: req.body.hora,
-//                     cantidadAsistentes: body.cantidadAsistentes,
-//                 }
-//             }
-//         },
-//             function (error) {
-//                 if (error) {
-//                     return res.json({
-//                         resultado: false,
-//                         msg: 'La fecha no se pudo registrar',
-//                     });
-//                 } else {
-//                     return res.json({
-//                         resultado: true,
-//                         msg: 'Se agregó correctamente la fecha'
-//                     });
-//                 }
-//             }
-//         )
-//     }else{
-//         return res.json({
-//             success: false,
-//             msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto'
+router.post('/agregar-fecha', function (req, res) {
 
-//         });
-//     }
-    ===
-    === =
-    router.post('/agregar-fecha', function(req, res) {
-
-        if (req.body._id) {
-            Evento.update({ _id: req.body._id }, {
-                    $push: {
-                        'fechas': {
-                            fecha: req.body.fecha,
-                            hora: req.body.hora,
-                            cantidadAsistentes: body.cantidadAsistentes,
-                        }
-                    }
-                },
-                function(error) {
-                    if (error) {
-                        return res.json({
-                            resultado: false,
-                            msg: 'La fecha no se pudo registrar',
-                        });
-                    } else {
-                        return res.json({
-                            resultado: true,
-                            msg: 'Se agregó correctamente la fecha'
-                        });
-                    }
+    if (req.body._id) {
+        Evento.update({ _id: req.body._id }, {
+            $push: {
+                'fechas': {
+                    fecha: req.body.fecha,
+                    hora: req.body.hora,
+                    cantidadAsistentes: req.body.cantidadAsistentes,
                 }
-            )
+            }
+        },
+            function (error) {
+                if (error) {
+                    return res.json({
+                        resultado: false,
+                        msg: 'La fecha no se pudo registrar',
+                    });
+                } else {
+                    return res.json({
+                        resultado: true,
+                        msg: 'Se agregó correctamente la fecha'
+                    });
+                }
+            }
+        )
+    } else {
+        return res.json({
+            success: false,
+            msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto'
+
+        });
+    }
+
+});
+
+router.post('/agregar-descuento', function (req, res) {
+    Evento.update({ _id: req.body._id }, {
+        $push: {
+            'descuentos': {
+                nombre: req.body.nombre,
+                porcentaje : req.body.porcentaje
+            }
+        }
+    }, function (err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo agregar el descuento',
+                err
+            });
         } else {
             return res.json({
-                success: false,
-                msj: 'No se pudo agregar la fecha, por favor verifique que el _id sea correcto' >>>
-                    >>> > 8 df3e45ee8632b6fec25e0edda01e56ec39e3924
-
+                resultado: true,
+                msg: 'Se agregó el descuento correctamente'
             });
         }
-
     });
+});
 
-// router.post('/agregar-descuento', function(req, res){
-//     Evento.update({_id: req.body._id}, {
-//        $push: {
-//         'descuentos': {
-//             nombre: req.body.nombre,
-//         }
-//        } 
-//     }, function(err){
-//         if(err) {
-//             return res.json({
-//                 resultado: false,
-//                 msg: 'No se pudo agregar el descuento',
-//                 err 
-//             });
-//         } else {
-//             return res.json({
-//                 resultado: true,
-//                 msg: 'Se agregó el descuento correctamente'
-//             });
-//         }
-//     });
-// });
+router.post('/agregar-impuesto', function (req, res) {
+    Evento.update({ _id: req.body._id }, {
+        $push: {
+            'impuestos': {
+                nombre: req.body.nombre,
+                porcentaje : req.body.porcentaje
+            }
+        }
+    }, function (err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'No se pudo agregar el impuesto',
+                err
+            });
+        } else {
+            return res.json({
+                resultado: true,
+                msg: 'Se agregó el impuesto correctamente'
+            });
+        }
+    });
+});
 
-// router.post('/agregar-impuesto', function(req, res){
-//     Evento.update({_id: req.body._id}, {
-//        $push: {
-//         'impuestos': {
-//             nombre: req.body.nombre,
-//         }
-//        } 
-//     }, function(err){
-//         if(err) {
-//             return res.json({
-//                 resultado: false,
-//                 msg: 'No se pudo agregar el impuesto',
-//                 err 
-//             });
-//         } else {
-//             return res.json({
-//                 resultado: true,
-//                 msg: 'Se agregó el impuesto correctamente'
-//             });
-//         }
-//     });
-// });
 
-router.get('/listar-eventos', function(req, res) {
+router.get('/listar-eventos', function (req, res) {
 
     Evento.find(
-        function(err, eventoBD) {
+        function (err, eventoBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -182,31 +149,31 @@ router.get('/listar-eventos', function(req, res) {
 
 });
 
-router.get('/listar-impuestos', function(req, res) {
+// router.get('/listar-impuestos', function(req, res) {
 
-    Impuesto.find(
-        function(err, impuestosBD) {
-            if (err) {
-                res.json({
-                    resultado: false,
-                    msg: 'No se encontraron impuestos',
-                    err
-                });
-            } else {
-                res.json({
-                    resultado: true,
-                    impuestos: impuestosBD
-                });
-            }
-        }
-    );
-});
+//     Impuesto.find(
+//         function(err, impuestosBD) {
+//             if (err) {
+//                 res.json({
+//                     resultado: false,
+//                     msg: 'No se encontraron impuestos',
+//                     err
+//                 });
+//             } else {
+//                 res.json({
+//                     resultado: true,
+//                     impuestos: impuestosBD
+//                 });
+//             }
+//         }
+//     );
+// });
 
-/* CODIGO DUPLICADO
-router.get('/listar-tipo-evento', function(req, res) {
+
+router.get('/listar-tipo-evento', function (req, res) {
 
     tipoEventos.find(
-        function(err, tipoEventosBD) {
+        function (err, tipoEventosBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -222,10 +189,10 @@ router.get('/listar-tipo-evento', function(req, res) {
         }
     );
 });
-*/
 
-router.get('/listar-recintos', function(req, res) {
-    Recinto.find(function(err, recintosBD) {
+
+router.get('/listar-recintos', function (req, res) {
+    Recinto.find(function (err, recintosBD) {
         if (err) {
             res.json({
                 resultado: false,
