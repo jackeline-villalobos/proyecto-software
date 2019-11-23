@@ -30,13 +30,16 @@ let mostrarCards = async () => {
             nombre.innerText = listaEventos[i]['nombre'];
 
             let fecha = document.createElement('h3');
-            fecha.innerText = listaEventos[i]['fecha'];
+            for(let y=0; y < listaEventos[i]['fechas'].length; y++){
+                fecha.innerText = 'Fechas: ' + listaEventos[i]['fechas'][y]['fecha'];
+            }
+            
 
             let lugar = document.createElement('h4');
-            lugar.innerText = listaEventos[i]['lugar'];
+            lugar.innerText = 'Lugar: ' + listaEventos[i]['lugar'];
 
             let precio = document.createElement('h4');
-            precio.innerText = listaEventos[i]['precioEntrada'];
+            precio.innerText = 'Precio: ' +listaEventos[i]['precioEntrada'];
 
             let boton = document.createElement('button');
             boton.classList.add('btn-mas');

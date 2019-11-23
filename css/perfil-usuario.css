@@ -40,7 +40,6 @@ a:hover{
     height: 180px;
     width: 180px;
     border-radius: 100%;
-    background-color: darkorange;
     margin-top: 25px;
 }
 
@@ -54,3 +53,10 @@ hr{
     flex-direction: row;
     justify-content: space-around;
 }
+
+/*.foto_perfil{
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    margin-top: 25px;
+}*/

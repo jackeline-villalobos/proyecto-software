@@ -3,6 +3,7 @@ const header = document.querySelector('#btns-header');
 const botonesHeader = document.querySelectorAll('#btns-header a');
 const btnCerrarSesion = document.querySelector('#btn-cerrarSesion');
 let conectado = sessionStorage.getItem('conectado');
+let grado = sessionStorage.getItem('gradoUsuario');
 
 let containerFoto = document.querySelector('#foto-usuario');
 
@@ -16,15 +17,21 @@ containerFoto.appendChild(fotoUsuario);
 //botonesHeader[4].appendChild(perfilUsuario);
 
 
-    if (conectado) {
-        botonesHeader[0].classList.add('ocultar');
-        botonesHeader[1].classList.add('ocultar');
-    
-    } else {
-        botonesHeader[2].classList.add('ocultar');
-        botonesHeader[3].classList.add('ocultar');
-        botonesHeader[4].classList.add('ocultar');
+if (conectado) {
+    botonesHeader[0].classList.add('ocultar');
+    botonesHeader[1].classList.add('ocultar');
+
+    if (grado == 1) {
+
+        let boton = botonesHeader[4];
+        boton.setAttribute.('href', 'perfil-administrador.html');
     }
+
+} else {
+    botonesHeader[2].classList.add('ocultar');
+    botonesHeader[3].classList.add('ocultar');
+    botonesHeader[4].classList.add('ocultar');
+}
 
 
 

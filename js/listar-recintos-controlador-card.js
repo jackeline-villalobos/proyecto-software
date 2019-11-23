@@ -3,45 +3,48 @@
 const contenedor = document.querySelector('#cards-container');
 const inputFiltro = document.querySelector('#txt-filtro');
 
-let mostrarCards = async() => {
+let mostrarCards = async () => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaRecintos = await listarRecintos();
-    console.log(listaRecintos);
 
     contenedor.innerHTML = '';
 
-    for(let i = 0; i < listaRecintos.length; i++){
+    for (let i = 0; i < listaRecintos.length; i++) {
+
         let nombre = listaRecintos[i]['nombreRecinto'].toLowerCase();
-        let imagen = listaRecintos[i]['imagen'];
-        if(nombre.includes(filtro)) {
+
+        if(nombre.includes(filtro)){
+            
+            let imagen = listaRecintos[i]['imagen'];
+    
             let divCard = document.createElement('div');
             divCard.classList.add('card');
-
+    
             let header = document.createElement('header');
             header.style.backgroundImage = 'url, (`${imagen}`)';
             //console.log(imagen);
             let img = document.createElement('img');
-            img.src = `${imagen}`;            
-
+            img.src = `${imagen}`;
+    
             let titulo = document.createElement('h2');
             titulo.innerText = listaRecintos[i]['nombreRecinto'];
-
+    
             let provincia = document.createElement('h3');
             provincia.innerText = listaRecintos[i]['provincia'];
-
+    
             let capacidad = document.createElement('h4');
-            capacidad.innerText = 'Capacidad: ' +  listaRecintos[i]['capacidad'] + ' personas';
-
+            capacidad.innerText = 'Capacidad: ' + listaRecintos[i]['capacidad'] + ' personas';
+    
             let boton = document.createElement('button');
             boton.classList.add('btn-mas');
             boton.innerHTML = 'Ver más';
             boton.dataset._id = listaRecintos[i]['_id'];
-
-            boton.addEventListener('click', function() {
+    
+            boton.addEventListener('click', function () {
                 sessionStorage.setItem('idRecinto', this.dataset._id);
                 window.location.href = 'perfil-recinto.html';
             });
-
+    
             contenedor.appendChild(divCard);
             divCard.appendChild(header);
             header.appendChild(img);
@@ -50,6 +53,8 @@ let mostrarCards = async() => {
             divCard.appendChild(capacidad);
             divCard.appendChild(boton);
         }
+        
+
     }
 };
 

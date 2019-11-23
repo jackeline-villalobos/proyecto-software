@@ -11,13 +11,14 @@ require('dotenv').config();
 const impuesto = require('./routes/impuesto.route');
 const evento = require('./routes/evento.route');
 const empresa = require("./routes/empresa.route")
-//const primeraContrasenna = require('./cambiar-primera-contrasenna');
-//const descuento = require('./routes/descuento.route');
+    //const primeraContrasenna = require('./cambiar-primera-contrasenna');
+    //const descuento = require('./routes/descuento.route');
 const tipoEvento = require("./routes/tipo-evento.route");
 const usuario = require('./routes/usuario.route');
 const recinto = require('./routes/recinto.route');
 const encargado = require('./routes/encargado.route');
 const organizadorSolicitante = require('./routes/organizadorSolicitante.route');
+const landingPage = require('./routes/landing-page.route');
 
 
 
@@ -74,3 +75,4 @@ app.use("/api", usuario);
 app.use("/api", recinto);
 app.use("/api", encargado);
 app.use("/api", organizadorSolicitante);
+app.use('/api', landingPage);

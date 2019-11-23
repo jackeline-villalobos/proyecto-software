@@ -1,92 +1,131 @@
 'use strict';
 
-const input_fecha1 = document.querySelector('#txt-date-1');
-const input_hora1 = document.querySelector('#txt-time-1');
+const input_fecha = document.querySelector('#txt-date-1');
+const input_hora = document.querySelector('#txt-time-1');
 const input_asistentes = document.querySelector('#txt-cantidadAsistentes');
 
 const input_nombreDescuento = document.querySelector('#txt-nombreDescuento');
 const input_porcentajeDescuento = document.querySelector('#txt-porcentajeDescuento');
 
 const slt_impuestos = document.querySelector('#slt-impuestos');
-const input_porcentajeImpuesto = document.querySelector('#txt-porcentajeImpuesto');
-
-const input_fechas = document.querySelector('.txt-date');
-const input_horas = document.querySelector('.txt-time');
 
 const btn_guardar = document.querySelector('#btn-registrar-evento');
+const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
+const btn_agregarDescuento = document.querySelector('#btn-agregarDescuento');
+const btn_agregarImpuesto = document.querySelector('#btn-agregarImpuesto');
 
 
-let validar = () => {
+let validarFechas = () => {
 
     let error = false;
 
-    if(input_fecha1.value == ''){
+    if (input_fecha.value == '') {
         error = true;
-        input_fecha1.classList.add('error');
+        input_fecha.classList.add('error');
     } else {
-        input_fecha1.classList.remove('error');
+        input_fecha.classList.remove('error');
     };
 
-    if(input_hora1.value == ''){
+    if (input_hora.value == '') {
         error = true;
-        input_hora1.classList.add('error');
+        input_hora.classList.add('error');
     } else {
-        input_hora1.classList.remove('error');
+        input_hora.classList.remove('error');
     };
 
-    if(input_asistentes.value == ''){
+    if (input_asistentes.value == '') {
         error = true;
         input_asistentes.classList.add('error');
     } else {
         input_asistentes.classList.remove('error');
     };
 
-    if(input_nombreDescuento.value == ''){
+    return error;
+};
+
+let validarDescuentos = () => {
+    let error = false;
+    if (input_nombreDescuento.value == '') {
         error = true;
         input_nombreDescuento.classList.add('error');
     } else {
         input_nombreDescuento.classList.remove('error');
     };
 
-    if(input_porcentajeDescuento.value == ''){
+    if (input_porcentajeDescuento.value == '') {
         error = true;
         input_porcentajeDescuento.classList.add('error');
     } else {
         input_porcentajeDescuento.classList.remove('error');
     };
+    return error;
+};
 
-    if(slt_impuestos.value == ''){
+let validarImpuestos = () => {
+    let error = false;
+    if (slt_impuestos.value == '') {
         error = true;
         slt_impuestos.classList.add('error');
     } else {
         slt_impuestos.classList.remove('error');
     };
-
     return error;
 };
 
-let resetForm = () => {
-
-    input_fecha1.value = '';
-    input_hora1.value = '';
+let resetFecha = () => {
+    input_fecha.value = '';
+    input_hora.value = '';
     input_asistentes.value = '';
+};
+let resetDescuentos = () => {
     input_nombreDescuento.value = '';
     input_porcentajeDescuento.value = '';
+};
+let resetImpuestos = () => {
     slt_impuestos.value = '';
-    //input_porcentajeImpuesto = '';
-
 };
 
-let agregarDatos = () => {
+let agregarFecha = () => {
 
-    let fecha1 = input_fecha1.value;
-    let hora1 = input_hora1.value;
+    let fecha = input_fecha.value;
+    let hora = input_hora.value;
+    let asistentes = input_asistentes.value;
+    
+    if(validarFechas()){
+        Swal.fire({
+            type: 'warning',
+            title: 'Algunos de los campos se encuentran incorrectos.',
+            text: 'Por favor, revise los campos en rojo.',
+            confirmButtonText: 'Entendio'
+        })
+    }else{
+        agregar_fecha(fecha, hora, asistentes);
+        resetFecha();
+    }
+};
+
+let agregarDescuento= ()=>{
     let nombreDescuento = input_nombreDescuento.value;
     let porcentajeDescuento = input_porcentajeDescuento.value;
-    let impuestos = slt_impuestos.value;
-    let porcentajeImpuesto = input_porcentajeImpuesto.value;
+    
+    if(validarDescuentos()){
+        Swal.fire({
+            type: 'warning',
+            title: 'Algunos de los campos se encuentran incorrectos.',
+            text: 'Por favor, revise los campos en rojo.',
+            confirmButtonText: 'Entendio'
+        })
+    }else{
+        agregar_descuento(nombreDescuento, porcentajeDescuento);
+        resetDescuentos();
+    }
+};
 
-    if (validar()) {
+let agregarImpuestos = () => {
+
+    let nombreImpuesto = slt_impuestos.value;
+
+    if (validarImpuestos()) {
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
@@ -95,24 +134,38 @@ let agregarDatos = () => {
         })
 
     } else {
-        
-        console.log(fecha1, hora1, nombreDescuento, porcentajeDescuento, impuestos, porcentajeImpuesto);
-
-        Swal.fire({
-            type: 'success',
-            title: 'Datos ingresados con éxito',
-            text: 'El evento ha sido almacenado',
-            confirmButtonText: 'Continuar',
-            onClose: function() {
-                location.href = 'registrar-evento-2pag.html';
-            }
-        });
-        
-        resetForm();
-
+        agregar_impuesto(nombreImpuesto);
+        resetImpuestos();
     }
-    
 
 };
 
-btn_guardar.addEventListener('click', agregarDatos);
+let finalizar =()=>{
+    Swal.fire({
+        type: 'success',
+        title: 'Registro de evento finalizado',
+        text: 'El evento ha sido almacenado',
+        confirmButtonText: 'Continuar',
+        onClose: function () {
+            location.href = 'registrar-evento.html';
+        }
+    });
+};
+
+let listaImpuestos;
+
+let llenarImpuestos = async () => {
+    listaImpuestos = await listarImpuestos();
+    for (let i = 0; i < listaImpuestos.length; i++) {
+        let option = document.createElement('option')
+        option.innerHTML = listaImpuestos[i]['nombre']
+        slt_impuestos.appendChild(option)
+    }
+};
+
+llenarImpuestos();
+
+btn_agregarFecha.addEventListener('click', agregarFecha);
+btn_agregarDescuento.addEventListener('click', agregarDescuento);
+btn_agregarImpuesto.addEventListener('click', agregarImpuestos);
+btn_guardar.addEventListener('click', finalizar);
