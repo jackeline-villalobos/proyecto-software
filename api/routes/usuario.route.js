@@ -354,7 +354,7 @@ router.post("/buscar-usuario", function(req, res) {
             }
 
         });
-    mostrarInfo();
+    //mostrarInfo();
 
 });
 
