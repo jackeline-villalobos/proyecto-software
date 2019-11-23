@@ -1,8 +1,7 @@
 'use strict';
 
-let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, imagen) => {
-    await axios(
-        {
+let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, imagen) => {
+    await axios({
             method: 'post',
             url: 'http://localhost:3000/api/registrar-evento',
             responseType: 'json',
@@ -30,15 +29,15 @@ let registrar_evento = async (nombre, tipoDeEventos, pais, lugar, descripcion, p
                 //         nombre: nombre,
                 //     }
                 // ],
-                 imagen: imagen,
+                imagen: imagen,
 
             }
         })
-        .then(function (res) {
+        .then(function(res) {
             console.log(res.data);
 
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
 
         });
@@ -111,8 +110,8 @@ let listartipoEventos = async() => {
             url: 'http://localhost:3000/api/listar-tipo-evento',
             responseType: 'json'
         })
-        .then(function(res) {
-            listatipoEventos = res.data.tipoEventos;
+        .then(async function(res) {
+            listatipoEventos = await res.data.tipoEventos;
         })
         .catch(function(error) {
             console.log(error);

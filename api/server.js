@@ -18,6 +18,7 @@ const usuario = require('./routes/usuario.route');
 const recinto = require('./routes/recinto.route');
 const encargado = require('./routes/encargado.route');
 const organizadorSolicitante = require('./routes/organizadorSolicitante.route');
+const landingPage = require('./routes/landing-page.route');
 
 
 
@@ -74,3 +75,4 @@ app.use("/api", usuario);
 app.use("/api", recinto);
 app.use("/api", encargado);
 app.use("/api", organizadorSolicitante);
+app.use('/api', landingPage);
