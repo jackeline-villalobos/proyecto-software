@@ -48,7 +48,10 @@ let obtenerDatos = async() => {
             icon: 'success',
             title: 'Registro realizado con éxito.',
             text: 'El tipo de evento ha sido almacenado.',
-            confirmButtonText: "Entendido"
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'perfil-administrador.html';
+            }
         })
 
 

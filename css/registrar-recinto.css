@@ -109,3 +109,11 @@ form select {
     padding: 1% 0;
     text-align: center;
 }
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    font-size: 16px;
+    margin-bottom: -10px;
+    padding-top: 10px;
+}
