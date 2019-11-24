@@ -8,47 +8,46 @@ let mostrarCards = async () => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaEventos = await listarEventos();
 
-    console.log(listaEventos)
+    //console.log(listaEventos)
 
     contenedor.innerHTML = '';
-    
-    for(let i = 0; i < listaEventos.length; i ++){
+
+    for (let i = 0; i < listaEventos.length; i++) {
         let nombre = listaEventos[i]['nombre'].toLowerCase();
         let imagen = listaEventos[i]['imagen'];
 
-        if(nombre.includes(filtro)) {
+        if (nombre.includes(filtro)) {
             let cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
             let header = document.createElement('header');
             header.style.backgroundImage = 'url, (`${imagen}`)';
-            console.log(imagen);
             let img = document.createElement('img');
-            img.src = `${imagen}`;            
+            img.src = `${imagen}`;
 
             let nombre = document.createElement('h2');
             nombre.innerText = listaEventos[i]['nombre'];
 
             let fecha = document.createElement('h3');
-            for(let y=0; y < listaEventos[i]['fechas'].length; y++){
+            for (let y = 0; y < listaEventos[i]['fechas'].length; y++) {
                 fecha.innerText = 'Fechas: ' + listaEventos[i]['fechas'][y]['fecha'];
             }
-            
+
 
             let lugar = document.createElement('h4');
             lugar.innerText = 'Lugar: ' + listaEventos[i]['lugar'];
 
             let precio = document.createElement('h4');
-            precio.innerText = 'Precio: ' +listaEventos[i]['precioEntrada'];
+            precio.innerText = 'Precio: ' + listaEventos[i]['precioEntrada'];
 
             let boton = document.createElement('button');
             boton.classList.add('btn-mas');
             boton.innerHTML = 'Ver más';
             boton.dataset._id = listaEventos[i]['_id'];
 
-            boton.addEventListener('click', function() {
-                localStorage.setItem('idEvento', this.dataset._id);
-                window.location.href = '#';
+            boton.addEventListener('click', function () {
+                sessionStorage.setItem('idEvento', this.dataset._id);
+                window.location.href = 'perfil-evento.html';
             });
 
             contenedor.appendChild(cardDiv);
