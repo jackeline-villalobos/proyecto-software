@@ -37,7 +37,23 @@ if (conectado) {
 
 let cerrarSesion = () => {
     sessionStorage.clear();
-    //window.location.href = 'iniciar-sesion.html';
+    window.location.href = 'index.html';
 }
 
-btnCerrarSesion.addEventListener('click', cerrarSesion);
+btnCerrarSesion.addEventListener('click', function(event){
+    event.preventDefault();
+ 
+    Swal.fire({
+        title: '¿Desea cerrar la sesión?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    })
+    .then((resultado) => {
+        if(resultado.value) {
+            cerrarSesion();
+        }
+    });
+
+});
