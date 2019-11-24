@@ -1,0 +1,14 @@
+.terminos-condiciones {
+    border: 1px solid black;
+    width: 80% !important;
+    margin: 20px 40px 40px 40px;
+}
+
+h1,
+h4 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 10px;
+}
