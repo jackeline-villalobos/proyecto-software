@@ -1,9 +1,18 @@
 'use strict';
 
+const nodeMailer = require('nodemailer')
 const express = require('express'),
-    router = express.Router(),
-    Encargado = require('../models/encargados.model'),
-    mongoose = require('mongoose');
+router = express.Router(),
+Encargado = require('../models/encargados.model'),
+mongoose = require('mongoose');
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'equiponebula2019@gmail.com',
+        pass: 'krashcenfo'
+    }
+});
 
 router.post('/registrar-encargado', function (req, res) {
 
@@ -15,8 +24,8 @@ router.post('/registrar-encargado', function (req, res) {
         fechaDeNacimiento: body.fechaDeNacimiento,
         nombreCompleto: body.nombreCompleto,
         genero: body.genero,
-        contrasenna: body.contrasenna
-
+        contrasenna: body.contrasenna,
+        grado: '2'
     });
 
     nuevoEncargado.save(
@@ -34,19 +43,10 @@ router.post('/registrar-encargado', function (req, res) {
                     msg: 'El encargado se registró con éxito!'
                 });
 
-
-                let transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'equiponebula2019@gmail.com',
-                        pass: 'krashcenfo'
-                    }
-                });
-
                 let mailOptions = {
                     from: 'Ticket pixel <equiponebula2019@gmail.com>',
                     to: req.body.correoElectronico,
-                    subject: 'Primer incio de sesión',
+                    subject: 'Registro de encargado',
                     html: `
                     <!DOCTYPE html>
                     <html lang="en">
@@ -84,8 +84,8 @@ router.post('/registrar-encargado', function (req, res) {
                     <body>
                     
                     <h1>Bienvenido a Ticket pixel</h1>
-                    <p>Este es el primer cambio de contraseña</p>
-                    <p>Se te solicitará que cambiés tu contraseña temporal por una nueva.</p>
+                    <p>Su registro ha sido realizado con exito!</p>
+                    <p>Su usuario y contraseña se muestran a continuacion.</p>
                     
                         <div class="info_credenciales">
                             <p>Tus credenciales de acceso:</p>
@@ -93,7 +93,7 @@ router.post('/registrar-encargado', function (req, res) {
                                 <span>Nombre de usuario: <span id="nombre_usuario">${req.body.nombreCompleto}</span></span>
                             </div>
                             <div>
-                                <span>Contraseña temporal: <span id="contrasena">${req.body.contrasenna}</span></span>
+                                <span>Contraseña: <span id="contrasena">${req.body.contrasenna}</span></span>
                             </div>
                         </div>
                     
@@ -116,5 +116,29 @@ router.post('/registrar-encargado', function (req, res) {
         }
     });
 });
+
+router.post('/agregar-recinto', function(req, res){
+    Encargado.update({ _id: req.body._id}, {
+        $push: {
+            'recinto': {
+                nombreRecinto: req.body.nombreRecinto
+            }
+        }
+    }, function(err) {
+        if (err) {
+            return res.json({
+                resultado: false,
+                msg: 'Se ha enviado un correo al ',
+                err
+            });
+        } else {
+            return res,json({
+                resultado: true,
+                msg: 'El recinto se ha asociado correctamente',
+            });           
+        }
+    }
+    )
+})
 
 module.exports = router;

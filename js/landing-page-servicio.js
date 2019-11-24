@@ -30,12 +30,24 @@ let mandarInfo = async () => {
     console.log(correo);
 
     if(!validar()) {
+        await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/mail-landing-page',
+            responseType: 'json',
+            data : {
+                correo: correo
+            }
+        })
+        .then(function(res){
+            console.log(res.data.msg);
+        })
+        .catch(function(err){
+            console.log(err);
+        });
         
     } else {
-        
+        console.log('No se pudo envíar el correo');
     }
 }
-
-
 
 btnComenzar.addEventListener('click', mandarInfo);

@@ -14,7 +14,6 @@ const aCanton = document.querySelector("#canton");
 const container = document.querySelector("#container-2");
 
 
-
 let llenarPerfil = async() => {
     let usuario = await obtenerDatos();
     console.log(usuario);
@@ -22,18 +21,37 @@ let llenarPerfil = async() => {
     let parafo1 = document.createElement("p");
     let parafo2 = document.createElement("p");
     let parafo3 = document.createElement("p");
-    //////// Falta los demas
-
-
-    parafo1.innerHTML = usuario.nombre;
-
-    parafo2.innerHTML = usuario.correo;
+    let parafo4 = document.createElement("p");
+    let parafo5 = document.createElement("p");
+    let parafo6 = document.createElement("p");
 
 
 
+
+
+    parafo1.innerHTML = usuario.primerNombre;
+
+    parafo2.innerHTML = usuario.aCorreo;
+
+    parafo3.innerHTML = usuario.genero;
+
+    parafo4.innerHTML = usuario.direccion;
+
+    parafo5.innerHTML = usuario.provincia;
+
+    parafo6.innerHTML = usuario.canton;
+
+    *
+    /
 
     container.appendChild(parafo1);
     container.appendChild(parafo2);
+    container.appendChild(parafo3);
+    container.appendChild(parafo4);
+    container.appendChild(parafo5);
+    container.appendChild(parafo6);
+
+
 
     /*
     let nombre = usuario.usuario.nombre;
@@ -61,5 +79,6 @@ let llenarPerfil = async() => {
 
 
 }
+
 
 llenarPerfil();

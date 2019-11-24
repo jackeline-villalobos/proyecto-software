@@ -9,15 +9,15 @@ const btnIngresar = document.querySelector('#btn-ingresar');
 
 let validar = () => {
     let error = false;
-    
-    if(inputCorreo.value == 0) {
+
+    if (inputCorreo.value == 0) {
         error = true;
         inputCorreo.classList.add('error');
     } else {
         inputCorreo.classList.remove('error');
     }
 
-    if(inputContrasenna.value == 0) {
+    if (inputContrasenna.value == 0) {
         error = true;
         inputContrasenna.classList.add('error');
     } else {
@@ -29,7 +29,7 @@ let validar = () => {
 
 // let validarDireccionCorreoParaContrasennaOlvidada = () => {
 //     let error = false;
-    
+
 //     if(inputCorreo.value == 0) {
 //         error = true;
 //         inputCorreo.classList.add('error');
@@ -42,11 +42,11 @@ let validar = () => {
 // }
 
 
-let obtenerDatos = async () => {
+let obtenerDatos = async() => {
     const correo = inputCorreo.value;
     const contrasenna = inputContrasenna.value;
 
-    if(validar()) {
+    if (validar()) {
         Swal.fire({
             icon: 'warning',
             title: 'Algunos campos se encuentran vacíos o son incorrectos',
@@ -57,7 +57,7 @@ let obtenerDatos = async () => {
     } else {
         let res = await iniciarSesion(correo, contrasenna);
 
-        if(res.resultado) {
+        if (res.resultado) {
             window.location.href = 'index.html';
         } else {
             Swal.fire({
@@ -69,7 +69,7 @@ let obtenerDatos = async () => {
         }
     }
 
-    
+
 }
 
 // let obtenerDireccionCorreo = async () => {
