@@ -4,8 +4,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-evento.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
     <title>Registrar Evento</title>
@@ -15,36 +14,36 @@
 </head>
 
 <body>
-        <header>
-                <div>
-                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="#" class="href-perfil">
+                <div id="foto-usuario">
+
                 </div>
-                <div class="botones-header" id="btns-header">
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button">Iniciar sesión</button>
-                    </a>
-        
-                    <a href="registrar-navegator.html">
-                        <button type="button" class="btn-registrarse">Registrarse</button>
-                    </a>
-        
-                    <a href="configuracion.html">
-                        <button type="button">Configuración</button>
-                    </a>
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
-                    </a>
-        
-                    <a href="#" class="href-perfil">
-                        <div id="foto-usuario">
-        
-                        </div>
-                    </a>
-        
-                </div>
-            </header>
+            </a>
+
+        </div>
+    </header>
 
     <!-- frontera con ejemplo -->
     <main>
@@ -53,7 +52,7 @@
                 <h2>Registrar Evento</h2>
             </div>
             <form class="form-registrar-evento">
-                
+
                 <div class="fechaYHora">
                     <h6>Fecha 1</h6>
                     <input type="date" id="txt-date-1" class="txt-date">
@@ -61,7 +60,7 @@
                     <input type="number" id="txt-cantidadAsistentes" placeholder="Asistentes">
                 </div>
                 <button id="btn-agregarFecha">Registrar fecha</button>
-                
+
                 <div>
                     <h6>Descuentos</h6>
                     <input type="text" id="txt-nombreDescuento" class="txt-descuento" placeholder="Nombre">
@@ -93,7 +92,7 @@
         <div>
             <h3>Contactos</h3>
             <p>Tel: 2233-4455</p>
-            <a href="#">Terminos y condiciones</a>
+            <a href="terminos-condiciones.html">Terminos y condiciones</a>
             <br>
             <br>
             <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
@@ -131,11 +130,10 @@
 
     <!-- cloudinary -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
-        type='text/javascript'></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
-    
+
     <!-- js -->
     <script src="js/imagen-servicio.js"></script>
     <script src="js/eventos-servicio.js"></script>

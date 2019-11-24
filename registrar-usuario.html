@@ -9,43 +9,42 @@
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <title>Registrar usuario</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
-        <header>
-                <div>
-                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="#" class="href-perfil">
+                <div id="foto-usuario">
+
                 </div>
-                <div class="botones-header" id="btns-header">
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button">Iniciar sesión</button>
-                    </a>
-        
-                    <a href="registrar-navegator.html">
-                        <button type="button" class="btn-registrarse">Registrarse</button>
-                    </a>
-        
-                    <a href="configuracion.html">
-                        <button type="button">Configuración</button>
-                    </a>
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
-                    </a>
-        
-                    <a href="#" class="href-perfil">
-                        <div id="foto-usuario">
-        
-                        </div>
-                    </a>
-        
-                </div>
-            </header>
+            </a>
+
+        </div>
+    </header>
 
     <main>
 
@@ -95,23 +94,22 @@
 
                         <div class="label_elementos2">
                             <label for="input-fecha">Fecha de nacimiento</label>
-                            <input type="date" placeholder="Fecha de nacimiento" class="input-fecha"
-                                id="txt_fechaDeNacimiento">
+                            <input type="date" placeholder="Fecha de nacimiento" class="input-fecha" id="txt_fechaDeNacimiento">
                         </div>
 
                     </div>
 
                     <div class="genero">
-                       <label for="txt_genero">Género: </label>
-                    <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
-                    <datalist id="datalist-genero">
+                        <label for="txt_genero">Género: </label>
+                        <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
+                        <datalist id="datalist-genero">
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Otro">Otro</option>
                         <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-                    </datalist> 
+                    </datalist>
                     </div>
-                    
+
 
 
 
@@ -124,12 +122,12 @@
                             <div class="form_control">
                                 <input type="text" placeholder="Dirección" id="direccion">
 
-                                
-                                  <select class="form_input label_elementos2" name="provincia" id="provincias" >
+
+                                <select class="form_input label_elementos2" name="provincia" id="provincias">
                                     <option value="" hidden>Provincia</option>
-                                </select>  
-                                
-                                
+                                </select>
+
+
                             </div>
 
 
@@ -156,8 +154,7 @@
                 <!--Subir foto de perfil-->
                 <div class="subir-img-registro">
                     <figure class="imageHolder">
-                        <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
-                            id="imagePreview">
+                        <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen" id="imagePreview">
                     </figure>
 
                     <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
@@ -181,7 +178,7 @@
         <div>
             <h3>Contactos</h3>
             <p>Tel: 2233-4455</p>
-            <a href="#">Terminos y condiciones</a>
+            <a href="terminos-condiciones.html">Terminos y condiciones</a>
             <br>
             <br>
             <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
@@ -212,8 +209,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
-        type='text/javascript'></script>
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
     <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,37 +21,38 @@
     <title>Verificar su cuenta</title>
 
 </head>
+
 <body>
-        <header>
-                <div>
-                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="#" class="href-perfil">
+                <div id="foto-usuario">
+
                 </div>
-                <div class="botones-header" id="btns-header">
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button">Iniciar sesión</button>
-                    </a>
-        
-                    <a href="registrar-navegator.html">
-                        <button type="button" class="btn-registrarse">Registrarse</button>
-                    </a>
-        
-                    <a href="configuracion.html">
-                        <button type="button">Configuración</button>
-                    </a>
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
-                    </a>
-        
-                    <a href="#" class="href-perfil">
-                        <div id="foto-usuario">
-        
-                        </div>
-                    </a>
-        
-                </div>
-            </header>
+            </a>
+
+        </div>
+    </header>
 
     <main>
 
@@ -61,7 +63,7 @@
             <form action="">
 
                 <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
-    
+
                 <button type="submit" id="sbt-enviarCodigoSeguridad">Enviar código</button>
 
                 <button type="button" id="btn-siguiente">Siguiente</button>
@@ -72,10 +74,10 @@
                         Lorem ipsum...
                     </textarea>
                     <button onclick="receiveMail(); return true">Send</button> -->
-    
+
             </form>
         </div>
-        
+
     </main>
 
     <footer>
@@ -85,7 +87,7 @@
         <div>
             <h3>Contactos</h3>
             <p>Tel: 2233-4455</p>
-            <a href="#">Términos y condiciones</a>
+            <a href="terminos-condiciones.html">Términos y condiciones</a>
             <br>
             <br>
             <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo: soporte@ticketpixel.cr</a>
@@ -122,4 +124,5 @@
     <script src="js/cambiar-contrasenna-por-olvido-controlador-pag-1.js"></script>
     <script src="js/controlador-nav.js"></script>
 </body>
+
 </html>

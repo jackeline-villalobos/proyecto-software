@@ -4,8 +4,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-organizador.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -14,52 +13,52 @@
 </head>
 
 <body>
-        <header>
-                <div>
-                    <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-navegator.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="configuracion.html">
+                <button type="button">Configuración</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="#" class="href-perfil">
+                <div id="foto-usuario">
+
                 </div>
-                <div class="botones-header" id="btns-header">
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button">Iniciar sesión</button>
-                    </a>
-        
-                    <a href="registrar-navegator.html">
-                        <button type="button" class="btn-registrarse">Registrarse</button>
-                    </a>
-        
-                    <a href="configuracion.html">
-                        <button type="button">Configuración</button>
-                    </a>
-        
-                    <a href="iniciar-sesion.html">
-                        <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
-                    </a>
-        
-                    <a href="#" class="href-perfil">
-                        <div id="foto-usuario">
-        
-                        </div>
-                    </a>
-        
-                </div>
-            </header>
+            </a>
+
+        </div>
+    </header>
     <!-- frontera con ejemplo -->
     <main>
 
         <form class="formulario">
             <div class="frm-organizador">
                 <h1>Conviértase en organizador</h1>
-                
+
                 <h6>Información empresarial</h6>
-                
+
                 <input type="text" id="txt-nombreEmpresa" placeholder="Nombre de la Empresa" class="input">
                 <input type="text" id="txt-cedulaJuridica" placeholder="Cédula jurídica" class="input">
                 <input type="number" id="txt-experiencia" placeholder="Años de experiencia" class="input">
                 <input type="text" id="txt-nombreComercial" placeholder="Nombre Comercial" class="input">
-                
+
                 <h6>Dirección</h6>
-                
+
                 <select class="form_input" name="provincia" id="provincias" class="input">
                     <option value="" hidden>Provincia</option>
                 </select>
@@ -69,7 +68,7 @@
                             <option value="" hidden>Cantón</option>
                         </select>
                     </div>
-                
+
                     <div class="form_control">
                         <select class="form_input" name="distrito" id="distritos">
                             <option value="" hidden>Distrito</option>
@@ -77,9 +76,9 @@
                     </div>
                 </div>
                 <textarea id="txt-sennas" placeholder="Señas" class="input"></textarea>
-                
+
                 <h6>Información de contacto</h6>
-                
+
                 <input type="text" placeholder="Nombre completo" id="txt-nombreCompleto" class="input">
                 <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo" class="input">
                 <input type="text" id="txt-telefono" placeholder="Teléfono" class="input">
@@ -92,7 +91,7 @@
                 </select>
                 <button type="button" class="btn-enviarInfo" id="btn-enviarInfo">Enviar solicitud</button>
             </div>
-            
+
         </form>
 
     </main>
@@ -105,7 +104,7 @@
         <div>
             <h3>Contactos</h3>
             <p>Tel: 2233-4455</p>
-            <a href="#">Terminos y condiciones</a>
+            <a href="terminos-condiciones.html">Terminos y condiciones</a>
             <br>
             <br>
             <p><a href="mailto:soporte@ticketpixel.cr?subject=Consulta de eventos">Correo:
@@ -141,5 +140,5 @@
     <script src="js/organizadorSolicitante-servicio.js"></script>
     <script src="js/lugares_ubicaciones.js"></script>
     <script src="js/controlador-nav.js"></script>
-    
+
 </body>
