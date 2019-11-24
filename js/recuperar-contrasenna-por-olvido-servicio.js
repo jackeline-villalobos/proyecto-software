@@ -77,3 +77,20 @@ let enviarContrasennaPreviamenteGuardada = async(correo) => {
 
 //     return listaUsuarios;
 // }
+
+
+// let recuperarContrasennaEmail = async(email) => {
+//     try {
+//         const response = await axios({
+//             method: 'get',
+//             params: { email: email },
+//             url: `http://localhost:3000/api/recuperar-contrasenna`,
+//             responseType: 'json'
+//         });
+//         return response.data.cliente;
+//     }catch (error){
+//         console.log(error);
+//     }
+// };
+
+// recuperarContrasennaEmail('prodriguezc@ucenfotec.ac.cr');
