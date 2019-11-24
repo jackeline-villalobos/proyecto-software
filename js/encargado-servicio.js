@@ -14,7 +14,7 @@ let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fech
                 nombreCompleto: nombreCompleto,
                 fechaDeNacimiento: fechaDeNacimiento,
                 genero: genero,
-                contrasenna: contrasenna,
+                contrasenna: contrasenna
             }
         }
 
