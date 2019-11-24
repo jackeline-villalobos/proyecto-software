@@ -11,6 +11,7 @@ const input_canton = document.querySelector('#cantones');
 const input_distrito = document.querySelector('#distritos');
 const input_imagen = document.querySelector("#imagePreview");
 
+
 let input_latitud = document.querySelector("#latitud");
 let input_longitud = document.querySelector("#longitud");
 
@@ -26,6 +27,7 @@ let validar = () => {
     let validarTelefono = /^[\+]?[0-9]{4}?[-\s\.]?[0-9]{4}$/im;
     let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
     let z2 = /^[0-9]+$/; // 1 o mas
+
 
 
     if (input_nombreEmpresa.value == "" || input_nombreEmpresa.value == " " || input_nombreEmpresa.value == 0) {
