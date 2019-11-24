@@ -12,7 +12,7 @@ let llenarEvento = async () =>{
 
     let evento = await buscarEvento(idEvento);
 
-    console.log(evento);
+    //console.log(evento);
 
     let imagenSource = evento.evento.imagen;
     imagen.src = `${imagenSource}`;
@@ -24,6 +24,19 @@ let llenarEvento = async () =>{
     p_descripcion.innerHTML = descripcion;
 
     
+    let fechasArray = evento.evento.fechas;
+
+    for(let i = 0; i < fechasArray.length; i++){
+        let fecha = evento.evento.fechas[i];
+
+        let dia = document.createElement('h6');
+        dia.innerHTML = 'Fecha: ' + fechasArray[i]['fecha'];
+        let hora = document.createElement('h6');
+        hora.innerHTML = 'Hora: ' + fechasArray[i]['hora'];
+
+        div_fechas.appendChild(dia);
+        div_fechas.appendChild(hora);
+    }
 
 };
 
