@@ -52,7 +52,7 @@ let validarDescuentos = () => {
         input_nombreDescuento.classList.remove('error');
     };
 
-    if (input_porcentajeDescuento.value == '') {
+    if (input_porcentajeDescuento.value <= 0) {
         error = true;
         input_porcentajeDescuento.classList.add('error');
     } else {
