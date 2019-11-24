@@ -21,8 +21,8 @@ router.post('/registrar-encargado', function (req, res) {
     let nuevoEncargado = new Encargado({
         correoElectronico: body.correoElectronico,
         telefono: body.telefono,
-        fechaDeNacimiento: body.fechaDeNacimiento,
         nombreCompleto: body.nombreCompleto,
+        fechaDeNacimiento: body.fechaDeNacimiento,
         genero: body.genero,
         contrasenna: body.contrasenna,
         grado: '2'

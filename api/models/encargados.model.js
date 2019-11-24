@@ -9,8 +9,8 @@ const encargadoSchema = new mongoose.Schema({
     nombreCompleto: { type: String, required: false, unique: false },
     fechaDeNacimiento: { type: Date, required: true, unique: false },
     genero: { type: String, required: true, unique: false },
-    recinto: { type: String, required: true, unique: true },
-    recinto:[
+    contrasenna: { type: String, required: true, unique: true },
+    recintos:[
         {
             nombreRecinto: {type: String, required: true, unique: false},
         }
