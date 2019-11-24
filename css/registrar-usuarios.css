@@ -1,55 +1,65 @@
-.info-registro{
-    width: 800px;  
+.info-registro {
+    width: 800px;
     margin-left: 18%;
     margin-bottom: 60px;
 }
 
-.formulario{
+.formulario {
     margin-top: 50px;
 }
 
-.nombres{
+.nombres {
     margin-top: 40px;
 }
 
-.genero{
+.genero {
     margin-left: 90px;
 }
 
-.nombres, .correo-fecha, .apellidos, .canton-distrito, .direccion-provincia{
+.nombres,
+.correo-fecha,
+.apellidos,
+.canton-distrito,
+.direccion-provincia {
     display: flex;
     flex-direction: row;
     padding-left: 90px;
 }
-h4{
+
+h4 {
     padding-left: 90px;
-    margin-top: 50px; 
+    margin-top: 50px;
 }
 
-label{
+label {
     font-family: 'Montserrat', sans-serif;
     display: block;
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.label_elementos2{
+.label_elementos2 {
     margin-left: 30px;
 }
 
-#imagePreview{
+#imagePreview {
     width: 300px;
     margin-left: 30%;
     margin-top: 50px;
     margin-bottom: 20px;
 }
 
-.botonImagen, .btn-registar{
+.botonImagen,
+.btn-registar {
     margin-left: 42%;
     margin-bottom: 30px;
 }
 
-.btn-registar:hover{
+.btn-registar:hover {
     margin: none !important;
     padding: none !important;
+}
+
+.link-terminos {
+    padding-left: 30%;
 }
