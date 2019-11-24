@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/ejemplo.css">
+    <link rel="stylesheet" href="css/perfil-evento.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
@@ -52,23 +52,34 @@
         <div id="main-container">
 
             <div id="container-1">
-
-                <div>
-                    <img src="" alt="" id="imagen">
-                </div>
+                <figure class="imageContainer">
+                    <img id="imagen" src="imagenes/registrar-evento/outlined_placeholder-512.png">
+                </figure>
 
             </div>
 
             <div id="container-2">
-                <h2 id="h2-title"></h2>
-                <h3 id="h3-title"></h3>
-                <h4 id="h4-title"></h4>
-                <h5 id="h5-title"></h5>
-                <h6 id="h6-title"></h6>
-                <p id="parrafo"></p>
-                <div id="map">
-                    <script src="js/geolocalizacion-card.js"></script>
+                <h1 id="h2-nombreEvento"></h1>
+                <p id="p-descripcion"></p>
+
+                <div id="container-3">
+                    <div class="map">
+                        <h4 id="h5-ubicacion">Ubicación</h4>
+                        <div id="map">
+                            <script src="js/geolocalizacion-card.js"></script>
+                        </div>
+                    </div>
+                    <div class="fechas">
+                        <h4 id="h5-fechas">Fechas disponibles</h4>
+                        <div id="div-fechas">
+                            <h6>fechas</h6>
+                        </div>
+                    </div>
+
                 </div>
+
+
+
             </div>
 
         </div>
@@ -117,8 +128,14 @@
         </div>
     </footer>
 
-    <script src="js/ejemplo.js"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap" type="text/javascript"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <script src="js/controlador-nav.js"></script>
+    <script src="js/eventos-servicio.js"></script>
+    <script src="js/perfil-evento-controlador.js"></script>
+
 </body>
 
 </html>

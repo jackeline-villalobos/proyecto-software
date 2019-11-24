@@ -190,21 +190,31 @@ router.get('/listar-eventos', function (req, res) {
 // });
 
 
-router.get('/listar-recintos', function (req, res) {
-    Recinto.find(function (err, recintosBD) {
-        if (err) {
-            res.json({
-                resultado: false,
-                msg: 'No se encontraron recintos',
-                err
-            });
-        } else {
-            res.json({
-                resultado: true,
-                recintos: recintosBD
-            });
-        }
-    });
+// router.get('/listar-recintos', function (req, res) {
+//     Recinto.find(function (err, recintosBD) {
+//         if (err) {
+//             res.json({
+//                 resultado: false,
+//                 msg: 'No se encontraron recintos',
+//                 err
+//             });
+//         } else {
+//             res.json({
+//                 resultado: true,
+//                 recintos: recintosBD
+//             });
+//         }
+//     });
+// });
+
+router.post('/buscar-evento-id', function(req, res){
+    Evento.findById({_id: req.body._id})
+    .then(function(eventoBD){
+        res.json({
+            resultado: true,
+            evento : eventoBD
+        })
+    })
 });
 
 module.exports = router;

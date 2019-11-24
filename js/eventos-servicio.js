@@ -170,3 +170,24 @@ let listarRecintos = async() => {
 
     return listaRecintos;
 };
+
+let buscarEvento = async () =>{
+
+    let evento;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/buscar-evento-id',
+        responseType: 'json',
+        data: {
+            _id: idEvento
+        }
+    })
+    .then( async function(res){
+        evento = await res.data;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+    return evento;
+};
