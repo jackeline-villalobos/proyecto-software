@@ -1,6 +1,6 @@
 'use strict';
 
-let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero) => {
+let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna) => {
     let resultado;
     await axios (
         {
@@ -13,8 +13,8 @@ let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fech
                 telefono: telefono,
                 nombreCompleto: nombreCompleto,
                 fechaDeNacimiento: fechaDeNacimiento,
-                contrasenna: pcontrasenna,
-                genero: genero
+                genero: genero,
+                contrasenna: contrasenna,
             }
         }
 
@@ -30,23 +30,6 @@ let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fech
     return resultado;
 };
 
-function generarContrasena(){
-    let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    let caracterEspecial = ['!', '@', '#', '$', '%', '=', '&', '*', '?', '_'];
-    // 1 mayúscula
-    let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] + 
-    // 5 minúsculas
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] +
-    // 1 número
-    [Math.floor((Math.random() * 33) + 1)] + 
-    // 1 caracter especial
-    caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
-
-    return contrasena;
-};
 
 let listarEncargados = async() => {
 
