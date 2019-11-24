@@ -424,6 +424,49 @@ router.post('/buscar-usuario', function(req, res) {
 });
 */
 
+//forma 1
 
+// router.get('recuperar-contrasenna-email/:email', function(req, res){
+    
+//     let email = req.params.email;
+
+//     Usuario.find ({ email: email }, function(err, usuarioBD){
+//         if(err){
+//             return res.json({
+//                 sucess: false,
+//                 msj: 'No se encontró ningún usuario con esa dirección de correo',
+//                 err  
+//             });
+//         }else{
+//             return res.json({
+//                 success: true,
+//                 usuario: usuarioBD
+//             });
+//         }    
+//     })
+// });
+
+
+//forma 2
+
+router.get('/recuperar-contrasenna-email', function(req, res){
+    
+    let email = req.query.email;
+
+    Usuario.find ({ email: email }, function(err, usuarioBD){
+        if(err){
+            return res.json({
+                sucess: false,
+                msj: 'No se encontró ningún usuario con esa dirección de correo',
+                err  
+            });
+        }else{
+            return res.json({
+                success: true,
+                usuario: usuarioBD
+            });
+        }    
+    })
+});
 
 module.exports = router;
