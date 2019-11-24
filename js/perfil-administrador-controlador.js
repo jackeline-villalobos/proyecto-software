@@ -27,8 +27,6 @@ let llenarPerfil = async() => {
 
 
 
-
-
     parafo1.innerHTML = usuario.primerNombre;
 
     parafo2.innerHTML = usuario.aCorreo;
@@ -41,8 +39,6 @@ let llenarPerfil = async() => {
 
     parafo6.innerHTML = usuario.canton;
 
-    *
-    /
 
     container.appendChild(parafo1);
     container.appendChild(parafo2);
