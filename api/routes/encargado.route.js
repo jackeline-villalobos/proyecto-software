@@ -90,7 +90,7 @@ router.post('/registrar-encargado', function (req, res) {
                         <div class="info_credenciales">
                             <p>Tus credenciales de acceso:</p>
                             <div>
-                                <span>Correo: <span id="nombre_usuario">${req.body.correo}</span></span>
+                                <span>Correo: <span id="nombre_usuario">${req.body.correoElectronico}</span></span>
                             </div>
                             
                             <div>
