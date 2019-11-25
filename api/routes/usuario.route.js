@@ -18,7 +18,7 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-router.post('/registrar-usuario', function(req, res) {
+router.post('/registrar-usuario', function (req, res) {
 
     let body = req.body;
 
@@ -43,7 +43,7 @@ router.post('/registrar-usuario', function(req, res) {
     });
 
     nuevoUsuario.save(
-        function(err, usuarioBD) {
+        function (err, usuarioBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -141,7 +141,7 @@ router.post('/registrar-usuario', function(req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function(error, info) {
+                transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);
                     } else {
@@ -160,11 +160,11 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 
-router.post('/iniciar-sesion', function(req, res) {
+router.post('/iniciar-sesion', function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 if (usuarioBD.contrasenna == req.body.contrasenna) {
                     res.json({
@@ -179,7 +179,7 @@ router.post('/iniciar-sesion', function(req, res) {
                 }
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             if (organizadorSolicitanteBD.contrasenna == req.body.contrasenna) {
                                 res.json({
@@ -194,7 +194,7 @@ router.post('/iniciar-sesion', function(req, res) {
                             }
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         if (empresaBD.contrasenna == req.body.contrasenna) {
                                             res.json({
@@ -208,10 +208,27 @@ router.post('/iniciar-sesion', function(req, res) {
                                             })
                                         }
                                     } else {
-                                        res.json({
-                                            resultado: false,
-                                            msg: 'No existe el usuario'
-                                        });
+                                        Encargado.findOne({ correo: req.body.correo })
+                                            .then(function (encargadoBD) {
+                                                if (encargadoBD) {
+                                                    if (encargadoBD.contrasenna == req.body.contrasenna) {
+                                                        res.json({
+                                                            resultado: true,
+                                                            usuario: encargadoBD
+                                                        });
+                                                    } else {
+                                                        res.json({
+                                                            resultado: false,
+                                                            msg: 'La contraseña no coincide empresa'
+                                                        });
+                                                    }
+                                                } else {
+                                                    res.json({
+                                                        resultado: false,
+                                                        msg: 'No existe el usuario'
+                                                    });
+                                                }
+                                            })
                                     }
                                 });
                         }
@@ -224,7 +241,7 @@ router.post('/iniciar-sesion', function(req, res) {
 
 
 
-router.get('/listar-usuarios', function(req, res) {
+router.get('/listar-usuarios', function (req, res) {
     // Usuario.find(function (err, usuariosBD) {
     //     if (err) {
     //         res.json({
@@ -241,13 +258,13 @@ router.get('/listar-usuarios', function(req, res) {
 
     // });
 
-    Usuario.find(function(err, usuariosBD) {
+    Usuario.find(function (err, usuariosBD) {
         if (usuariosBD) {
-            organizadorSolicitante.find(function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
-                    Empresa.find(function(err, empresaBD) {
+                    Empresa.find(function (err, empresaBD) {
                         if (empresaBD) {
-                            Encargado.find(function(err, encargadoBD) {
+                            Encargado.find(function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: true,
@@ -288,7 +305,7 @@ router.get('/listar-usuarios', function(req, res) {
 });
 
 
-router.post('/agregar-tarjeta', function(req, res) {
+router.post('/agregar-tarjeta', function (req, res) {
     Usuario.update({ _id: req.body._id }, {
         $push: {
             'tarjeta': {
@@ -298,7 +315,7 @@ router.post('/agregar-tarjeta', function(req, res) {
                 codigoSeguridad: req.body.codigoSeguridad
             }
         }
-    }, function(err) {
+    }, function (err) {
         if (err) {
             return res.json({
                 resultado: false,
@@ -315,11 +332,11 @@ router.post('/agregar-tarjeta', function(req, res) {
 });
 
 
-router.post("/buscar-usuario", function(req, res) {
+router.post("/buscar-usuario", function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 res.json({
                     resultado: true,
@@ -329,7 +346,7 @@ router.post("/buscar-usuario", function(req, res) {
                 });
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             res.json({
                                 resultado: true,
@@ -337,7 +354,7 @@ router.post("/buscar-usuario", function(req, res) {
                             })
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         res.json({
                                             resultado: true,
@@ -427,7 +444,7 @@ router.post('/buscar-usuario', function(req, res) {
 //forma 1
 
 // router.get('recuperar-contrasenna-email/:email', function(req, res){
-    
+
 //     let email = req.params.email;
 
 //     Usuario.find ({ email: email }, function(err, usuarioBD){
@@ -449,23 +466,23 @@ router.post('/buscar-usuario', function(req, res) {
 
 //forma 2
 
-router.get('/recuperar-contrasenna-email', function(req, res){
-    
+router.get('/recuperar-contrasenna-email', function (req, res) {
+
     let email = req.query.email;
 
-    Usuario.find ({ email: email }, function(err, usuarioBD){
-        if(err){
+    Usuario.find({ email: email }, function (err, usuarioBD) {
+        if (err) {
             return res.json({
                 sucess: false,
                 msj: 'No se encontró ningún usuario con esa dirección de correo',
-                err  
+                err
             });
-        }else{
+        } else {
             return res.json({
                 success: true,
                 usuario: usuarioBD
             });
-        }    
+        }
     })
 });
 
