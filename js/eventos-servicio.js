@@ -191,3 +191,17 @@ let buscarEvento = async () =>{
     })
     return evento;
 };
+
+let obtenerRecinto = async(nombreRecinto) =>{
+    try{
+        const response = await axios({
+            method : 'get',
+            params: {nombreRecinto: nombreRecinto},
+            url: 'http://localhost:3000/api/buscar-recinto-nombre',
+            responseType: 'json'
+        });
+        return response.data.recinto;
+    }catch(error){
+        console.log(error);
+    }
+};

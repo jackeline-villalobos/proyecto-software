@@ -217,4 +217,24 @@ router.post('/buscar-evento-id', function(req, res){
     })
 });
 
+router.get('/buscar-recinto-nombre', function(req,res){
+
+    let nombreRecinto = req.query.nombreRecinto;
+
+    Recinto.find({nombreRecinto: nombreRecinto}, function(err, recintoBD){
+        if(err){
+            return res.json({
+                succes: false,
+                msg : 'No se ecnotró ningún Recinto',
+                err
+            });
+        }else{
+            return res.json({
+                succes: true,
+                recinto: recintoBD,
+            });
+        }
+    })
+});
+
 module.exports = router;

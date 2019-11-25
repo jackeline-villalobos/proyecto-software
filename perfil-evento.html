@@ -4,14 +4,15 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/perfil-evento.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <title>Perfil Evento</title>
 </head>
-<!-- PLACEHOLDER -->
+
 
 <body>
     <header>
@@ -62,16 +63,18 @@
                 <p id="p-descripcion"></p>
 
                 <div id="container-3">
-                    <div class="map">
+                    <div class="mapa">
                         <h4 id="h5-ubicacion">Ubicación</h4>
+                        <h5 id="h5-recinto"></h5>
                         <div id="map">
                             <script src="js/geolocalizacion-card.js"></script>
                         </div>
                     </div>
-                    <div class="fechas">
+                    <div class="container_fechas">
+                        <h6 id="lugar"></h6>
                         <h4 id="h5-fechas">Fechas disponibles</h4>
                         <div id="div-fechas">
-                            
+
                         </div>
                     </div>
 
@@ -126,14 +129,20 @@
             </a>
         </div>
     </footer>
+    <script src="js/controlador-nav.js"></script>
 
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap" type="text/javascript"></script> -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap"
+        type="text/javascript"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
-    <script src="js/controlador-nav.js"></script>
+
     <script src="js/eventos-servicio.js"></script>
     <script src="js/perfil-evento-controlador.js"></script>
+    <script>
+        onload = "initMap()";
+    </script>
 
 </body>
 
