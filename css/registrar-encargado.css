@@ -16,18 +16,26 @@
 }
 
 .form-container form {
-    width: 35%;
+    width: 25%;
     border: 1px solid black;
     margin: auto;
-    padding: 5% 1%;
-    text-align: center;
+    padding: 4% 6% 4% 5%;
+}
+
+.form-container form label {
+    display: block;
+    text-align: left;
+    padding: 1% 0%;
+    font-family: 'Montserrat', sans-serif;   
+    font-size: 16px;
+
 }
 
 .form-container form input {
     display: block;
-    width: 50%;
-    margin: 3% 0 0 25%;
-    background-image: none;
+    width: 100%;
+    /* margin: 3% 0 0 25%; */
+    /* background-image: none; */
 }
 
 .form-container form button {
