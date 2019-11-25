@@ -146,6 +146,19 @@ let validar = () => {
         input_imagen.classList.remove("error");
     }
 
+    if (input_latitud.value == 0) {
+        error = true;
+        input_latitud.classList.add("error");
+    } else {
+        input_latitud.classList.remove("error");
+    }
+
+    if (input_longitud.value == 0) {
+        error = true;
+        input_longitud.classList.add("error");
+    } else {
+        input_longitud.classList.remove("error");
+    }
 
     return error;
 
@@ -166,7 +179,7 @@ let resetForm = () => {
     input_distrito.value = '';
     input_latitud = "";
     input_longitud = "";
-    input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
+    //input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
 let obtener_datos = async() => {
 

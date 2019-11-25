@@ -7,6 +7,7 @@ var longitud = -84.435435
 function initMap(latitud, longitud) {
 
     // Obicacion de las coordenadas
+
     var locacion = { lat: latitud, lng: longitud };
     // El mapa centrado en las coordenadas
     var map = new google.maps.Map(
