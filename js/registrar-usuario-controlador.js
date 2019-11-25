@@ -118,11 +118,40 @@ let validar = () => {
         input_imagen.classList.remove('error');
     };
 
+
+    if (!validarFecha(input_FechaDeNacimiento.value)) {
+        error = true;
+        input_FechaDeNacimiento.classList.add('error');
+    } else {
+        input_FechaDeNacimiento.classList.remove('error');
+    }
+    
     return error
 
 
 };
 
+    
+let validarFecha = (fechaDeNacimiento) => {
+    
+    let resultado = false;
+
+    let hoy = new Date();
+    let cumpleannos = new Date(fechaDeNacimiento);
+    let edad = hoy.getFullYear() - cumpleannos.getFullYear();
+    let m = hoy.getMonth() - cumpleannos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() <= cumpleannos.getDate())) {
+        edad--;
+    }
+
+    if(edad >= 18) {
+        resultado = true;
+    } 
+
+    return resultado;
+
+}
 
 let obtener_datos = async() => {
     let primerNombre = input_primerNombre.value;
