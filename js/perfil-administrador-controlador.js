@@ -19,32 +19,57 @@ let llenarPerfil = async() => {
     console.log(usuario);
 
     let parafo1 = document.createElement("p");
+
+    let parafo20 = document.createElement("label");
     let parafo2 = document.createElement("p");
+
+    let parafo30 = document.createElement("label");
     let parafo3 = document.createElement("p");
+
+    let parafo40 = document.createElement("label");
     let parafo4 = document.createElement("p");
+
+    let parafo50 = document.createElement("label");
     let parafo5 = document.createElement("p");
+
+    let parafo60 = document.createElement("label");
     let parafo6 = document.createElement("p");
 
 
 
     parafo1.innerHTML = usuario.primerNombre;
 
+    parafo20.innerHTML = "Correo";
     parafo2.innerHTML = usuario.correo;
 
+    parafo30.innerHTML = "Genero";
     parafo3.innerHTML = usuario.genero;
 
+    parafo40.innerHTML = "Direccion";
     parafo4.innerHTML = usuario.direccion;
 
+
     parafo5.innerHTML = usuario.provincia;
+
 
     parafo6.innerHTML = usuario.canton;
 
 
     container.appendChild(parafo1);
+
+    container.appendChild(parafo20);
     container.appendChild(parafo2);
+
+    container.appendChild(parafo30);
     container.appendChild(parafo3);
+
+    container.appendChild(parafo40);
     container.appendChild(parafo4);
+
+
     container.appendChild(parafo5);
+
+
     container.appendChild(parafo6);
 
 
