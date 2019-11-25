@@ -201,3 +201,4 @@ let obtener_datos = async() => {
 };
 
 btn_guardar.addEventListener('click', obtener_datos);
+btnCoordenadas.addEventListener("click", ubicarMap);

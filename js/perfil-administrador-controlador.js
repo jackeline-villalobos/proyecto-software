@@ -39,21 +39,21 @@ let llenarPerfil = async() => {
 
     parafo1.innerHTML = usuario.primerNombre;
 
-    parafo20.innerHTML = "Correo";
-    parafo2.innerHTML = usuario.correo;
+    parafo20.innerHTML = "Correo:" + "<br>" + usuario.correo;
+    //parafo2.innerHTML = usuario.correo;
 
-    parafo30.innerHTML = "Genero";
-    parafo3.innerHTML = usuario.genero;
+    parafo30.innerHTML = "Genero:" + "<br>" + usuario.genero;
+    //parafo3.innerHTML = usuario.genero;
 
-    parafo40.innerHTML = "Direccion";
-    parafo4.innerHTML = usuario.direccion;
+    parafo40.innerHTML = "Direccion:" + "<br>" + usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
+    //parafo4.innerHTML = usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
+
+    /*
+        parafo5.innerHTML = usuario.provincia;
 
 
-    parafo5.innerHTML = usuario.provincia;
-
-
-    parafo6.innerHTML = usuario.canton;
-
+        parafo6.innerHTML = usuario.canton;
+    */
 
     container.appendChild(parafo1);
 
@@ -66,12 +66,12 @@ let llenarPerfil = async() => {
     container.appendChild(parafo40);
     container.appendChild(parafo4);
 
+    /*
+        container.appendChild(parafo5);
 
-    container.appendChild(parafo5);
 
-
-    container.appendChild(parafo6);
-
+        container.appendChild(parafo6);
+    */
 
 
     /*
