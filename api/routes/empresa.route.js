@@ -21,6 +21,7 @@ router.post('/registrar-empresa', function(req, res) {
         imagen: body.imagen,
         latitud: body.latitud,
         longitud: body.longitud,
+        grado: "2",
 
         estado: "activo"
     });
