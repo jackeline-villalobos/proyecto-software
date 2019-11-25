@@ -13,17 +13,30 @@ let llenarTabla = async () => {
     for (let i = 0; i < listaUsuarios.length; i++) {
 
         if(idUsuario == listaUsuarios[i]['_id']) {
-            let marca = listaUsuarios[i]['tarjeta'][i]['marca'].toLowerCase();
+
+           for(let y = 0; y < listaUsuarios[i].tarjeta.length; y++) {
+
+            console.log(listaUsuarios[i].tarjeta[y]);
+            let marca = listaUsuarios[i]['tarjeta'][y]['marca'].toLowerCase();
+
             if(marca.includes(filtro)) {
+
                 let fila = tableBody.insertRow();
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][i]['numero'];
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][i]['fechaExpiracion'];
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][i]['marca'];
+                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['numero'];
+                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['fechaExpiracion'];
+                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['marca'];
+                
             }
-        } else {
+           }
+
+        }  else {
+
             console.log('No tienes tarjetas asociadas');
+
         }
+
     }
+
 }
 
 llenarTabla();
