@@ -57,6 +57,15 @@ if (!z1.test(input_capacidadDiscapacitado.value)) {
 //FIN validar numeros
 
 // Validar si una persona es mayor de 18 años 
+
+if (!validarFecha(inputFechaDeNacimiento.value)) {
+    error = true;
+    inputFechaDeNacimiento.classList.add('error');
+} else {
+    inputFechaDeNacimiento.classList.remove('error');
+}
+
+
 let validarFecha = (fechaDeNacimiento) => {
 
     let resultado = false;
