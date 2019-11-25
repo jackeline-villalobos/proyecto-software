@@ -42,7 +42,7 @@ let validar = () => {
         inputNombreCompleto.classList.remove('error');
     }
 
-    if (inputFechaDeNacimiento.value <= 17) {
+    if (!validarFecha(inputFechaDeNacimiento.value)) {
         error = true;
         inputFechaDeNacimiento.classList.add('error');
     } else {
@@ -83,6 +83,9 @@ let obtenerDatos = async () => {
         })
     } else {
         let contrasenna = generarContrasena();
+
+        let edad = validarFecha(fechaDeNacimiento);
+        console.log(edad);
         let resultado = await registrarEncargado(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna);
 
         if (resultado.resultado == false) {
@@ -127,5 +130,26 @@ let generarContrasena = () => {
 
     return contrasena;
 };
+
+let validarFecha = (fechaDeNacimiento) => {
+
+    let resultado = false;
+
+    let hoy = new Date();
+    let cumpleannos = new Date(fechaDeNacimiento);
+    let edad = hoy.getFullYear() - cumpleannos.getFullYear();
+    let m = hoy.getMonth() - cumpleannos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() <= cumpleannos.getDate())) {
+        edad--;
+    }
+
+    if(edad >= 18) {
+        resultado = true;
+    } 
+
+    return resultado;
+
+}
 
 btnRegistrar.addEventListener('click', obtenerDatos);

@@ -55,3 +55,26 @@ if (!z1.test(input_capacidadDiscapacitado.value)) {
 }
 
 //FIN validar numeros
+
+// Validar si una persona es mayor de 18 años 
+let validarFecha = (fechaDeNacimiento) => {
+
+    let resultado = false;
+
+    let hoy = new Date();
+    let cumpleannos = new Date(fechaDeNacimiento);
+    let edad = hoy.getFullYear() - cumpleannos.getFullYear();
+    let m = hoy.getMonth() - cumpleannos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() <= cumpleannos.getDate())) {
+        edad--;
+    }
+
+    if(edad >= 18) {
+        resultado = true;
+    } 
+
+    return resultado;
+
+}
+// Fin validar edad
