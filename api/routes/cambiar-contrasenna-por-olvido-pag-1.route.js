@@ -8,14 +8,14 @@ const express = require('express'),
     mongoose = require('mongoose');
 
 const transporter = nodeMailer.createTransport({
-    service :'gmail',
+    service: 'gmail',
     auth: {
         user: 'equiponebula2019@gmail.com',
         pass: 'krashcenfo'
     }
 });
 
-router.post('/cambiar-contrasenna', function (req, res) {
+router.post('/cambiar-contrasenna', function(req, res) {
 
     let body = req.body;
     let usuarios = usuarios.req.body;
@@ -40,16 +40,16 @@ router.post('/cambiar-contrasenna', function (req, res) {
 
     // });
 
-    usuarios.forEach(function(item){
+    usuarios.forEach(function(item) {
         item.contrasenna = inputContrasennaNueva.value;
-      })
+    })
 
     usuarios.save(
-        function (err, usuarioBD) {
+        function(err, usuarioBD) {
             if (err) {
                 res.json({
                     resultado: false,
-                    msg: 'El usuario no pudo cambiar su contrasenna, ocurrió el siguiente error',
+                    msg: 'No se pudo cambiar su contrasenna, ocurrió el siguiente error',
                     err
                 });
             } else {
@@ -57,7 +57,7 @@ router.post('/cambiar-contrasenna', function (req, res) {
                 let mailOptions = {
                     from: 'equiponebula2019@gmail.com',
                     to: usuarios.contrasenna,
-                    subject: 'Bienvido a Ticket pixel',
+                    subject: 'Cambio de contraseña',
                     html: `<!DOCTYPE html>
                     <html lang="en">
                     
@@ -98,13 +98,13 @@ router.post('/cambiar-contrasenna', function (req, res) {
                     
                     <body>
                     
-                        <h1>Bienvenido a Ticket pixel</h1>
-                        <h2>La mejor manera de comprar entradas en linea</h2>
+                        <h1>Ticket Pixel</h1>
+                        <h2>Cambio de contraseña</h2>
 
                         <span>          Su código de seguridad es:              ${generarCodigoSeguridad}            </span>
                     
                         <div class="info_credenciales">
-                            <p>Saludos ${usuarios.nombre} le agradecemos por escoger utilizar los sevicios de Ticket pixel</p>
+                            <p>Saludos ${usuarios.nombre} le agradecemos por escoger los sevicios de Ticket pixel</p>
                             <p>Correo electrónico asociado: <span> ${usuarios.correo} </span> </p>
                             <p>Su contraseña temporal es:  <span> ${usuarios.contrasenna} </span></p>
                         </div>
@@ -114,10 +114,10 @@ router.post('/cambiar-contrasenna', function (req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function (error, info){
-                    if (error){
+                transporter.sendMail(mailOptions, function(error, info) {
+                    if (error) {
                         console.log(error);
-                    }else{
+                    } else {
                         console.log('Correo enviado con éxito' + info.response);
                     }
                 })
