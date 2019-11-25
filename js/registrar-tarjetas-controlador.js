@@ -147,6 +147,8 @@ let obtenerDatos = () => {
 
     } else {
         
+        let _id = sessionStorage.getItem('idUsuario');
+
         registrarTarjeta(_id ,marca, numeroTarjeta, fechaExpiracion, codigoSeguridad);
 
         Swal.fire({
@@ -162,6 +164,60 @@ let obtenerDatos = () => {
     inputCodigoSeguridad.value = '';
 
 }
+
+
+let mostrarTarjeta = () => {
+
+    let numeroTarjeta = inputNumeroTarjeta.value;
+    let marca = tipoTarjeta(numeroTarjeta);
+
+    let icon = document.querySelector('#icon-card');
+
+    icon.setAttribute('class' , 'ocultar');
+
+    if( marca == 'American Express' ) {
+        icon.setAttribute('class' , 'fab fa-cc-amex');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+    if( marca == 'Visa' ) {
+        icon.setAttribute('class' , 'fab fa-cc-visa');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+    if( marca == 'MasterCard' ) {
+        icon.setAttribute('class' , 'fab fa-cc-mastercard');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+    if( marca == 'Discover' ) {
+        icon.setAttribute('class' , 'fab fa-cc-discover');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+    if( marca == 'Dinners Club' ) {
+        icon.setAttribute('class' , 'fab fa-cc-diners-club');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+    if( marca == 'JCB' ) {
+        icon.setAttribute('class' , 'fab fa-cc-jcb');
+    } else {
+        //icon.setAttribute('class' , 'ocultar');
+    }
+
+   
+
+}
+
+
+
+inputNumeroTarjeta.addEventListener('keyup', mostrarTarjeta);
 
 
 btnGuardar.addEventListener('click', obtenerDatos);

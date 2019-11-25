@@ -30,7 +30,8 @@ let listarTarjetas = async() => {
         responseType: 'json'
     })
     .then(async function(res){
-        tarjetas = await res.data.usuarios;
+        console.log(res.data.clientes);
+        tarjetas = await res.data.clientes;
     })
     .catch(function(error){
         console.log(error)
