@@ -208,7 +208,7 @@ router.post('/iniciar-sesion', function (req, res) {
                                             })
                                         }
                                     } else {
-                                        Encargado.findOne({ correo: req.body.correo })
+                                        Encargado.findOne({correoElectronico: req.body.correo })
                                             .then(function (encargadoBD) {
                                                 if (encargadoBD) {
                                                     if (encargadoBD.contrasenna == req.body.contrasenna) {
@@ -219,7 +219,7 @@ router.post('/iniciar-sesion', function (req, res) {
                                                     } else {
                                                         res.json({
                                                             resultado: false,
-                                                            msg: 'La contraseña no coincide empresa'
+                                                            msg: 'La contraseña no coincide encargado'
                                                         });
                                                     }
                                                 } else {
