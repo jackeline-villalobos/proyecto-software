@@ -11,7 +11,7 @@ let obtenerDatos = async() => {
             url: 'http://localhost:3000/api/buscar-usuario',
             responseType: 'json',
             data: {
-                correo: correo
+                correo: correoUsuario
             }
         })
         .then(async function(res) {

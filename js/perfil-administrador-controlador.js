@@ -29,7 +29,7 @@ let llenarPerfil = async() => {
 
     parafo1.innerHTML = usuario.primerNombre;
 
-    parafo2.innerHTML = usuario.aCorreo;
+    parafo2.innerHTML = usuario.correo;
 
     parafo3.innerHTML = usuario.genero;
 
