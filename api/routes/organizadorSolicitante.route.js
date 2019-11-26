@@ -49,7 +49,7 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
             }else{
                 let mailOptionsAdmin = {
                     from : 'equiponebula2019@gmail.com',
-                    to : 'jackelynnevillalobos@gmail.com',
+                    to : 'equiponebula2019@gmail.com',
                     subject : 'Nueva solicitud de organizador',
                     html : `<!DOCTYPE html>
                     <html lang="en">
