@@ -34,13 +34,14 @@ let llenarTabla = async () => {
             fila.insertCell().appendChild(btnPerfil).innerHTML;
             btnPerfil.dataset._id = listaUsuarios.clientes[i]['_id'];
             btnPerfil.addEventListener('click', function () {
-                sessionStorage.setItem('idPerfilUsuario', this.dataset._id);
-                window.location.href = 'perfil-usuario.html';
+                let correoUsuario = listaUsuarios.clientes[i]['correo'];
+                sessionStorage.setItem('correoUsuarioPerfil', correo);
+                window.location.href = 'perfil-usuario-lista.html';
             });
         };
     };
 
-    for (let i = 0; i < listaUsuarios.organizadores.length; i++) {
+    /*for (let i = 0; i < listaUsuarios.organizadores.length; i++) {
         let fila = tableBody.insertRow();
         let nombre = listaUsuarios.organizadores[i]['nombreEmpresa'].toLowerCase();
         let correo = listaUsuarios.organizadores[i]['correo'].toLowerCase();
@@ -112,7 +113,7 @@ let llenarTabla = async () => {
                 window.location.href = 'perfil-usuario.html';
             });
         }
-    }
+    }*/
 
 };
 
