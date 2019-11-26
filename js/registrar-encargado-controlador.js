@@ -4,7 +4,7 @@ const inputCorreoElectronico = document.querySelector('#txt-correoElectronico');
 const inputTelefono = document.querySelector('#txt-telefono');
 const inputNombreCompleto = document.querySelector('#txt-nombreCompleto');
 const inputFechaDeNacimiento = document.querySelector('#txt-edad');
-const inputGenero = document.querySelector('#txt-genero');
+const inputGenero = document.querySelector('#txt_genero');
 
 const btnRegistrar = document.querySelector('#btn-registrar');
 
@@ -73,6 +73,7 @@ let obtenerDatos = async () => {
     let nombreCompleto = inputNombreCompleto.value;
     let fechaDeNacimiento = inputFechaDeNacimiento.value;
     let genero = inputGenero.value;
+    console.log(genero);
 
     if (validar()) {
         Swal.fire({

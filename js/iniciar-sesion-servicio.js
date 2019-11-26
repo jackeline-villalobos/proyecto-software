@@ -13,7 +13,7 @@ let iniciarSesion = async(correo, contrasenna) => {
         })
         .then(async function(res) {
             resultado = await res.data;
-            //console.log(res.data);
+            console.log(res.data);
 
             if (res.data.resultado) {
                 sessionStorage.setItem('conectado', res.data.resultado);

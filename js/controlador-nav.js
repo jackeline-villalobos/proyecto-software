@@ -27,6 +27,12 @@ if (conectado) {
         boton.setAttribute('href', 'perfil-administrador.html');
     }
 
+    if (gradoUsuario == 2) {
+
+        let boton = botonesHeader[4];
+        boton.setAttribute('href', 'perfil-encargado.html');
+    }
+
 } else {
     botonesHeader[2].classList.add('ocultar');
     botonesHeader[3].classList.add('ocultar');

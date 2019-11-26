@@ -1,6 +1,6 @@
 'use strict';
 
-let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna) => {
+let registrarEncargado = async(correo, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna) => {
     let resultado;
     await axios (
         {
@@ -9,7 +9,7 @@ let registrarEncargado = async(correoElectronico, telefono, nombreCompleto, fech
             responseType: 'json',
             //body
             data: {
-                correoElectronico: correoElectronico,
+                correo: correo,
                 telefono: telefono,
                 nombreCompleto: nombreCompleto,
                 fechaDeNacimiento: fechaDeNacimiento,
