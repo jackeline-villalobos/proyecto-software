@@ -84,6 +84,7 @@ h4{
     margin: 50px 50px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 hr{
@@ -99,9 +100,6 @@ hr{
 .info{
     width: 500px;
 }
-.quienesSomos{
-    margin-left: 12%;
-}
 
 .iconos{
     margin-bottom: 20px;
@@ -112,16 +110,17 @@ hr{
 .container2{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 .container-iconos{
     text-align: center;
     margin-bottom: 60px;
+    width: 300px;
 }
 
 .registrarse{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 
@@ -132,7 +131,6 @@ span{
 
 .container_foto{
     height: 500px;
-    margin-top: 0px;
     display: flow-root;
 }
 
@@ -156,4 +154,37 @@ span{
 #h2{
     text-align: center;
     color: #000000 !important;
+}
+
+.eventos{
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.eventos_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 35px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.eventos_foto{
+    width: 300px;
+    height: 300px;
+}
+
+.eventos_foto:hover{
+	transition: all ease 1s;
+	box-shadow: 0px 0px 40px #484848;
+	filter: grayscale(0%);
+	transform: scale(1.1);
+}
+
+a{
+    color: #F2610A;
+}
+a:hover{
+    color: #1EBB2D;
 }
