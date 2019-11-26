@@ -9,7 +9,14 @@ let containerFoto = document.querySelector('#foto-usuario');
 
 let fotoUsuario = document.createElement('img');
 let imagenUsuario = sessionStorage.getItem('fotoUsuario');
-fotoUsuario.src = `${imagenUsuario}`;
+let imagenPlaceholder = 'https://res.cloudinary.com/proyecto1-nebula/image/upload/v1574788510/configuracion_ngadba.png';
+
+if(imagenUsuario === 'undefined' ) {
+    fotoUsuario.src = `${imagenPlaceholder}`;
+} else {
+    fotoUsuario.src = `${imagenUsuario}`;
+}
+
 
 containerFoto.appendChild(fotoUsuario);
 
