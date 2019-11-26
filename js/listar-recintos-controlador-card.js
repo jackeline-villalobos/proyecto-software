@@ -3,6 +3,9 @@
 const contenedor = document.querySelector('#cards-container');
 const inputFiltro = document.querySelector('#txt-filtro');
 
+// const btnBuscar = documet.querySelector('#txt-btn-buscar');
+
+
 let mostrarCards = async () => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaRecintos = await listarRecintos();
@@ -52,7 +55,18 @@ let mostrarCards = async () => {
             divCard.appendChild(provincia);
             divCard.appendChild(capacidad);
             divCard.appendChild(boton);
+
         }
+        // else{
+            
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: 'No se encontraron coincidencias con su búsqueda.',
+        //         text: 'Por favor intente con otro nombre.',
+        //         confirmButtonText: 'Entendido'
+        //     })
+
+        // }
         
 
     }

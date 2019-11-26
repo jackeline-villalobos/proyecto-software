@@ -1,6 +1,6 @@
 'use strict';
 
-let idEvento = sessionStorage.getItem('idEvento');
+let idEvento = localStorage.getItem('idEvento');
 
 const imagen = document.querySelector('#imagen');
 const h2_nombreEvento = document.querySelector('#h2-nombreEvento');

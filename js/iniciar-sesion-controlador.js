@@ -56,9 +56,15 @@ let obtenerDatos = async() => {
 
     } else {
         let res = await iniciarSesion(correo, contrasenna);
-
         if (res.resultado) {
-            window.location.href = 'index.html';
+            let grado = sessionStorage.getItem('gradoUsuario');
+            if(grado == 2) {
+                window.location.href = 'perfil-encargado.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+
+            
         } else {
             Swal.fire({
                 icon: 'warning',

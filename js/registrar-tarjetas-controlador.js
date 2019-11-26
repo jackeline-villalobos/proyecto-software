@@ -133,7 +133,7 @@ let obtenerDatos = () => {
 
         Swal.fire({
             icon: 'warning',
-            title: 'Algunos campos son incorrectos',
+            title: 'Algunos campos se encuentran vacíos o son incorrectos',
             text: 'Por favor, inténtelo de nuevo',
             confirmButtonText: 'Ententido'
         });
@@ -141,7 +141,7 @@ let obtenerDatos = () => {
     } else if (marca == 'vacio') {
         Swal.fire({
             icon: 'warning',
-            title: 'Ingresa un número de tarjeta válido',
+            title: 'Ingrese un número de tarjeta válido',
             text: 'Inténtalo de nuevo'
         });
 

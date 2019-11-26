@@ -1,0 +1,144 @@
+header{
+    background-image: url('../imagenes/landing-page-nebula/banner.jpg');
+    height: 700px;
+    background-attachment: center !important;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 90px !important;
+    text-shadow: 0px 6px rgba(0, 0, 0, 0.6);
+    padding-top: 200px;
+}
+
+.logo{
+    margin-left: 28%;
+    margin-top: 50px;
+}
+
+.foda_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.foda_info{
+    width: 500px;
+}
+.foda_info h3, .valor_info h3, h2{
+    text-align: center;
+}
+
+#hr{
+    border: solid 1px;
+    width: 600px;
+    margin-bottom: 50px;
+}
+
+.valores_container{
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 60px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.valoresImg{
+    width: 400px;
+}
+
+
+.valor{
+    width: 600px;
+    margin-left: 100px;
+    margin-bottom: 25px;
+}
+
+.valor h4{
+    color: #6D1E5E;
+}
+
+.foto_equipo{
+    width:  200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: -100px;
+    margin-bottom: 20px;
+    border: 0.9px solid #727070 !important;
+}
+
+.cards_container{
+    margin-top: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    height: 440px;
+    background-color: #1F0830;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.info_personal{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer{
+    background-color: #231F20;
+    margin-top: 60px;
+    height: 100px;
+    display: flex;
+}
+
+.logoNegro{
+    width: 110px;
+    margin-left: 20px;
+}
+
+footer h6{
+    color: #949292;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px !important;
+}
+
+a{
+    color: #6D1E5E !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px !important; 
+}
+a:hover{
+    color: #B11F66 !important;
+}
+
+#nombredelequipo{
+    color: #949292;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px !important;
+}
+
+
+footer div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+}

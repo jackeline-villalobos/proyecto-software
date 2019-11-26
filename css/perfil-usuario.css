@@ -69,3 +69,8 @@ h3{
 p{
     color: #616161;
 }
+
+.width {
+    width: 15%;
+    height: 600px;
+}

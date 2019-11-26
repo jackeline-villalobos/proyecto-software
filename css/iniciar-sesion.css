@@ -9,9 +9,9 @@ body {
     
 }
 
-.main-section .main-container {
-    /* background: rebeccapurple; */
-}
+/* .main-section .main-container {
+    background: rebeccapurple;
+} */
 
 .main-section .main-container .form-container {
     padding-top: 10%;
@@ -83,4 +83,7 @@ body {
     color: #F2610A;
 }
 
-
+#enlace-OlvidasteContrasenna{
+    font-family: Verdana;
+    /* font-size: 16px; */
+}

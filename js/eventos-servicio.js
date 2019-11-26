@@ -18,7 +18,7 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
         })
         .then(function(res) {
             console.log(res.data);
-            sessionStorage.setItem('idEvento', res.data.evento._id);
+            localStorage.setItem('idEvento', res.data.evento._id);
 
         })
         .catch(function(error) {
@@ -31,7 +31,7 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
 
 
 let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
-    let _id = sessionStorage.getItem('idEvento') ; 
+    let _id = localStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',
@@ -55,7 +55,7 @@ let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
 };
 
 let agregar_descuento = async (nombreDescuento, porcentajeDescuento) => {
-    let _id = sessionStorage.getItem('idEvento') ; 
+    let _id = localStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',
@@ -78,7 +78,7 @@ let agregar_descuento = async (nombreDescuento, porcentajeDescuento) => {
 };
 
 let agregar_impuesto = async (nombreImpuesto) => {
-    let _id = sessionStorage.getItem('idEvento') ; 
+    let _id = localStorage.getItem('idEvento') ; 
     await axios(
         {
             method: 'post',

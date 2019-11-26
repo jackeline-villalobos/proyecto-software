@@ -89,3 +89,15 @@ section {
     justify-content: center;
     margin: 0 0 2% 35%;
 }
+
+#txt-filtro {
+    height: 32px;
+    width: 172px;
+    border-radius: 10px;
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
+    margin-bottom: 10px;
+}

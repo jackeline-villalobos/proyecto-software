@@ -69,6 +69,7 @@ let listarUsuarios = async() => {
         responseType: 'json'
     })
     .then(function(res) {
+        //console.log(res.data);
         listaUsuarios = res.data;
     })
     .catch(function(error){
