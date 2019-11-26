@@ -88,7 +88,7 @@ form select {
 }
 
 .botonImagen {
-    margin-bottom: 50px;
+    margin: 10px auto 50px auto;
 }
 
 #btn-registrar {
