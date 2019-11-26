@@ -13,7 +13,7 @@ let llenarEvento = async () =>{
 
     let evento = await buscarEvento(idEvento);
 
-    //console.log(evento);
+    //console.log(evento)
 
     let imagenSource = evento.evento.imagen;
     imagen.src = `${imagenSource}`;

@@ -58,10 +58,12 @@ main {
     height: 600px;
     margin-bottom: 70px;
     background-attachment: fixed;
+    text-align: center;
 }
 
 #txt-filtro {
-    margin-left: 36%;
+    /* margin-left: 36%; */
+    width: 300px;
     margin-top: 40px;
     background-image: url("../imagenes/imagenes_generales/64673.png");
     background-position: 10px 7px;
@@ -69,7 +71,7 @@ main {
     background-repeat: no-repeat;
 
     height: 50px;
-    width: 300px;
+    
     background: rgba(0, 0, 0, 0.2);
     border: 2px solid white;
     color: white;
