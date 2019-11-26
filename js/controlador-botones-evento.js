@@ -1,8 +1,11 @@
 let listaBotones = document.querySelectorAll('#descuentos-impuestos a');
 
-let gradoUsuario = sessionStorage.getItem('gradoUsuario');
+let grado = sessionStorage.getItem('gradoUsuario');
 
-if (gradoUsuario != 1 || gradoUsuario != 2) {
+if (grado == 3 || grado == 4) {
     listaBotones[0].classList.add('ocultar');
     listaBotones[1].classList.add('ocultar');
+} else {
+    listaBotones[0].classList.remove('ocultar');
+    listaBotones[1].classList.remove('ocultar');
 }
