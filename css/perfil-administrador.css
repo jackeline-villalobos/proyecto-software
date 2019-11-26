@@ -16,9 +16,11 @@ section #main-container {
 
 .left-grid {
     border: 1px solid black;
-    width: 15%;
+    width: 235px;
     background-color: #313131;
     color: white;
+    padding-right: 30px;
+    text-align: center;
 }
 
 .right-grid {
@@ -50,9 +52,9 @@ hr {
 }
 
 p {
-    font-size: 13.5px;
-    color: white;
-    margin: 5px auto 5px 5px;
+    font-size: 20px;
+    color: #F2610A;
+    text-align: center;
 }
 
 footer {
@@ -77,5 +79,5 @@ label {
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     margin-bottom: 70px;
-    font-size: 14px !important;
+    font-size: 16px !important;
 }

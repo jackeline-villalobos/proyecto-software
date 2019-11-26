@@ -21,7 +21,7 @@ section {
     position: relative;
     border: 1px solid black;
     max-width: 23%;
-    margin: 0 1% 2% 1%;
+    margin: 3% 1% 2% 1%;
     float: left;
     box-sizing: border-box;
     width: 100%;
@@ -30,8 +30,10 @@ section {
 }
 
 .card:hover {
-    border: 1px solid #F2610A;
-    box-shadow: 0 5px 10px 0 #2d3436;
+    transition: all ease 1s;
+    box-shadow: 0px 0px 40px #484848;
+    filter: grayscale(0%);
+    transform: scale(1.03);
 }
 
 .card header img {
@@ -48,6 +50,8 @@ section {
     text-align: center;
     font-size: 22px;
     margin: 2% 1% 0% 1%;
+    margin-top: 10%;
+    margin-bottom: 15%;
 }
 
 .card h3 {
