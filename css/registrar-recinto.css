@@ -67,6 +67,10 @@ h5 {
     text-align: center;
 }
 
+.direccion {
+    margin-top: 150px;
+}
+
 form {
     width: 50%;
     margin: auto;
