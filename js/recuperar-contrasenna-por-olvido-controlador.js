@@ -57,13 +57,15 @@ let obtenerDatos = async() => {
 
         if (error.resultado == false) {
 
-        //     Swal.fire({
-        //         type: 'warning',
-        //         title: 'El usuario ya ha sido registrado',
-        //         confirmButtonText: 'Entendido'
-        //     });
+            Swal.fire({
+                icon: 'warning',
+                // type: 'warning',
+                title: 'No tenemos registrada esa dirección de correo electrónico.',
+                text: 'Por favor ingrese la dirección de correo con la que se registró.',
+                confirmButtonText: 'Entendido'
+            });
 
-        // } else {
+        } else {
 
             // sessionStorage.setItem('idNuevoUsuario', error.data._id);
 
@@ -117,18 +119,18 @@ btnEnviar.addEventListener('click', obtenerDatos);
 // };
 
 //forma 2
-let recuperarContrasennaEmail = async(email) => {
-    try {
-        const response = await axios({
-            method: 'get',
-            params: { email: email },
-            url: `http://localhost:3000/api/recuperar-contrasenna`,
-            responseType: 'json'
-        });
-        return response.data.cliente;
-    }catch (error){
-        console.log(error);
-    }
-};
+// let recuperarContrasennaEmail = async(email) => {
+//     try {
+//         const response = await axios({
+//             method: 'get',
+//             params: { email: email },
+//             url: `http://localhost:3000/api/recuperar-contrasenna`,
+//             responseType: 'json'
+//         });
+//         return response.data.cliente;
+//     }catch (error){
+//         console.log(error);
+//     }
+// };
 
-recuperarContrasennaEmail('prodriguezc@ucenfotec.ac.cr');
+// recuperarContrasennaEmail('prodriguezc@ucenfotec.ac.cr');
