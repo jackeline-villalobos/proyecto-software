@@ -7,16 +7,16 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let llenarTabla = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     listaDescuentos = await listarDescuentos();
+    console.log(listaDescuentos.descuentos);
 
     tableBody.innerHTML = '';
-    for(let i = 0; i < listaDescuentos.length; i++){
-        let nombre = listaDescuentos[i]['nombre'].toLowerCase();
+    for(let i = 0; i < listaDescuentos.descuentos.length; i++){
+        let nombre = listaDescuentos.descuentos[i]['nombreDescuento'].toLowerCase();
 
         if(nombre.includes(filtro)) {
             let fila = tableBody.insertRow();
-            let porcentaje = (listaDescuentos[i]['porcentaje'])*100;
-            fila.insertCell().innerHTML = listaDescuentos[i]['nombre'];
-            fila.insertCell().innerHTML = porcentaje + '%';
+            fila.insertCell().innerHTML = listaDescuentos.descuentos[i]['nombreDescuento'];
+            fila.insertCell().innerHTML = listaDescuentos.descuentos[i]['porcentajeDescuento'] + '%';
         }
     };
 };

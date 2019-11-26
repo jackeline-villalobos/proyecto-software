@@ -79,3 +79,7 @@ h4{
 .botonVerde:hover{
     background: #F2610A;
 }
+
+#descuentos-impuestos a button {
+    display: inline-block;
+}

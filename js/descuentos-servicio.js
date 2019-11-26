@@ -22,17 +22,21 @@ let registrarDescuento = async (nombre, porcentaje) => {
     return resultado;
 }
 
-let listarDescuentos = async () => {
 
+
+let listarDescuentos = async () => {
+    let idEvento = sessionStorage.getItem('idEvento');
     let listaDescuentos;
     await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-descuentos',
-        responseType: 'json'
+        method: 'post',
+        url: 'http://localhost:3000/api/buscar-evento-id',
+        responseType: 'json',
+        data: {
+            _id: idEvento
+        }
     })
-    .then(function(res){
-        console.log(res.data);
-        listaDescuentos = res.data.descuentos;
+    .then( async function(res){
+        listaDescuentos = res.data.evento;
     })
     .catch(function(error){
         console.log(error);
