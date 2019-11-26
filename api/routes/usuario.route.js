@@ -208,7 +208,7 @@ router.post('/iniciar-sesion', function (req, res) {
                                             })
                                         }
                                     } else {
-                                        Encargado.findOne({correoElectronico: req.body.correo })
+                                        Encargado.findOne({ correoElectronico: req.body.correo })
                                             .then(function (encargadoBD) {
                                                 if (encargadoBD) {
                                                     if (encargadoBD.contrasenna == req.body.contrasenna) {
@@ -466,24 +466,780 @@ router.post('/buscar-usuario', function(req, res) {
 
 //forma 2
 
-router.get('/recuperar-contrasenna-email', function (req, res) {
+// router.get('/recuperar-contrasenna-email', function (req, res) {
 
-    let email = req.query.email;
+//     let email = req.query.email;
 
-    Usuario.find({ email: email }, function (err, usuarioBD) {
-        if (err) {
-            return res.json({
-                sucess: false,
-                msj: 'No se encontró ningún usuario con esa dirección de correo',
-                err
-            });
-        } else {
-            return res.json({
-                success: true,
-                usuario: usuarioBD
-            });
-        }
-    })
+//     Usuario.find({ email: email }, function (err, usuarioBD) {
+//         if (err) {
+//             return res.json({
+//                 sucess: false,
+//                 msj: 'No se encontró ningún usuario con esa dirección de correo',
+//                 err
+//             });
+//         } else {
+//             return res.json({
+//                 success: true,
+//                 usuario: usuarioBD
+//             });
+//         }
+//     })
+// });
+
+
+
+router.post("/recuperar-contrasenna", function (req, res) {
+
+
+    Usuario.findOne({ correo: req.body.correo })
+        .then(function (usuarioBD) {
+            if (usuarioBD) {
+
+                usuarioBD.contrasenna;
+
+                let mailOptions = {
+                    from: 'equiponebula2019@gmail.com',
+                    to: Usuario.correo,
+                    subject: 'Bienvido a Ticket pixel',
+                    html: `<!DOCTYPE html>
+                    <html lang="en">
+                    
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                        <style>
+                            @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                    
+                    
+                            body {
+                                max-width: 500px;
+                                font-family: 'Roboto', sans-serif;
+                                font-size: 14px;
+                                color: #000;
+                                width: 500px;
+                                margin-left: 30%;
+                                margin-top: 5%;
+                            }
+                    
+                            h1 {
+                                margin-top: 15px;
+                                margin-bottom: 10px;
+                                font-size: 26px;
+                                text-align: center;
+                            }
+                    
+                            p {
+                                margin-bottom: 5px;
+                                text-align: justify;
+                            }
+                    
+                            span{
+                                color: #F2610A;
+                            }
+                    
+                            h1{
+                                margin-top: -50px;
+                                margin-bottom: -10px;
+                            }
+                            h4{
+                                text-align: center;
+                            }
+                    
+                            .footer{
+                                color: #a7a4a4;
+                                margin-bottom: -8px;
+                                font-size: 12px;
+                            }
+                    
+                        </style>
+                    
+                        <title>Cuerpo del correo</title>
+                    </head>
+                    
+                    <body>
+                    
+                        <div>
+                            <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                            <h1>Bienvenido a Ticket pixel</h1>
+                            <h4>La mejor manera de comprar entradas en linea</h4>
+                        </div>
+                        <hr>
+                        
+                        
+                    
+                        <div class="info_credenciales">
+                            <p>Saludos</p>
+                            <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                            <br>
+                            
+                            <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                        </div>
+                        <br>
+                        <br>
+                        <hr>
+                        <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                        <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                    
+                    </body>
+                    
+                    </html>`
+                };
+
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log('Correo enviado con éxito' + info.response);
+                    }
+                })
+
+                res.json({
+                    resultado: true,
+                    usuario: usuarioBD
+
+
+                });
+
+                
+            } else {
+                organizadorSolicitante.findOne({ correo: req.body.correo })
+                    .then(function (organizadorSolicitanteBD) {
+                        if (organizadorSolicitanteBD) {
+
+                            organizadorSolicitanteBD.contrasenna;
+
+                            let mailOptions = {
+                                from: 'equiponebula2019@gmail.com',
+                                to: Usuario.correo,
+                                subject: 'Bienvido a Ticket pixel',
+                                html: `<!DOCTYPE html>
+                                <html lang="en">
+                                
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                    <style>
+                                        @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                
+                                
+                                        body {
+                                            max-width: 500px;
+                                            font-family: 'Roboto', sans-serif;
+                                            font-size: 14px;
+                                            color: #000;
+                                            width: 500px;
+                                            margin-left: 30%;
+                                            margin-top: 5%;
+                                        }
+                                
+                                        h1 {
+                                            margin-top: 15px;
+                                            margin-bottom: 10px;
+                                            font-size: 26px;
+                                            text-align: center;
+                                        }
+                                
+                                        p {
+                                            margin-bottom: 5px;
+                                            text-align: justify;
+                                        }
+                                
+                                        span{
+                                            color: #F2610A;
+                                        }
+                                
+                                        h1{
+                                            margin-top: -50px;
+                                            margin-bottom: -10px;
+                                        }
+                                        h4{
+                                            text-align: center;
+                                        }
+                                
+                                        .footer{
+                                            color: #a7a4a4;
+                                            margin-bottom: -8px;
+                                            font-size: 12px;
+                                        }
+                                
+                                    </style>
+                                
+                                    <title>Cuerpo del correo</title>
+                                </head>
+                                
+                                <body>
+                                
+                                    <div>
+                                        <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                        <h1>Bienvenido a Ticket pixel</h1>
+                                        <h4>La mejor manera de comprar entradas en linea</h4>
+                                    </div>
+                                    <hr>
+                                    
+                                    
+                                
+                                    <div class="info_credenciales">
+                                        <p>Saludos</p>
+                                        <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                        <br>
+                                        
+                                        <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                    <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                
+                                </body>
+                                
+                                </html>`
+                            };
+            
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Correo enviado con éxito' + info.response);
+                                }
+                            })    
+
+                            res.json({
+                                resultado: true,
+                                usuario: organizadorSolicitanteBD
+                            })
+
+                            // let mailOptions = {
+                            //     from: 'equiponebula2019@gmail.com',
+                            //     to: Usuario.correo,
+                            //     subject: 'Bienvido a Ticket pixel',
+                            //     html: `<!DOCTYPE html>
+                            //     <html lang="en">
+                                
+                            //     <head>
+                            //         <meta charset="UTF-8">
+                            //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                            //         <style>
+                            //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                
+                                
+                            //             body {
+                            //                 max-width: 500px;
+                            //                 font-family: 'Roboto', sans-serif;
+                            //                 font-size: 14px;
+                            //                 color: #000;
+                            //                 width: 500px;
+                            //                 margin-left: 30%;
+                            //                 margin-top: 5%;
+                            //             }
+                                
+                            //             h1 {
+                            //                 margin-top: 15px;
+                            //                 margin-bottom: 10px;
+                            //                 font-size: 26px;
+                            //                 text-align: center;
+                            //             }
+                                
+                            //             p {
+                            //                 margin-bottom: 5px;
+                            //                 text-align: justify;
+                            //             }
+                                
+                            //             span{
+                            //                 color: #F2610A;
+                            //             }
+                                
+                            //             h1{
+                            //                 margin-top: -50px;
+                            //                 margin-bottom: -10px;
+                            //             }
+                            //             h4{
+                            //                 text-align: center;
+                            //             }
+                                
+                            //             .footer{
+                            //                 color: #a7a4a4;
+                            //                 margin-bottom: -8px;
+                            //                 font-size: 12px;
+                            //             }
+                                
+                            //         </style>
+                                
+                            //         <title>Cuerpo del correo</title>
+                            //     </head>
+                                
+                            //     <body>
+                                
+                            //         <div>
+                            //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                            //             <h1>Bienvenido a Ticket pixel</h1>
+                            //             <h4>La mejor manera de comprar entradas en linea</h4>
+                            //         </div>
+                            //         <hr>
+                                    
+                                    
+                                
+                            //         <div class="info_credenciales">
+                            //             <p>Saludos</p>
+                            //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                            //             <br>
+                                        
+                            //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                            //         </div>
+                            //         <br>
+                            //         <br>
+                            //         <hr>
+                            //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                            //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                
+                            //     </body>
+                                
+                            //     </html>`
+                            // };
+            
+                            // transporter.sendMail(mailOptions, function (error, info) {
+                            //     if (error) {
+                            //         console.log(error);
+                            //     } else {
+                            //         console.log('Correo enviado con éxito' + info.response);
+                            //     }
+                            // })    
+                            
+                        } else {
+                            Empresa.findOne({ correo: req.body.correo })
+                                .then(function (empresaBD) {
+                                    if (empresaBD) {
+
+                                        empresaBD.contrasenna;
+
+                                        let mailOptions = {
+                                            from: 'equiponebula2019@gmail.com',
+                                            to: Usuario.correo,
+                                            subject: 'Bienvido a Ticket pixel',
+                                            html: `<!DOCTYPE html>
+                                            <html lang="en">
+                                            
+                                            <head>
+                                                <meta charset="UTF-8">
+                                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                                <style>
+                                                    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                            
+                                            
+                                                    body {
+                                                        max-width: 500px;
+                                                        font-family: 'Roboto', sans-serif;
+                                                        font-size: 14px;
+                                                        color: #000;
+                                                        width: 500px;
+                                                        margin-left: 30%;
+                                                        margin-top: 5%;
+                                                    }
+                                            
+                                                    h1 {
+                                                        margin-top: 15px;
+                                                        margin-bottom: 10px;
+                                                        font-size: 26px;
+                                                        text-align: center;
+                                                    }
+                                            
+                                                    p {
+                                                        margin-bottom: 5px;
+                                                        text-align: justify;
+                                                    }
+                                            
+                                                    span{
+                                                        color: #F2610A;
+                                                    }
+                                            
+                                                    h1{
+                                                        margin-top: -50px;
+                                                        margin-bottom: -10px;
+                                                    }
+                                                    h4{
+                                                        text-align: center;
+                                                    }
+                                            
+                                                    .footer{
+                                                        color: #a7a4a4;
+                                                        margin-bottom: -8px;
+                                                        font-size: 12px;
+                                                    }
+                                            
+                                                </style>
+                                            
+                                                <title>Cuerpo del correo</title>
+                                            </head>
+                                            
+                                            <body>
+                                            
+                                                <div>
+                                                    <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                                    <h1>Bienvenido a Ticket pixel</h1>
+                                                    <h4>La mejor manera de comprar entradas en linea</h4>
+                                                </div>
+                                                <hr>
+                                                
+                                                
+                                            
+                                                <div class="info_credenciales">
+                                                    <p>Saludos</p>
+                                                    <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                                    <br>
+                                                    
+                                                    <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <hr>
+                                                <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                                <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                            
+                                            </body>
+                                            
+                                            </html>`
+                                        };
+                        
+                                        transporter.sendMail(mailOptions, function (error, info) {
+                                            if (error) {
+                                                console.log(error);
+                                            } else {
+                                                console.log('Correo enviado con éxito' + info.response);
+                                            }
+                                        })
+
+                                        res.json({
+                                            resultado: true,
+                                            usuario: empresaBD
+                                        })
+
+                                        // let mailOptions = {
+                                        //     from: 'equiponebula2019@gmail.com',
+                                        //     to: Usuario.correo,
+                                        //     subject: 'Bienvido a Ticket pixel',
+                                        //     html: `<!DOCTYPE html>
+                                        //     <html lang="en">
+                                            
+                                        //     <head>
+                                        //         <meta charset="UTF-8">
+                                        //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                        //         <style>
+                                        //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                            
+                                            
+                                        //             body {
+                                        //                 max-width: 500px;
+                                        //                 font-family: 'Roboto', sans-serif;
+                                        //                 font-size: 14px;
+                                        //                 color: #000;
+                                        //                 width: 500px;
+                                        //                 margin-left: 30%;
+                                        //                 margin-top: 5%;
+                                        //             }
+                                            
+                                        //             h1 {
+                                        //                 margin-top: 15px;
+                                        //                 margin-bottom: 10px;
+                                        //                 font-size: 26px;
+                                        //                 text-align: center;
+                                        //             }
+                                            
+                                        //             p {
+                                        //                 margin-bottom: 5px;
+                                        //                 text-align: justify;
+                                        //             }
+                                            
+                                        //             span{
+                                        //                 color: #F2610A;
+                                        //             }
+                                            
+                                        //             h1{
+                                        //                 margin-top: -50px;
+                                        //                 margin-bottom: -10px;
+                                        //             }
+                                        //             h4{
+                                        //                 text-align: center;
+                                        //             }
+                                            
+                                        //             .footer{
+                                        //                 color: #a7a4a4;
+                                        //                 margin-bottom: -8px;
+                                        //                 font-size: 12px;
+                                        //             }
+                                            
+                                        //         </style>
+                                            
+                                        //         <title>Cuerpo del correo</title>
+                                        //     </head>
+                                            
+                                        //     <body>
+                                            
+                                        //         <div>
+                                        //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                        //             <h1>Bienvenido a Ticket pixel</h1>
+                                        //             <h4>La mejor manera de comprar entradas en linea</h4>
+                                        //         </div>
+                                        //         <hr>
+                                                
+                                                
+                                            
+                                        //         <div class="info_credenciales">
+                                        //             <p>Saludos</p>
+                                        //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                        //             <br>
+                                                    
+                                        //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                        //         </div>
+                                        //         <br>
+                                        //         <br>
+                                        //         <hr>
+                                        //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                        //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                            
+                                        //     </body>
+                                            
+                                        //     </html>`
+                                        // };
+                        
+                                        // transporter.sendMail(mailOptions, function (error, info) {
+                                        //     if (error) {
+                                        //         console.log(error);
+                                        //     } else {
+                                        //         console.log('Correo enviado con éxito' + info.response);
+                                        //     }
+                                        // })    
+                                       
+                                    } else {
+                                        Empresa.findOne({ correo: req.body.correo })
+                                            .then(function (encargadoBD) {
+                                                if (encargadoBD) {
+
+                                                    encargadoBD.contrasenna;
+
+                                                    let mailOptions = {
+                                                        from: 'equiponebula2019@gmail.com',
+                                                        to: Usuario.correo,
+                                                        subject: 'Bienvido a Ticket pixel',
+                                                        html: `<!DOCTYPE html>
+                                                        <html lang="en">
+                                                        
+                                                        <head>
+                                                            <meta charset="UTF-8">
+                                                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                                            <style>
+                                                                @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                                        
+                                                        
+                                                                body {
+                                                                    max-width: 500px;
+                                                                    font-family: 'Roboto', sans-serif;
+                                                                    font-size: 14px;
+                                                                    color: #000;
+                                                                    width: 500px;
+                                                                    margin-left: 30%;
+                                                                    margin-top: 5%;
+                                                                }
+                                                        
+                                                                h1 {
+                                                                    margin-top: 15px;
+                                                                    margin-bottom: 10px;
+                                                                    font-size: 26px;
+                                                                    text-align: center;
+                                                                }
+                                                        
+                                                                p {
+                                                                    margin-bottom: 5px;
+                                                                    text-align: justify;
+                                                                }
+                                                        
+                                                                span{
+                                                                    color: #F2610A;
+                                                                }
+                                                        
+                                                                h1{
+                                                                    margin-top: -50px;
+                                                                    margin-bottom: -10px;
+                                                                }
+                                                                h4{
+                                                                    text-align: center;
+                                                                }
+                                                        
+                                                                .footer{
+                                                                    color: #a7a4a4;
+                                                                    margin-bottom: -8px;
+                                                                    font-size: 12px;
+                                                                }
+                                                        
+                                                            </style>
+                                                        
+                                                            <title>Cuerpo del correo</title>
+                                                        </head>
+                                                        
+                                                        <body>
+                                                        
+                                                            <div>
+                                                                <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                                                <h1>Bienvenido a Ticket pixel</h1>
+                                                                <h4>La mejor manera de comprar entradas en linea</h4>
+                                                            </div>
+                                                            <hr>
+                                                            
+                                                            
+                                                        
+                                                            <div class="info_credenciales">
+                                                                <p>Saludos</p>
+                                                                <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                                                <br>
+                                                                
+                                                                <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                                            </div>
+                                                            <br>
+                                                            <br>
+                                                            <hr>
+                                                            <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                                            <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                                        
+                                                        </body>
+                                                        
+                                                        </html>`
+                                                    };
+                                    
+                                                    transporter.sendMail(mailOptions, function (error, info) {
+                                                        if (error) {
+                                                            console.log(error);
+                                                        } else {
+                                                            console.log('Correo enviado con éxito' + info.response);
+                                                        }
+                                                    })
+
+                                                    res.json({
+                                                        resultado: true,
+                                                        usuario: encargadoBD
+                                                    })
+                                                    
+                                                    // let mailOptions = {
+                                                    //     from: 'equiponebula2019@gmail.com',
+                                                    //     to: Usuario.correo,
+                                                    //     subject: 'Bienvido a Ticket pixel',
+                                                    //     html: `<!DOCTYPE html>
+                                                    //     <html lang="en">
+                                                        
+                                                    //     <head>
+                                                    //         <meta charset="UTF-8">
+                                                    //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                    //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                                    //         <style>
+                                                    //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+                                                        
+                                                        
+                                                    //             body {
+                                                    //                 max-width: 500px;
+                                                    //                 font-family: 'Roboto', sans-serif;
+                                                    //                 font-size: 14px;
+                                                    //                 color: #000;
+                                                    //                 width: 500px;
+                                                    //                 margin-left: 30%;
+                                                    //                 margin-top: 5%;
+                                                    //             }
+                                                        
+                                                    //             h1 {
+                                                    //                 margin-top: 15px;
+                                                    //                 margin-bottom: 10px;
+                                                    //                 font-size: 26px;
+                                                    //                 text-align: center;
+                                                    //             }
+                                                        
+                                                    //             p {
+                                                    //                 margin-bottom: 5px;
+                                                    //                 text-align: justify;
+                                                    //             }
+                                                        
+                                                    //             span{
+                                                    //                 color: #F2610A;
+                                                    //             }
+                                                        
+                                                    //             h1{
+                                                    //                 margin-top: -50px;
+                                                    //                 margin-bottom: -10px;
+                                                    //             }
+                                                    //             h4{
+                                                    //                 text-align: center;
+                                                    //             }
+                                                        
+                                                    //             .footer{
+                                                    //                 color: #a7a4a4;
+                                                    //                 margin-bottom: -8px;
+                                                    //                 font-size: 12px;
+                                                    //             }
+                                                        
+                                                    //         </style>
+                                                        
+                                                    //         <title>Cuerpo del correo</title>
+                                                    //     </head>
+                                                        
+                                                    //     <body>
+                                                        
+                                                    //         <div>
+                                                    //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                                    //             <h1>Bienvenido a Ticket pixel</h1>
+                                                    //             <h4>La mejor manera de comprar entradas en linea</h4>
+                                                    //         </div>
+                                                    //         <hr>
+                                                            
+                                                            
+                                                        
+                                                    //         <div class="info_credenciales">
+                                                    //             <p>Saludos</p>
+                                                    //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                                    //             <br>
+                                                                
+                                                    //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                                    //         </div>
+                                                    //         <br>
+                                                    //         <br>
+                                                    //         <hr>
+                                                    //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                                    //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
+                                                        
+                                                    //     </body>
+                                                        
+                                                    //     </html>`
+                                                    // };
+                                    
+                                                    // transporter.sendMail(mailOptions, function (error, info) {
+                                                    //     if (error) {
+                                                    //         console.log(error);
+                                                    //     } else {
+                                                    //         console.log('Correo enviado con éxito' + info.response);
+                                                    //     }
+                                                    // })    
+
+                                                } else {
+                                                    res.json({
+                                                        resultado: false,
+                                                        msg: 'No existe el usuario.'
+                                                    });
+                                                }
+                                            });
+                                    }
+                                });
+                        }
+
+                    });
+                    
+    
+                    
+            }
+            //mostrarInfo();
+
+        })
 });
+
 
 module.exports = router;

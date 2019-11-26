@@ -3,15 +3,15 @@
 
 let enviarContrasennaPreviamenteGuardada = async(correo) => {
     let resultado;
-    let contrasenna;
+    // let contrasenna;
 
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/recuperar-contrasenna-por-olvido',
+        url: 'http://localhost:3000/api/recuperar-contrasenna',
         responseType: 'json',
         data: {
             correo: correo,
-            contrasenna: contrasenna,
+            // contrasenna: contrasenna,
            
         }
     })
