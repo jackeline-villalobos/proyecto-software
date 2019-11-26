@@ -150,14 +150,14 @@ let validar = () => {
         error = true;
         input_latitud.classList.add("error");
     } else {
-        input_latitud.classList.remove("error");
+        //input_latitud.classList.remove("error");
     }
 
     if (input_longitud.value == 0) {
         error = true;
         input_longitud.classList.add("error");
     } else {
-        input_longitud.classList.remove("error");
+        //input_longitud.classList.remove("error");
     }
 
     return error;
@@ -197,6 +197,7 @@ let obtener_datos = async() => {
     let latitud = input_latitud.value;
     let longitud = input_longitud.value;
     var locacion;
+    console.log(latitud, longitud);
 
 
 
