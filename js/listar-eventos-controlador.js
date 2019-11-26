@@ -46,7 +46,7 @@ let mostrarCards = async () => {
             boton.dataset._id = listaEventos[i]['_id'];
 
             boton.addEventListener('click', function () {
-                sessionStorage.setItem('idEvento', this.dataset._id);
+                localStorage.setItem('idEvento', this.dataset._id);
                 window.location.href = 'perfil-evento.html';
             });
 

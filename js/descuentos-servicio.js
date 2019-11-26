@@ -25,7 +25,7 @@ let registrarDescuento = async (nombre, porcentaje) => {
 
 
 let listarDescuentos = async () => {
-    let idEvento = sessionStorage.getItem('idEvento');
+    let idEvento = localStorage.getItem('idEvento');
     let listaDescuentos;
     await axios({
         method: 'post',

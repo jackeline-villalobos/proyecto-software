@@ -7,7 +7,7 @@ const inputFiltro = document.querySelector('#txt-filtro');
 let llenarTabla = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     listaDescuentos = await listarDescuentos();
-    console.log(listaDescuentos.descuentos);
+    console.log(listaDescuentos);
 
     tableBody.innerHTML = '';
     for(let i = 0; i < listaDescuentos.descuentos.length; i++){
