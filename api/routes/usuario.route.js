@@ -208,7 +208,7 @@ router.post('/iniciar-sesion', function (req, res) {
                                             })
                                         }
                                     } else {
-                                        Encargado.findOne({ correoElectronico: req.body.correo })
+                                        Encargado.findOne({ correo: req.body.correo })
                                             .then(function (encargadoBD) {
                                                 if (encargadoBD) {
                                                     if (encargadoBD.contrasenna == req.body.contrasenna) {
