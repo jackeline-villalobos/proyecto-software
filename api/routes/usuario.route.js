@@ -53,7 +53,7 @@ router.post('/registrar-usuario', function (req, res) {
             } else {
 
                 let mailOptions = {
-                    from: 'equiponebula2019@gmail.com',
+                    from: 'Ticket Pixel',
                     to: nuevoUsuario.correo,
                     subject: 'Bienvido a Ticket pixel',
                     html: `<!DOCTYPE html>
@@ -498,7 +498,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                 usuarioBD.contrasenna;
 
                 let mailOptions = {
-                    from: 'equiponebula2019@gmail.com',
+                    from: 'Ticket Pixel',
                     to: Usuario.correo,
                     subject: 'Bienvido a Ticket pixel',
                     html: `<!DOCTYPE html>
@@ -610,7 +610,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             organizadorSolicitanteBD.contrasenna;
 
                             let mailOptions = {
-                                from: 'equiponebula2019@gmail.com',
+                                from: 'Ticket Pixel',
                                 to: Usuario.correo,
                                 subject: 'Bienvido a Ticket pixel',
                                 html: `<!DOCTYPE html>
@@ -816,7 +816,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         empresaBD.contrasenna;
 
                                         let mailOptions = {
-                                            from: 'equiponebula2019@gmail.com',
+                                            from: 'Ticket Pixel',
                                             to: Usuario.correo,
                                             subject: 'Bienvido a Ticket pixel',
                                             html: `<!DOCTYPE html>
@@ -1022,7 +1022,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                     encargadoBD.contrasenna;
 
                                                     let mailOptions = {
-                                                        from: 'equiponebula2019@gmail.com',
+                                                        from: 'Ticket Pixel',
                                                         to: Usuario.correo,
                                                         subject: 'Bienvido a Ticket pixel',
                                                         html: `<!DOCTYPE html>
