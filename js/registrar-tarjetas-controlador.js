@@ -4,24 +4,44 @@ const inputFechaExpiracion = document.querySelector('#txt-fechaExpiracion');
 const inputCodigoSeguridad = document.querySelector('#txt-codigoSeguridad');
 const btnGuardar = document.querySelector('#btn-guardar');
 
+
+let validarExpiracion = (fecha) => {
+    let mes = fecha.substr(0, 2)
+    let anno = fecha.substr(-2, 2)
+
+    let mesHoy = 11;
+    let annoHoy = 19;
+
+    if (mes >= mesHoy && anno == annoHoy) {
+        return true
+    } else if (anno > annoHoy) {
+        return true
+    } else {
+        return false
+
+    }
+}
+
+
+
 let validar = () => {
     let error = false;
 
-    if(inputNumeroTarjeta.value.length > 16) {
+    if (inputNumeroTarjeta.value.length > 16) {
         error = true;
         inputNumeroTarjeta.classList.add('error');
     } else {
         inputNumeroTarjeta.classList.remove('error');
-    } 
+    }
 
-    if(inputFechaExpiracion.value == 0){
+    if (!validarExpiracion(inputFechaExpiracion.value)) {
         error = true;
         inputFechaExpiracion.classList.add('error');
     } else {
         inputFechaExpiracion.classList.remove('error');
-    } 
+    }
 
-    if(inputCodigoSeguridad.value.length > 4) {
+    if (inputCodigoSeguridad.value.length > 3) {
         error = true;
         inputCodigoSeguridad.classList.add('error');
     } else {
@@ -129,7 +149,7 @@ let obtenerDatos = () => {
     const codigoSeguridad = inputCodigoSeguridad.value;
     let marca = tipoTarjeta(numeroTarjeta);
 
-    if(validar()) {
+    if (validar()) {
 
         Swal.fire({
             icon: 'warning',
@@ -146,10 +166,10 @@ let obtenerDatos = () => {
         });
 
     } else {
-        
+
         let _id = sessionStorage.getItem('idUsuario');
 
-        registrarTarjeta(_id ,marca, numeroTarjeta, fechaExpiracion, codigoSeguridad);
+        registrarTarjeta(_id, marca, numeroTarjeta, fechaExpiracion, codigoSeguridad);
 
         Swal.fire({
             icon: 'success',
@@ -173,45 +193,45 @@ let mostrarTarjeta = () => {
 
     let icon = document.querySelector('#icon-card');
 
-    icon.setAttribute('class' , 'ocultar');
+    icon.setAttribute('class', 'ocultar');
 
-    if( marca == 'American Express' ) {
-        icon.setAttribute('class' , 'fab fa-cc-amex');
+    if (marca == 'American Express') {
+        icon.setAttribute('class', 'fab fa-cc-amex');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-    if( marca == 'Visa' ) {
-        icon.setAttribute('class' , 'fab fa-cc-visa');
+    if (marca == 'Visa') {
+        icon.setAttribute('class', 'fab fa-cc-visa');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-    if( marca == 'MasterCard' ) {
-        icon.setAttribute('class' , 'fab fa-cc-mastercard');
+    if (marca == 'MasterCard') {
+        icon.setAttribute('class', 'fab fa-cc-mastercard');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-    if( marca == 'Discover' ) {
-        icon.setAttribute('class' , 'fab fa-cc-discover');
+    if (marca == 'Discover') {
+        icon.setAttribute('class', 'fab fa-cc-discover');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-    if( marca == 'Dinners Club' ) {
-        icon.setAttribute('class' , 'fab fa-cc-diners-club');
+    if (marca == 'Dinners Club') {
+        icon.setAttribute('class', 'fab fa-cc-diners-club');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-    if( marca == 'JCB' ) {
-        icon.setAttribute('class' , 'fab fa-cc-jcb');
+    if (marca == 'JCB') {
+        icon.setAttribute('class', 'fab fa-cc-jcb');
     } else {
         //icon.setAttribute('class' , 'ocultar');
     }
 
-   
+
 
 }
 
