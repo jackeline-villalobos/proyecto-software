@@ -28,20 +28,16 @@
             <a href="iniciar-sesion.html">
                 <button type="button">Iniciar sesión</button>
             </a>
-
-            <a href="registrar-navegator.html">
+            
+            <a href="registrar-usuario.html">
                 <button type="button" class="btn-registrarse">Registrarse</button>
-            </a>
-
-            <a href="configuracion.html">
-                <button type="button">Configuración</button>
             </a>
 
             <a href="iniciar-sesion.html">
                 <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
             </a>
 
-            <a href="#" class="href-perfil">
+            <a href="perfil-usuario.html" class="href-perfil">
                 <div id="foto-usuario">
 
                 </div>
@@ -49,6 +45,7 @@
 
         </div>
     </header>
+    
     <main>
         <section>
 
@@ -74,8 +71,10 @@
 
                         <div class="formulario">
                             <img src="imagenes/imagenes_generales/employee.png" class="i">
+                            <!---
                             <button type="button" onclick="location.href='registrar-encargado.html'">Registrar
                                 encargado</button>
+                                -->
                             <button type="button" onclick="location.href='listar-organizadores.html'" class="admin-button">Organizadores</button>
                         </div>
 
@@ -165,9 +164,12 @@
             </a>
         </div>
     </footer>
+
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/controlador-nav.js"></script>
+    
     <script src="js/perfil-administrador-servicio.js"></script>
     <script src="js/perfil-administrador-controlador.js"></script>
 

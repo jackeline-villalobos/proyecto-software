@@ -25,20 +25,16 @@
             <a href="iniciar-sesion.html">
                 <button type="button">Iniciar sesión</button>
             </a>
-
-            <a href="registrar-navegator.html">
+            
+            <a href="registrar-usuario.html">
                 <button type="button" class="btn-registrarse">Registrarse</button>
-            </a>
-
-            <a href="configuracion.html">
-                <button type="button">Configuración</button>
             </a>
 
             <a href="iniciar-sesion.html">
                 <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
             </a>
 
-            <a href="#" class="href-perfil">
+            <a href="perfil-usuario.html" class="href-perfil">
                 <div id="foto-usuario">
 
                 </div>
@@ -46,6 +42,8 @@
 
         </div>
     </header>
+
+    
     <div class="main-title">
         <h1>Registrar tarjetas</h1>
     </div>
@@ -59,7 +57,7 @@
             <i id="icon-card"></i>
 
             <label for="txt-fechaExpiracion">Fecha de expiración</label>
-            <input type="date" id="txt-fechaExpiracion" placeholder="Fecha de expiración dd/mm/aa">
+            <input type="text" id="txt-fechaExpiracion" placeholder="mm/aaaa">
 
             <label for="txt-codigoSeguridad">Código de seguridad</label>
             <input type="number" id="txt-codigoSeguridad" placeholder="Código de seguridad">
@@ -106,13 +104,14 @@
             </a>
         </div>
     </footer>
-
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
     <script src="https://kit.fontawesome.com/c95a045b04.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/tarjetas-servicio.js"></script>
     <script src="js/registrar-tarjetas-controlador.js"></script>
-    <script src="js/controlador-nav.js"></script>
+    
 
 
 </body>

@@ -27,20 +27,16 @@
             <a href="iniciar-sesion.html">
                 <button type="button">Iniciar sesión</button>
             </a>
-
-            <a href="registrar-navegator.html">
+            
+            <a href="registrar-usuario.html">
                 <button type="button" class="btn-registrarse">Registrarse</button>
-            </a>
-
-            <a href="configuracion.html">
-                <button type="button">Configuración</button>
             </a>
 
             <a href="iniciar-sesion.html">
                 <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
             </a>
 
-            <a href="#" class="href-perfil">
+            <a href="perfil-usuario.html" class="href-perfil">
                 <div id="foto-usuario">
 
                 </div>
@@ -48,13 +44,15 @@
 
         </div>
     </header>
+
+    
     <h1>Registrar recinto</h1>
 
     <div class="grid-central">
         <div class="grid-izquierda">
             <div>
-                <div id="img-avatarPlaceholder">
-                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen" id="imagePreview" style="height:auto; width:400px">
+                <div id="img-avatarPlaceholder" style="margin:auto;">
+                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen" id="imagePreview" style="height:auto; width:400px; margin:auto;">
                 </div>
 
                 <div>
@@ -76,7 +74,7 @@
 
                     <input type="number" step="any" id="longitud" placeholder="Longitud">
 
-                    <button type="button" id="coordenadas">Ubicar</button>
+                    <button type="button" id="coordenadas" style="margin:auto;">Ubicar</button>
 
                 </div>
 
@@ -136,7 +134,9 @@
 
 
                     <button type="button" id="btn-registrar">Registrar</button>
+                    <!---
                     <a href="terminos-condiciones.html">Al continuar Ud. acepta a los Términos y condiciones</a>
+                    -->
 
                 </div>
 
@@ -185,6 +185,9 @@
             </a>
         </div>
     </footer>
+
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -200,7 +203,7 @@
     <!---<script src="js/geolocalizacion.js"></script>-->
     <script src="js/registrar-recinto-controlador.js"></script>
     <script src="js/recinto-servicio.js"></script>
-    <script src="js/controlador-nav.js"></script>
+    
 
 </body>
 

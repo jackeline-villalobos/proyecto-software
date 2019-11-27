@@ -105,8 +105,10 @@ let agregarFecha = () => {
 };
 
 let agregarDescuento= ()=>{
-    let nombreDescuento = input_nombreDescuento.value;
+    let nombreDescuento = input_nombreDescuento.value.toLowerCase();
     let porcentajeDescuento = input_porcentajeDescuento.value;
+
+    console.log(nombreDescuento);
     
     if(validarDescuentos()){
         Swal.fire({

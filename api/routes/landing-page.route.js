@@ -49,11 +49,10 @@ router.post('/mail-landing-page', function (req, res) {
                 p {
                     margin-bottom: 5px;
                     text-align: justify;
+                    color: black;
                 }
         
-                span{
-                    color: #F2610A;
-                }
+              
         
                 h1{
                     margin-top: -50px;
@@ -67,6 +66,31 @@ router.post('/mail-landing-page', function (req, res) {
                     color: #a7a4a4;
                     margin-bottom: -8px;
                     font-size: 12px;
+                }
+
+                button {
+                    height: 40px;
+                    width: 82px;
+                    border-radius: 10px;
+                    background-color: #F2610A;
+                    border: none;
+                    color: #FFFFFF;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                button:hover, .btn-registrarse:hover {
+                    background-color: #1EBB2D;
+                    border: none;
+                    color: #FFFFFF;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                a {
+                    text-decoration: none;
                 }
         
             </style>
@@ -87,10 +111,14 @@ router.post('/mail-landing-page', function (req, res) {
         
             <div class="info_credenciales">
                 <p>Saludos ${req.body.correo}:</p>
-                <p>Te invitamos a registrarte a Ticket pixel:</p>
+                <p>Lo invitamos a registrarse a Ticket Pixel:</p>
                 <br>
-                <p>lorem loremloremloremloremloremlorem </p>
-                <p>loremloremloremloremloremloremlorem</span></p>
+                <p>Somos una empresa de capital 100% costarricense. Notamos una necesidad de mercado al darnos cuenta de lo incómodo/inconveniente que puede resultar tener que movilizarse hasta el punto de venta para adquirir una entrada. A raíz de eso se fundó CR Tickets el año 2018. </p>
+                <p>El propósito de Ticket pixel es brindar al usuario la mejor experiencia a la hora de comprar entradas en línea. Tomando en cuenta las necesidades de todos nuestros clientes, desde asientos preferenciales, hasta para los adultos mayores. La comodidad de nuestros clientes es nuestra prioridad.</p>
+                
+                <a href="http://127.0.0.1:5503/index.html">
+                <button>Comience ahora</button>
+                </a>
             </div>
             <br>
             <br>

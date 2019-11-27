@@ -45,7 +45,7 @@ router.post('/registrar-encargado', function (req, res) {
 
                 let mailOptions = {
                     from: 'Ticket pixel <equiponebula2019@gmail.com>',
-                    to: req.body.correoElectronico,
+                    to: req.body.correo,
                     subject: 'Registro de encargado',
                     html: `
                     <!DOCTYPE html>
@@ -84,13 +84,13 @@ router.post('/registrar-encargado', function (req, res) {
                     <body>
                     
                     <h1>Bienvenido a Ticket pixel</h1>
-                    <p>Su registro ha sido realizado con exito!</p>
-                    <p>Su usuario y contraseña se muestran a continuacion.</p>
+                    <p>Se ha registrado con exito!</p>
+                    <p></p>
                     
                         <div class="info_credenciales">
-                            <p>Tus credenciales de acceso:</p>
+                            <p>Credenciales de acceso:</p>
                             <div>
-                                <span>Correo: <span id="nombre_usuario">${req.body.correoElectronico}</span></span>
+                                <span>Correo: <span id="nombre_usuario">${req.body.correo}</span></span>
                             </div>
                             
                             <div>
