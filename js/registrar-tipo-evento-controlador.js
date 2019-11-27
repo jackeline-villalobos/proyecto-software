@@ -26,7 +26,7 @@ let validar = () => {
 
 
 let obtenerDatos = async() => {
-    let nombre = inputNombre.value;
+    let nombre = inputNombre.value.toLowerCase();
 
 
     if (validar()) {
