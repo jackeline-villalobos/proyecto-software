@@ -34,7 +34,7 @@ let validar = () => {
         inputNumeroTarjeta.classList.remove('error');
     }
 
-    if (!validarExpiracion(inputFechaExpiracion.value)) {
+    if (validarExpiracion(inputFechaExpiracion.value) == false) {
         error = true;
         inputFechaExpiracion.classList.add('error');
     } else {
