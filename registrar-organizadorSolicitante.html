@@ -48,47 +48,73 @@
                 <h1>Conviértase en organizador</h1>
 
                 <h6>Información empresarial</h6>
-
-                <input type="text" id="txt-nombreEmpresa" placeholder="Nombre de la Empresa" class="input">
-                <input type="text" id="txt-cedulaJuridica" placeholder="Cédula jurídica" class="input">
-                <input type="number" id="txt-experiencia" placeholder="Años de experiencia" class="input">
-                <input type="text" id="txt-nombreComercial" placeholder="Nombre Comercial" class="input">
+                <div class="inline">
+                    <label for="txt-nombreEmpresa">Nombre de la Empresa:</label>
+                    <input type="text" id="txt-nombreEmpresa" placeholder="Nombre de la Empresa" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt-cedulaJuridica">Cédula jurídica:</label>
+                    <input type="text" id="txt-cedulaJuridica" placeholder="Cédula jurídica" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt-experiencia">Años de experiencia</label>
+                    <input type="number" id="txt-experiencia" placeholder="Años de experiencia" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt-nombreComercial">Nombre Comercial</label>
+                    <input type="text" id="txt-nombreComercial" placeholder="Nombre Comercial" class="input">
+                </div>
 
                 <h6>Dirección</h6>
 
-                <select class="form_input" name="provincia" id="provincias" class="input">
+                <select class="form_input margin5" name="provincia" id="provincias" class="input">
                     <option value="" hidden>Provincia</option>
                 </select>
                 <div class="canton-distrito">
                     <div class="form_control">
-                        <select class="form_input" name="canton" id="cantones">
+                        <select class="form_input margin5" name="canton" id="cantones">
                             <option value="" hidden>Cantón</option>
                         </select>
                     </div>
 
                     <div class="form_control">
-                        <select class="form_input" name="distrito" id="distritos">
+                        <select class="form_input margin5" name="distrito" id="distritos">
                             <option value="" hidden>Distrito</option>
                         </select>
                     </div>
                 </div>
-                <textarea id="txt-sennas" placeholder="Señas" class="input"></textarea>
+                <textarea id="txt-sennas" placeholder="     Señas" class="input"></textarea>
 
                 <h6>Información de contacto</h6>
+                <div class="inline">
+                    <label for="txt-nombreCompleto">Nombre completo</label>
+                    <input type="text" placeholder="Nombre completo" id="txt-nombreCompleto" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt_correo">Correo</label>
+                    <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt-telefono">Teléfono</label>
+                    <input type="text" id="txt-telefono" placeholder="Teléfono" class="input">
+                </div>
+                <div class="inline">
+                    <label for="txt-genero">Género</label>
+                    <select id="txt-genero" class="input" id="txt-genero">
+                        <option value="" hidden>Género</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Otro">Otro</option>
+                        <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                    </select>
+                </div>
 
-                <input type="text" placeholder="Nombre completo" id="txt-nombreCompleto" class="input">
-                <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo" class="input">
-                <input type="text" id="txt-telefono" placeholder="Teléfono" class="input">
-                <select id="txt-genero" class="input" id="txt-genero">
-                    <option value="" hidden>Género</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Otro">Otro</option>
-                    <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-                </select>
-                <a class="terminos" href="terminos-condiciones.html">Al continuar Ud. acepta los Términos y condiciones</a>
+
+
+                <a class="terminos" href="terminos-condiciones.html">Al continuar Ud. acepta los Términos y
+                    condiciones</a>
                 <button type="button" class="btn-enviarInfo" id="btn-enviarInfo">Enviar solicitud</button>
-                
+
             </div>
 
         </form>
@@ -106,8 +132,8 @@
                 <li>CR Tickets</li>
             </a>
             <a href="seleccionar-tipo-organizador.html">
-                    <li>Conviértase en organizador</li>
-                </a>
+                <li>Conviértase en organizador</li>
+            </a>
             <a href="terminos-condiciones.html">Terminos y condiciones</a>
 
         </div>

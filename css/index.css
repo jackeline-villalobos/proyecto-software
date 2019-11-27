@@ -16,7 +16,7 @@ main {
 }
 
 .botones-header a button:hover {
-    margin-left: 0px;
+    margin: 0px 5px;
     padding: 0px;
 }
 
@@ -149,12 +149,15 @@ hr{
 }
 
 .btn-mas:hover {
+    display: block;
+    margin: 0 auto 10px auto;
     height: 30px;
     width: 80px;
     border-radius: 10px;
     background-color: #1EBB2D;
     border: none;
     color: #FFFFFF;
+    margin-top: 15%;
 }
 
 h1 {

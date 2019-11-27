@@ -44,7 +44,14 @@ a{
     margin-left: 20px;
     background-color: #FFFFFF;
 }
-
+button:hover, .btn-registrarse:hover {
+    background-color: #1EBB2D;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* .btn-registrarse:hover {
     margin-left: 20px !important;
 } */
@@ -163,14 +170,7 @@ button {
     justify-content: center;
 }
 
-button:hover, .btn-registrarse:hover {
-    background-color: #1EBB2D;
-    border: none;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .swal2-styled.swal2-confirm {
     border: 0;

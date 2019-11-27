@@ -83,14 +83,24 @@ let mostrarInfo = async () =>{
     pGenero.innerText = genero;
     genero_container.appendChild(pGenero);
 
-    let id = organizador.organizador._id;
+    
+    
+};
+
+let mostrarCards = async ()=>{
+    let organizador = await obtenerDatos();
     let listaEventos = await listarEventos();
+    let filtro = organizador.organizador._id;
 
+    //console.log(filtro);
+    
     for (let i = 0; i < listaEventos.length; i++) {
-        let creador = listaEventos[i]['creador'].toLowerCase();
+        let creador = listaEventos[i]['creador'];
         let imagen = listaEventos[i]['imagen'];
-
-        if (creador.includes(id)) {
+       
+        console.log(listaEventos[i]['creador'])
+        if (creador.includes(filtro)) {
+            
             let cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
@@ -127,16 +137,16 @@ let mostrarInfo = async () =>{
             contenedor.appendChild(cardDiv);
             cardDiv.appendChild(header);
             header.appendChild(img);
+            
             cardDiv.appendChild(nombre);
             cardDiv.appendChild(fecha);
             cardDiv.appendChild(lugar);
             cardDiv.appendChild(precio);
             cardDiv.appendChild(boton);
+            
         }
     };
-    
-};
-
-
+}
 
 mostrarInfo();
+mostrarCards()
