@@ -1,6 +1,6 @@
 "use strict";
 
-let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
+let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud, contrasenna) => {
     let error;
 
     await axios({
@@ -19,13 +19,14 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
                 distrito: distrito,
                 imagen: imagen,
                 latitud: latitud,
-                longitud: longitud
+                longitud: longitud,
+                contrasenna: contrasenna
 
 
             }
         })
         .then(async function(res) {
-            console.log(res.data.resultado);
+            console.log(res.data);
             error = await res.data.resultado;
 
         })
