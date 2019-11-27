@@ -49,6 +49,7 @@ hr{
 
 .img{
     width: 180px;
+    height: 180px;
     border-radius: 100%;
     margin-top: 35px;
 }
