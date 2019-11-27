@@ -92,13 +92,13 @@ let validar = () => {
     }
 
     // Valida si capacidad > capacidadDiscapacitados
-    if (input_capacidadDiscapacitado.value > input_capacidad.value) {
-        error = true;
-        input_capacidad.classList.add("error");
-        errorCodigo = 2;
-    } else {
-        input_capacidad.classList.remove("error");
-    }
+    //if (input_capacidadDiscapacitado.value > input_capacidad.value) {
+      //  error = true;
+        //input_capacidad.classList.add("error");
+        //errorCodigo = 2;
+    //} else {
+      //  input_capacidad.classList.remove("error");
+    //}
     if (revisar_correo.test(input_correoEncargado.value) == false) {
         error = true;
         input_correoEncargado.classList.add('error');
