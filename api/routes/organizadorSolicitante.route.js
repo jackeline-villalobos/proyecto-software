@@ -194,7 +194,7 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
                         
                     
                         <div class="info_credenciales">
-                            <p>Saludos ${nuevo_organizadorSolicitante.primerNombre}:</p>
+                            <p>Saludos ${nuevo_organizadorSolicitante.nombreCompleto}:</p>
                             <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                             <br>
                             <p>Correo electrónico asociado: <span>${nuevo_organizadorSolicitante.correo} </span> </p>
