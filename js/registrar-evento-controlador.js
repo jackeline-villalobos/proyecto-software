@@ -9,8 +9,7 @@ const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
 
-// const btn_agregarFecha = document.querySelector('#btn-agregarFecha');
-
+const get_creador = sessionStorage.getItem('idUsuario');
 
 
 let validar = () => {
@@ -87,6 +86,7 @@ let obtener_datos = () => {
     let lugar = input_lugar.value;
     let precioEntrada = input_precioEntrada.value;
     let descripcion = input_descripcion.value;
+    let creador = get_creador;
     let imagen = imagePreview.src;
 
     if (validar()) {
@@ -98,7 +98,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, imagen);
+        registrar_evento(nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen);
 
         Swal.fire({
             type: 'success',

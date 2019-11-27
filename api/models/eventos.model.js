@@ -30,6 +30,7 @@ const eventoSchema = new mongoose.Schema(
                 porcentajeDescuento: { type: Number, required: true, unique: false }
             }
         ],
+        creador: { type: String, required: false, unique: false },
         estado: { type: String, required: true, unique: false }
     }
 

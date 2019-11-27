@@ -20,6 +20,7 @@ router.post('/registrar-evento', function (req, res) {
         precioEntrada: body.precioEntrada,
         descripcion: body.descripcion,
         imagen: body.imagen,
+        creador: body.creador,
         estado: 'activo'
     });
 

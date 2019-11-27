@@ -82,4 +82,10 @@ let mostrarInfo = async () =>{
 
     
 };
+
+let mostrarEventos = async()=>{
+    
+};
+
+
 mostrarInfo();
