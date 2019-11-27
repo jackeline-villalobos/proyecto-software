@@ -1,18 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de impuestos</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/perfil-evento.css">
+    <link rel="stylesheet" href="css/listar-impuestos.css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
-    <title>Perfil Evento</title>
 </head>
-
 
 <body>
     <header>
@@ -42,61 +44,22 @@
         </div>
     </header>
 
-    <!-- frontera con ejemplo -->
+    <div class="container-filtro">
+        <input type="text" id="txt-filtro" placeholder="Buscar impuesto">
+    </div>
+    <h1>Lista de impuestos asociados</h1>
+    <table id="tbl-impuestos">
+        <thead>
+            <tr>
+                <th style="font-weight: bold;">Nombre</th>
+            </tr>
+        </thead>
 
-    <section>
-        <div id="main-container">
+        <tbody>
 
-            <div id="container-1">
-                <figure class="imageContainer">
-                    <img id="imagen" src="imagenes/registrar-evento/outlined_placeholder-512.png">
-                </figure>
+        </tbody>
 
-            </div>
-
-            <div id="container-2">
-                <h1 id="h2-nombreEvento"></h1>
-                <p id="p-descripcion"></p>
-
-
-                <div id="descuentos-impuestos">
-                    <a href="listar-impuestos-evento.html">
-                        <button type="button">Impuestos asociados</button>
-                    </a>
-
-                    <a href="listar-descuentos.html">
-                        <button type="button">Descuentos asociados</button>
-                    </a>
-                </div>
-
-                <div id="container-3">
-                    <div class="mapa">
-                        <h4 id="h5-ubicacion">Ubicación</h4>
-                        <h5 id="h5-recinto"></h5>
-                        <div id="map">
-                            <script src="js/geolocalizacion-card.js"></script>
-                        </div>
-                    </div>
-                    <div class="container_fechas">
-                        <h6 id="lugar"></h6>
-                        <h4 id="h5-fechas">Fechas disponibles</h4>
-                        <div id="div-fechas">
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-
-        </div>
-    </section>
-
-
-
-    <!-- frontera con ejemplo -->
+    </table>
 
     <footer>
 
@@ -142,21 +105,12 @@
 
     </footer>
 
+    <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
-    <script src="js/controlador-botones-evento.js"></script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap"
-        type="text/javascript"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
-
-    <script src="js/eventos-servicio.js"></script>
-    <script src="js/perfil-evento-controlador.js"></script>
-    <script>
-        onload = "initMap()";
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/descuentos-servicio.js"></script>
+    <script src="js/listar-impuestos-evento-controlador.js"></script>
 
 </body>
 

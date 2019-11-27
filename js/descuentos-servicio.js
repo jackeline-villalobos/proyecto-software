@@ -36,6 +36,7 @@ let listarDescuentos = async () => {
         }
     })
     .then( async function(res){
+        console.log(res.data.evento);
         listaDescuentos = res.data.evento;
     })
     .catch(function(error){
