@@ -16,6 +16,7 @@ const organizadorSolicitante_schema = new mongoose.Schema(
         contrasenna: {type: String, required: true, unique: false},
         telefono : {type : String, required: true},
         genero : {type : String, required: true},
+        grado: {type: String, required: false, unique: false},
         estado : {type : String, required: true},
 
     }

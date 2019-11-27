@@ -39,6 +39,11 @@ if (conectado) {
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-encargado.html');
     }
+    if (gradoUsuario == 3) {
+
+        let boton = botonesHeader[3];
+        boton.setAttribute('href', 'perfil-organizador.html');
+    }
 
 } else {
     botonesHeader[2].classList.add('ocultar');

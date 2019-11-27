@@ -36,6 +36,7 @@ router.post('/registrar-organizadorSolicitante', function(req, res){
         contrasenna: body.contrasenna,
         telefono : body.telefono,
         genero : body.genero,
+        grado : '3',
         estado :'inactivo'
     });
     nuevo_organizadorSolicitante.save(

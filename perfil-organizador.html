@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/ejemplo.css">
+    <link rel="stylesheet" href="css/perfil-organizador.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
@@ -42,7 +42,72 @@
     </header>
     <!-- frontera con ejemplo -->
 
+    <main>
+        <section class="parte_editar width">
 
+            <a href="#perfil-organizador.html">Mis Eventos</a>
+            <a href="#registrar-evento.html">Crear evento</a>
+        </section>
+
+        <section class="perfil">
+
+            <div class="info_perfil">
+
+                <div class="informacion-empresarial">
+                    <h5 class="subtitulo">Información empresarial</h5>
+                    <div id="informacion_container">
+                        <div id="nombreEmpresa_container">
+                            <h5>Nombre de la empresa: </h5>
+                        </div>
+                        <div id="cedulaJuridica_container">
+                            <h5>Cédula jurídica: </h5>
+                        </div>
+                        <div id="experiencia_container">
+                            <h5>Años de experiencia: </h5>
+                        </div>
+                        <div id="nombreComercial_container">
+                            <h5>Nombre Comercial: </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="direccion">
+                    <h5 class="subtitulo">Dirección</h5>
+                    <div id="direccion_container">
+                        <div id="provincia_container">
+                            <h5>Provincia: </h5>
+                        </div>
+                        <div id="canton_container">
+                            <h5>Cantón: </h5>
+                        </div>
+                        <div id="distrito_container">
+                            <h5>Distrito: </h5>
+                        </div>
+                        <div id="sennas_container">
+                            <h5>Señas: </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="informamcion-contacto">
+                    <h5 class="subtitulo">Información de contacto</h5>
+                    <div id="nombre_container">
+                        <h5>Nombre: </h5>
+                    </div>
+                    <div id="correo_container">
+                        <h5>Correo: </h5>
+                    </div>
+                    <div id="telefono_container">
+                        <h5>Teléfono: </h5>
+                    </div>
+                    <div id="genero_container">
+                        <h5>Género: </h5>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+        </section>
+
+    </main>
 
 
 
@@ -91,6 +156,13 @@
 
     </footer>
 
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/perfil-organizador-servicio.js"></script>
+    <script src="js/perfil-organizador-controlador.js"></script>
 </body>
 
 </html>
