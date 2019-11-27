@@ -243,6 +243,15 @@ router.get('/listar-organizadorSolicitante', function (req, res) {
     });
 });
 
+router.post('/buscar-organizador-id', function(req, res){
+    OrganizadorSolicitante.findById({_id: req.body._id})
+    .then(function(organizadorSolicitanteBD){
+        res.json({
+            resultado: true,
+            organizador: organizadorSolicitanteBD
+        })
+    })
+});
 
 // router.post('/activar-organizador', function (req, res) {
 //     OrganizadorSolicitante.update({ _id: req.body._id }, {
