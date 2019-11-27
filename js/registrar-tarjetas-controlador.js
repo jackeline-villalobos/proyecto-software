@@ -12,7 +12,7 @@ let validarExpiracion = (fecha) => {
     let mesHoy = 11;
     let annoHoy = 19;
 
-    if (mes >= mesHoy && anno == annoHoy) {
+    if (mes >= mesHoy && anno == annoHoy || mes > 12 && anno == annoHoy ) {
         return true
     } else if (anno > annoHoy) {
         return true
