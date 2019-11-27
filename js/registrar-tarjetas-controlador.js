@@ -6,13 +6,16 @@ const btnGuardar = document.querySelector('#btn-guardar');
 
 
 let validarExpiracion = (fecha) => {
-    let mes = fecha.substr(0, 2)
-    let anno = fecha.substr(-2, 2)
+    let mes = fecha.substr(0, 2);
+    let anno = fecha.substr(-2, 2);
+
+    console.log(mes);
+    console.log(anno);
 
     let mesHoy = 11;
     let annoHoy = 19;
 
-    if (mesHoy  >=  mes && anno == annoHoy || mesHoy >= 12  && anno == annoHoy ) {
+    if (mes >= mesHoy && anno == annoHoy) {
         return true
     } else if (anno > annoHoy) {
         return true
@@ -34,7 +37,7 @@ let validar = () => {
         inputNumeroTarjeta.classList.remove('error');
     }
 
-    if (validarExpiracion(inputFechaExpiracion.value) == false) {
+    if (!validarExpiracion(inputFechaExpiracion.value)) {
         error = true;
         inputFechaExpiracion.classList.add('error');
     } else {
