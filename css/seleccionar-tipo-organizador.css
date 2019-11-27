@@ -1,0 +1,27 @@
+
+header{
+    margin-bottom: 80px;
+}
+main{
+    width: 60%;
+    margin: auto;
+    margin-bottom: 60px;
+    height: 400px;
+}
+.formulario{
+    height: 250px;
+    padding-top: 80px;
+}
+.botones{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.boton{
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+.boton:hover{
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}

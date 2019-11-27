@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listar recintos</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <!-- <link rel="stylesheet" href="css/ejemplo.css"> -->
-    <link rel="stylesheet" href="css/listar-recintos-card.css">
-    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/seleccionar-tipo-organizador.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Seleccionar tipo de organizador</title>
 </head>
 
 <body>
@@ -44,24 +40,27 @@
 
         </div>
     </header>
+    <!-- Frontera con ejemplo -->
 
-    <div class="main-title">
-        <h1>Lista de recintos</h1>
-    </div>
+    <main>
+        <form class="formulario">
+            <h1>
+                Seleccione la opción según corresponda
+            </h1>
+            <div class="botones">
+                <a href="registrar-organizadorSolicitante.html">
+                    <button type="button" class="boton">Persona física</button>
+                </a>
+                <a href="registrar-empresa.html">
+                    <button type="button" class="boton">Empresa</button>
+                </a>
+                
+            </div>
 
-    <section>
-        <div class="filtro">
-            <input type="text" id="txt-filtro" placeholder="Busque su recinto">
-            <!-- <button type="button" id="btn-buscar">Buscar</button> -->
-        </div>
+        </form>
+    </main>
 
-        <div id="cards-container">
-
-        </div>
-    </section>
-
-
-
+    <!-- Frontera con ejemplo -->
 
     <footer>
 
@@ -98,23 +97,14 @@
             </a>
         </div>
         <!-- <div>
-                <h3>Eventos</h3>
-                <li>Deportes</li>
-                <li>Conciertos</li>
-                <li>Culturales</li>
-                <li>Comedia</li>
-            </div> -->
+                    <h3>Eventos</h3>
+                    <li>Deportes</li>
+                    <li>Conciertos</li>
+                    <li>Culturales</li>
+                    <li>Comedia</li>
+                </div> -->
 
     </footer>
-
-    <script src="js/controlador-conectado.js"></script>
-    <script src="js/controlador-nav.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/recinto-servicio.js"></script>
-    <script src="js/listar-recintos-controlador-card.js"></script>
-
-
 
 </body>
 
