@@ -44,15 +44,25 @@ let obtenerDatos = async() => {
         let error = await registrartipoEvento(nombre);
 
 
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro realizado con éxito.',
-            text: 'El tipo de evento ha sido almacenado.',
-            confirmButtonText: "Entendido",
-            onClose: function() {
-                location.href = 'perfil-administrador.html';
-            }
-        })
+        if (error.resultado == false) {
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'El tipo de evento no se pudo registrar correctamente',
+                confirmButtonText: 'Entendido'
+            })
+
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro realizado con éxito',
+                text: 'El tipo de evento ha sido almacenado',
+                confirmButtonText: "Entendido",
+                onClose: function() {
+                    location.href = 'perfil-administrador.html';
+                }
+            })
+        }
 
 
         inputNombre.value = '';
