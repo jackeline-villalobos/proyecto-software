@@ -15,7 +15,7 @@ const _id = sessionStorage.getItem('idUsuario');
 
 
 
-let mostrarInfo = async() => {
+let mostrarInfo = async () => {
 
     let usuario = await obtener_datos();
     console.log(usuario);
@@ -53,7 +53,7 @@ let mostrarInfo = async() => {
 
     let fechaDeNacimiento = usuario.fechaDeNacimiento;
     let fnacimiento = document.createElement('p');
-    fnacimiento.innerText = fechaDeNacimiento;
+    fnacimiento.innerText = fechaDeNacimiento.substring(0,10);
 
     fechaDeNacimiento_container.appendChild(fnacimiento)
 
