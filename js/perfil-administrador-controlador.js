@@ -42,10 +42,10 @@ let llenarPerfil = async() => {
     parafo20.innerHTML = "Correo:" + "<br>" + usuario.correo;
     //parafo2.innerHTML = usuario.correo;
 
-    parafo30.innerHTML = "Genero:" + "<br>" + usuario.genero;
+    parafo30.innerHTML = "Género:" + "<br>" + usuario.genero;
     //parafo3.innerHTML = usuario.genero;
 
-    parafo40.innerHTML = "Direccion:" + "<br>" + usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
+    parafo40.innerHTML = "Dirección:" + "<br>" + usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
     //parafo4.innerHTML = usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
 
     /*

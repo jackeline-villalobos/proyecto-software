@@ -35,7 +35,7 @@ let validar = () => {
 
 
 
-let obtenerDatos = async () => {
+let obtenerDatos = async() => {
     let nombre = inputNombre.value.toLowerCase();
     let porcentaje = inputPorcentaje.value;
     porcentaje = porcentaje / 100;
@@ -67,7 +67,10 @@ let obtenerDatos = async () => {
                 icon: 'success',
                 title: 'Registro realizado con éxito',
                 text: 'El impuesto ha sido almacenado',
-                confirmButtonText: "Entendido"
+                confirmButtonText: "Entendido",
+                onClose: function() {
+                    location.href = 'perfil-administrador.html';
+                }
             })
         }
 
