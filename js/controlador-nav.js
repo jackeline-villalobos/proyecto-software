@@ -30,20 +30,19 @@ if (conectado) {
 
     if (gradoUsuario == 1) {
 
-        let boton = botonesHeader[4];
+        let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-administrador.html');
     }
 
     if (gradoUsuario == 2) {
 
-        let boton = botonesHeader[4];
+        let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-encargado.html');
     }
 
 } else {
     botonesHeader[2].classList.add('ocultar');
     botonesHeader[3].classList.add('ocultar');
-    botonesHeader[4].classList.add('ocultar');
 }
 
 
