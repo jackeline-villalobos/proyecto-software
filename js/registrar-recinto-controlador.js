@@ -92,7 +92,7 @@ let validar = () => {
     }
 
     // Valida si capacidad > capacidadDiscapacitados
-    if (input_capacidad < input_capacidadDiscapacitado) {
+    if (input_capacidadDiscapacitado.value > input_capacidad.value) {
         error = true;
         input_capacidad.classList.add("error");
         errorCodigo = 2;
@@ -232,9 +232,11 @@ let obtener_datos = async() => {
                     location.href = 'perfil-administrador.html';
                 }
             });
+            resetForm();
         }
 
-        resetForm();
+
+
     }
 };
 
