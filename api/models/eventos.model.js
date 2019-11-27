@@ -26,7 +26,7 @@ const eventoSchema = new mongoose.Schema(
         imagen: { type: String, required: false },
         descuentos: [
             {
-                nombreDescuento: { type: String, required: true, unique: false },
+                nombreDescuento: { type: String, required: true, unique: true },
                 porcentajeDescuento: { type: Number, required: true, unique: false }
             }
         ],
