@@ -17,6 +17,7 @@ const empresaSchema = new mongoose.Schema(
         imagen: { type: String, required: true, unique: false },
         latitud: { type: Number, required: true, unique: false },
         longitud: { type: Number, required: true, unique: false },
+        contrasenna: { type: String, required: true, unique: false},
         grado: { type: Number, required: true, unique: false },
 
         estado: { type: String, required: true, unique: false }
