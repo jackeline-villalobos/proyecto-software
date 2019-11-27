@@ -44,6 +44,15 @@ let mandarInfo = async () => {
         .catch(function(err){
             console.log(err);
         });
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se te ha enviado la información',
+            showConfirmButton: false,
+            timer: 1500
+          })
+
         
     } else {
         console.log('No se pudo envíar el correo');
