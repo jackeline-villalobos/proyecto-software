@@ -13,14 +13,16 @@ let validarExpiracion = (fecha) => {
     console.log(anno);
 
     let mesHoy = 11;
-    let annoHoy = 19;
+    let annoHoy = 2019;
 
-    if (mes >= mesHoy && anno == annoHoy) {
-        return true
+    if(mes > 12) {
+        return false;
+    } else if (mes >= mesHoy && anno == annoHoy) {
+        return true;
     } else if (anno > annoHoy) {
-        return true
+        return true;
     } else {
-        return false
+        return false;
 
     }
 }
