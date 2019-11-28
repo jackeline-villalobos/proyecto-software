@@ -106,7 +106,7 @@ form select {
 }
 
 #btn-registrar {
-    margin-top: 20px;
+    margin-top: 31px;
     margin-left: 25%;
     margin-bottom: 15px;
     width: 50%;
@@ -125,7 +125,7 @@ form select {
 }
 
 .botonImagen {
-    margin: 10px auto 50px auto;
+    margin: 120px auto 50px auto;
 }
 
 label {
@@ -140,7 +140,8 @@ label {
     height: 300px;
     width: auto;
 }
-.terminos{
+
+.terminos {
     display: block;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
@@ -148,6 +149,7 @@ label {
     margin-top: 10px;
     margin-left: 5%;
 }
-.terminos:hover{
+
+.terminos:hover {
     color: #F2610A;
 }
