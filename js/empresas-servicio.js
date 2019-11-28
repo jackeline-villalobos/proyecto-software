@@ -38,3 +38,39 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
     return error;
 
 };
+
+const idUsuario = sessionStorage.getItem('idUsuario');
+let obtenerDatos = async () =>{
+
+    let empresa;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/buscar-empresa-id',
+        data: {
+            _id: idUsuario,
+        }
+    })
+    .then(async function(res){
+        empresa = await res.data;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+    return empresa;
+};
+
+let listarEventos = async () => {
+    let listaEventos;
+    await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-eventos',
+        responseType: 'json'
+    })
+    .then(function(res){
+        listaEventos = res.data.eventos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+    return listaEventos;
+};

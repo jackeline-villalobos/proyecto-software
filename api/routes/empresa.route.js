@@ -33,7 +33,7 @@ router.post('/registrar-empresa', function(req, res) {
         latitud: body.latitud,
         longitud: body.longitud,
         contrasenna: body.contrasenna,
-        grado: "3",
+        grado: "5",
 
         estado: "activo"
     });
@@ -224,4 +224,14 @@ router.post('/registrar-empresa', function(req, res) {
             }
         });
 });
+router.post('/buscar-empresa-id', function(req, res){
+    Empresa.findById({_id: req.body._id})
+    .then(function(empresaDB){
+        res.json({
+            resultado: true,
+            empresa: empresaDB
+        })
+    })
+});
+
 module.exports = router;

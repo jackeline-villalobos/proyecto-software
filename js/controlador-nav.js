@@ -44,6 +44,11 @@ if (conectado) {
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-organizador.html');
     }
+    if (gradoUsuario == 5) {
+
+        let boton = botonesHeader[3];
+        boton.setAttribute('href', 'perfil-empresa.html');
+    }
 
 } else {
     botonesHeader[2].classList.add('ocultar');
