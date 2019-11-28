@@ -68,22 +68,38 @@ if (!validarFecha(inputFechaDeNacimiento.value)) {
 
 let validarFecha = (fechaDeNacimiento) => {
 
-    let resultado = false;
+        let resultado = false;
 
-    let hoy = new Date();
-    let cumpleannos = new Date(fechaDeNacimiento);
-    let edad = hoy.getFullYear() - cumpleannos.getFullYear();
-    let m = hoy.getMonth() - cumpleannos.getMonth();
+        let hoy = new Date();
+        let cumpleannos = new Date(fechaDeNacimiento);
+        let edad = hoy.getFullYear() - cumpleannos.getFullYear();
+        let m = hoy.getMonth() - cumpleannos.getMonth();
 
-    if (m < 0 || (m === 0 && hoy.getDate() <= cumpleannos.getDate())) {
-        edad--;
+        if (m < 0 || (m === 0 && hoy.getDate() <= cumpleannos.getDate())) {
+            edad--;
+        }
+
+        if (edad >= 18) {
+            resultado = true;
+        }
+
+        return resultado;
+
     }
+    // Fin validar edad
 
-    if(edad >= 18) {
-        resultado = true;
-    } 
 
-    return resultado;
+// Validar si un numero < numero
 
+let vCapacidad = parseInt(input_capacidad.value);
+let vCapacidadDiscapacitado = parseInt(input_capacidadDiscapacitado.value);
+
+
+// Validar la capacidad
+if (vCapacidadDiscapacitado > vCapacidad) {
+    error = true;
+    input_capacidadDiscapacitado.classList.add("error");
+    errorCodigo = 2;
+} else {
+    input_capacidadDiscapacitado.classList.remove("error");
 }
-// Fin validar edad

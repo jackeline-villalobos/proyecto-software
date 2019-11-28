@@ -58,6 +58,28 @@ let validar = () => {
 
     let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
+
+    let vCapacidad = parseInt(input_capacidad.value);
+    let vCapacidadDiscapacitado = parseInt(input_capacidadDiscapacitado.value);
+
+
+    // Validar la capacidad
+    if (vCapacidadDiscapacitado > vCapacidad) {
+        error = true;
+        input_capacidadDiscapacitado.classList.add("error");
+        errorCodigo = 2;
+    } else {
+        input_capacidadDiscapacitado.classList.remove("error");
+    }
+
+    if (input_capacidad.value <= 0) {
+        error = true;
+        input_capacidad.classList.add("error");
+    } else {
+        input_capacidad.classList.remove("error");
+    }
+
+    // Validar otros campos
     if (input_nombreRecinto.value == "" || input_nombreRecinto.value == " " || input_nombreRecinto.value == 0) {
         error = true;
         input_nombreRecinto.classList.add("error");
@@ -91,14 +113,6 @@ let validar = () => {
         input_capacidadDiscapacitado.classList.remove("error");
     }
 
-    // Valida si capacidad > capacidadDiscapacitados
-    //if (input_capacidadDiscapacitado.value > input_capacidad.value) {
-      //  error = true;
-        //input_capacidad.classList.add("error");
-        //errorCodigo = 2;
-    //} else {
-      //  input_capacidad.classList.remove("error");
-    //}
     if (revisar_correo.test(input_correoEncargado.value) == false) {
         error = true;
         input_correoEncargado.classList.add('error');
