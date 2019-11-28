@@ -33,7 +33,7 @@ router.post('/registrar-empresa', function(req, res) {
         latitud: body.latitud,
         longitud: body.longitud,
         contrasenna: body.contrasenna,
-        grado: "3",
+        grado: "5",
 
         estado: "activo"
     });
