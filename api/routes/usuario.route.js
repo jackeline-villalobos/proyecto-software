@@ -601,7 +601,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
 
                 });
 
-                
+
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
                     .then(function (organizadorSolicitanteBD) {
@@ -697,14 +697,14 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                 
                                 </html>`
                             };
-            
+
                             transporter.sendMail(mailOptions, function (error, info) {
                                 if (error) {
                                     console.log(error);
                                 } else {
                                     console.log('Correo enviado con éxito' + info.response);
                                 }
-                            })    
+                            })
 
                             res.json({
                                 resultado: true,
@@ -717,15 +717,15 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             //     subject: 'Bienvido a Ticket pixel',
                             //     html: `<!DOCTYPE html>
                             //     <html lang="en">
-                                
+
                             //     <head>
                             //         <meta charset="UTF-8">
                             //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                             //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
                             //         <style>
                             //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-                                
-                                
+
+
                             //             body {
                             //                 max-width: 500px;
                             //                 font-family: 'Roboto', sans-serif;
@@ -735,23 +735,23 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             //                 margin-left: 30%;
                             //                 margin-top: 5%;
                             //             }
-                                
+
                             //             h1 {
                             //                 margin-top: 15px;
                             //                 margin-bottom: 10px;
                             //                 font-size: 26px;
                             //                 text-align: center;
                             //             }
-                                
+
                             //             p {
                             //                 margin-bottom: 5px;
                             //                 text-align: justify;
                             //             }
-                                
+
                             //             span{
                             //                 color: #F2610A;
                             //             }
-                                
+
                             //             h1{
                             //                 margin-top: -50px;
                             //                 margin-bottom: -10px;
@@ -759,34 +759,34 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             //             h4{
                             //                 text-align: center;
                             //             }
-                                
+
                             //             .footer{
                             //                 color: #a7a4a4;
                             //                 margin-bottom: -8px;
                             //                 font-size: 12px;
                             //             }
-                                
+
                             //         </style>
-                                
+
                             //         <title>Cuerpo del correo</title>
                             //     </head>
-                                
+
                             //     <body>
-                                
+
                             //         <div>
                             //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
                             //             <h1>Bienvenido a Ticket pixel</h1>
                             //             <h4>La mejor manera de comprar entradas en linea</h4>
                             //         </div>
                             //         <hr>
-                                    
-                                    
-                                
+
+
+
                             //         <div class="info_credenciales">
                             //             <p>Saludos</p>
                             //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                             //             <br>
-                                        
+
                             //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
                             //         </div>
                             //         <br>
@@ -794,12 +794,12 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             //         <hr>
                             //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
                             //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
-                                
+
                             //     </body>
-                                
+
                             //     </html>`
                             // };
-            
+
                             // transporter.sendMail(mailOptions, function (error, info) {
                             //     if (error) {
                             //         console.log(error);
@@ -807,7 +807,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                             //         console.log('Correo enviado con éxito' + info.response);
                             //     }
                             // })    
-                            
+
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
                                 .then(function (empresaBD) {
@@ -903,7 +903,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                             
                                             </html>`
                                         };
-                        
+
                                         transporter.sendMail(mailOptions, function (error, info) {
                                             if (error) {
                                                 console.log(error);
@@ -923,15 +923,15 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         //     subject: 'Bienvido a Ticket pixel',
                                         //     html: `<!DOCTYPE html>
                                         //     <html lang="en">
-                                            
+
                                         //     <head>
                                         //         <meta charset="UTF-8">
                                         //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                         //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
                                         //         <style>
                                         //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-                                            
-                                            
+
+
                                         //             body {
                                         //                 max-width: 500px;
                                         //                 font-family: 'Roboto', sans-serif;
@@ -941,23 +941,23 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         //                 margin-left: 30%;
                                         //                 margin-top: 5%;
                                         //             }
-                                            
+
                                         //             h1 {
                                         //                 margin-top: 15px;
                                         //                 margin-bottom: 10px;
                                         //                 font-size: 26px;
                                         //                 text-align: center;
                                         //             }
-                                            
+
                                         //             p {
                                         //                 margin-bottom: 5px;
                                         //                 text-align: justify;
                                         //             }
-                                            
+
                                         //             span{
                                         //                 color: #F2610A;
                                         //             }
-                                            
+
                                         //             h1{
                                         //                 margin-top: -50px;
                                         //                 margin-bottom: -10px;
@@ -965,34 +965,34 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         //             h4{
                                         //                 text-align: center;
                                         //             }
-                                            
+
                                         //             .footer{
                                         //                 color: #a7a4a4;
                                         //                 margin-bottom: -8px;
                                         //                 font-size: 12px;
                                         //             }
-                                            
+
                                         //         </style>
-                                            
+
                                         //         <title>Cuerpo del correo</title>
                                         //     </head>
-                                            
+
                                         //     <body>
-                                            
+
                                         //         <div>
                                         //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
                                         //             <h1>Bienvenido a Ticket pixel</h1>
                                         //             <h4>La mejor manera de comprar entradas en linea</h4>
                                         //         </div>
                                         //         <hr>
-                                                
-                                                
-                                            
+
+
+
                                         //         <div class="info_credenciales">
                                         //             <p>Saludos</p>
                                         //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                         //             <br>
-                                                    
+
                                         //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
                                         //         </div>
                                         //         <br>
@@ -1000,12 +1000,12 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         //         <hr>
                                         //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
                                         //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
-                                            
+
                                         //     </body>
-                                            
+
                                         //     </html>`
                                         // };
-                        
+
                                         // transporter.sendMail(mailOptions, function (error, info) {
                                         //     if (error) {
                                         //         console.log(error);
@@ -1013,7 +1013,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                         //         console.log('Correo enviado con éxito' + info.response);
                                         //     }
                                         // })    
-                                       
+
                                     } else {
                                         Empresa.findOne({ correo: req.body.correo })
                                             .then(function (encargadoBD) {
@@ -1109,7 +1109,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                         
                                                         </html>`
                                                     };
-                                    
+
                                                     transporter.sendMail(mailOptions, function (error, info) {
                                                         if (error) {
                                                             console.log(error);
@@ -1122,22 +1122,22 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                         resultado: true,
                                                         usuario: encargadoBD
                                                     })
-                                                    
+
                                                     // let mailOptions = {
                                                     //     from: 'equiponebula2019@gmail.com',
                                                     //     to: Usuario.correo,
                                                     //     subject: 'Bienvido a Ticket pixel',
                                                     //     html: `<!DOCTYPE html>
                                                     //     <html lang="en">
-                                                        
+
                                                     //     <head>
                                                     //         <meta charset="UTF-8">
                                                     //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                                     //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
                                                     //         <style>
                                                     //             @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-                                                        
-                                                        
+
+
                                                     //             body {
                                                     //                 max-width: 500px;
                                                     //                 font-family: 'Roboto', sans-serif;
@@ -1147,23 +1147,23 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                     //                 margin-left: 30%;
                                                     //                 margin-top: 5%;
                                                     //             }
-                                                        
+
                                                     //             h1 {
                                                     //                 margin-top: 15px;
                                                     //                 margin-bottom: 10px;
                                                     //                 font-size: 26px;
                                                     //                 text-align: center;
                                                     //             }
-                                                        
+
                                                     //             p {
                                                     //                 margin-bottom: 5px;
                                                     //                 text-align: justify;
                                                     //             }
-                                                        
+
                                                     //             span{
                                                     //                 color: #F2610A;
                                                     //             }
-                                                        
+
                                                     //             h1{
                                                     //                 margin-top: -50px;
                                                     //                 margin-bottom: -10px;
@@ -1171,34 +1171,34 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                     //             h4{
                                                     //                 text-align: center;
                                                     //             }
-                                                        
+
                                                     //             .footer{
                                                     //                 color: #a7a4a4;
                                                     //                 margin-bottom: -8px;
                                                     //                 font-size: 12px;
                                                     //             }
-                                                        
+
                                                     //         </style>
-                                                        
+
                                                     //         <title>Cuerpo del correo</title>
                                                     //     </head>
-                                                        
+
                                                     //     <body>
-                                                        
+
                                                     //         <div>
                                                     //             <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
                                                     //             <h1>Bienvenido a Ticket pixel</h1>
                                                     //             <h4>La mejor manera de comprar entradas en linea</h4>
                                                     //         </div>
                                                     //         <hr>
-                                                            
-                                                            
-                                                        
+
+
+
                                                     //         <div class="info_credenciales">
                                                     //             <p>Saludos</p>
                                                     //             <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                                     //             <br>
-                                                                
+
                                                     //             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
                                                     //         </div>
                                                     //         <br>
@@ -1206,12 +1206,12 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                     //         <hr>
                                                     //         <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
                                                     //         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
-                                                        
+
                                                     //     </body>
-                                                        
+
                                                     //     </html>`
                                                     // };
-                                    
+
                                                     // transporter.sendMail(mailOptions, function (error, info) {
                                                     //     if (error) {
                                                     //         console.log(error);
@@ -1232,13 +1232,59 @@ router.post("/recuperar-contrasenna", function (req, res) {
                         }
 
                     });
-                    
-    
-                    
+
+
+
             }
             //mostrarInfo();
 
         })
+});
+
+
+router.get('/buscar-usuario-registro/:correo', function (req, res) {
+    let correo = req.params.correo;
+
+    Usuario.findOne({ correo: correo }, function (err, usuarioBD) {
+        if (usuarioBD) {
+            res.json({
+                resultado: false,
+                msg: 'El correo ya está registrado como usuario',
+            });
+        } else {
+            organizadorSolicitante.findOne({ correo: correo }, function (err, organizadorSolicitanteBD) {
+                if (organizadorSolicitanteBD) {
+                    res.json({
+                        resultado: false,
+                        msg: 'El correo ya está registrado como organizador'
+                    });
+                } else {
+                    Empresa.findOne({ correo: correo }, function (err, empresaBD) {
+                        if (empresaBD) {
+                            res.json({
+                                resultado: false,
+                                msg: 'El correo ya está registrado como empresa'
+                            });
+                        } else {
+                            Encargado.findOne({ correo: correo }, function (err, encargadoBD) {
+                                if (encargadoBD) {
+                                    res.json({
+                                        resultado: false,
+                                        msg: 'El correo ya está registrado como encargado'
+                                    });
+                                } else {
+                                    res.json({
+                                        resultado: true,
+                                        msg: 'El correo está disponible'
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
 });
 
 

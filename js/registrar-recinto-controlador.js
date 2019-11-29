@@ -31,7 +31,7 @@ const btn_guardar = document.querySelector('#btn-registrar');
 
 
 // Tavo trying to check the email on the database.
-let enviarCorreoEncargado = async() => {
+let enviarCorreoEncargado = async () => {
 
     let listaEncargados = await listarEncargados();
     let verificarEncargado = false;
@@ -195,7 +195,7 @@ let resetForm = () => {
     input_longitud = "";
     //input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
-let obtener_datos = async() => {
+let obtener_datos = async () => {
 
     let nombreRecinto = input_nombreRecinto.value;
     let capacidad = input_capacidad.value;
@@ -227,29 +227,42 @@ let obtener_datos = async() => {
 
     } else {
 
-        let error = await registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
+        let errorCorreo = await verificarCorreoEncargado(correoEncargado);
 
-        if (error.resultado == false) {
+        console.log(errorCorreo);
+
+        if (!errorCorreo) {
             Swal.fire({
                 icon: 'warning',
-                title: 'El recinto no ha podido registrarse correctamente',
+                title: 'El correo ingresado ya existe como usuario',
                 confirmButtonText: 'Entendido'
-            })
-        } else {
-            Swal.fire({
-                icon: 'success',
-                title: 'Registro realizado con éxito',
-                text: 'El recinto ha sido almacenado',
-                confirmButtonText: 'Entendido',
-                costumClass: 'modal',
-                onClose: function() {
-                    location.href = 'perfil-administrador.html';
-                }
             });
-            resetForm();
+
+        } else {
+            let error = await registrar_recinto(nombreRecinto, capacidad, capacidadDiscapacitado, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud);
+
+            if (error.resultado == false) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'El recinto no ha podido registrarse correctamente',
+                    confirmButtonText: 'Entendido'
+                })
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro realizado con éxito',
+                    text: 'El recinto ha sido almacenado',
+                    confirmButtonText: 'Entendido',
+                    costumClass: 'modal',
+                    onClose: function () {
+                        location.href = 'perfil-administrador.html';
+                    }
+                });
+
+                resetForm();
+            }
+
         }
-
-
 
     }
 };
@@ -257,7 +270,7 @@ let obtener_datos = async() => {
 btn_guardar.addEventListener('click', obtener_datos);
 btnCoordenadas.addEventListener('click', ubicarMap);
 
-google.maps.event.addListener(map, "click", function(e) {
+google.maps.event.addListener(map, "click", function (e) {
 
     placeMarkerAndPanTo(e.latLng, map);
 });

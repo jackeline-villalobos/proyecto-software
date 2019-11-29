@@ -73,7 +73,6 @@ let obtenerDatos = async () => {
     let nombreCompleto = inputNombreCompleto.value;
     let fechaDeNacimiento = inputFechaDeNacimiento.value;
     let genero = inputGenero.value;
-    console.log(genero);
 
     if (validar()) {
         Swal.fire({
@@ -86,25 +85,36 @@ let obtenerDatos = async () => {
         let contrasenna = generarContrasena();
 
         let edad = validarFecha(fechaDeNacimiento);
-        console.log(edad);
-        let resultado = await registrarEncargado(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna);
 
-        if (resultado.resultado == false) {
+        let errorCorreo = await verificarCorreo(correoElectronico);
 
+        if(!errorCorreo) {
             Swal.fire({
                 icon: 'warning',
                 title: 'El correo ya existe',
                 text: 'Inténtelo de nuevo',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Entendido'
             });
-
         } else {
-            Swal.fire({
-                icon: 'success',
-                title: 'Registro realizado con éxito.',
-                text: 'El tipo de evento ha sido almacenado.',
-                confirmButtonText: "Ok"
-            });
+            let resultado = await registrarEncargado(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna);
+        
+            if (!resultado.resultado) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Algo salió mal',
+                    text: 'Inténtelo de nuevo',
+                    confirmButtonText: 'Entendido'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro realizado con éxito.',
+                    text: 'El tipo de evento ha sido almacenado.',
+                    confirmButtonText: "Entendido"
+                });
+            }
+
         }
 
         resetForm();

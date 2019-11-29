@@ -6,17 +6,20 @@ const express = require("express"),
     router = express.Router(),
     Recinto = require('../models/recinto.model'),
     Encargado = require('../models/encargados.model'),
+    Usuario = require('../models/usuarios.model'),
+    organizadorSolicitante = require('../models/organizadorSolicitante.model'),
+    Empresa = require('../models/empresa.model'),
     mongoose = require('mongoose');
 
-    const transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'equiponebula2019@gmail.com',
-            pass: 'krashcenfo'
-        }
-    });
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'equiponebula2019@gmail.com',
+        pass: 'krashcenfo'
+    }
+});
 
-router.post('/registrar-recinto', function(req, res) {
+router.post('/registrar-recinto', function (req, res) {
     let body = req.body;
 
     let nuevoRecinto = new Recinto({
@@ -38,7 +41,7 @@ router.post('/registrar-recinto', function(req, res) {
     });
 
     nuevoRecinto.save(
-        function(err, recintoDB) {
+        function (err, recintoDB) {
 
             if (err) {
                 res.json({
@@ -48,18 +51,18 @@ router.post('/registrar-recinto', function(req, res) {
                 });
             } else {
 
-                Encargado.findOne({correo: body.correoEncargado})
-                .then(function(encargadoBD){
-                    if(encargadoBD) {
-                        console.log('Hay encargado!');
-                    } else {
-                        console.log('No hay encargado!');
-            
-                        let mailOptions = {
-                            from: 'Ticket Pixel',
-                            to: req.body.correoEncargado,
-                            subject: 'Registro de recinto',
-                            html: `<!DOCTYPE html>
+                Encargado.findOne({ correo: body.correoEncargado })
+                    .then(function (encargadoBD) {
+                        if (encargadoBD) {
+                            console.log('Hay encargado!');
+                        } else {
+                            console.log('No hay encargado!');
+
+                            let mailOptions = {
+                                from: 'Ticket Pixel',
+                                to: req.body.correoEncargado,
+                                subject: 'Registro de recinto',
+                                html: `<!DOCTYPE html>
                             <html lang="en">
                             
                             <head>
@@ -171,20 +174,17 @@ router.post('/registrar-recinto', function(req, res) {
                             </body>
                             
                             </html>`
-                        };
-            
-                        transporter.sendMail(mailOptions, function (error, info) {
-                            if (error) {
-                                console.log(error);
-                            } else {
-                                console.log('Correo enviado con éxito' + info.response);
-                            }
-                        })
-                    }
-                });
+                            };
 
-
-
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Correo enviado con éxito' + info.response);
+                                }
+                            })
+                        }
+                    });
 
                 res.json({
                     resultado: true,
@@ -194,8 +194,8 @@ router.post('/registrar-recinto', function(req, res) {
         });
 });
 
-router.get('/listar-recintos', function(req, res) {
-    Recinto.find(function(err, recintosBD) {
+router.get('/listar-recintos', function (req, res) {
+    Recinto.find(function (err, recintosBD) {
         if (err) {
             res.json({
                 resultado: false,
@@ -211,31 +211,68 @@ router.get('/listar-recintos', function(req, res) {
     });
 });
 
-router.get('/buscar-encargado', function(req, res){
-    Encargado.find(function(err, encargadosBD) {
-        if(err) {
+router.get('/buscar-encargado', function (req, res) {
+    Encargado.find(function (err, encargadosBD) {
+        if (err) {
             res.json({
                 resultado: false,
                 msg: 'No se encontraron encargados',
-                err                
+                err
             });
         } else {
-           res.json({
+            res.json({
                 resultado: true,
                 encargados: encargadosBD
-           });
+            });
         }
     });
 });
 
-router.post('/buscar-recinto-id', function(req,res){
-    Recinto.findById({_id: req.body._id})
-    .then(function(recintoBD){
-        res.json({
-            resultado: true,
-            recinto: recintoBD
-        });
-    })
+router.post('/buscar-recinto-id', function (req, res) {
+    Recinto.findById({ _id: req.body._id })
+        .then(function (recintoBD) {
+            res.json({
+                resultado: true,
+                recinto: recintoBD
+            });
+        })
+});
+
+router.get('/verificar-correo-recinto/:correo', function (req, res) {
+    let correo = req.params.correo;
+
+    Usuario.findOne({correo: correo}, function(err, usuarioBD){
+        if(usuarioBD){
+            res.json({
+                resultado: false,
+                msg: 'El correo ya está registrado como usuario' 
+            });
+        } else {
+            organizadorSolicitante.findOne({correo: correo}, function(err, organizadorSolicitanteBD){
+                if(organizadorSolicitanteBD){
+                    res.json({
+                        resultado: false,
+                        msg: 'El correo ya está registrado como organizador'  
+                    });
+                } else {
+                    Empresa.findOne({correo: correo}, function(err, empresaBD){
+                        if(empresaBD) {
+                            res.json({
+                                resultado: false,
+                                msg: 'El correo ya está registrado como empresa'
+                            });
+                        } else {
+                            res.json({
+                                resultado: true,
+                                msg: 'El correo está disponible'
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
 });
 
 

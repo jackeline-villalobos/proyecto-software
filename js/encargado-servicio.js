@@ -1,5 +1,24 @@
 'use strict';
 
+
+let verificarCorreo = async(correo) => {
+    let resultado;
+
+    await axios({
+        method: 'get',
+        url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
+        responseType: 'json'
+    })
+    .then( async function(res){
+        resultado = await res.data.resultado;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+
 let registrarEncargado = async(correo, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna) => {
     let resultado;
     await axios (
@@ -49,24 +68,3 @@ let listarEncargados = async() => {
 
     return listaEncargados;
 }
-
-let agregarRecinto = async (nombreRecinto) => {
-    let _id = sessionStorage.getItem('idRecinto') ; 
-    await axios(
-        {
-            method: 'post',
-            url: 'http://localhost:3000/api/agregar-recinto',
-            responseType: 'json',
-            data: {
-                nombreRecinto: nombreRecinto
-                }
-            })
-        .then(function (res) {
-            console.log(res.data);
-
-        })
-        .catch(function (error) {
-             console.log(error);
-
-        });
-};

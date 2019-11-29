@@ -1,5 +1,26 @@
 "use strict";
 
+
+let verificarCorreoEncargado = async (correo) => {
+    let resultado;
+
+    await axios({
+        method: 'get',
+        url: `http://localhost:3000/api/verificar-correo-recinto/${correo}`,
+        responseType: 'json'
+    })
+    .then( async function(res){
+        console.log(res.data);
+        resultado = await res.data.resultado;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+    
+    return resultado;
+
+}
+
 let registrar_recinto = async(nombreRecinto, capacidad, capacidadDiscapacitados, correoEncargado, direccion, provincia, canton, distrito, imagen, latitud, longitud) => {
     let resultado;
 
