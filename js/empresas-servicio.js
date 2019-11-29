@@ -1,5 +1,24 @@
 "use strict";
 
+let verificarCorreo = async(correo) => {
+    let resultado;
+
+    await axios({
+        method: 'get',
+        url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
+        responseType: 'json'
+    })
+    .then( async function(res){
+        console.log(res.data);
+        resultado = await res.data.resultado;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+
 let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud, contrasenna) => {
     let error;
 

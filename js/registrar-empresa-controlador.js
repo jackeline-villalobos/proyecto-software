@@ -152,7 +152,7 @@ let resetForm = () => {
     input_latitud = "";
     input_longitud = "";
 };
-let obtener_datos = async() => {
+let obtener_datos = async () => {
 
     let nombreEmpresa = input_nombreEmpresa.value;
     let razonSocial = input_razonSocial.value;
@@ -181,24 +181,41 @@ let obtener_datos = async() => {
     } else {
         let contrasenna = generarContrasena();
 
-        let error = await registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud, contrasenna);
-        if (error == false) {
+        let errorCorreo = await verificarCorreo(correo);
+
+        if (!errorCorreo) {
+            input_correo.classList.add('error');
             Swal.fire({
                 icon: 'warning',
-                title: 'Algunos de los campos no se ingresaron correctamente.',
-                text: 'Por favor, revise los campos en rojo.',
-                confirmButtonText: 'Entendido'
-            })
-        } else {
-            Swal.fire({
-                icon: 'success',
-                title: 'Registro realizado con éxito',
-                text: 'El usuario ha sido almacenado',
+                title: 'El usuario ya ha sido registrado',
+                text: 'Inténtelo de nuevo',
                 confirmButtonText: 'Entendido'
             });
+        } else {
+
+            let error = await registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud, contrasenna);
+            
+            if (error == false) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Algo salió mal',
+                    text: 'Inténtelo de nuevo',
+                    confirmButtonText: 'Entendido'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro realizado con éxito',
+                    text: 'El usuario ha sido registrado',
+                    confirmButtonText: 'Entendido'
+                });
+                resetForm();
+            }
+           
         }
-        resetForm();
     }
+
+
 };
 
 let generarContrasena = () => {

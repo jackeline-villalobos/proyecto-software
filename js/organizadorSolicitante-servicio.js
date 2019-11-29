@@ -1,7 +1,29 @@
 'use strict';
 
+let verificarCorreo = async(correo) => {
+    let resultado;
+
+    await axios({
+        method: 'get',
+        url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
+        responseType: 'json'
+    })
+    .then( async function(res){
+        console.log(res.data);
+        resultado = await res.data.resultado;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+
+
 let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
     
+    let resultado;
+
     let pcontrasenna = generarContrasena();
     await axios(
         {
@@ -25,13 +47,16 @@ let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, exp
             }
         }
     )
-    .then(function(res){
+    .then( async function(res){
         console.log(res.data);
+        resultado = await res.data;
     })
     
     .catch(function(error){
         console.log(error);
     });
+
+    return resultado;
     
 };
 

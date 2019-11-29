@@ -127,7 +127,7 @@ let resetForm = () => {
     input_genero.value = '';
 };
 
-let obtener_datos = () => {
+let obtener_datos = async () => {
 
     let nombreEmpresa = input_nombreEmpresa.value;
     let cedulaJuridica = input_cedulaJuridica.value;
@@ -150,17 +150,43 @@ let obtener_datos = () => {
             confirmButtonText: 'Entendido'
         })
     } else {
-        registrar_organizadorSolicitante(nombreEmpresa, cedulaJuridica, experiencia,
-            nombreComercial, provincia, canton, distrito, sennas, nombreCompleto,
-            correo, telefono, genero);
 
-        Swal.fire({
-            type: 'success',
-            title: 'La solicitud se envió con éxito',
-            text: 'Usted recibirá un correo en las próximas horas',
-            confirmButtonText: 'Entendido',
-        });
-        resetForm()
+        let errorCorreo = await verificarCorreo(correo);
+
+        if (!errorCorreo) {
+            input_correo.classList.add('error');
+            Swal.fire({
+                type: 'warning',
+                title: 'El usuario ya ha sido registrado',
+                confirmButtonText: 'Entendido'
+            });
+        } else {
+
+            let error = await registrar_organizadorSolicitante(nombreEmpresa, cedulaJuridica, experiencia,
+                nombreComercial, provincia, canton, distrito, sennas, nombreCompleto,
+                correo, telefono, genero);
+
+            if (error.resultado == false) {
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Algo salió mal',
+                    confirmButtonText: 'Entendido'
+                });
+            } else {
+                Swal.fire({
+                    type: 'success',
+                    title: 'La solicitud se envió con éxito',
+                    text: 'Usted recibirá un correo en las próximas horas',
+                    confirmButtonText: 'Entendido',
+                });
+                resetForm();
+            }
+
+
+        }
+
+
+
     };
 
 };

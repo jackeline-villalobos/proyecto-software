@@ -176,46 +176,58 @@ let obtener_datos = async() => {
         })
 
     } else {
-        let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion, imagen);
 
-        if (error.resultado == false) {
 
+        let correoError = await verificarCorreo(correo);
+
+        if(!correoError) {
+            input_correo.classList.add('error');
             Swal.fire({
                 type: 'warning',
                 title: 'El usuario ya ha sido registrado',
                 confirmButtonText: 'Entendido'
             });
-
         } else {
+            let error = await registrar_usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, fechaDeNacimiento, genero, provincia, canton, distrito, direccion, imagen);
 
-            //sessionStorage.setItem('idNuevoUsuario', error.data._id);
-
-            Swal.fire({
-                type: 'success',
-                title: 'Registro realizado con éxito',
-                text: 'El usuario ha sido registrado',
-                confirmButtonText: 'Entendido',
-                costumClass: 'modal',
-                onClose: function() {
-                    location.href = 'index.html';
-                }
-            });
-
-            input_primerNombre.value = '';
-            input_segundoNombre.value = '';
-            input_primerApellido.value = '';
-            input_segundoApellido.value = '';
-            input_correo.value = '';
-            input_FechaDeNacimiento.value = '';
-            input_genero.value = '';
-            slt_provicias.value = '';
-            slt_cantones.value = '';
-            slt_distritos.value = '';
-            input_direccion.value = ''
-
-
+            if (error.resultado == false) {
+    
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Algo salió mal',
+                    confirmButtonText: 'Entendido'
+                });
+    
+            } else {
+    
+                //sessionStorage.setItem('idNuevoUsuario', error.data._id);
+    
+                Swal.fire({
+                    type: 'success',
+                    title: 'Registro realizado con éxito',
+                    text: 'El usuario ha sido registrado',
+                    confirmButtonText: 'Entendido',
+                    costumClass: 'modal',
+                    onClose: function() {
+                        location.href = 'index.html';
+                    }
+                });
+    
+                input_primerNombre.value = '';
+                input_segundoNombre.value = '';
+                input_primerApellido.value = '';
+                input_segundoApellido.value = '';
+                input_correo.value = '';
+                input_FechaDeNacimiento.value = '';
+                input_genero.value = '';
+                slt_provicias.value = '';
+                slt_cantones.value = '';
+                slt_distritos.value = '';
+                input_direccion.value = ''
+    
+    
+            }
         }
-
 
     };
 }

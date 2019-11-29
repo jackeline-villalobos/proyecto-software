@@ -89,9 +89,10 @@ let obtenerDatos = async () => {
         let errorCorreo = await verificarCorreo(correoElectronico);
 
         if(!errorCorreo) {
+            inputCorreoElectronico.classList.add('error');
             Swal.fire({
                 icon: 'warning',
-                title: 'El correo ya existe',
+                title: 'El usuario ya ha sido registrado',
                 text: 'Inténtelo de nuevo',
                 confirmButtonText: 'Entendido'
             });
@@ -109,9 +110,9 @@ let obtenerDatos = async () => {
             } else {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Registro realizado con éxito.',
-                    text: 'El tipo de evento ha sido almacenado.',
-                    confirmButtonText: "Entendido"
+                    title: 'Registro realizado con éxito',
+                    text: 'El usuario ha sido registrado',
+                    confirmButtonText: 'Entendido'
                 });
             }
 
