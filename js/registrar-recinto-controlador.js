@@ -31,7 +31,7 @@ const btn_guardar = document.querySelector('#btn-registrar');
 
 
 // Tavo trying to check the email on the database.
-let enviarCorreoEncargado = async () => {
+let enviarCorreoEncargado = async() => {
 
     let listaEncargados = await listarEncargados();
     let verificarEncargado = false;
@@ -195,7 +195,7 @@ let resetForm = () => {
     input_longitud = "";
     //input_imagen.src = "imagenes/registrar-evento/outlined_placeholder-512.png";
 };
-let obtener_datos = async () => {
+let obtener_datos = async() => {
 
     let nombreRecinto = input_nombreRecinto.value;
     let capacidad = input_capacidad.value;
@@ -254,7 +254,7 @@ let obtener_datos = async () => {
                     text: 'El recinto ha sido almacenado',
                     confirmButtonText: 'Entendido',
                     costumClass: 'modal',
-                    onClose: function () {
+                    onClose: function() {
                         location.href = 'perfil-administrador.html';
                     }
                 });
@@ -270,7 +270,10 @@ let obtener_datos = async () => {
 btn_guardar.addEventListener('click', obtener_datos);
 btnCoordenadas.addEventListener('click', ubicarMap);
 
+
+/*
 google.maps.event.addListener(map, "click", function (e) {
 
     placeMarkerAndPanTo(e.latLng, map);
 });
+*/
