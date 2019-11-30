@@ -27,7 +27,7 @@ let llenarPerfil = async() => {
     h4.innerHTML = 'Capacidad de recinto: ' + capacidad;
 
     let asientosDiscapacitados = recinto.recinto.capacidadDiscapacitados;
-    h5.innerHTML = 'Asientos para discapacitados: ' + asientosDiscapacitados;
+    h5.innerHTML = 'Asientos especiales: ' + asientosDiscapacitados;
 
     let provincia = recinto.recinto.provincia;
     h6.innerHTML = 'Provincia: ' + provincia;

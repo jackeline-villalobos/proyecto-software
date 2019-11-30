@@ -1,6 +1,6 @@
-.filtro {
+/* .filtro {
     margin-left: 2%;
-}
+} */
 
 #cards-container {
     display: flow-root;
@@ -15,6 +15,13 @@ a {
 section {
     width: 80%;
     margin: auto;
+}
+
+section hr {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 600px;
+    border: 0.5px solid #F2610A;
 }
 
 .card {
@@ -95,8 +102,10 @@ section {
 }
 
 #txt-filtro {
+    margin-left: 1%;
+    width: 20%;
+    /* background: rgba(0, 0, 0, 0.2); */
     height: 32px;
-    width: 30%;
     border-radius: 10px;
     background-image: url("../imagenes/imagenes_generales/64673.png");
     background-position: 10px 7px;

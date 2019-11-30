@@ -42,9 +42,11 @@ let mostrarCards = async () => {
             boton.classList.add('btn-mas');
             boton.innerHTML = 'Ver más';
             boton.dataset._id = listaRecintos[i]['_id'];
+            boton.dataset.nombreRecinto = listaRecintos[i]['nombreRecinto'];
     
             boton.addEventListener('click', function () {
                 sessionStorage.setItem('idRecinto', this.dataset._id);
+                sessionStorage.setItem('nombreRecinto', this.dataset.nombreRecinto);
                 window.location.href = 'perfil-recinto.html';
             });
     
@@ -57,18 +59,6 @@ let mostrarCards = async () => {
             divCard.appendChild(boton);
 
         }
-        // else{
-            
-        //     Swal.fire({
-        //         icon: 'warning',
-        //         title: 'No se encontraron coincidencias con su búsqueda.',
-        //         text: 'Por favor intente con otro nombre.',
-        //         confirmButtonText: 'Entendido'
-        //     })
-
-        // }
-        
-
     }
 };
 
