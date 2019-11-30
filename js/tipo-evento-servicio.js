@@ -41,3 +41,24 @@ let listartipoEventos = async() => {
     return listatipoEventos;
 
 };
+
+/*
+let verificarNombre = async(nombre) => {
+    let resultado;
+
+    await axios({
+            method: 'get',
+            url: `http://localhost:3000/api/listar-tipo-evento/${nombre}`,
+            responseType: 'json'
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data.resultado;
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+
+    return resultado;
+}
+*/

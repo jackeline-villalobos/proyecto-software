@@ -18,7 +18,6 @@ let validar = () => {
 
     }
 
-
     return error;
 }
 
