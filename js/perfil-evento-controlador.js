@@ -33,10 +33,10 @@ let llenarEvento = async () =>{
         let fecha = evento.evento.fechas[i];
 
         let dia = document.createElement('h6');
-        dia.innerHTML = 'Fecha : ' + fechasArray[i]['fecha'];
+        dia.innerHTML = fechasArray[i]['fecha'];
         dia.classList.add('date')
         let hora = document.createElement('h6');
-        hora.innerHTML = 'Hora : ' + fechasArray[i]['hora'];
+        hora.innerHTML = fechasArray[i]['hora'];
         hora.classList.add('time')
 
         let divBotones = document.createElement('div');
