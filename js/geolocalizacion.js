@@ -20,7 +20,6 @@ function initMap() {
     });
 
     google.maps.event.addListener(map, "click", function(e) {
-
         placeMarkerAndPanTo(e.latLng, map);
     });
 
@@ -30,7 +29,8 @@ function placeMarkerAndPanTo(latLng, map) {
 
     var marker = new google.maps.Marker({
         position: latLng,
-        map: map
+        map: map,
+        draggable: true,
     });
 
 
@@ -45,14 +45,10 @@ function placeMarkerAndPanTo(latLng, map) {
     $("#longitud").val(lng);
 
 
-
-
-
 }
 
 function clearMarkers() {
-    setMapOnAll(null);
-    markers = [];
+    markers = null;
 }
 
 

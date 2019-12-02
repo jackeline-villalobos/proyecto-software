@@ -48,12 +48,6 @@ let llenarPerfil = async() => {
     parafo40.innerHTML = "Dirección:" + "<br>" + usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
     //parafo4.innerHTML = usuario.direccion + "<br>" + usuario.provincia + "<br>" + usuario.canton;
 
-    /*
-        parafo5.innerHTML = usuario.provincia;
-
-
-        parafo6.innerHTML = usuario.canton;
-    */
 
     container.appendChild(parafo1);
 
@@ -65,39 +59,6 @@ let llenarPerfil = async() => {
 
     container.appendChild(parafo40);
     container.appendChild(parafo4);
-
-    /*
-        container.appendChild(parafo5);
-
-
-        container.appendChild(parafo6);
-    */
-
-
-    /*
-    let nombre = usuario.usuario.nombre;
-    aNombre.innerHTML = "Nombre" + nombre;
-
-    let correo = usuario.usuario.correo;
-    aCorreo.innerHTML = 'Correo: ' + correo;
-
-    let genero = usuario.usuario.genero;
-    aGenero.innerHTML = 'Grado: ' + genero;
-
-    let direccion = usuario.usuario.direccion;
-    aDireccion.innerHTML = "Direccion" + direccion;
-
-    let provincia = usuario.usuario.provincia;
-    aProvincia.innerHTML = "Provincia" + provincia;
-
-    let distrito = usuario.usuario.distrito;
-    aDistrito.innerHTML = "Distrito" + distrito;
-
-    let canton = usuario.usuario.canton;
-    aCanton.innerHTML = "Canton" + canton;
-*/
-
-
 
 }
 
