@@ -32,16 +32,38 @@ let validarFechas = () => {
     } else {
         input_hora.classList.remove('error');
     };
-
-    if (input_asistentes.value == '') {
+    if (input_asistentes.value == '' || input_asistentes.value < 0) {
         error = true;
         input_asistentes.classList.add('error');
     } else {
         input_asistentes.classList.remove('error');
     };
 
+    
     return error;
 };
+
+    
+// let validarAsistentes = async() =>{
+//     let error = false;
+//     let evento = await buscarEvento(localStorage.getItem('idEvento'));
+    
+//     let nombreRecinto = evento.evento.lugar;
+    
+//     let recinto = await obtenerRecinto(nombreRecinto);
+    
+//     let capacidadRecinto = recinto[0].capacidad;
+    
+//     if(input_asistentes.value > capacidadRecinto || input_asistentes.value == ''){
+//         error = true;
+//         input_asistentes.classList.add('error');
+//         console.log('La cantidad de asistentes es mayor a la capacidad del recinto o es cero')
+//     }else{
+//         input_asistentes.classList.remove('error')
+//     };
+
+//     return error;
+// };
 
 let validarDescuentos = () => {
     let error = false;
@@ -86,7 +108,7 @@ let resetImpuestos = () => {
 };
 
 let agregarFecha = () => {
-
+    
     let fecha = input_fecha.value;
     let hora = input_hora.value;
     let asistentes = input_asistentes.value;
@@ -98,6 +120,7 @@ let agregarFecha = () => {
             text: 'Por favor, revise los campos en rojo.',
             confirmButtonText: 'Entendio'
         })
+        
     }else{
         agregar_fecha(fecha, hora, asistentes);
         resetFecha();
@@ -127,14 +150,14 @@ let agregarImpuestos = () => {
 
     let nombreImpuesto = slt_impuestos.value;
 
-    if (validarImpuestos()) {
+    if (validarImpuestos()){
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
             text: 'Por favor, revise los campos en rojo.',
             confirmButtonText: 'Entendio'
         })
-
+        preventDefault()
     } else {
         agregar_impuesto(nombreImpuesto);
         resetImpuestos();
@@ -167,7 +190,21 @@ let llenarImpuestos = async () => {
 
 llenarImpuestos();
 
-btn_agregarFecha.addEventListener('click', agregarFecha);
-btn_agregarDescuento.addEventListener('click', agregarDescuento);
-btn_agregarImpuesto.addEventListener('click', agregarImpuestos);
+
+
+btn_agregarFecha.addEventListener('click', function(e){
+    e.preventDefault();
+    agregarFecha();
+});
+
+btn_agregarDescuento.addEventListener('click', function(e){
+    e.preventDefault();
+    agregarDescuento();
+});
+
+btn_agregarImpuesto.addEventListener('click', function(e){
+    e.preventDefault();
+    agregarImpuestos();
+});
+
 btn_guardar.addEventListener('click', finalizar);
