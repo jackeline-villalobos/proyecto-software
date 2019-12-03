@@ -149,64 +149,6 @@ router.get('/listar-eventos', function (req, res) {
 
 });
 
-// router.get('/listar-impuestos', function(req, res) {
-
-//     Impuesto.find(
-//         function(err, impuestosBD) {
-//             if (err) {
-//                 res.json({
-//                     resultado: false,
-//                     msg: 'No se encontraron impuestos',
-//                     err
-//                 });
-//             } else {
-//                 res.json({
-//                     resultado: true,
-//                     impuestos: impuestosBD
-//                 });
-//             }
-//         }
-//     );
-// });
-
-
-// router.get('/listar-tipo-evento', function (req, res) {
-
-//     tipoEventos.find(
-//         function (err, tipoEventosBD) {
-//             if (err) {
-//                 res.json({
-//                     resultado: false,
-//                     msg: 'No se encontraron tipos de evento',
-//                     err
-//                 });
-//             } else {
-//                 res.json({
-//                     resultado: true,
-//                     tipoEventos: tipoEventosBD
-//                 });
-//             }
-//         }
-//     );
-// });
-
-
-// router.get('/listar-recintos', function (req, res) {
-//     Recinto.find(function (err, recintosBD) {
-//         if (err) {
-//             res.json({
-//                 resultado: false,
-//                 msg: 'No se encontraron recintos',
-//                 err
-//             });
-//         } else {
-//             res.json({
-//                 resultado: true,
-//                 recintos: recintosBD
-//             });
-//         }
-//     });
-// });
 
 router.post('/buscar-evento-id', function(req, res){
     Evento.findById({_id: req.body._id})

@@ -37,7 +37,7 @@ let validar = () => {
         input_cedulaJuridica.classList.remove('error');
     };
 
-    if (input_experiencia.value == '') {
+    if (input_experiencia.value == '' && input_experiencia.value > 0) {
         error = true;
         input_experiencia.classList.add('error');
     } else {
