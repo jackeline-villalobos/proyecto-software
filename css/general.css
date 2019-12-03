@@ -146,6 +146,17 @@ input {
     margin-bottom: 10px;
 }
 
+.input_registrar{
+    height: 32px;
+    width: 350px; 
+    border-radius: 2% !important;
+    border-bottom-color: #F2610A;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+}
+
 select{
     height: 38px;
     width: 210px;
@@ -168,6 +179,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 

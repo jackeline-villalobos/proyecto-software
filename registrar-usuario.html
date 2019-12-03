@@ -48,122 +48,134 @@
         <section class="section-main">
 
             <!--Formulario de registro-->
-            <div class="info-registro formulario">
+            <div class="info-registro ">
 
                 <h1>Regístrese</h1>
 
-                <form>
-                    <h4>Información personal</h4>
-                    <div class="nombres">
+                <div class="main_container">
 
-                        <div class="label_elementos">
-                            <label for="txt_primerNombre">Primer nombre: </label>
-                            <input type="text" placeholder="Primer nombre" id="txt_primerNombre">
-                        </div>
+                    <!--Subir foto de perfil-->
+                    <div class="subir-img-registro">
+                        <figure class="imageHolder">
+                            <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
+                                id="imagePreview">
+                        </figure>
 
-                        <div class="label_elementos2">
-                            <label for="txt_segundoNombre">Segundo nombre: </label>
-                            <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre">
-                        </div>
-                    </div>
-
-                    <div class="apellidos">
-
-                        <div class="label_elementos">
-                            <label for="txt_primerApellido">Primer apellido: </label>
-                            <input type="text" placeholder="Primer apellido" id="txt_primerApellido">
-                        </div>
-
-                        <div class="label_elementos2">
-                            <label for="txt_segundoApellido">Segundo apellido</label>
-                            <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido">
-                        </div>
+                        <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
 
 
-
-                    </div>
-
-                    <div class="correo-fecha">
-                        <div class="label_elementos">
-                            <label for="txt_correo">Correo electrónico: </label>
-                            <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo">
-                        </div>
-
-                        <div class="label_elementos2">
-                            <label for="input-fecha">Fecha de nacimiento</label>
-                            <input type="date" placeholder="Fecha de nacimiento" class="input-fecha"
-                                id="txt_fechaDeNacimiento">
-                        </div>
-
-                    </div>
-
-                    <div class="genero">
-                        <label for="txt_genero">Género: </label>
-                        <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero">
-                        <datalist id="datalist-genero">
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Otro">Otro</option>
-                            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-                        </datalist>
+                        <a class="terminos" href="terminos-condiciones.html" class="link-terminos">Al continuar Ud. acepta los Términos y condiciones</a>
                     </div>
 
 
+                    <form>
+                        <h4>Información personal</h4>
+                        <div class="nombres">
+
+                            <div class="label_elementos">
+                                <label for="txt_primerNombre">Primer nombre: </label>
+                                <input type="text" placeholder="Primer nombre" id="txt_primerNombre"
+                                    class="input_registrar">
+                            </div>
+
+                            <div class="label_elementos2">
+                                <label for="txt_segundoNombre">Segundo nombre: </label>
+                                <input type="text" placeholder="Segundo nombre" id="txt_segundoNombre"
+                                    class="input_registrar">
+                            </div>
+                        </div>
+
+                        <div class="apellidos">
+
+                            <div class="label_elementos">
+                                <label for="txt_primerApellido">Primer apellido: </label>
+                                <input type="text" placeholder="Primer apellido" id="txt_primerApellido"
+                                    class="input_registrar">
+                            </div>
+
+                            <div class="label_elementos2">
+                                <label for="txt_segundoApellido">Segundo apellido</label>
+                                <input type="text" placeholder="Segundo apellido" id="txt_segundoApellido"
+                                    class="input_registrar">
+                            </div>
 
 
-                    <!--Direccion-->
-                    <div class="direccion">
-                        <h4>Dirección</h4>
 
-                        <div class="direccion-provincia">
+                        </div>
 
-                            <div class="form_control">
-                                <input type="text" placeholder="Dirección" id="direccion">
+                        <div class="correo-fecha">
+                            <div class="label_elementos">
+                                <label for="txt_correo">Correo electrónico: </label>
+                                <input type="text" autocomplete="email" placeholder="Correo" id="txt_correo"
+                                    class="input_registrar">
+                            </div>
+
+                            <div class="label_elementos2">
+                                <label for="input-fecha">Fecha de nacimiento</label>
+                                <input type="date" placeholder="Fecha de nacimiento" class="input-fecha input_registrar"
+                                    id="txt_fechaDeNacimiento">
+                            </div>
+
+                        </div>
+
+                        <div class="genero">
+                            <label for="txt_genero">Género: </label>
+                            <input list="datalist-genero" autocomplete="sex" placeholder="Género" id="txt_genero"
+                                class="input_registrar">
+                            <datalist id="datalist-genero">
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Otro">Otro</option>
+                                <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                            </datalist>
+                        </div>
 
 
-                                <select class="form_input label_elementos2" name="provincia" id="provincias">
-                                    <option value="" hidden>Provincia</option>
-                                </select>
+
+
+                        <!--Direccion-->
+                        <div class="direccion">
+                            <h4>Dirección</h4>
+
+                            <div class="direccion-provincia">
+
+                                <div class="form_control">
+                                    <input type="text" placeholder="Dirección" id="direccion">
+
+
+                                    <select class="form_input label_elementos2" name="provincia" id="provincias">
+                                        <option value="" hidden>Provincia</option>
+                                    </select>
+
+
+                                </div>
 
 
                             </div>
 
+                            <div class="canton-distrito">
+                                <div class="form_control">
+                                    <select class="form_input" name="canton" id="cantones">
+                                        <option value="" hidden>Cantón</option>
+                                    </select>
+                                </div>
 
+                                <div class="form_control label_elementos2">
+                                    <select class="form_input" name="distrito" id="distritos">
+                                        <option value="" hidden>Distrito</option>
+                                    </select>
+                                </div>
+
+                            </div>
                         </div>
 
-                        <div class="canton-distrito">
-                            <div class="form_control">
-                                <select class="form_input" name="canton" id="cantones">
-                                    <option value="" hidden>Cantón</option>
-                                </select>
-                            </div>
+                    </form>
 
-                            <div class="form_control label_elementos2">
-                                <select class="form_input" name="distrito" id="distritos">
-                                    <option value="" hidden>Distrito</option>
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </form>
-
-                <!--Subir foto de perfil-->
-                <div class="subir-img-registro">
-                    <figure class="imageHolder">
-                        <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
-                            id="imagePreview">
-                    </figure>
-
-                    <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
                 </div>
 
 
-                <a class="terminos" href="terminos-condiciones.html" class="link-terminos">Al continuar Ud. acepta los Términos y
-                    condiciones</a>
                 <button type="button" class="btn-registar" id="btn-registrar">Registrarse</button>
-                
+
             </div>
 
         </section>
@@ -182,8 +194,8 @@
                 <li>CR Tickets</li>
             </a>
             <a href="seleccionar-tipo-organizador.html">
-                    <li>Conviértase en organizador</li>
-                </a>
+                <li>Conviértase en organizador</li>
+            </a>
             <a href="terminos-condiciones.html">Terminos y condiciones</a>
 
         </div>
