@@ -50,7 +50,7 @@ let mostrarInfo = async () => {
     nombre_container.appendChild(sApellido);
 
     //Informacion
-
+ 
     let fechaDeNacimiento = usuario.fechaDeNacimiento;
     let fnacimiento = document.createElement('p');
     fnacimiento.innerText = fechaDeNacimiento.substring(0,10);

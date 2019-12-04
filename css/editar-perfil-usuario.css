@@ -1,0 +1,68 @@
+main{
+    margin: 5%;
+}
+h3{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h4{
+    margin-bottom: 20px;
+}
+
+hr{
+    border: 1px solid #F2610A;
+}
+
+.informacion{
+    margin-top: 50px;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.input_editar{
+    background-image: url("../imagenes/imagenes_generales/pencil-edit-button\ \(1\).png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: right;
+    border-bottom-color: #000000 !important;
+}
+
+.informacion_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 5%;
+}
+
+.slt_direccion{
+    width: 380px;
+    height: 45px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.subir-img-registro{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+#imagePreview{
+    width: 300px;
+    height: 300px;
+}
+
+.Btn_guardarCambios{
+    height: 40px;
+    width: 130px;
+    font-size: 13px;
+    margin-left: 45%;
+}

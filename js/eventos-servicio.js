@@ -172,7 +172,7 @@ let listarRecintos = async() => {
     return listaRecintos;
 };
 
-let buscarEvento = async () =>{
+let buscarEvento = async (idEvento) =>{
 
     let evento;
 
@@ -184,8 +184,8 @@ let buscarEvento = async () =>{
             _id: idEvento
         }
     })
-    .then( async function(res){
-        evento = await res.data;
+    .then(function(res){
+        evento = res.data;
     })
     .catch(function(error){
         console.log(error);

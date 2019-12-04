@@ -51,7 +51,7 @@ let validar = () => {
         input_descripcion.classList.remove('error');
     };
 
-    if (input_precioEntrada.value == '') {
+    if (input_precioEntrada.value == '' && input_precioEntrada > 0) {
         error = true;
         input_precioEntrada.classList.add('error');
     } else {
@@ -142,4 +142,4 @@ llenarTipoEventos();
 
 btn_guardar.addEventListener ('click', obtener_datos)
 
-// btn_agregarFecha.addEventListener('click', agregarEspacioFecha);
+
