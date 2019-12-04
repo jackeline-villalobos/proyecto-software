@@ -15,7 +15,7 @@ let mostrarCards = async () => {
     for (let i = 0; i < listaEventos.length; i++) {
         let nombre = listaEventos[i]['nombre'].toLowerCase();
         let imagen = listaEventos[i]['imagen'];
-        let fechas = Date(listaEventos[i]['fechas'['fecha']]);
+        let fechas = new Date(listaEventos[i]['fechas']['fecha']);
         let hoy = new Date();
         // let ahora = Date.now();
 
@@ -25,7 +25,7 @@ let mostrarCards = async () => {
         
         
 
-        if (fechas > hoy) {
+        if (fechas >= hoy) {
             let cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
