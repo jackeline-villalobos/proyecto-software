@@ -70,7 +70,7 @@ let mostrarCards = async () => {
             console.log(annoEvento, mesEvento, fechaDiaEvento, horaEvento, minutosEvento, segundosEvento);
 
             console.log(fechaHoy);
-            console.log(fechaEvento);
+            console.log(nombre, fechaEvento);
             
 
 
