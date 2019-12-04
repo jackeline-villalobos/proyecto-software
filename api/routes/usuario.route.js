@@ -488,7 +488,7 @@ router.post('/buscar-usuario', function(req, res) {
 
 
 
-router.post("/recuperar-contrasenna", function (req, res) {
+router.post('/recuperar-contrasenna', function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
@@ -570,7 +570,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                     
                         <div class="info_credenciales">
                             <p>Saludos</p>
-                            <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                            <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                             <br>
                             
                             <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
@@ -682,7 +682,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                 
                                     <div class="info_credenciales">
                                         <p>Saludos</p>
-                                        <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                        <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                         <br>
                                         
                                         <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
@@ -888,7 +888,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                             
                                                 <div class="info_credenciales">
                                                     <p>Saludos</p>
-                                                    <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                                    <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                                     <br>
                                                     
                                                     <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
@@ -1094,7 +1094,7 @@ router.post("/recuperar-contrasenna", function (req, res) {
                                                         
                                                             <div class="info_credenciales">
                                                                 <p>Saludos</p>
-                                                                <p>Puedes ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
+                                                                <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                                                 <br>
                                                                 
                                                                 <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
