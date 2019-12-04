@@ -75,3 +75,26 @@ p{
     width: 15%;
     height: 600px;
 }
+
+.boton_editar{
+    border: 0.5px solid #616161;
+    border-radius: 100%;
+    padding: 7px;
+    background-color: #ffffff;
+    margin-top: -40px;
+    margin-left: 90px;
+    width: 30px;
+    height: 30px;
+}
+.boton_editar:hover{
+    cursor: pointer;
+    background-color: #1EBB2D;
+}
+
+.editar_icono{
+    width: 15px;
+}
+
+#a{
+    margin-bottom: 1px !important;
+}
