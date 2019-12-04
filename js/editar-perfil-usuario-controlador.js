@@ -50,29 +50,11 @@ let validar = () => {
     }
 
 
-    if (inputSegundoNombre.value == 0) {
-        error = true;
-        inputSegundoNombre.classList.add('error');
-    } else {
-        inputSegundoNombre.classList.remove('error');
-    }
-
-
-
     if (inputPrimerApellido.value == 0) {
         error = true;
         inputPrimerApellido.classList.add('error');
     } else {
         inputPrimerApellido.classList.remove('error');
-    }
-
-
-    if (inputSegundoApellido.value == 0) {
-        error = true;
-        inputSegundoApellido.classList.add('error');
-
-    } else {
-        inputSegundoApellido.classList.remove('error');
     }
 
 
@@ -149,9 +131,6 @@ let obtenerDatos = async () => {
                     sessionStorage.removeItem('segundoApellido');
                     sessionStorage.removeItem('genero');
                     sessionStorage.removeItem('direccion');
-                    sessionStorage.removeItem('provincia');
-                    sessionStorage.removeItem('canton');
-                    sessionStorage.removeItem('distrito');
                     location.href = 'perfil-usuario.html';
                 }
             });
@@ -163,9 +142,6 @@ let obtenerDatos = async () => {
         inputSegundoApellido.value = '';
         dataListGenero.value = '';
         inputDireccion.value = '';
-        sltProvincias.value = '';
-        sltCantones.value = '';
-        sltDistritos.value = '';
 
     }
 
