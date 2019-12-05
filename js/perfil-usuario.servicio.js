@@ -55,7 +55,39 @@ let perfilUsuario = async() => {
 
 }
 
+//Editar perfil
 
+let editarPerfil = async (_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) =>{
+
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/editar-perfil-usuario',
+        responseType: 'json',
+        data: {
+            _id: _id,
+            primerNombre: primerNombre,
+            segundoNombre: segundoNombre,
+            primerApellido: primerApellido,
+            segundoApellido: segundoApellido,
+            genero: genero,
+            direccion: direccion,
+            provincia: provincia,
+            canton: canton,
+            distrito: distrito
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(error){
+        console.log(err)
+    });
+
+    return resultado;
+
+}
 
 
 
