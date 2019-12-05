@@ -1,5 +1,5 @@
 .container {
-    height: 70%;
+    height: 80%;
     /* background: rebeccapurple; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);

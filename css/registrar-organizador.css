@@ -1,18 +1,26 @@
 header{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 main{
-    width: 60%;
+    width: 70%;
     margin: auto;
     margin-bottom: 60px;
 }
 .formulario{
-    padding-bottom: 60px;
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr 0.3fr 0.5fr;
+    grid-gap: 50px;
+    border: 0;;
 }
-.frm-organizador{
-    width: 90%;
-    margin: auto;
+.formulario h1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.formulario .terminos, .formulario .btn-enviarInfo{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
 }
 label {
     font-family: 'Montserrat', sans-serif;
@@ -20,29 +28,48 @@ label {
     font-size: 16px;
     margin-bottom: 5px;
 }
-.inline{
-    display: inline-block;
-    margin-left: 5%;
-}
+
 .input{
-    width: 210px;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 select{
     height: 30px;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
 }
-.margin5{
-    margin-left: 5%;
-}
-h6{
-    margin-left: 5%;
-}
+
 textarea{
-    border-radius: 10px;
-    height: 80px;
-    margin-left: 5%;
+    height: 50px;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
 }
-.btn-enviarInfo{
-    margin-left: 5%;
+#txt-nombreCompleto{
+    background-image: url(../imagenes/registrar-usuario/user.png);
+    background-repeat: no-repeat;
+}
+#txt_correo{
+    background-image: url(../imagenes/registrar-usuario/email.png);
+    background-repeat: no-repeat;
+}
+#txt-telefono{
+    background-image: url(../imagenes/registrar-usuario/phone.png);
+    background-repeat: no-repeat;
 }
 .terminos{
     display: block;
@@ -51,8 +78,11 @@ textarea{
     font-size: 14px;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 5%;
 }
 .terminos:hover{
     color: #F2610A;
+}
+#btn-enviarInfo{
+    width: 130px;
+    height: 40px;
 }

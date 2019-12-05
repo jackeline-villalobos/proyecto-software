@@ -18,6 +18,8 @@ main{
     margin-top: 50px;
 }
 .boton{
+    width: 150px;
+    height: 40px;
     display: inline-block;
     margin: 0 10px 0 10px;
 }

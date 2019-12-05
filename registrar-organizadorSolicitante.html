@@ -42,11 +42,9 @@
     </header>
     <!-- frontera con ejemplo -->
     <main>
-
         <form class="formulario">
-            <div class="frm-organizador">
-                <h1>Conviértase en organizador</h1>
-
+            <h1>Conviértase en organizador</h1>
+            <div class="infoEmpresarial">
                 <h6>Información empresarial</h6>
                 <div class="inline">
                     <label for="txt-nombreEmpresa">Nombre de la empresa:</label>
@@ -64,27 +62,34 @@
                     <label for="txt-nombreComercial">Nombre comercial</label>
                     <input type="text" id="txt-nombreComercial" placeholder="Nombre Comercial" class="input">
                 </div>
-
+            </div>
+            <div class="direccion">
                 <h6>Dirección</h6>
-
-                <select class="form_input margin5" name="provincia" id="provincias" class="input">
-                    <option value="" hidden>Provincia</option>
-                </select>
-                <div class="canton-distrito">
-                    <div class="form_control">
-                        <select class="form_input margin5" name="canton" id="cantones">
-                            <option value="" hidden>Cantón</option>
-                        </select>
-                    </div>
-
-                    <div class="form_control">
-                        <select class="form_input margin5" name="distrito" id="distritos">
-                            <option value="" hidden>Distrito</option>
-                        </select>
-                    </div>
+                <div>
+                    <label for="provincias">Provincia</label>
+                    <select class="form_input" name="provincia" id="provincias" class="input">
+                        <option value="" hidden>Provincia</option>
+                    </select>
                 </div>
-                <textarea id="txt-sennas" placeholder="     Señas" class="input"></textarea>
+                <div>
+                    <label for="cantones">Cantón</label>
+                    <select class="form_input" name="canton" id="cantones">
+                        <option value="" hidden>Cantón</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="distritos">Distrito</label>
+                    <select class="form_input" name="distrito" id="distritos">
+                        <option value="" hidden>Distrito</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="txt-sennas">Señas</label>
+                    <textarea id="txt-sennas" placeholder="     Señas" class="input"></textarea>
+                </div>
 
+            </div>
+            <div class="infoContacto">
                 <h6>Información de contacto</h6>
                 <div class="inline">
                     <label for="txt-nombreCompleto">Nombre completo</label>
@@ -108,15 +113,11 @@
                         <option value="Prefiero no decirlo">Prefiero no decirlo</option>
                     </select>
                 </div>
-
-
-
-                <a class="terminos" href="terminos-condiciones.html">Al continuar Ud. acepta los Términos y
-                    condiciones</a>
-                <button type="button" class="btn-enviarInfo" id="btn-enviarInfo">Enviar solicitud</button>
-
             </div>
 
+            <a class="terminos" href="terminos-condiciones.html">Al continuar Ud. acepta los Términos y
+                condiciones</a>
+            <button type="button" class="btn-enviarInfo" id="btn-enviarInfo">Enviar solicitud</button>
         </form>
 
     </main>
