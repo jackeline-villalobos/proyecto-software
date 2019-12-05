@@ -48,19 +48,26 @@
             <div class="h2-registrar-evento">
                 <h2>Registrar Evento</h2>
             </div>
+            <div class="slider-fotos-registrar-evento">
+                <figure class="imageHolder">
+                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
+                        id="imagePreview">
+                </figure>
+                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
+            </div>
             <form class="form-registrar-evento">
                 <div>
-                    <label for="txt-nombre">Nombre:</label>
+                    <label for="txt-nombre">Nombre:<span>*</span></label>
                     <input type="text" id="txt-nombre" placeholder="Nombre">
                 </div>
                 <div>
-                    <label for="txt-tipoDeEventos">Tipo de eventos:</label>
+                    <label for="txt-tipoDeEventos">Tipo de eventos:<span>*</span></label>
                     <select id="txt-tipoDeEventos">
                         <option value="" hidden>Tipo de eventos</option>
                     </select>
                 </div>
                 <div>
-                    <label for="txt-pais">País:</label>
+                    <label for="txt-pais">País:<span>*</span></label>
                     <select id="txt-pais">
                         <option value="" hidden>País</option>
                         <option value="AF">Afghanistan</option>
@@ -315,30 +322,22 @@
                     </select>
                 </div>
                 <div>
-                    <label for="txt-lugar">Lugar:</label>
+                    <label for="txt-lugar">Lugar:<span>*</span></label>
                     <select id="txt-lugar">
                         <option value="" hidden>Lugar</option>
                     </select>
                 </div>
 
                 <div>
-                    <label for="txt-descripcion">Descripción:</label>
+                    <label for="txt-descripcion">Descripción:<span>*</span></label>
                     <textarea id="txt-descripcion" placeholder="Descripción"></textarea>
                 </div>
                 <div>
-                    <label for="txt-precioEntrada">Precio por entrada:</label>
+                    <label for="txt-precioEntrada">Precio por entrada:<span>*</span></label>
                     <input type="number" id="txt-precioEntrada" placeholder="Precio por entrada">
                 </div>
 
             </form>
-            <!-- slider -->
-            <div class="slider-fotos-registrar-evento">
-                <figure class="imageHolder">
-                    <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
-                        id="imagePreview">
-                </figure>
-                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
-            </div>
 
             <button type="button" id="btn-guardar-registrar-evento">Siguiente</button>
 
