@@ -1291,7 +1291,7 @@ router.get('/buscar-usuario-registro/:correo', function (req, res) {
 
 router.post('/editar-perfil-usuario', function(req, res) {
     let body = req.body;
-    usuario.updateOne({ _id: body._id }, {
+    Usuario.updateOne({ _id: body._id }, {
             $set: {
                 primerNombre: body.primerNombre,
                 segundoNombre: body.segundoNombre,
