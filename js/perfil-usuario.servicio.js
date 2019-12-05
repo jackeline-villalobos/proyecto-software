@@ -57,7 +57,7 @@ let perfilUsuario = async() => {
 
 //Editar perfil
 
-let editarPerfil = async (_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) =>{
+let editarInformacionUsuario = async (_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) =>{
 
     let resultado;
     await axios({

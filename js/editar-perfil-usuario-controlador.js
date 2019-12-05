@@ -109,7 +109,7 @@ let obtenerDatos = async () => {
         })
 
     } else {
-        let error = await editarInformacionUsuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, canton, distrito);
+        let error = await editarInformacionUsuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia,canton, distrito);
 
         if (error.resultado == false) {
 
@@ -131,6 +131,9 @@ let obtenerDatos = async () => {
                     sessionStorage.removeItem('segundoApellido');
                     sessionStorage.removeItem('genero');
                     sessionStorage.removeItem('direccion');
+                    sessionStorage.removeItem('provincia');
+                    sessionStorage.removeItem('canton');
+                    sessionStorage.removeItem('distrito');
                     location.href = 'perfil-usuario.html';
                 }
             });
