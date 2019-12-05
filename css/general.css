@@ -138,12 +138,23 @@ p{
 
 input {
     height: 32px;
-    width: 172px;
+    width: 200px;
     border-radius: 10px;
     background-position: 10px 7px;
     background-size: 15px 15px;
     padding-left: 30px;
     margin-bottom: 10px;
+}
+
+.input_registrar{
+    height: 32px;
+    width: 350px; 
+    border-radius: 2% !important;
+    border-bottom-color: #F2610A;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
 }
 
 select{
@@ -168,6 +179,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 

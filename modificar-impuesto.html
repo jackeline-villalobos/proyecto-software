@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <title>Editar impuesto</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/ejemplo.css">
-    <!-- <link rel="stylesheet" href="css/index.css"> -->
-    <link rel="stylesheet" href="css/primer-cambio-contrasenna.css">
-    <link rel="stylesheet" href="css/cambiar-contrasenna-por-olvido.css">
+    <link rel="stylesheet" href="css/registrar-impuestos.css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
-
-    <title>Recuperar contraseña</title>
-
 </head>
 
 <body>
@@ -51,31 +44,29 @@
         </div>
     </header>
 
-    <main>
 
-        <div>
-            <h1>Recuperar contraseña</h1>
-            <p>Por favor ingrese su dirección de correo electrónico para enviarle su contraseña.</p>
-
-            <form action="">
-
-                <input type="text" id="txt-direccionCorreo" placeholder="Dirección de correo electrónico">
-
-                <button type="button" id="btn-enviar">Enviar</button>
-
-                <!-- <button type="button" id="btn-siguiente">Siguiente</button> -->
-                <!-- <input type="submit"> -->
+    <div class="main-title">
+        <h1>Editar impuesto</h1>
+    </div>
 
 
-                <!-- <textarea id="myText">
-                        Lorem ipsum...
-                    </textarea>
-                    <button onclick="receiveMail(); return true">Send</button> -->
+    <div class="form-container">
+        <form>
+            <div>
+                <label for="txt-nombreImpuesto">Nombre</label>
+                <input class="input_registrar" type="text" id="txt-nombreImpuesto" placeholder="Nombre del impuesto">
+            </div>
 
-            </form>
-        </div>
+            <div>
+                <label for="txt-porcentaje">Porcentaje</label>
+                <input class="input_registrar" type="number" id="txt-porcentaje" placeholder="Porcentaje">
+            </div>
 
-    </main>
+
+            <button type="button" id="btn-guardar">Guardar</button>
+
+        </form>
+    </div>
 
     <footer>
 
@@ -88,8 +79,8 @@
                 <li>CR Tickets</li>
             </a>
             <a href="seleccionar-tipo-organizador.html">
-                    <li>Conviértase en organizador</li>
-                </a>
+                <li>Conviértase en organizador</li>
+            </a>
             <a href="terminos-condiciones.html">Terminos y condiciones</a>
 
         </div>
@@ -120,12 +111,15 @@
             </div> -->
 
     </footer>
-
-    <!-- <script src="js/controlador-nav.js"></script> -->
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/recuperar-contrasenna-por-olvido-servicio.js"></script>
-    <script src="js/recuperar-contrasenna-por-olvido-controlador.js"></script>
+    <script src="js/impuestos-servicio.js"></script>
+    <script src="js/modificar-impuesto-controlador.js"></script>
+   
+
+
 </body>
 
 </html>

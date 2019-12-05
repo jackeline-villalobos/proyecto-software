@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/editar-perfil-usuario.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Editar perfil usuario</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
+        </div>
+        <div class="botones-header" id="btns-header">
+
+            <a href="iniciar-sesion.html">
+                <button type="button">Iniciar sesión</button>
+            </a>
+
+            <a href="registrar-usuario.html">
+                <button type="button" class="btn-registrarse">Registrarse</button>
+            </a>
+
+            <a href="iniciar-sesion.html">
+                <button type="button" class="btn-registrarse" id="btn-cerrarSesion">Cerrar sesión</button>
+            </a>
+
+            <a href="perfil-usuario.html" class="href-perfil">
+                <div id="foto-usuario">
+
+                </div>
+            </a>
+
+        </div>
+    </header>
+
+    <main>
+        <h3>Editar perfil</h3>
+        <hr>
+        <section class="informacion">
+            <div class="informacion_container">
+
+                <div class="informacion_container_nombre">
+                    <h4>Información personal</h4>
+                    <div>
+                        <label for="primerNombre_txt">Primer nombre</label>
+                        <input type="text" class="input_editar input_registrar" id="primerNombre_txt">
+                    </div>
+
+                    <div>
+                        <label for="segundoNombre_txt">Segundo nombre</label>
+                        <input type="text" class="input_editar input_registrar" id="segundoNombre_txt">
+                    </div>
+
+
+                    <div>
+                        <label for="primerApellido_txt">Primer apellido</label>
+                        <input type="text" class="input_editar input_registrar" id="primerApellido_txt">
+                    </div>
+
+
+                    <div>
+                        <label for="segundoApellido_txt">Segundo apellido </label>
+                        <input type="text" class="input_editar input_registrar" id="segundoApellido_txt">
+                    </div>
+
+                    <div class="informacion2_container">
+                        <div class="genero">
+                            <label for="txt_genero">Género: </label>
+                            <input list="datalist-genero" autocomplete="sex" id="txt_genero"
+                                class="input_registrar input_editar">
+                            <datalist id="datalist-genero">
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Otro">Otro</option>
+                                <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="informacion_container_direccion">
+                    <h4>Dirección</h4>
+                    <div>
+                        <label for="direccion_txt">Dirección</label>
+                        <input type="text" class="input_editar input_registrar" id="direccion_txt">
+                    </div>
+
+                    <div>
+                        <select class="form_input label_elementos2 slt_direccion" name="provincia" id="provincias">
+                            <option value="" hidden>Provincia</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form_input slt_direccion" name="canton" id="cantones">
+                            <option value="" hidden>Cantón</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form_input slt_direccion" name="distrito" id="distritos">
+                            <option value="" hidden>Distrito</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <button type="button" class="Btn_guardarCambios" id="Btn_guardarCambios">Guardar cambios</button>
+        </section>
+    </main>
+
+    <footer>
+
+        <div>
+            <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <a href="landing-page.html">
+                <li>CR Tickets</li>
+            </a>
+            <a href="seleccionar-tipo-organizador.html">
+                <li>Conviértase en organizador</li>
+            </a>
+            <a href="terminos-condiciones.html">Terminos y condiciones</a>
+
+        </div>
+        <div class="redes-footer">
+            <h3>Siganos en</h3>
+            <ul>
+                <i class="fab fa-facebook" class="i-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </ul>
+        </div>
+        <div>
+            <h3>Contacto</h3>
+            <p>Tel: 2233-4455</p>
+            <a href="mailto:equiponebula2019@gmail.com?subject=Consulta de eventos">
+                <li>Correo: equiponebula2019@gmail.com</li>
+            </a>
+            <a href="landin-page-equipo.html">
+                <li>Diseño y desarrollo: Equipo Nebula</li>
+            </a>
+        </div>
+        <!-- <div>
+                    <h3>Eventos</h3>
+                    <li>Deportes</li>
+                    <li>Conciertos</li>
+                    <li>Culturales</li>
+                    <li>Comedia</li>
+                </div> -->
+
+    </footer>
+
+    <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/lugares_ubicaciones.js"></script>
+    <script src="js/perfil-usuario.servicio.js"></script>
+    <script src="js/editar-perfil-usuario-controlador.js"></script>
+</body>
+
+</html>
