@@ -32,22 +32,26 @@ if (conectado) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-administrador.html');
+        botonesHeader[2].classList.add('ocultar');
     }
 
     if (gradoUsuario == 2) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-encargado.html');
+        botonesHeader[2].classList.add('ocultar');
     }
     if (gradoUsuario == 3) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-organizador.html');
+        botonesHeader[2].classList.add('ocultar');
     }
     if (gradoUsuario == 5) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-empresa.html');
+        botonesHeader[2].classList.add('ocultar');
     }
 
 } else {
