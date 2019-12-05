@@ -53,6 +53,7 @@ if (conectado) {
 } else {
     botonesHeader[2].classList.add('ocultar');
     botonesHeader[3].classList.add('ocultar');
+    botonesHeader[4].classList.add('ocultar');
 }
 
 
