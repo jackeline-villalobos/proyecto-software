@@ -1287,5 +1287,40 @@ router.get('/buscar-usuario-registro/:correo', function (req, res) {
     });
 });
 
+//Editar perfil usuario
+
+router.post('/editar-perfil-usuario', function(req, res) {
+    let body = req.body;
+    usuario.updateOne({ _id: body._id }, {
+            $set: {
+                primerNombre: body.primerNombre,
+                segundoNombre: body.segundoNombre,
+                primerApellido: body.primerApellido,
+                segundoApellido: body.segundoApellido,
+                genero: body.genero,
+                direccion: body.direccion,
+                provincia: body.provincia,
+                canton: body.canton,
+                distrito: body.distrito
+            }
+        },
+        function(error, info) {
+            if (error) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo editar el perfil del usuario',
+                    err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                })
+            }
+        }
+    )
+});
+
+
 
 module.exports = router;
