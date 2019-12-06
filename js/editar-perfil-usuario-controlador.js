@@ -127,6 +127,7 @@ let obtenerDatos = async () => {
             Swal.fire({
                 icon: 'warning',
                 title: 'La información del perfil no se ha podido editar correctamente',
+                text: 'Por favor revise los campos en rojo',
                 confirmButtonText: 'Entendido'
             })
         }else{

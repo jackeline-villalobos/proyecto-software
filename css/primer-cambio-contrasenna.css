@@ -1,21 +1,32 @@
-p{
-    margin-bottom: 25px;
-}
-
-main{
+.container{
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-.formulario{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    margin-bottom: 50px;
+#btn-cambiarContrasenna{
+    margin-top: 30px;
 }
 
-.diferente{
-    border: 2px solid #d63031;
+.input_registrar{
+    margin-bottom: 15px;
+}
+
+.contra1{
+    background-image: url("../imagenes/imagenes_generales/unlock.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
+}
+
+.contra2{
+    background-image: url("../imagenes/imagenes_generales/lock.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
 }
