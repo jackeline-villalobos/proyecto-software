@@ -1,7 +1,7 @@
 'use strict'
 
 const input_primerCodigo = document.querySelector('#primer-codigo');
-const input_nuevaContresenna = document.querySelector('#contrasenna-nueva');
+const input_nuevaContrasenna = document.querySelector('#contrasenna-nueva');
 const input_verificarContrasenna = document.querySelector('#verificar-contrasenna');
 const btn_cambiarContrasenna = document.querySelector('#btn-cambiarContrasenna');
 
@@ -18,11 +18,11 @@ let validar = () => {
         input_primerCodigo.classList.remove('error');
     }
 
-    if (input_nuevaContresenna.value == 0) {
+    if (input_nuevaContrasenna.value == 0) {
         error = true;
-        input_nuevaContresenna.classList.add('error');
+        input_nuevaContrasenna.classList.add('error');
     } else {
-        input_nuevaContresenna.classList.remove('error');
+        input_nuevaContrasenna.classList.remove('error');
     }
 
     if (input_verificarContrasenna.value == 0) {
@@ -35,16 +35,16 @@ let validar = () => {
 
     //Verificar contraseñas
 
-    if(input_nuevaContresenna !== input_verificarContrasenna){
+    if(input_nuevaContrasenna !== input_verificarContrasenna){
 
-        input_nuevaContresenna.classList.remove('error');
+        input_nuevaContrasenna.classList.remove('error');
         input_verificarContrasenna.classList.remove('error');
         console.log('Las contraseñas nuevas coinciden')
 
     }else{
 
         error = true;
-        input_nuevaContresenna.classList.add('error');
+        input_nuevaContrasenna.classList.add('error');
         input_verificarContrasenna.classList.add('error');
 
         console.log('Las contraseñas nuevas no coinciden');
@@ -63,7 +63,7 @@ let validar = () => {
 }
 
 let obtenerDatos = async () =>{
-    let contresenna = input_nuevaContresenna.value;
+    let nuevaContrasenna = input_nuevaContrasenna.value;
 
     if(validar()){
         Swal.fire({
@@ -73,7 +73,7 @@ let obtenerDatos = async () =>{
             confirmButtonText: 'Entendido'
         })
     }else{
-        let error = await cambiarContrasenna(idUsuario, contresenna);
+        let error = await cambiarContrasenna(idUsuario, nuevaContrasenna);
 
         if(error.resultado == false){
             Swal.fire({
@@ -89,7 +89,7 @@ let obtenerDatos = async () =>{
                 text: 'La información del perfil ha sido modificado',
                 confirmButtonText: "Entendido",
                 onClose: function() {
-                    sessionStorage.removeItem('nuevaContresenna');
+                    sessionStorage.removeItem('contrasenna');
                     location.href = 'perfil-usuario.html';
                 }
             });

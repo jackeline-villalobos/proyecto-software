@@ -1330,7 +1330,7 @@ router.post('/primer-cambio-contrasenna', function (req, res) {
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
         $set: {
-            contrasenna: body.contrasenna
+            nuevaContrasenna: body.contrasenna
         }
     },
 
@@ -1350,7 +1350,7 @@ router.post('/primer-cambio-contrasenna', function (req, res) {
         }
     )
 
-})
+});
 
 
 
