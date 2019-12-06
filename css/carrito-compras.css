@@ -42,7 +42,9 @@ hr {
 
 /* Contenedor central */
 
-
+.contenedor-entrada .cantidad-entradas {
+    /* background: rebeccapurple; */
+}
 
 .contenedor-entrada .cantidad-entradas .titulo-entradas h2 {
     text-align: center;
@@ -50,13 +52,13 @@ hr {
 
 .contenedor-entrada .cantidad-entradas .numero-entradas div h3 {
     display: inline-block;
-    margin-left: 5%;
+    margin-left: 15%;
 }
 
 .contenedor-entrada .cantidad-entradas .numero-entradas div button {
     display: inline-block;
     width: 35%;
-    margin-left: 15%;
+    margin-left: 35%;
     height: 40px;
 }
 
