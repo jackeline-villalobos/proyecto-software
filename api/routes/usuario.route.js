@@ -1353,5 +1353,37 @@ router.post('/primer-cambio-contrasenna', function (req, res) {
 });
 
 
+//Editar tarjeta
+
+router.post('/editar-tarjeta-usuario', function (req, res) {
+
+    let body = req.body;
+    Usuario.updateOne({ _id: body._id }, {
+        $set: {
+            numeroTarjeta: body.numeroTarjeta,
+            fechaExpiracion: body.fechaExpiracion,
+            codigoSeguridad: body.codigoSeguridad,
+            marca: body.marca
+        }
+    },
+
+        function (error, info){
+            if(error){
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo editar la informacion de la tarjeta',
+                    err
+                });
+            }else{
+                res.json({
+                    resultado: true,
+                    info: info
+                })  
+            }
+        }
+    )
+});
+
+
 
 module.exports = router;

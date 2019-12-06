@@ -120,7 +120,7 @@ let obtenerDatos = async () => {
         })
 
     } else {
-        let error = await editarInformacionUsuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia,canton, distrito);
+        let error = await editarInformacionUsuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito);
 
         if (error.resultado == false) {
 
@@ -130,13 +130,13 @@ let obtenerDatos = async () => {
                 text: 'Por favor revise los campos en rojo',
                 confirmButtonText: 'Entendido'
             })
-        }else{
+        } else {
             Swal.fire({
                 icon: 'success',
                 title: 'Cambios realizados con éxito',
                 text: 'La información del perfil ha sido modificado',
                 confirmButtonText: "Entendido",
-                onClose: function() {
+                onClose: function () {
                     sessionStorage.removeItem('primerNombre');
                     sessionStorage.removeItem('segundoNombre');
                     sessionStorage.removeItem('primerApellido');
