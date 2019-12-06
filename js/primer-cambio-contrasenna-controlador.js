@@ -63,7 +63,7 @@ let validar = () => {
 }
 
 let obtenerDatos = async () =>{
-    let nuevaContresenna = input_nuevaContresenna.value;
+    let contresenna = input_nuevaContresenna.value;
 
     if(validar()){
         Swal.fire({
@@ -73,7 +73,7 @@ let obtenerDatos = async () =>{
             confirmButtonText: 'Entendido'
         })
     }else{
-        let error = await cambiarContrasenna(idUsuario, nuevaContresenna);
+        let error = await cambiarContrasenna(idUsuario, contresenna);
 
         if(error.resultado == false){
             Swal.fire({
