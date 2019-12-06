@@ -318,7 +318,7 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.125);
     position: absolute;
     display: none;
-    right: 20%;
+    right: 18%;
     margin-top: 1%;
 }
 
@@ -358,7 +358,7 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
     content: "";
     position: absolute;
     top: -30px;
-    right: 25;
+    right: 22;
     border: 15px solid;
     border-color: transparent transparent #dfe6e9 transparent;
 }
