@@ -92,7 +92,7 @@ let editarInformacionUsuario = async (_id, primerNombre, segundoNombre, primerAp
 //Cambiar contraseña
 
 
-let cambiarContrasenna = async (_id, nuevaContresenna) => {
+let cambiarContrasenna = async (_id, contresenna) => {
 
     let resultado;
     await axios({
@@ -101,7 +101,7 @@ let cambiarContrasenna = async (_id, nuevaContresenna) => {
         responseType: 'json',
         data: {
             _id: _id,
-            nuevaContresenna: nuevaContresenna
+            contresenna: contresenna
         }
     })
         .then(async function (res) {
