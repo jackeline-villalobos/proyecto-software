@@ -99,6 +99,17 @@ let validar = () => {
 
 let obtenerDatos = async () => {
 
+    let primerNombre = inputPrimerNombre.value;
+    let segundoNombre = inputSegundoNombre.value;
+    let primerApellido = inputPrimerApellido.value;
+    let segundoApellido = inputSegundoApellido.value;
+    let genero = dataListGenero.value;
+    let direccion = inputDireccion.value;
+    let provincia = sltProvincias.value;
+    let canton = sltCantones.value;
+    let distrito = sltDistritos.value;
+
+
     if (validar()) {
 
         Swal.fire({
