@@ -4,24 +4,24 @@ const correo = sessionStorage.getItem('correoUsuario');
 const grado = sessionStorage.getItem("grado");
 const correoUsuario = sessionStorage.getItem('correoUsuarioPerfil');
 
-let obtener_datos = async() => {
+let obtener_datos = async () => {
 
     let usuario;
 
     await axios({
 
-            method: "post",
-            url: "http://localhost:3000/api/buscar-usuario",
-            responseType: "JSON",
-            data: {
-                _id: _id,
-                correo: correo
-            }
-        })
-        .then(async function(res) {
+        method: "post",
+        url: "http://localhost:3000/api/buscar-usuario",
+        responseType: "JSON",
+        data: {
+            _id: _id,
+            correo: correo
+        }
+    })
+        .then(async function (res) {
             usuario = await res.data.usuario;
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         })
 
@@ -30,23 +30,23 @@ let obtener_datos = async() => {
 
 }
 
-let perfilUsuario = async() => {
+let perfilUsuario = async () => {
 
     let usuario;
 
     await axios({
 
-            method: "post",
-            url: "http://localhost:3000/api/buscar-usuario",
-            responseType: "JSON",
-            data: {
-                correo: correoUsuario
-            }
-        })
-        .then(async function(res) {
+        method: "post",
+        url: "http://localhost:3000/api/buscar-usuario",
+        responseType: "JSON",
+        data: {
+            correo: correoUsuario
+        }
+    })
+        .then(async function (res) {
             usuario = await res.data.usuario;
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         })
 
@@ -57,7 +57,7 @@ let perfilUsuario = async() => {
 
 //Editar perfil
 
-let editarInformacionUsuario = async (_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) =>{
+let editarInformacionUsuario = async (_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) => {
 
     let resultado;
     await axios({
@@ -77,22 +77,44 @@ let editarInformacionUsuario = async (_id, primerNombre, segundoNombre, primerAp
             distrito: distrito
         }
     })
-    .then(async function(res){
-        console.log(res.data);
-        resultado = await res.data;
-    })
-    .catch(function(error){
-        console.log(err)
-    });
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function (error) {
+            console.log(err)
+        });
 
     return resultado;
 
 }
 
+//Cambiar contraseña
 
 
+let cambiarContrasenna = async (_id, nuevaContresenna) => {
 
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/primer-cambio-contrasenna',
+        responseType: 'json',
+        data: {
+            _id: _id,
+            nuevaContresenna: nuevaContresenna
+        }
+    })
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function (error) {
+            console.log(err);
+        });
 
+    return resultado;
+
+}
 
 
 
@@ -142,7 +164,7 @@ function obtener_datos(id){
     peticion.done(function(response){
         usuario = response;
     });
-    
-    return usuario; 
+
+    return usuario;
 }
 */

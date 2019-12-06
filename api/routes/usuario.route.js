@@ -1325,7 +1325,7 @@ router.post('/editar-perfil-usuario', function (req, res) {
 
 //Cambiar contraseña
 
-router.post('/cambiar_contrasenna', function (req, res) {
+router.post('/primer-cambio-contrasenna', function (req, res) {
 
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
