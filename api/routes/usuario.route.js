@@ -18,7 +18,7 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-router.post('/registrar-usuario', function(req, res) {
+router.post('/registrar-usuario', function (req, res) {
 
     let body = req.body;
 
@@ -44,7 +44,7 @@ router.post('/registrar-usuario', function(req, res) {
     });
 
     nuevoUsuario.save(
-        function(err, usuarioBD) {
+        function (err, usuarioBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -142,7 +142,7 @@ router.post('/registrar-usuario', function(req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function(error, info) {
+                transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);
                     } else {
@@ -161,11 +161,11 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 
-router.post('/iniciar-sesion', function(req, res) {
+router.post('/iniciar-sesion', function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 if (usuarioBD.contrasenna == req.body.contrasenna) {
                     res.json({
@@ -180,7 +180,7 @@ router.post('/iniciar-sesion', function(req, res) {
                 }
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             if (organizadorSolicitanteBD.contrasenna == req.body.contrasenna) {
                                 res.json({
@@ -195,7 +195,7 @@ router.post('/iniciar-sesion', function(req, res) {
                             }
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         if (empresaBD.contrasenna == req.body.contrasenna) {
                                             res.json({
@@ -210,7 +210,7 @@ router.post('/iniciar-sesion', function(req, res) {
                                         }
                                     } else {
                                         Encargado.findOne({ correo: req.body.correo })
-                                            .then(function(encargadoBD) {
+                                            .then(function (encargadoBD) {
                                                 if (encargadoBD) {
                                                     if (encargadoBD.contrasenna == req.body.contrasenna) {
                                                         res.json({
@@ -242,7 +242,7 @@ router.post('/iniciar-sesion', function(req, res) {
 
 
 
-router.get('/listar-usuarios', function(req, res) {
+router.get('/listar-usuarios', function (req, res) {
     // Usuario.find(function (err, usuariosBD) {
     //     if (err) {
     //         res.json({
@@ -259,13 +259,13 @@ router.get('/listar-usuarios', function(req, res) {
 
     // });
 
-    Usuario.find(function(err, usuariosBD) {
+    Usuario.find(function (err, usuariosBD) {
         if (usuariosBD) {
-            organizadorSolicitante.find(function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
-                    Empresa.find(function(err, empresaBD) {
+                    Empresa.find(function (err, empresaBD) {
                         if (empresaBD) {
-                            Encargado.find(function(err, encargadoBD) {
+                            Encargado.find(function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: true,
@@ -306,7 +306,7 @@ router.get('/listar-usuarios', function(req, res) {
 });
 
 
-router.post('/agregar-tarjeta', function(req, res) {
+router.post('/agregar-tarjeta', function (req, res) {
     Usuario.update({ _id: req.body._id }, {
         $push: {
             'tarjeta': {
@@ -316,7 +316,7 @@ router.post('/agregar-tarjeta', function(req, res) {
                 codigoSeguridad: req.body.codigoSeguridad
             }
         }
-    }, function(err) {
+    }, function (err) {
         if (err) {
             return res.json({
                 resultado: false,
@@ -333,11 +333,11 @@ router.post('/agregar-tarjeta', function(req, res) {
 });
 
 
-router.post("/buscar-usuario", function(req, res) {
+router.post("/buscar-usuario", function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 res.json({
                     resultado: true,
@@ -347,7 +347,7 @@ router.post("/buscar-usuario", function(req, res) {
                 });
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             res.json({
                                 resultado: true,
@@ -355,7 +355,7 @@ router.post("/buscar-usuario", function(req, res) {
                             })
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         res.json({
                                             resultado: true,
@@ -489,11 +489,11 @@ router.post('/buscar-usuario', function(req, res) {
 
 
 
-router.post('/recuperar-contrasenna', function(req, res) {
+router.post('/recuperar-contrasenna', function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
 
                 usuarioBD.contrasenna;
@@ -587,7 +587,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function(error, info) {
+                transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);
                     } else {
@@ -605,7 +605,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
 
                             organizadorSolicitanteBD.contrasenna;
@@ -699,7 +699,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                 </html>`
                             };
 
-                            transporter.sendMail(mailOptions, function(error, info) {
+                            transporter.sendMail(mailOptions, function (error, info) {
                                 if (error) {
                                     console.log(error);
                                 } else {
@@ -811,7 +811,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
 
                                         empresaBD.contrasenna;
@@ -905,7 +905,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                             </html>`
                                         };
 
-                                        transporter.sendMail(mailOptions, function(error, info) {
+                                        transporter.sendMail(mailOptions, function (error, info) {
                                             if (error) {
                                                 console.log(error);
                                             } else {
@@ -1017,7 +1017,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                                     } else {
                                         Empresa.findOne({ correo: req.body.correo })
-                                            .then(function(encargadoBD) {
+                                            .then(function (encargadoBD) {
                                                 if (encargadoBD) {
 
                                                     encargadoBD.contrasenna;
@@ -1111,7 +1111,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                         </html>`
                                                     };
 
-                                                    transporter.sendMail(mailOptions, function(error, info) {
+                                                    transporter.sendMail(mailOptions, function (error, info) {
                                                         if (error) {
                                                             console.log(error);
                                                         } else {
@@ -1243,31 +1243,31 @@ router.post('/recuperar-contrasenna', function(req, res) {
 });
 
 
-router.get('/buscar-usuario-registro/:correo', function(req, res) {
+router.get('/buscar-usuario-registro/:correo', function (req, res) {
     let correo = req.params.correo;
 
-    Usuario.findOne({ correo: correo }, function(err, usuarioBD) {
+    Usuario.findOne({ correo: correo }, function (err, usuarioBD) {
         if (usuarioBD) {
             res.json({
                 resultado: false,
                 msg: 'El correo ya está registrado como usuario',
             });
         } else {
-            organizadorSolicitante.findOne({ correo: correo }, function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.findOne({ correo: correo }, function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
                     res.json({
                         resultado: false,
                         msg: 'El correo ya está registrado como organizador'
                     });
                 } else {
-                    Empresa.findOne({ correo: correo }, function(err, empresaBD) {
+                    Empresa.findOne({ correo: correo }, function (err, empresaBD) {
                         if (empresaBD) {
                             res.json({
                                 resultado: false,
                                 msg: 'El correo ya está registrado como empresa'
                             });
                         } else {
-                            Encargado.findOne({ correo: correo }, function(err, encargadoBD) {
+                            Encargado.findOne({ correo: correo }, function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: false,
@@ -1290,22 +1290,22 @@ router.get('/buscar-usuario-registro/:correo', function(req, res) {
 
 //Editar perfil usuario
 
-router.post('/editar-perfil-usuario', function(req, res) {
+router.post('/editar-perfil-usuario', function (req, res) {
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
-            $set: {
-                primerNombre: body.primerNombre,
-                segundoNombre: body.segundoNombre,
-                primerApellido: body.primerApellido,
-                segundoApellido: body.segundoApellido,
-                genero: body.genero,
-                direccion: body.direccion,
-                provincia: body.provincia,
-                canton: body.canton,
-                distrito: body.distrito
-            }
-        },
-        function(error, info) {
+        $set: {
+            primerNombre: body.primerNombre,
+            segundoNombre: body.segundoNombre,
+            primerApellido: body.primerApellido,
+            segundoApellido: body.segundoApellido,
+            genero: body.genero,
+            direccion: body.direccion,
+            provincia: body.provincia,
+            canton: body.canton,
+            distrito: body.distrito
+        }
+    },
+        function (error, info) {
             if (error) {
                 res.json({
                     resultado: false,
@@ -1321,6 +1321,36 @@ router.post('/editar-perfil-usuario', function(req, res) {
         }
     )
 });
+
+
+//Cambiar contraseña
+
+router.post('/cambiar_contrasenna', function (req, res) {
+
+    let body = req.body;
+    Usuario.updateOne({ _id: body._id }, {
+        $set: {
+            nuevaContresenna: body.nuevaContresenna
+        }
+    },
+
+        function (error, info) {
+            if (error) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo cambiar la contraseña',
+                    err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                })
+            }
+        }
+    )
+
+})
 
 
 
