@@ -49,4 +49,28 @@ router.get('/listar-tipo-evento', function(req, res) {
     );
 });
 
+
+router.post('/modificar-tipoEvento', function(req, res) {
+    let body = req.body;
+
+    tipoEvento.updateOne({ _id: body._id }, {
+            $set: req.body
+        },
+        function(err, info) {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo modificar el tipo de evento',
+                    error: err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                });
+            }
+        }
+    );
+});
+
 module.exports = router;

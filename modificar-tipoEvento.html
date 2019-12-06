@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de tipo de eventos</title>
+    <title>Editar impuesto</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/listar-tipo-eventos.css">
+    <link rel="stylesheet" href="css/registrar-impuestos.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -43,24 +43,26 @@
         </div>
     </header>
 
-    <div class="container-filtro">
-        <input type="text" id="txt-filtro" placeholder="Buscar tipo de evento">
+
+    <div class="main-title">
+        <h1>Editar tipo de evento</h1>
     </div>
 
-    <table id="tbl-tipoEventos" style="margin:auto;">
-        <h1>Listar tipo de evento</h1>
-        <thead>
-            <tr>
-                <th style="font-weight: bold;">Nombre</th>
-                <th style="font-weight: bold;">Editar</th>
-            </tr>
-        </thead>
 
-        <tbody>
+    <div class="form-container">
+        <form>
+            <div>
+                <label for="txt-nombretipoEvento">Nombre</label>
+                <input class="input_registrar" type="text" id="txt-nombretipoEvento" placeholder="Nombre del tipo de evento">
+            </div>
 
-        </tbody>
 
-    </table>
+
+
+            <button type="button" id="btn-guardar">Guardar</button>
+
+        </form>
+    </div>
 
     <footer>
 
@@ -105,13 +107,14 @@
             </div> -->
 
     </footer>
-
     <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/tipo-evento-servicio.js"></script>
-    <script src="js/listar-tipo-evento-controlador.js"></script>
+    <script src="js/modificar-tipoEvento-controlador.js"></script>
+
+
 
 </body>
 

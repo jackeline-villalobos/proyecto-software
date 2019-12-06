@@ -9,13 +9,12 @@
 
 .form-container {
     height: 340px;
+    margin-top: 5.7%;
 }
 
 .form-container form {
-    width: 35%;
-    border: 1px solid black;
+    width: 25%;
     margin: auto;
-    padding: 4% 1%;
     text-align: center;
 }
 
@@ -23,12 +22,27 @@
     margin: auto;
 }
 
-.form-container form input {
+.form-container form div label {
     display: block;
-    width: 50%;
-    margin: 3% 0 0 25%;
-    background-image: none;
-    padding-left: 5px;
+    text-align: left;
+    margin: 1% 0;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container form div input {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    /* border: 1px solid black; */
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container form input::placeholder {
+    color: black;
 }
 
 .form-container form button {

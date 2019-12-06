@@ -12,9 +12,29 @@ let llenarTabla = async() => {
 
     for (let i = 0; i < listatipoEventos.length; i++) {
         let nombre = listatipoEventos[i]['nombre'].toLowerCase();
-        if(nombre.includes(filtro)) {
+        if (nombre.includes(filtro)) {
+            let btnEditar = document.createElement('button');
+            btnEditar.innerHTML = ('Editar')
+            btnEditar.classList.add('btn-mas');
+
             let fila = tableBody.insertRow();
             fila.insertCell().innerHTML = listatipoEventos[i]['nombre'];
+            fila.insertCell().appendChild(btnEditar).innerHTML;
+            let tipoEvento = listatipoEventos[i]['nombre'];
+
+            btnEditar.dataset._id = listatipoEventos[i]['_id'];
+
+            let idtipoEvento = listatipoEventos[i]['_id'];
+            console.log(idtipoEvento);
+
+            btnEditar.addEventListener('click', function() {
+                sessionStorage.setItem('tipoEvento', idtipoEvento);
+                sessionStorage.setItem('nombretipoEvento', tipoEvento);
+
+                window.location.href = 'modificar-tipoEvento.html';
+            });
+
+
         }
     };
 };

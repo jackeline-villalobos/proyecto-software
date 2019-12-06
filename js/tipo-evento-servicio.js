@@ -42,6 +42,31 @@ let listartipoEventos = async() => {
 
 };
 
+let modificartipoEvento = async(_id, nombre) => {
+
+    let resultado;
+    await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/modificar-tipoEvento',
+            responseType: 'json',
+            data: {
+                _id: _id,
+                nombre: nombre
+
+            }
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+
+    return resultado;
+}
+
+
 /*
 let verificarNombre = async(nombre) => {
     let resultado;

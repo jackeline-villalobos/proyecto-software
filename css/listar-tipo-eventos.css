@@ -32,6 +32,10 @@ a {
     color: #F2610A;
 }
 
+#tbl-tipoEventos tbody td button {
+    margin: auto;
+}
+
 footer {
     margin-top: 21%;
 }

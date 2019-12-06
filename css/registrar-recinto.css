@@ -75,7 +75,7 @@ form {
     width: 50%;
     margin: auto;
     padding: 1% 0;
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     height: 100% !important;
 }
@@ -114,6 +114,29 @@ form select {
     text-align: center;
 }
 
+.form-registrar-evento select,
+input {
+    width: 100%;
+    margin: 0px auto 12px auto;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+label span {
+    color: red;
+}
+
+
+/*
 label {
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -121,3 +144,4 @@ label {
     margin-bottom: -10px;
     padding-top: 10px;
 }
+*/
