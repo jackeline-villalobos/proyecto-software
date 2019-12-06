@@ -1,0 +1,64 @@
+section {
+    width: 80%;
+    margin: auto;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    width: 100px;
+    /* background: rebeccapurple; */
+}
+
+input {
+    background-image: url("../imagenes/imagenes_generales/pencil-edit-button (1).png");
+    background-repeat: no-repeat;
+    /* background-image: url('../imagenes/imagenes_generales/64673.png'); */
+}
+
+section #main-container{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5%;
+}
+
+
+section #main-container #container-1 div {
+    height: 500px;
+}
+
+section #main-container #container-1 div img {
+    width: 100%;
+    height: 100%;
+}
+
+#btnSeleccionarImagen {
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    width: 25%; 
+}
+
+section #main-container #container-2 {
+    /* background: rebeccapurple; */
+}
+
+section #main-container #container-2 div {
+    /* height: 300px;
+    width: 400px; */
+    
+}
+section #main-container #container-2 #btn-modificar {
+    margin-top: 2%;
+    width: 30%;
+    height: 35px;
+}
+
+section #main-container #container-2 #map {
+    margin-top: 15%;
+}
+
+footer {
+    margin-top: 5%;
+}

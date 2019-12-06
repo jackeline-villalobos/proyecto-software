@@ -50,6 +50,11 @@ section #main-container #container-2 div {
     width: 400px;
     
 }
+section #main-container #container-2 a #btn-modificar {
+    margin-top: 2%;
+    width: 30%;
+    height: 35px;
+}
 
 section #main-container #container-2 #map {
     margin-top: 15%;

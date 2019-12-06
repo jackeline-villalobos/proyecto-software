@@ -241,22 +241,22 @@ router.post('/buscar-recinto-id', function (req, res) {
 router.get('/verificar-correo-recinto/:correo', function (req, res) {
     let correo = req.params.correo;
 
-    Usuario.findOne({correo: correo}, function(err, usuarioBD){
-        if(usuarioBD){
+    Usuario.findOne({ correo: correo }, function (err, usuarioBD) {
+        if (usuarioBD) {
             res.json({
                 resultado: false,
-                msg: 'El correo ya está registrado como usuario' 
+                msg: 'El correo ya está registrado como usuario'
             });
         } else {
-            organizadorSolicitante.findOne({correo: correo}, function(err, organizadorSolicitanteBD){
-                if(organizadorSolicitanteBD){
+            organizadorSolicitante.findOne({ correo: correo }, function (err, organizadorSolicitanteBD) {
+                if (organizadorSolicitanteBD) {
                     res.json({
                         resultado: false,
-                        msg: 'El correo ya está registrado como organizador'  
+                        msg: 'El correo ya está registrado como organizador'
                     });
                 } else {
-                    Empresa.findOne({correo: correo}, function(err, empresaBD){
-                        if(empresaBD) {
+                    Empresa.findOne({ correo: correo }, function (err, empresaBD) {
+                        if (empresaBD) {
                             res.json({
                                 resultado: false,
                                 msg: 'El correo ya está registrado como empresa'
@@ -273,6 +273,29 @@ router.get('/verificar-correo-recinto/:correo', function (req, res) {
         }
     });
 
+});
+
+router.post('/modificar-recinto', async function (req, res) {
+
+    let body = req.body;
+
+    Recinto.updateOne({_id: body._id}, {
+        $set: 
+        req.body
+    })
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(error){
+        res.json({
+            resultado: false,
+            msg: 'Algo salió mal',
+            error
+        });
+    });
 });
 
 
