@@ -12,24 +12,29 @@ let llenarTabla = async () => {
 
     for (let i = 0; i < listaUsuarios.length; i++) {
 
-        if(idUsuario == listaUsuarios[i]['_id']) {
+        if (idUsuario == listaUsuarios[i]['_id']) {
 
-           for(let y = 0; y < listaUsuarios[i].tarjeta.length; y++) {
+            for (let y = 0; y < listaUsuarios[i].tarjeta.length; y++) {
 
-            console.log(listaUsuarios[i].tarjeta[y]);
-            let marca = listaUsuarios[i]['tarjeta'][y]['marca'].toLowerCase();
+                console.log(listaUsuarios[i].tarjeta[y]);
+                let marca = listaUsuarios[i]['tarjeta'][y]['marca'].toLowerCase();
 
-            if(marca.includes(filtro)) {
+                if (marca.includes(filtro)) {
 
-                let fila = tableBody.insertRow();
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['numero'];
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['fechaExpiracion'];
-                fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['marca'];
-                
+                    let fila = tableBody.insertRow();
+                    fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['numero'];
+                    fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['fechaExpiracion'];
+                    fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['marca'];
+
+                    let btnPerfil = document.createElement('button');
+                    btnPerfil.innerHTML = ('Ver más')
+                    btnPerfil.classList.add('btn-mas');
+                    fila.insertCell().appendChild(btnPerfil).innerHTML;
+
+                }
             }
-           }
 
-        }  else {
+        } else {
 
             console.log('No tienes tarjetas asociadas');
 
