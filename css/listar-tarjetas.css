@@ -37,6 +37,10 @@ a {
     color: #F2610A;
 }
 
+#tbl-tarjetas tbody tr td button {
+    margin: auto;
+}
+
 footer {
     margin-top: 21%;
 }
