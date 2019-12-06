@@ -2,6 +2,9 @@
 const header = document.querySelector('#btns-header');
 const botonesHeader = document.querySelectorAll('#btns-header a');
 const btnCerrarSesion = document.querySelector('#btn-cerrarSesion');
+const notificacion = document.querySelector('#click-notificacion');
+const dropdown = document.querySelector('#dropdown');
+
 let conectado = sessionStorage.getItem('conectado');
 let gradoUsuario = sessionStorage.getItem('gradoUsuario');
 
@@ -84,3 +87,8 @@ btnCerrarSesion.addEventListener('click', function(event){
     });
 
 });
+
+notificacion.addEventListener('click', function(e){
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+}); 

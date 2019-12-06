@@ -14,8 +14,6 @@ Icono de la pestaña
 <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 */
 
-
-
 /*HEADER*/
 
 header {
@@ -29,7 +27,8 @@ header {
     margin-right: 100px;
     display: flex;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
@@ -44,6 +43,7 @@ a{
     margin-left: 20px;
     background-color: #FFFFFF;
 }
+
 button:hover, .btn-registrarse:hover {
     background-color: #1EBB2D;
     border: none;
@@ -52,6 +52,7 @@ button:hover, .btn-registrarse:hover {
     align-items: center;
     justify-content: center;
 }
+
 /* .btn-registrarse:hover {
     margin-left: 20px !important;
 } */
@@ -78,7 +79,6 @@ button:hover, .btn-registrarse:hover {
     border-radius: 50%;
 }
 
-
 /*Titulos*/
 
 h1 {
@@ -88,12 +88,7 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6,
-p{
+h2, h3, h4, h5, h6, p {
     margin: 15px 0px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -118,7 +113,7 @@ h6 {
     font-size: 18px;
 }
 
-p{
+p {
     font-size: 16px;
 }
 
@@ -146,18 +141,17 @@ input {
     margin-bottom: 10px;
 }
 
-.input_registrar{
+.input_registrar {
     height: 32px;
-    width: 350px; 
+    width: 350px;
     border-radius: 2% !important;
     border-bottom-color: #F2610A;
     border-top: none;
     border-left: none;
     border-right: none;
-
 }
 
-select{
+select {
     height: 38px;
     width: 210px;
     border-radius: 10px;
@@ -182,8 +176,6 @@ button {
     font-family: 'Montserrat', sans-serif;
 }
 
-
-
 .swal2-styled.swal2-confirm {
     border: 0;
     border-radius: .25em;
@@ -202,7 +194,6 @@ button {
     color: #fff;
     font-size: 1.0625em;
 }
-
 
 /*FOOTER*/
 
@@ -249,10 +240,7 @@ footer li {
     font-size: 13px;
 }
 
-footer li:hover,
-footer i:hover,
-footer p:hover,
-footer a:hover {
+footer li:hover, footer i:hover, footer p:hover, footer a:hover {
     color: #1EBB2D;
     cursor: pointer;
 }
@@ -264,28 +252,28 @@ footer a:hover {
 
 .i-facebook {
     margin-left: 20px;
-
 }
 
 /*VALIDACIONES*/
 
-.error{
+.error {
     border: 2px solid #d63031;
 }
 
 /*FORMULARIO*/
 
-.formulario{
+.formulario {
     border: 1px solid black;
     border-radius: 10px;
     padding: 15px 0px;
 }
 
-#imagePreview{
+#imagePreview {
     width: 300px auto;
 }
 
 /* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
+
 .ocultar {
     display: none;
 }
@@ -298,4 +286,83 @@ footer a:hover {
 #carrito-compras img {
     width: 100%;
     height: 100%;
+}
+
+.zona-notificacion {
+    margin: 0px auto 0;
+}
+
+.zona-notificacion .notification-icon {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    margin: -16% auto 0;
+}
+
+.zona-notificacion .notification-icon i {
+    color: #F2610A;
+    position: absolute;
+    top: 20%;
+    left: 24%;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.zona-notificacion .dropdown {
+    width: 300px;
+    height: auto;
+    background: #dfe6e9;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgba(0,0,0, 0.125);
+    position: absolute;
+    display: none;
+    right: 20%;
+    margin-top: 1%;
+}
+
+.zona-notificacion .dropdown .notificacion {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+}
+
+.zona-notificacion .dropdown .notificacion:last-child{
+    border-bottom: 0px;
+}
+
+.zona-notificacion .dropdown .notificacion .imagen-notificacion img {
+    margin: 0 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: black;
+}
+
+.zona-notificacion .dropdown .notificacion .info-notificacion p {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 2% 0;
+    padding: 0;
+}
+
+.zona-notificacion .dropdown .notificacion .info-notificacion .hora-notificacion {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 16px;
+}
+
+.zona-notificacion .dropdown::before{
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: 25;
+    border: 15px solid;
+    border-color: transparent transparent #dfe6e9 transparent;
+}
+
+.zona-notificacion .dropdown.active {
+    display: block;
 }
