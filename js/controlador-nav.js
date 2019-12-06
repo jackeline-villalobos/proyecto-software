@@ -4,6 +4,7 @@ const botonesHeader = document.querySelectorAll('#btns-header a');
 const btnCerrarSesion = document.querySelector('#btn-cerrarSesion');
 const notificacion = document.querySelector('#click-notificacion');
 const dropdown = document.querySelector('#dropdown');
+const notificaciones = document.querySelector('#notificaciones');
 
 let conectado = sessionStorage.getItem('conectado');
 let gradoUsuario = sessionStorage.getItem('gradoUsuario');
@@ -36,6 +37,7 @@ if (conectado) {
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-administrador.html');
         botonesHeader[2].classList.add('ocultar');
+        notificaciones.classList.add('ocultar');
     }
 
     if (gradoUsuario == 2) {
@@ -43,24 +45,28 @@ if (conectado) {
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-encargado.html');
         botonesHeader[2].classList.add('ocultar');
+        notificaciones.classList.add('ocultar');
     }
     if (gradoUsuario == 3) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-organizador.html');
         botonesHeader[2].classList.add('ocultar');
+        notificaciones.classList.add('ocultar');
     }
     if (gradoUsuario == 5) {
 
         let boton = botonesHeader[3];
         boton.setAttribute('href', 'perfil-empresa.html');
         botonesHeader[2].classList.add('ocultar');
+        notificaciones.classList.add('ocultar');
     }
 
 } else {
     botonesHeader[2].classList.add('ocultar');
     botonesHeader[3].classList.add('ocultar');
     botonesHeader[4].classList.add('ocultar');
+    notificaciones.classList.add('ocultar');
 }
 
 

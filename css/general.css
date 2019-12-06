@@ -58,7 +58,7 @@ button:hover, .btn-registrarse:hover {
 } */
 
 .botones-header .href-perfil {
-    margin: -10px 10px 0 15px;
+    margin: -10px 10px 0 25px;
     /* margin-top: -8px; */
 }
 
@@ -281,21 +281,21 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
 #carrito-compras {
     width: 30px;
     height: 30px;
+    margin-top: 5%;
 }
 
-#carrito-compras img {
-    width: 100%;
-    height: 100%;
+#carrito-compras i {
+    color: #F2610A ;
+    font-size: 30px;
 }
 
 .zona-notificacion {
-    margin: 0px auto 0;
+    margin-right: 4%;
 }
 
 .zona-notificacion .notification-icon {
     width: 50px;
     height: 50px;
-    background: white;
     border-radius: 50%;
     position: relative;
     margin: -16% auto 0;
@@ -358,7 +358,7 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
     content: "";
     position: absolute;
     top: -30px;
-    right: 25;
+    right: 22;
     border: 15px solid;
     border-color: transparent transparent #dfe6e9 transparent;
 }
