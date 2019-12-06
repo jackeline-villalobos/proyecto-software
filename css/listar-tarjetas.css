@@ -60,3 +60,11 @@ h1{
     padding: 1% 0;
     color: #F2610A;
 }
+
+#tbl-tarjetas tbody tr td button {
+    margin: auto;
+}
+
+footer {
+    margin-top: 21%;
+}
