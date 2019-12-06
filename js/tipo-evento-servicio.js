@@ -8,6 +8,7 @@ let registrartipoEvento = async(nombre) => {
                 responseType: 'json',
                 data: {
                     nombre: nombre,
+
                 }
             }
 
@@ -42,7 +43,7 @@ let listartipoEventos = async() => {
 
 };
 
-let modificartipoEvento = async(_id, nombre) => {
+let modificartipoEvento = async(_id, nombre, estado) => {
 
     let resultado;
     await axios({
@@ -51,7 +52,8 @@ let modificartipoEvento = async(_id, nombre) => {
             responseType: 'json',
             data: {
                 _id: _id,
-                nombre: nombre
+                nombre: nombre,
+                estado: estado
 
             }
         })

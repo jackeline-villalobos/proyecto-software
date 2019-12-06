@@ -10,6 +10,7 @@ router.post('/registrar-tipo-evento', function(req, res) {
 
     let nuevotipoEvento = new tipoEvento({
         nombre: body.nombre,
+        estado: body.estado
     });
     nuevotipoEvento.save(
         function(err, tipoEventoBD) {

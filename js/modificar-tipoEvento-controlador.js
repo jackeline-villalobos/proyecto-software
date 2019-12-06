@@ -5,11 +5,15 @@ const btnGuardar = document.querySelector('#btn-guardar');
 const idtipoEvento = sessionStorage.getItem('tipoEvento');
 const nombretipoEvento = sessionStorage.getItem('nombretipoEvento');
 
+const inputActivo = document.querySelector("txt-activartipoEvento");
+const estadotipoEvento = sessionStorage.getItem("estado");
+
 
 
 let llenarForm = () => {
 
     inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
+    inputActivo.setAttribute(`${estadotipoEvento}`)
 
 
 }
@@ -51,7 +55,7 @@ let obtenerDatos = async() => {
 
     } else {
 
-        let error = await modificartipoEvento(idtipoEvento, nombre);
+        let error = await modificartipoEvento(idtipoEvento, nombre, estado);
 
         if (error.resultado == false) {
 
@@ -71,6 +75,7 @@ let obtenerDatos = async() => {
                     sessionStorage.removeItem('tipoEvento');
 
                     sessionStorage.removeItem('nombretipoEvento');
+                    sessionStorage.removeItem("estado")
                     location.href = 'perfil-administrador.html';
                 }
             })

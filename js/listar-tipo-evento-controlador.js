@@ -17,8 +17,11 @@ let llenarTabla = async() => {
             btnEditar.innerHTML = ('Editar')
             btnEditar.classList.add('btn-mas');
 
+
+
             let fila = tableBody.insertRow();
             fila.insertCell().innerHTML = listatipoEventos[i]['nombre'];
+            fila.insertCell().innerHTML = estado;
             fila.insertCell().appendChild(btnEditar).innerHTML;
             let tipoEvento = listatipoEventos[i]['nombre'];
 
