@@ -97,7 +97,7 @@ let validar = () => {
     return error;
 }
 
-let obtener_datos = async() => {
+let obtenerDatos = async() => {
 
     let primerNombre = inputPrimerNombre.value;
     let segundoNombre = inputSegundoNombre.value;
@@ -127,6 +127,7 @@ let obtener_datos = async() => {
             Swal.fire({
                 icon: 'warning',
                 title: 'La información del perfil no se ha podido editar correctamente',
+                text: 'Por favor revise los campos en rojo',
                 confirmButtonText: 'Entendido'
             })
         } else {
