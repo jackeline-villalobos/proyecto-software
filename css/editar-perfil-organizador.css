@@ -1,0 +1,89 @@
+header{
+    margin-bottom: 30px;
+}
+main{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 60px;
+}
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr 0.3fr 0.5fr;
+    grid-gap: 50px;
+    border: 0;;
+}
+.formulario h1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.formulario .terminos, .formulario .btn-enviarInfo{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+}
+label {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.input{
+    background-image: url("../imagenes/imagenes_generales/pencil-edit-button\ \(1\).png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: left;
+
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+select{
+    background-image: url("../imagenes/imagenes_generales/pencil-edit-button\ \(1\).png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: left;
+
+    height: 30px;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+textarea{
+    height: 50px;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #F2610A;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.terminos{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.terminos:hover{
+    color: #F2610A;
+}
+#btn-enviarInfo{
+    width: 130px;
+    height: 40px;
+}

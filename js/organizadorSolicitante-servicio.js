@@ -99,38 +99,38 @@ let listar_organizadorSolicitantes = async () => {
     return lista_organizadorSolicitantes;
 };
 
-// let activar_organizador = async () => {
-//     await axios(
-//         {
-//             method: 'post',
-//             url: 'http://localhost:3000/api/activar-organizador',
-//             responseType: 'json',
-//             data: 'activo'
-//             })
-//         .then(function (res) {
-//             console.log(res.data);
 
-//         })
-//         .catch(function (error) {
-//             console.log(error);
+let obtenerDatos = async () =>{
 
-//         });
-// };
+    let organizadorSolicitante;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/buscar-organizador-id',
+        data: {
+            _id: idUsuario,
+        }
+    })
+    .then(async function(res){
+        organizadorSolicitante = await res.data;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+    return organizadorSolicitante;
+};
 
-// let desactivar_organizador = async () => {
-//     await axios(
-//         {
-//             method: 'post',
-//             url: 'http://localhost:3000/api/desactivar-organizador',
-//             responseType: 'json',
-//             data: 'inactivo'
-//             })
-//         .then(function (res) {
-//             console.log(res.data);
-
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-
-//         });
-// };
+let listarEventos = async () => {
+    let listaEventos;
+    await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-eventos',
+        responseType: 'json'
+    })
+    .then(function(res){
+        listaEventos = res.data.eventos;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+    return listaEventos;
+};

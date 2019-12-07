@@ -5,6 +5,14 @@ const tableBody = document.querySelector('#tbl-organizadores tbody');
 
 let listaOrganizadores;
 
+let activar_organizador = () =>{
+
+};
+
+let desactivar_organizador = () =>{
+
+};
+
 let llenarTabla = async () => {
 
     let filtro = input_filtro.value.toLowerCase();
@@ -44,8 +52,8 @@ let llenarTabla = async () => {
              fila.insertCell().appendChild(btnActivar).innerHTML;
              fila.insertCell().appendChild(btnDesactivar).innerHTML;
 
-            //  btnActivar.addEventListener('click', activar_organizador);
-            //  btnDesactivar.addEventListener('click', desactivar_organizador);
+              btnActivar.addEventListener('click', activar_organizador);
+              btnDesactivar.addEventListener('click', desactivar_organizador);
 
          }
      };
