@@ -1325,7 +1325,7 @@ router.post('/editar-perfil-usuario', function(req, res) {
 ////////////// UPDATE ADMINISTRADOR
 router.post('/editar-perfil-administrador', function(req, res) {
     let body = req.body;
-    Usuario.updateOne({ _id: body._id }, {
+    Usuario.updateOne({ _id: body.parametro._id }, {
             $set: body.parametro
 
         },

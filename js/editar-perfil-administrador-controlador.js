@@ -46,57 +46,57 @@ let llenarForm = async() => {
 let validar = () => {
     let error = false;
 
-    if (inputPrimerNombre.value == 0) {
-        error = true;
-        inputPrimerNombre.classList.add('error');
-    } else {
-        inputPrimerNombre.classList.remove('error');
-    }
+    // if (inputPrimerNombre.value == 0) {
+    //     error = true;
+    //     inputPrimerNombre.classList.add('error');
+    // } else {
+    //     inputPrimerNombre.classList.remove('error');
+    // }
 
 
-    if (inputPrimerApellido.value == 0) {
-        error = true;
-        inputPrimerApellido.classList.add('error');
-    } else {
-        inputPrimerApellido.classList.remove('error');
-    }
+    // if (inputPrimerApellido.value == 0) {
+    //     error = true;
+    //     inputPrimerApellido.classList.add('error');
+    // } else {
+    //     inputPrimerApellido.classList.remove('error');
+    // }
 
 
-    if (dataListGenero.value == 0) {
-        error = true;
-        dataListGenero.classList.add('error');
-    } else {
-        dataListGenero.classList.remove('error');
-    }
+    // if (dataListGenero.value == 0) {
+    //     error = true;
+    //     dataListGenero.classList.add('error');
+    // } else {
+    //     dataListGenero.classList.remove('error');
+    // }
 
-    if (inputDireccion.value == 0) {
-        error = true;
-        inputDireccion.classList.add('error');
-    } else {
-        inputDireccion.classList.remove('error');
-    }
+    // if (inputDireccion.value == 0) {
+    //     error = true;
+    //     inputDireccion.classList.add('error');
+    // } else {
+    //     inputDireccion.classList.remove('error');
+    // }
 
 
-    if (sltProvincias.value == 0) {
-        error = true;
-        sltProvincias.classList.add('error');
-    } else {
-        sltProvincias.classList.remove('error');
-    }
+    // if (sltProvincias.value == 0) {
+    //     error = true;
+    //     sltProvincias.classList.add('error');
+    // } else {
+    //     sltProvincias.classList.remove('error');
+    // }
 
-    if (sltCantones.value == 0) {
-        error = true;
-        sltCantones.classList.add('error');
-    } else {
-        sltCantones.classList.remove('error');
-    }
+    // if (sltCantones.value == 0) {
+    //     error = true;
+    //     sltCantones.classList.add('error');
+    // } else {
+    //     sltCantones.classList.remove('error');
+    // }
 
-    if (sltDistritos.value == 0) {
-        error = true;
-        sltDistritos.classList.add('error');
-    } else {
-        sltDistritos.classList.remove('error');
-    }
+    // if (sltDistritos.value == 0) {
+    //     error = true;
+    //     sltDistritos.classList.add('error');
+    // } else {
+    //     sltDistritos.classList.remove('error');
+    // }
 
 
     /*
