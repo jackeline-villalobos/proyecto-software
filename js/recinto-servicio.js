@@ -107,3 +107,32 @@ let buscarRecinto = async (idRecinto) => {
 
     return recinto;
 }
+
+let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion) => {
+    let resultado;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/modificar-recinto',
+        responseType: 'json',
+        data: {
+            _id: idRecinto,
+            imagen: imagenCloudinary,
+            correoEncargado: encargado,
+            nombreRecinto: recinto,
+            capacidad: capacidad,
+            capacidadDiscapacitados: capacidadEspeciales,
+            provincia: provincia,
+            direccion: direccion
+        }
+    })
+    .then(async function(res){
+        resultado = await res.data;
+        console.log(res.data);
+    })
+    .catch(function(err){
+        console.log(err);
+    })
+
+    return resultado;
+}

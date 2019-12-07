@@ -275,13 +275,39 @@ router.get('/verificar-correo-recinto/:correo', function (req, res) {
 
 });
 
-router.post('/modificar-recinto', async function (req, res) {
+router.post('/modificar-recinto', function (req, res) {
 
     let body = req.body;
 
+    // let params = {
+    //     '_id': body._id,
+    //     'imagen': body.imagen,
+    //     'correoEncargado': body.correoEncargado,
+    //     'nombreRecinto': body.nombreRecinto,
+    //     'capacidad': body.capacidad,
+    //     'capacidadDiscapacitados': body.capacidadDiscapacitados,
+    //     'provincia': body.provincia,
+    //     'direccion': body.direccion        
+    // }
+
+    // for(let i = 0; i < params.length; i++) {
+    //     if(params[i] === ''){
+    //         delete params[i];
+    //     }
+    // }
+
+
     Recinto.updateOne({_id: body._id}, {
-        $set: 
-        req.body
+        $set: {
+            imagen: body.imagen,
+            correoEncargado: body.correoEncargado,
+            nombreRecinto: body.nombreRecinto,
+            capacidad: body.capacidad,
+            capacidadDiscapacitados: body.capacidadDiscapacitados,
+            provincia: body.provincia,
+            direccion: body.direccion
+        } 
+        
     })
     .then(function(info){
         res.json({
