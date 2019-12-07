@@ -15,7 +15,7 @@ const btnGuardarCambios = document.querySelector('#Btn_guardarCambios');
 const idUsuario = sessionStorage.getItem('idUsuario');
 
 
-let llenarForm = async () => {
+let llenarForm = async() => {
 
 
     let datosUsuario = await obtenerDatos();
@@ -27,6 +27,10 @@ let llenarForm = async () => {
     let segundoApellido = datosUsuario.segundoApellido;
     let genero = datosUsuario.genero;
     let direccion = datosUsuario.direccion;
+    let canton = datosUsuario.canton;
+    let distrito = datosUsuario.distrito;
+    let provincia = datosUsuario.provincia;
+
 
     inputPrimerNombre.setAttribute('placeholder', `${primerNombre}`);
     inputSegundoNombre.setAttribute('placeholder', `${segundoNombre}`);
@@ -94,6 +98,41 @@ let validar = () => {
         sltDistritos.classList.remove('error');
     }
 
+
+    /*
+        if (inputPrimerNombre.value == 0) {
+            let primerNombre = datosUsuario.primerNombre;
+        } else {
+            let primerNombre = inputPrimerNombre.value;
+        }
+        if (inputPrimerApellido.value == 0) {
+            primerApellido = datosUsuario.primerApellido;
+        } else {
+            primerApellido = inputPrimerApellido.value;
+        }
+
+        if (inputSegundoNombre.value == 0) {
+            segundoNombre = datosUsuario.segundoNombre;
+        } else {
+            segundoNombre = inputSegundoNombre.value;
+        }
+        if (inputSegundoApellido.value == 0) {
+            segundoApellido = datosUsuario.segundoApellido;
+        } else {
+            segundoApellido = inputSegundoApellido.value;
+        }
+
+        if (dataListGenero.value == 0) {
+            genero = datosUsuario.genero;
+        } else {
+            genero = dataListGenero.value;
+        }
+        if (inputDireccion.value == 0) {
+            direccion = datosUsuario.direccion;
+        } else {
+            direccion = inputDireccion.value;
+        }
+    */
     return error;
 }
 
