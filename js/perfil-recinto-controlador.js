@@ -1,7 +1,7 @@
 'use strict';
 
 let idRecinto = sessionStorage.getItem('idRecinto');
-//const mainContainer = document.querySelector('#main-container');
+
 const imagen = document.querySelector('#imagen');
 const h2 = document.querySelector('#h2-title');
 const h3 = document.querySelector('#h3-title');
@@ -9,6 +9,15 @@ const h4 = document.querySelector('#h4-title');
 const h5 = document.querySelector('#h5-title');
 const h6 = document.querySelector('#h6-title');
 const parrafo = document.querySelector('#parrafo');
+
+
+const btnModificar = document.querySelector('#btn-modificar');
+const grado = sessionStorage.getItem('gradoUsuario');
+
+if (grado != 2) {
+    btnModificar.classList.add('ocultar');
+}
+
 
 
 let llenarPerfil = async() => {

@@ -147,10 +147,10 @@ let obtenerDatos = async () => {
                 icon: 'success',
                 title: 'Cambios realizados con éxito',
                 text: 'El recinto ha sido modificado',
-                confirmButtonText: "Entendido"
-                // onClose: function () {
-                //     location.href = 'perfil-encargado.html';
-                // }
+                confirmButtonText: "Entendido",
+                onClose: function () {
+                    location.href = 'perfil-encargado.html';
+                }
             });
         }
 
