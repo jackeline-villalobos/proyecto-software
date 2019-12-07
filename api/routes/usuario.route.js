@@ -1322,6 +1322,31 @@ router.post('/editar-perfil-usuario', function(req, res) {
     )
 });
 
+////////////// UPDATE ADMINISTRADOR
+router.post('/editar-perfil-administrador', function(req, res) {
+    let body = req.body;
+    Usuario.updateOne({ _id: body._id }, {
+            $set: body.parametro
+
+        },
+        function(error, info) {
+            if (error) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo editar el perfil del admin',
+                    err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                })
+            }
+        }
+    )
+});
+/////////////////////////////////////////
+
 
 //Cambiar contraseña
 

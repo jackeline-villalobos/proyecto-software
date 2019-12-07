@@ -64,21 +64,37 @@ let perfilUsuario = async() => {
 let editarInformacionUsuario = async(_id, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, direccion, provincia, canton, distrito) => {
 
     let resultado;
+
+    let parametro = {
+        '_id': _id,
+        'primerNombre': primerNombre,
+        'segundoNombre': segundoNombre,
+        'primerApellido': primerApellido,
+        'segundoApellido': segundoApellido,
+        'genero': genero,
+        'direccion': direccion,
+        'provincia': provincia,
+        'canton': canton,
+        'distrito': distrito
+    }
+
+    console.log(parametro);
+
+    for (let i in parametro) {
+        if (parametro[i] === '') {
+            delete parametro[`${i}`];
+        }
+    }
+
+    console.log(parametro);
+
+
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/editar-perfil-usuario',
+            url: 'http://localhost:3000/api/editar-perfil-administrador',
             responseType: 'json',
             data: {
-                _id: _id,
-                primerNombre: primerNombre,
-                segundoNombre: segundoNombre,
-                primerApellido: primerApellido,
-                segundoApellido: segundoApellido,
-                genero: genero,
-                direccion: direccion,
-                provincia: provincia,
-                canton: canton,
-                distrito: distrito
+                parametro
             }
         })
         .then(async function(res) {
