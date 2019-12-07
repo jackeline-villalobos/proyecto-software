@@ -21,7 +21,7 @@ let llenarTabla = async() => {
 
             let fila = tableBody.insertRow();
             fila.insertCell().innerHTML = listatipoEventos[i]['nombre'];
-            fila.insertCell().innerHTML = estado;
+            //fila.insertCell().innerHTML = estado;
             fila.insertCell().appendChild(btnEditar).innerHTML;
             let tipoEvento = listatipoEventos[i]['nombre'];
 
@@ -36,6 +36,7 @@ let llenarTabla = async() => {
 
                 window.location.href = 'modificar-tipoEvento.html';
             });
+
 
 
         }
