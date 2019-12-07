@@ -94,7 +94,17 @@ btnCerrarSesion.addEventListener('click', function(event){
 
 });
 
-notificacion.addEventListener('click', function(e){
+notificacion.addEventListener('mouseover', function(e){
     e.preventDefault();
     dropdown.classList.toggle('active');
-}); 
+});
+
+notificacion.addEventListener('mouseout', function(e){
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+});
+
+// dropdown.addEventListener('mouseover', function(e){
+//     e.preventDefault();
+//     dropdown.classList.toggle('active');
+// })

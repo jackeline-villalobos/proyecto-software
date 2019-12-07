@@ -1,3 +1,8 @@
+section {
+    width: 90%;
+    margin: auto;
+}
+
 .contenedor-entrada{
     min-height: 200px;
     display: grid;
@@ -15,24 +20,25 @@ h3 {
 }
 
 hr {
-    width: 80%;
+    width: 100%;
     border: 0.5px solid #F2610A;
 }
 
 /*  Contenedor de la izquierda */
 .contenedor-entrada .info-evento {
     display: grid;
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 40% 1fr;
     /* background: #E0E0E0; */
     grid-gap: 5%;
     height: 100%;
 }
 
 .contenedor-entrada .info-evento .info-evento-imagen {
-    margin-top: 8%;
-    margin-left: 5%;
+    /* margin-top: 8%; */
+    /* margin-left: 5%; */
     max-height: 350px;
-    height: 90%;
+    height: 100%;
+    width: 100%;
 }
 
 .contenedor-entrada .info-evento .info-evento-imagen img {
