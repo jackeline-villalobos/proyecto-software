@@ -5,8 +5,8 @@ section {
 
 label {
     font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    width: 100px;
+    display: block;
+    width: 200px;
     /* background: rebeccapurple; */
 }
 
@@ -57,6 +57,13 @@ section #main-container #container-2 #btn-modificar {
 
 section #main-container #container-2 #map {
     margin-top: 15%;
+    width: 400px;
+    height: 400px;
+    background: rebeccapurple;
+}
+
+section #main-container #container-2 .input-map {
+    margin-top: 5%;
 }
 
 footer {

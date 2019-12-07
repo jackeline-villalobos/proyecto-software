@@ -55,39 +55,48 @@
 
             <div id="container-2">
                 <div>
-                    <label for="txt-encargado">Encargado: </label>
+                    <label for="txt-encargado">Encargado:</label>
                     <input type="text" name="" id="txt-encargado" class="input_registrar">
                 </div>
 
                 <div>
-                    <label for="txt-nombreRecinto">Nombre de recinto: </label>
+                    <label for="txt-nombreRecinto">Nombre de recinto:</label>
                     <input type="text" name="" id="txt-nombreRecinto" class="input_registrar">
                 </div>
 
                 <div>
-                    <label for="txt-capacidad">Capacidad de recinto: </label>
+                    <label for="txt-capacidad">Capacidad de recinto:</label>
                     <input type="number" name="" id="txt-capacidad" class="input_registrar">    
                 </div>
 
                 <div>
-                    <label for="txt-capacidadEspeciales">Asientos especiales</label>
+                    <label for="txt-capacidadEspeciales">Asientos especiales:</label>
                     <input type="number" name="" id="txt-capacidadEspeciales" class="input_registrar">
                 </div>
 
                 <div>
-                    <label for="txt-provincia">Provincia</label>
+                    <label for="txt-provincia">Provincia:</label>
                     <input type="text" name="" id="txt-provincia" class="input_registrar">
                 </div>
 
                 <div>
-                    <label for="txt-direccion">Dirección de recinto: </label>
+                    <label for="txt-direccion">Dirección de recinto:</label>
                     <input type="text" name="" id="txt-direccion" class="input_registrar">
                 </div>
         
                     <button type="button" id="btn-modificar">Modificar información</button>
                 <div id="map">
-                    <script src="js/geolocalizacion-card.js"></script>
+                    <script src="js/geolocalizacion.js"></script>>
                 </div>
+
+                <div class="input-map">
+                    <label for="txt-latitud">Latitud:</label>
+                    <input type="number" name="" id="txt-latitud" class="input_registrar">
+
+                    <label for="txt-longitud">Longitud:</label>
+                    <input type="number" name="" id="txt-longitud" class="input_registrar">
+                </div>
+
             </div>
 
         </div>
@@ -142,11 +151,12 @@
 
     <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap"
         type="text/javascript"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>

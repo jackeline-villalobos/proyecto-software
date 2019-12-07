@@ -111,19 +111,34 @@ let buscarRecinto = async (idRecinto) => {
 let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion) => {
     let resultado;
 
+    let parametro = {
+        '_id': idRecinto,
+        'imagen': imagenCloudinary,
+        'correoEncargado': encargado,
+        'nombreRecinto': recinto,
+        'capacidad': capacidad,
+        'capacidadDiscapacitados': capacidadEspeciales,
+        'provincia': provincia,
+        'direccion': direccion
+    }
+
+    console.log(parametro);
+
+    for(let i in parametro){
+        if(parametro[i] === '') {
+            delete parametro[`${i}`];
+        }
+    }
+
+    console.log(parametro);
+
+
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/modificar-recinto',
         responseType: 'json',
         data: {
-            _id: idRecinto,
-            imagen: imagenCloudinary,
-            correoEncargado: encargado,
-            nombreRecinto: recinto,
-            capacidad: capacidad,
-            capacidadDiscapacitados: capacidadEspeciales,
-            provincia: provincia,
-            direccion: direccion
+            parametro    
         }
     })
     .then(async function(res){
