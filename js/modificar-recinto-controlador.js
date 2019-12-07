@@ -1,7 +1,7 @@
 'use strict';
 
 let idRecinto = sessionStorage.getItem('idRecinto');
-//const mainContainer = document.querySelector('#main-container');
+
 const imagen = document.querySelector('#imagePreview');
 const inputEncargado = document.querySelector('#txt-encargado');
 const inputRecinto = document.querySelector('#txt-nombreRecinto');
@@ -9,6 +9,8 @@ const inputCapacidad = document.querySelector('#txt-capacidad');
 const inputCapacidadEspeciales = document.querySelector('#txt-capacidadEspeciales');
 const inputProvincia = document.querySelector('#txt-provincia');
 const inputDireccion = document.querySelector('#txt-direccion');
+const inputLatitud = document.querySelector('#latitud');
+const inputLongitud = document.querySelector('#longitud');
 const btnModificar = document.querySelector('#btn-modificar');
 
 
@@ -23,7 +25,7 @@ let validar = async () => {
     if (inputEncargado.value != 0) {
         
         if (revisar_correo.test(inputEncargado.value) == false) {
-            console.log('Error en correo');
+            
             error = true;
             inputEncargado.classList.add('error');
         } else {
@@ -35,7 +37,10 @@ let validar = async () => {
         let capacidadInput = parseInt(inputCapacidad.value);
         let capacidadDiscapacitados = parseInt(inputCapacidadEspeciales.value);
         if (inputCapacidad.value < inputCapacidadEspeciales.value) {
-            console.log('Error acá');
+            
+            error = true;
+            inputCapacidad.classList.add('error');
+        } else if(inputCapacidad.value < capacidadEspeciales && inputCapacidadEspeciales.value == 0){
             error = true;
             inputCapacidad.classList.add('error');
         } else {
@@ -49,11 +54,11 @@ let validar = async () => {
         let capacidadDiscapacitados = parseInt(inputCapacidadEspeciales.value);
 
         if (capacidadDiscapacitados > capacidadInput) {
-            console.log('Error acá');
+           
             error = true;
             inputCapacidadEspeciales.classList.add('error');
-        } else if (capacidadDiscapacitados > capacidad) {
-            console.log('Error acá');
+        } else if (capacidadDiscapacitados > capacidad && inputCapacidad.value == 0) {
+            
             error = true;
             inputCapacidadEspeciales.classList.add('error');
         } else {
@@ -61,17 +66,17 @@ let validar = async () => {
         }
 
     }
-    console.log(error);
+    
     return error;
 }
 
 
 let llenarPerfil = async () => {
     let recinto = await buscarRecinto(idRecinto);
-    console.log(recinto);
+
     let imagenSource = recinto.recinto.imagen;
     imagen.src = `${imagenSource}`;
-    console.log(imagen.src);
+    
 
     let encargado = recinto.recinto.correoEncargado;
     inputEncargado.setAttribute('placeholder', `${encargado}`);
@@ -92,10 +97,10 @@ let llenarPerfil = async () => {
     inputDireccion.setAttribute('placeholder', `${direccion}`);
 
     let latitud = recinto.recinto.latitud;
-    console.log(latitud);
+    inputLatitud.setAttribute('placeholder',`${latitud}`);
 
     let longitud = recinto.recinto.longitud;
-    console.log(longitud);
+    inputLongitud.setAttribute('placeholder',`${longitud}`);
 
     initMap(latitud, longitud);
 
@@ -105,7 +110,7 @@ llenarPerfil();
 
 let obtenerDatos = async () => {
     let imagenCloudinary = imagen.src;
-    console.log(imagenCloudinary);
+    
 
     let encargado = inputEncargado.value;
     let recinto = inputRecinto.value;
@@ -113,6 +118,9 @@ let obtenerDatos = async () => {
     let capacidadEspeciales = inputCapacidadEspeciales.value;
     let provincia = inputProvincia.value;
     let direccion = inputDireccion.value;
+    let latitud = inputLatitud.value;
+    let longitud = inputLongitud.value;
+
 
     let errorValidacion = await validar();
 
@@ -124,9 +132,8 @@ let obtenerDatos = async () => {
             confirmButtonText: 'Entendido'
         })
     } else {
-        let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion);
+        let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion, latitud, longitud);
 
-        console.log(error.resultado);
 
         if (error.resultado == false) {
             Swal.fire({

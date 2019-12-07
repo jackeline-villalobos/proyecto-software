@@ -108,7 +108,7 @@ let buscarRecinto = async (idRecinto) => {
     return recinto;
 }
 
-let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion) => {
+let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion, latitud, longitud) => {
     let resultado;
 
     let parametro = {
@@ -119,18 +119,17 @@ let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, c
         'capacidad': capacidad,
         'capacidadDiscapacitados': capacidadEspeciales,
         'provincia': provincia,
-        'direccion': direccion
+        'direccion': direccion,
+        'latitud': latitud,
+        'longitud': longitud
     }
 
-    console.log(parametro);
 
     for(let i in parametro){
         if(parametro[i] === '') {
             delete parametro[`${i}`];
         }
     }
-
-    console.log(parametro);
 
 
     await axios({
@@ -143,7 +142,6 @@ let modificarRecinto = async (idRecinto, imagenCloudinary, encargado, recinto, c
     })
     .then(async function(res){
         resultado = await res.data;
-        console.log(res.data);
     })
     .catch(function(err){
         console.log(err);
