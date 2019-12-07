@@ -279,34 +279,9 @@ router.post('/modificar-recinto', function (req, res) {
 
     let body = req.body;
 
-    // let params = {
-    //     '_id': body._id,
-    //     'imagen': body.imagen,
-    //     'correoEncargado': body.correoEncargado,
-    //     'nombreRecinto': body.nombreRecinto,
-    //     'capacidad': body.capacidad,
-    //     'capacidadDiscapacitados': body.capacidadDiscapacitados,
-    //     'provincia': body.provincia,
-    //     'direccion': body.direccion        
-    // }
-
-    // for(let i = 0; i < params.length; i++) {
-    //     if(params[i] === ''){
-    //         delete params[i];
-    //     }
-    // }
-
-
-    Recinto.updateOne({_id: body._id}, {
-        $set: {
-            imagen: body.imagen,
-            correoEncargado: body.correoEncargado,
-            nombreRecinto: body.nombreRecinto,
-            capacidad: body.capacidad,
-            capacidadDiscapacitados: body.capacidadDiscapacitados,
-            provincia: body.provincia,
-            direccion: body.direccion
-        } 
+    Recinto.updateOne({_id: body.parametro._id}, {
+        $set: 
+        body.parametro
         
     })
     .then(function(info){

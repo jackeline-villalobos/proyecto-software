@@ -89,7 +89,7 @@ let llenarPerfil = async () => {
     inputProvincia.setAttribute('placeholder', `${provincia}`);
 
     let direccion = recinto.recinto.direccion;
-    inputDireccion.setAttribute('placeholder', `${provincia}`);
+    inputDireccion.setAttribute('placeholder', `${direccion}`);
 
     let latitud = recinto.recinto.latitud;
     console.log(latitud);
@@ -119,13 +119,11 @@ let obtenerDatos = async () => {
     if (errorValidacion) {
         Swal.fire({
             icon: 'warning',
-            title: 'Algunos campos son incorrectos validacion',
+            title: 'Algunos campos son incorrectos',
             text: 'Por favor inténtelo de nuevo',
             confirmButtonText: 'Entendido'
         })
     } else {
-        console.log(capacidad, capacidadEspeciales);
-        console.log(provincia);
         let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion);
 
         console.log(error.resultado);
@@ -141,7 +139,7 @@ let obtenerDatos = async () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Cambios realizados con éxito',
-                text: 'El impuesto ha sido modificado',
+                text: 'El recinto ha sido modificado',
                 confirmButtonText: "Entendido"
                 // onClose: function () {
                 //     location.href = 'perfil-encargado.html';
