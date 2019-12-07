@@ -1,6 +1,6 @@
 'use strict';
 
-let verificarCorreo = async(correo) => {
+let verificarCorreo = async (correo) => {
     let resultado;
 
     await axios({
@@ -8,20 +8,20 @@ let verificarCorreo = async(correo) => {
         url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
         responseType: 'json'
     })
-    .then( async function(res){
-        console.log(res.data);
-        resultado = await res.data.resultado;
-    })
-    .catch(function(err){
-        console.log(err);
-    });
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data.resultado;
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 
     return resultado;
 }
 
 
 let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
-    
+
     let resultado;
 
     let pcontrasenna = generarContrasena();
@@ -47,35 +47,35 @@ let registrar_organizadorSolicitante = async (nombreEmpresa, cedulaJuridica, exp
             }
         }
     )
-    .then( async function(res){
-        console.log(res.data);
-        resultado = await res.data;
-    })
-    
-    .catch(function(error){
-        console.log(error);
-    });
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+
+        .catch(function (error) {
+            console.log(error);
+        });
 
     return resultado;
-    
+
 };
 
-function generarContrasena(){
+function generarContrasena() {
     let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     let caracterEspecial = ['!', '@', '#', '$', '%', '=', '&', '*', '?', '_'];
     // 1 mayúscula
-    let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] + 
-    // 5 minúsculas
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] + 
-    minusculas[Math.floor(Math.random() * minusculas.length)] +
-    // 1 número
-    [Math.floor((Math.random() * 33) + 1)] + 
-    // 1 caracter especial
-    caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
+    let contrasena = mayusculas[Math.floor(Math.random() * mayusculas.length)] +
+        // 5 minúsculas
+        minusculas[Math.floor(Math.random() * minusculas.length)] +
+        minusculas[Math.floor(Math.random() * minusculas.length)] +
+        minusculas[Math.floor(Math.random() * minusculas.length)] +
+        minusculas[Math.floor(Math.random() * minusculas.length)] +
+        minusculas[Math.floor(Math.random() * minusculas.length)] +
+        // 1 número
+        [Math.floor((Math.random() * 33) + 1)] +
+        // 1 caracter especial
+        caracterEspecial[Math.floor(Math.random() * caracterEspecial.length)];
 
     return contrasena;
 };
@@ -85,22 +85,22 @@ let listar_organizadorSolicitantes = async () => {
     let lista_organizadorSolicitantes;
 
     await axios({
-        method : 'get',
+        method: 'get',
         url: 'http://localhost:3000/api//listar-organizadorSolicitante',
         responseType: 'json'
     })
-    .then(function(res){
-        console.log(res.data);
-        lista_organizadorSolicitantes = res.data.organizadores;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+        .then(function (res) {
+            console.log(res.data);
+            lista_organizadorSolicitantes = res.data.organizadores;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     return lista_organizadorSolicitantes;
 };
 
-
-let obtenerDatos = async () =>{
+const idUsuario = sessionStorage.getItem('idUsuario');
+let obtenerDatos = async () => {
 
     let organizadorSolicitante;
     await axios({
@@ -110,27 +110,62 @@ let obtenerDatos = async () =>{
             _id: idUsuario,
         }
     })
-    .then(async function(res){
-        organizadorSolicitante = await res.data;
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+        .then(async function (res) {
+            organizadorSolicitante = await res.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     return organizadorSolicitante;
 };
 
 let listarEventos = async () => {
     let listaEventos;
-    await axios ({
+    await axios({
         method: 'get',
         url: 'http://localhost:3000/api/listar-eventos',
         responseType: 'json'
     })
-    .then(function(res){
-        listaEventos = res.data.eventos;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+        .then(function (res) {
+            listaEventos = res.data.eventos;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     return listaEventos;
 };
+
+let editarOrganizador = async (_id, nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
+
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/editar-perfil-organizador',
+        responseType: 'json',
+        data: {
+            _id: _id,
+            nombreEmpresa: nombreEmpresa,
+            cedulaJuridica: cedulaJuridica,
+            experiencia: experiencia,
+            nombreComercial: nombreComercial,
+            provincia: provincia,
+            canton: canton,
+            distrito: distrito,
+            sennas: sennas,
+            nombreCompleto: nombreCompleto,
+            correo: correo,
+            telefono: telefono,
+            genero: genero
+        }
+    })
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function (error) {
+            console.log(err)
+        });
+
+    return resultado;
+
+}
