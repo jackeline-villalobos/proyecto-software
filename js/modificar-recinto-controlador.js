@@ -12,7 +12,61 @@ const inputDireccion = document.querySelector('#txt-direccion');
 const btnModificar = document.querySelector('#btn-modificar');
 
 
-let llenarPerfil = async() => {
+let validar = async () => {
+    let error = false;
+
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
+    let infoRecinto = await buscarRecinto(idRecinto);
+    let capacidad = infoRecinto.recinto.capacidad;
+    let capacidadEspeciales = infoRecinto.recinto.capacidadDiscapacitados;
+
+    if (inputEncargado.value != 0) {
+        
+        if (revisar_correo.test(inputEncargado.value) == false) {
+            console.log('Error en correo');
+            error = true;
+            inputEncargado.classList.add('error');
+        } else {
+            inputEncargado.classList.remove('error');
+        }
+    }
+
+    if (inputCapacidad.value != 0) {
+        let capacidadInput = parseInt(inputCapacidad.value);
+        let capacidadDiscapacitados = parseInt(inputCapacidadEspeciales.value);
+        if (inputCapacidad.value < inputCapacidadEspeciales.value) {
+            console.log('Error acá');
+            error = true;
+            inputCapacidad.classList.add('error');
+        } else {
+            inputCapacidad.classList.remove('error');
+        }
+    }
+
+    if (inputCapacidadEspeciales.value != 0) {
+       
+        let capacidadInput = parseInt(inputCapacidad.value);
+        let capacidadDiscapacitados = parseInt(inputCapacidadEspeciales.value);
+
+        if (capacidadDiscapacitados > capacidadInput) {
+            console.log('Error acá');
+            error = true;
+            inputCapacidadEspeciales.classList.add('error');
+        } else if (capacidadDiscapacitados > capacidad) {
+            console.log('Error acá');
+            error = true;
+            inputCapacidadEspeciales.classList.add('error');
+        } else {
+            inputCapacidadEspeciales.classList.remove('error');
+        }
+
+    }
+    console.log(error);
+    return error;
+}
+
+
+let llenarPerfil = async () => {
     let recinto = await buscarRecinto(idRecinto);
     console.log(recinto);
     let imagenSource = recinto.recinto.imagen;
@@ -49,7 +103,55 @@ let llenarPerfil = async() => {
 
 llenarPerfil();
 
-btnModificar.addEventListener('click', function(){
+let obtenerDatos = async () => {
     let imagenCloudinary = imagen.src;
     console.log(imagenCloudinary);
-});
+
+    let encargado = inputEncargado.value;
+    let recinto = inputRecinto.value;
+    let capacidad = inputCapacidad.value;
+    let capacidadEspeciales = inputCapacidadEspeciales.value;
+    let provincia = inputProvincia.value;
+    let direccion = inputDireccion.value;
+
+    let errorValidacion = await validar();
+
+    if (errorValidacion) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Algunos campos son incorrectos validacion',
+            text: 'Por favor inténtelo de nuevo',
+            confirmButtonText: 'Entendido'
+        })
+    } else {
+        console.log(capacidad, capacidadEspeciales);
+        console.log(provincia);
+        let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion);
+
+        console.log(error.resultado);
+
+        if (error.resultado == false) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Algunos campos son incorrectos',
+                text: 'Por favor inténtelo de nuevo',
+                confirmButtonText: 'Entendido'
+            });
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Cambios realizados con éxito',
+                text: 'El impuesto ha sido modificado',
+                confirmButtonText: "Entendido"
+                // onClose: function () {
+                //     location.href = 'perfil-encargado.html';
+                // }
+            });
+        }
+
+
+    }
+
+}
+
+btnModificar.addEventListener('click', obtenerDatos);
