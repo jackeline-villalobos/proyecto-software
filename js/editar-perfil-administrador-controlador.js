@@ -15,18 +15,18 @@ const btnGuardarCambios = document.querySelector('#Btn_guardarCambios');
 const idUsuario = sessionStorage.getItem('idUsuario');
 
 
-const primerNombre = sessionStorage.getItem('primerNombre');
-const segundoNombre = sessionStorage.getItem('segundoNombre');
-const primerApellido = sessionStorage.getItem('primerApellido');
-const segundoApellido = sessionStorage.getItem('segundoApellido');
-const genero = sessionStorage.getItem('genero');
-//const provincia = sessionStorage.getItem('provincia');
-//const canton = sessionStorage.getItem('canton');
-//const distrito = sessionStorage.getItem('distrito');
-const direccion = sessionStorage.getItem('direccion');
+let llenarForm = async () => {
 
 
-let llenarForm = () => {
+    let datosUsuario = await obtenerDatos();
+    console.log(datosUsuario);
+
+    let primerNombre = datosUsuario.primerNombre;
+    let segundoNombre = datosUsuario.segundoNombre;
+    let primerApellido = datosUsuario.primerApellido;
+    let segundoApellido = datosUsuario.segundoApellido;
+    let genero = datosUsuario.genero;
+    let direccion = datosUsuario.direccion;
 
     inputPrimerNombre.setAttribute('placeholder', `${primerNombre}`);
     inputSegundoNombre.setAttribute('placeholder', `${segundoNombre}`);
@@ -97,7 +97,7 @@ let validar = () => {
     return error;
 }
 
-let obtenerDatos = async() => {
+let obtener_datos = async() => {
 
     let primerNombre = inputPrimerNombre.value;
     let segundoNombre = inputSegundoNombre.value;
@@ -163,4 +163,4 @@ let obtenerDatos = async() => {
 }
 
 llenarForm();
-btnGuardarCambios.addEventListener('click', obtenerDatos);
+btnGuardarCambios.addEventListener('click', obtener_datos);
