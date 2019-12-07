@@ -97,7 +97,7 @@ let validar = () => {
     return error;
 }
 
-let obtenerDatos = async() => {
+let obtener_datos = async() => {
 
     let primerNombre = inputPrimerNombre.value;
     let segundoNombre = inputSegundoNombre.value;
