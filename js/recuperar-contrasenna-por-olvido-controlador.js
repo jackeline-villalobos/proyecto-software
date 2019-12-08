@@ -76,11 +76,21 @@ let obtenerDatos = async() => {
                 text: 'Revise su correo electrónico.',
                 confirmButtonText: 'Entendido',
                 costumClass: 'modal',
+                onClose: function() {
+                    // sessionStorage.removeItem('contrasenna');
+                    location.href = 'iniciar-sesion.html';
+                }
+                
                 // onClose: function() {
                 //     location.href = 'primer-cambio-contrasenna.html';
                 // }
-            });
+            },
+            // function(confirmButtonText){
+            //     window.location.href = "iniciar-sesion.html";
+            // }
+            );
 
+            
             // input_primerNombre.value = '';
             // input_segundoNombre.value = '';
             // input_primerApellido.value = '';
