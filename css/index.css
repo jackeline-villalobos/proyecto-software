@@ -3,12 +3,19 @@ main {
     margin: auto;
 }
 
+/* nav a{
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav a:hover{
+    color: #1EBB2D;
+} */
 
 /* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
 
-.botones-header {
-    /* position: relative; */
-}
+/* .botones-header {
+    position: relative;
+} */
 
 .botones-header a button {
     margin: 0px;
