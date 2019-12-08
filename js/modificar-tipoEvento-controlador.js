@@ -168,7 +168,7 @@ btnEliminar.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'warning',
-            title: 'El tipo de evento no se ha podido desactivar',
+            title: 'El tipo de evento no se ha podido eliminar',
             confirmButtonText: "Entendido"
         });
 
