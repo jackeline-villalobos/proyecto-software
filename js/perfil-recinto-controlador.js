@@ -14,15 +14,32 @@ const parrafo = document.querySelector('#parrafo');
 const btnModificar = document.querySelector('#btn-modificar');
 const grado = sessionStorage.getItem('gradoUsuario');
 
+const btnActivar = document.querySelector('#btn-activar');
+const btnDesactivar = document.querySelector('#btn-desactivar');
+
 if (grado != 2) {
     btnModificar.classList.add('ocultar');
 }
 
+let mostrarButtons = (estado) => {
+
+    if (estado == 'activo') {
+        btnActivar.classList.add('ocultar');
+    } else {
+        btnDesactivar.classList.add('ocultar');
+    }
+
+}
 
 
 let llenarPerfil = async() => {
     let recinto = await buscarRecinto(idRecinto);
     console.log(recinto);
+
+    let estado = recinto.recinto.estado;
+
+    mostrarButtons(estado);
+
     let imagenSource = recinto.recinto.imagen;
     imagen.src = `${imagenSource}`;
 
@@ -55,3 +72,60 @@ let llenarPerfil = async() => {
 }
 
 llenarPerfil();
+
+btnActivar.addEventListener('click' , async function(){
+    let estado = 'activo';
+
+    let resultado = await modificarEstado(idRecinto, estado);
+
+    if(resultado.resultado == true) {
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Activado con éxito',
+            text: 'El recinto ha sido activado',
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'listar-recintos-card.html';
+            }
+        });
+
+    } else {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El recinto no se ha podido activar',
+            confirmButtonText: "Entendido"
+        });
+
+    }
+
+});
+
+btnDesactivar.addEventListener('click', async function() {
+    let estado = 'inactivo';
+
+    let resultado = await modificarEstado(idRecinto, estado);
+
+    if(resultado.resultado == true) {
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Desactivado con éxito',
+            text: 'El recinto ha sido activado',
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'listar-recintos-inactivos-card.html';
+            }
+        });
+
+    } else {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El recinto no se ha podido activar',
+            confirmButtonText: "Entendido"
+        });
+
+    }
+});

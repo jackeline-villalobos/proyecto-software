@@ -299,5 +299,30 @@ router.post('/modificar-recinto', function (req, res) {
     });
 });
 
+router.post('/modificar-estado-recinto', function(req, res) {
+
+    let body = req.body;
+    
+    Recinto.updateOne({_id: body._id}, {
+        $set: {
+            estado: body.estado
+        }
+    })
+    .then(function(info){
+        res.json({
+            resultado: true, 
+            info: info
+        });
+    })
+    .catch(function(error){
+        res.json({
+            resultado: false,
+            msg: 'Algo salió mal',
+            error  
+        });
+    });
+
+})
+
 
 module.exports = router;

@@ -275,7 +275,7 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
 /* Agregado por Ángel para que lo evalúen 19/11/2019 - 12:19 m.d  */
 
 .ocultar {
-    display: none;
+    display: none !important;
 }
 
 #carrito-compras {

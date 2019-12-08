@@ -60,6 +60,30 @@ section #main-container #container-2 #map {
     margin-top: 15%;
 }
 
+.container-buttons-estado {
+    width: 0;
+    height: 20px;
+}
+
+.button-estado {
+    display: block;
+    margin-top: 2%;
+    width: 25%;
+}
+
+button {
+    display: block;
+}
+
+button:hover {
+    background-color: #1EBB2D;
+    border: none;
+    color: #FFFFFF;
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+}
+
 footer {
     margin-top: 5%;
 }
