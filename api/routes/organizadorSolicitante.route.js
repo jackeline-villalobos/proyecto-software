@@ -253,27 +253,6 @@ router.post('/buscar-organizador-id', function (req, res) {
         })
 });
 
-// router.post('/activar-organizador', function (req, res) {
-//     OrganizadorSolicitante.update({ _id: req.body._id }, {
-//         $set: {
-//             'estado' : 'activo'
-//         }
-//     }, function (err) {
-//         if (err) {
-//             return res.json({
-//                 resultado: false,
-//                 msg: 'No se pudo activar el usuario',
-//                 err
-//             });
-//         } else {
-//             return res.json({
-//                 resultado: true,
-//                 msg: 'Se activó el usuario correctamente'
-//             });
-//         }
-//     }
-//     )
-// });
 
 router.post('/editar-perfil-organizador', function (req, res) {
     let body = req.body;
@@ -309,5 +288,30 @@ router.post('/editar-perfil-organizador', function (req, res) {
             }
         })
 });
+
+router.post('/modificar-estado-organizador', function(req, res) {
+
+    let body = req.body;
+    
+    OrganizadorSolicitante.updateOne({_id: body._id}, {
+        $set: {
+            estado: body.estado
+        }
+    })
+    .then(function(info){
+        res.json({
+            resultado: true, 
+            info: info
+        });
+    })
+    .catch(function(error){
+        res.json({
+            resultado: false,
+            msg: 'No se pudo modificar el estado',
+            error  
+        });
+    });
+
+})
 
 module.exports = router;
