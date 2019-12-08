@@ -148,7 +148,9 @@ btnDesactivar.addEventListener('click', async function() {
 });
 
 
-btnEliminar.addEventListener('click', async function() {
+btnEliminar.addEventListener('click', async function(e) {
+
+    e.preventDefault();
 
     let resultado = await eliminartipoEvento(idtipoEvento);
 
