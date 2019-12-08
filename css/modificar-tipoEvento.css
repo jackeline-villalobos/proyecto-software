@@ -1,13 +1,15 @@
-.btn-estado {
+/*
+.estado {
     display: inline-block;
-    width: 300px !important;
 }
+*/
 
 #btn-activar {
-    display: inline-block;
-    margin-left: 2px;
+    display: inline-block !important;
+    margin: 2px;
 }
 
 #btn-desactivar {
-    display: inline-block;
+    display: inline-block !important;
+    margin: 2px;
 }

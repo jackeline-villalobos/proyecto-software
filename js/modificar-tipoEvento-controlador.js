@@ -5,6 +5,8 @@ const btnGuardar = document.querySelector('#btn-guardar');
 const idtipoEvento = sessionStorage.getItem('tipoEvento');
 const nombretipoEvento = sessionStorage.getItem('nombretipoEvento');
 
+const btnActivar = document.querySelector('#btn-activar');
+const btnDesactivar = document.querySelector('#btn-desactivar');
 
 
 let llenarForm = () => {
@@ -84,3 +86,61 @@ let obtenerDatos = async() => {
 
 llenarForm();
 btnGuardar.addEventListener('click', obtenerDatos);
+
+
+btnActivar.addEventListener('click', async function() {
+    let estado = 'activo';
+
+    let resultado = await modificarEstado(idtipoEvento, estado);
+
+    if (resultado.resultado == true) {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Activado con éxito',
+            text: 'El recinto ha sido activado',
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'perfil-administrador.html';
+            }
+        });
+
+    } else {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El recinto no se ha podido activar',
+            confirmButtonText: "Entendido"
+        });
+
+    }
+
+});
+
+btnDesactivar.addEventListener('click', async function() {
+    let estado = 'inactivo';
+
+    let resultado = await modificarEstado(idtipoEvento, estado);
+
+    if (resultado.resultado == true) {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Desactivado con éxito',
+            text: 'El recinto ha sido activado',
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'perfil-administrador.html';
+            }
+        });
+
+    } else {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El recinto no se ha podido activar',
+            confirmButtonText: "Entendido"
+        });
+
+    }
+});
