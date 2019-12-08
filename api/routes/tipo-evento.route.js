@@ -104,7 +104,15 @@ router.post('/eliminar-tipoEvento', function(req, res) {
 
     let body = req.body;
 
-    tipoEvento.deleteOne({ _id: body._id }, {})
+    tipoEvento.deleteOne({ _id: body._id },
+            /*{
+                       
+                   $set: {
+                           estado: body.estado
+                       }
+                       
+                   }   */
+        )
         .then(function(info) {
             res.json({
                 resultado: true,

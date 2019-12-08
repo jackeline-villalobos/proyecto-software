@@ -152,7 +152,7 @@ btnEliminar.addEventListener('click', async function() {
 
     let resultado = await eliminartipoEvento(idtipoEvento);
 
-    if (resultado == true) {
+    if (resultado.resultado == true) {
 
         Swal.fire({
             icon: 'success',
