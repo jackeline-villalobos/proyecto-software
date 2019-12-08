@@ -18,7 +18,7 @@ let mostrarCards = async () => {
         let estado = listaRecintos[i]['estado'];
         console.log(estado);
 
-        if(estado == 'activo') {
+        if(estado == 'inactivo') {
 
             let nombre = listaRecintos[i]['nombreRecinto'].toLowerCase();
 
