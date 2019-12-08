@@ -59,94 +59,94 @@ let mostrarInfo = async () =>{
 };
 
 let validar = () => {
-    // let error = false;
-    // let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
+    let error = false;
+    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
 
-    // if (input_nombreEmpresa.value == 0) {
-    //     error = true;
-    //     input_nombreEmpresa.classList.add('error');
-    // } else {
-    //     input_nombreEmpresa.classList.remove('error');
-    // };
+    if (input_nombreEmpresa.value == 0) {
+        error = true;
+        input_nombreEmpresa.classList.add('error');
+    } else {
+        input_nombreEmpresa.classList.remove('error');
+    };
 
-    // if (input_cedulaJuridica.value == 0) {
-    //     error = true;
-    //     input_cedulaJuridica.classList.add('error');
-    // } else {
-    //     input_cedulaJuridica.classList.remove('error');
-    // };
+    if (input_cedulaJuridica.value == 0) {
+        error = true;
+        input_cedulaJuridica.classList.add('error');
+    } else {
+        input_cedulaJuridica.classList.remove('error');
+    };
 
-    // if (input_experiencia.value == '' && input_experiencia.value > 0) {
-    //     error = true;
-    //     input_experiencia.classList.add('error');
-    // } else {
-    //     input_experiencia.classList.remove('error');
-    // };
+    if (input_experiencia.value == '' && input_experiencia.value > 0) {
+        error = true;
+        input_experiencia.classList.add('error');
+    } else {
+        input_experiencia.classList.remove('error');
+    };
 
-    // if (input_nombreComercial.value == 0) {
-    //     error = true;
-    //     input_nombreComercial.classList.add('error');
-    // } else {
-    //     input_nombreComercial.classList.remove('error');
-    // };
+    if (input_nombreComercial.value == 0) {
+        error = true;
+        input_nombreComercial.classList.add('error');
+    } else {
+        input_nombreComercial.classList.remove('error');
+    };
 
-    // if (slt_provicias.value == 0) {
-    //     error = true;
-    //     slt_provicias.classList.add('error');
-    // } else {
-    //     slt_provicias.classList.remove('error')
-    // };
+    if (slt_provicias.value == 0) {
+        error = true;
+        slt_provicias.classList.add('error');
+    } else {
+        slt_provicias.classList.remove('error')
+    };
 
-    // if (slt_cantones.value == 0) {
-    //     error = true;
-    //     slt_cantones.classList.add('error');
-    // } else {
-    //     slt_cantones.classList.remove('error')
-    // };
+    if (slt_cantones.value == 0) {
+        error = true;
+        slt_cantones.classList.add('error');
+    } else {
+        slt_cantones.classList.remove('error')
+    };
 
-    // if (slt_distritos.value == 0) {
-    //     error = true;
-    //     slt_distritos.classList.add('error');
-    // } else {
-    //     slt_distritos.classList.remove('error')
-    // };
+    if (slt_distritos.value == 0) {
+        error = true;
+        slt_distritos.classList.add('error');
+    } else {
+        slt_distritos.classList.remove('error')
+    };
 
-    // if (input_sennas.value == 0) {
-    //     error = true;
-    //     input_sennas.classList.add('error');
-    // } else {
-    //     input_sennas.classList.remove('error')
-    // };
+    if (input_sennas.value == 0) {
+        error = true;
+        input_sennas.classList.add('error');
+    } else {
+        input_sennas.classList.remove('error')
+    };
 
-    // if (input_nombreCompleto.value == 0) {
-    //     error = true;
-    //     input_nombreCompleto.classList.add('error');
-    // } else {
-    //     input_nombreCompleto.classList.remove('error')
-    // };
+    if (input_nombreCompleto.value == 0) {
+        error = true;
+        input_nombreCompleto.classList.add('error');
+    } else {
+        input_nombreCompleto.classList.remove('error')
+    };
 
-    // if (revisar_correo.test(input_correo.value) == false) {
-    //     error = true;
-    //     input_correo.classList.add('error');
-    // } else {
-    //     input_correo.classList.remove('error');
-    // }
+    if (revisar_correo.test(input_correo.value) == false) {
+        error = true;
+        input_correo.classList.add('error');
+    } else {
+        input_correo.classList.remove('error');
+    }
 
-    // if (input_telefono.value == "" || input_telefono.value.length > 8 || input_telefono.value == 0) {
-    //     error = true;
-    //     input_telefono.classList.add('error');
-    // } else {
-    //     input_telefono.classList.remove('error');
-    // }
+    if (input_telefono.value == "" || input_telefono.value.length > 8 || input_telefono.value == 0) {
+        error = true;
+        input_telefono.classList.add('error');
+    } else {
+        input_telefono.classList.remove('error');
+    }
 
-    // if (input_genero.value == 0) {
-    //     error = true;
-    //     input_genero.classList.add('error');
-    // } else {
-    //     input_genero.classList.remove('error');
-    // };
+    if (input_genero.value == 0) {
+        error = true;
+        input_genero.classList.add('error');
+    } else {
+        input_genero.classList.remove('error');
+    };
 
-    // return error
+    return error
 };
 
 let resetForm = () => {
