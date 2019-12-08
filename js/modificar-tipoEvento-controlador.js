@@ -127,7 +127,7 @@ btnDesactivar.addEventListener('click', async function() {
         Swal.fire({
             icon: 'success',
             title: 'Desactivado con éxito',
-            text: 'El recinto ha sido activado',
+            text: 'El recinto ha sido desactivado',
             confirmButtonText: "Entendido",
             onClose: function() {
                 location.href = 'perfil-administrador.html';
@@ -138,7 +138,7 @@ btnDesactivar.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'warning',
-            title: 'El recinto no se ha podido activar',
+            title: 'El recinto no se ha podido desactivar',
             confirmButtonText: "Entendido"
         });
 
