@@ -84,7 +84,32 @@ let modificarEstado = async(_id, estado) => {
         })
         .then(async function(res) {
             console.log(res.data);
-            resultado = await res.data
+            resultado = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+
+
+    return resultado;
+}
+
+let eliminartipoEvento = async(_id) => {
+
+    let resultado;
+
+    await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/eliminar-tipoEvento',
+            responseType: 'json',
+            data: {
+                _id: _id,
+            }
+
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data;
         })
         .catch(function(error) {
             console.log(error);

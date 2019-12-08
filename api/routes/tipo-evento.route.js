@@ -100,4 +100,26 @@ router.post('/modificar-estado-tipoEvento', function(req, res) {
 
 })
 
+router.post('/eliminar-tipoEvento', function(req, res) {
+
+    let body = req.body;
+
+    tipoEvento.deleteOne({ _id: body._id }, {})
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(error) {
+            res.json({
+                resultado: false,
+                msg: 'Algo salió mal',
+                error
+            });
+        });
+
+})
+
+
 module.exports = router;

@@ -8,6 +8,8 @@ const nombretipoEvento = sessionStorage.getItem('nombretipoEvento');
 const btnActivar = document.querySelector('#btn-activar');
 const btnDesactivar = document.querySelector('#btn-desactivar');
 
+const btnEliminar = document.querySelector('#btn-eliminar');
+
 
 let llenarForm = () => {
 
@@ -98,7 +100,7 @@ btnActivar.addEventListener('click', async function() {
         Swal.fire({
             icon: 'success',
             title: 'Activado con éxito',
-            text: 'El recinto ha sido activado',
+            text: 'El tipo de evento ha sido activado',
             confirmButtonText: "Entendido",
             onClose: function() {
                 location.href = 'perfil-administrador.html';
@@ -109,7 +111,7 @@ btnActivar.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'warning',
-            title: 'El recinto no se ha podido activar',
+            title: 'El tipo de evento no se ha podido activar',
             confirmButtonText: "Entendido"
         });
 
@@ -127,7 +129,7 @@ btnDesactivar.addEventListener('click', async function() {
         Swal.fire({
             icon: 'success',
             title: 'Desactivado con éxito',
-            text: 'El recinto ha sido desactivado',
+            text: 'El tipo de evento ha sido desactivado',
             confirmButtonText: "Entendido",
             onClose: function() {
                 location.href = 'perfil-administrador.html';
@@ -138,7 +140,35 @@ btnDesactivar.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'warning',
-            title: 'El recinto no se ha podido desactivar',
+            title: 'El tipo de evento no se ha podido desactivar',
+            confirmButtonText: "Entendido"
+        });
+
+    }
+});
+
+
+btnEliminar.addEventListener('click', async function() {
+
+    let resultado = await eliminartipoEvento(idtipoEvento);
+
+    if (resultado == true) {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Desactivado con éxito',
+            text: 'El tipo de evento ha sido eliminado',
+            confirmButtonText: "Entendido",
+            onClose: function() {
+                location.href = 'perfil-administrador.html';
+            }
+        });
+
+    } else {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El tipo de evento no se ha podido desactivar',
             confirmButtonText: "Entendido"
         });
 
