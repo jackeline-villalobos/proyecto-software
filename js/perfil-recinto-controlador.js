@@ -23,16 +23,24 @@ if (grado != 2) {
 
 let mostrarButtons = (estado) => {
 
-    if (estado == 'activo') {
-        btnActivar.classList.add('ocultar');
+    if (grado == 1) {
+        if (estado == 'activo') {
+            btnActivar.classList.add('ocultar');
+        } else {
+            btnDesactivar.classList.add('ocultar');
+        }
+
     } else {
+        btnActivar.classList.add('ocultar');
         btnDesactivar.classList.add('ocultar');
     }
+
+
 
 }
 
 
-let llenarPerfil = async() => {
+let llenarPerfil = async () => {
     let recinto = await buscarRecinto(idRecinto);
     console.log(recinto);
 
@@ -73,19 +81,19 @@ let llenarPerfil = async() => {
 
 llenarPerfil();
 
-btnActivar.addEventListener('click' , async function(){
+btnActivar.addEventListener('click', async function () {
     let estado = 'activo';
 
     let resultado = await modificarEstado(idRecinto, estado);
 
-    if(resultado.resultado == true) {
-        
+    if (resultado.resultado == true) {
+
         Swal.fire({
             icon: 'success',
             title: 'Activado con éxito',
             text: 'El recinto ha sido activado',
             confirmButtonText: "Entendido",
-            onClose: function() {
+            onClose: function () {
                 location.href = 'listar-recintos-card.html';
             }
         });
@@ -102,19 +110,19 @@ btnActivar.addEventListener('click' , async function(){
 
 });
 
-btnDesactivar.addEventListener('click', async function() {
+btnDesactivar.addEventListener('click', async function () {
     let estado = 'inactivo';
 
     let resultado = await modificarEstado(idRecinto, estado);
 
-    if(resultado.resultado == true) {
-        
+    if (resultado.resultado == true) {
+
         Swal.fire({
             icon: 'success',
             title: 'Desactivado con éxito',
             text: 'El recinto ha sido activado',
             confirmButtonText: "Entendido",
-            onClose: function() {
+            onClose: function () {
                 location.href = 'listar-recintos-inactivos-card.html';
             }
         });
