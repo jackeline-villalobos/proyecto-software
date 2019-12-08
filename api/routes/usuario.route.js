@@ -491,16 +491,20 @@ router.post('/buscar-usuario', function(req, res) {
 
 router.post('/recuperar-contrasenna', function(req, res) {
 
-
+    console.log("data pararecuperación de contraseña");
+    console.log(req.body);
+    console.log("inicio de lafuncion de recuperaion de contraseña");
     Usuario.findOne({ correo: req.body.correo })
         .then(function(usuarioBD) {
             if (usuarioBD) {
+                console.log("info de usuario encontrado");
+                console.log(usuarioBD);
 
                 usuarioBD.contrasenna;
 
                 let mailOptions = {
                     from: 'Ticket Pixel',
-                    to: Usuario.correo,
+                    to: usuarioBD.correo,
                     subject: 'Bienvido a Ticket pixel',
                     html: `<!DOCTYPE html>
                     <html lang="en">
@@ -574,12 +578,12 @@ router.post('/recuperar-contrasenna', function(req, res) {
                             <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                             <br>
                             
-                            <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                            <p>Su contraseña es:  <span> ${usuarioBD.contrasenna} </span></p>
                         </div>
                         <br>
                         <br>
                         <hr>
-                        <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                        <p class="footer">Este mensaje se envió a ${usuarioBD.correo}</p>
                         <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
                     
                     </body>
@@ -612,7 +616,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                             let mailOptions = {
                                 from: 'Ticket Pixel',
-                                to: Usuario.correo,
+                                to: usuarioBD.correo,
                                 subject: 'Bienvido a Ticket pixel',
                                 html: `<!DOCTYPE html>
                                 <html lang="en">
@@ -686,12 +690,12 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                         <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                         <br>
                                         
-                                        <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                        <p>Su contraseña es:  <span> ${usuarioBD.contrasenna} </span></p>
                                     </div>
                                     <br>
                                     <br>
                                     <hr>
-                                    <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                    <p class="footer">Este mensaje se envió a ${usuarioBD.correo}</p>
                                     <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
                                 
                                 </body>
@@ -818,7 +822,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                                         let mailOptions = {
                                             from: 'Ticket Pixel',
-                                            to: Usuario.correo,
+                                            to: usuarioBD.correo,
                                             subject: 'Bienvido a Ticket pixel',
                                             html: `<!DOCTYPE html>
                                             <html lang="en">
@@ -892,12 +896,12 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                     <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                                     <br>
                                                     
-                                                    <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                                    <p>Su contraseña es:  <span> ${usuarioBD.contrasenna} </span></p>
                                                 </div>
                                                 <br>
                                                 <br>
                                                 <hr>
-                                                <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                                <p class="footer">Este mensaje se envió a ${usuarioBD.correo}</p>
                                                 <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
                                             
                                             </body>
@@ -1024,7 +1028,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                                                     let mailOptions = {
                                                         from: 'Ticket Pixel',
-                                                        to: Usuario.correo,
+                                                        to: usuarioBD.correo,
                                                         subject: 'Bienvido a Ticket pixel',
                                                         html: `<!DOCTYPE html>
                                                         <html lang="en">
@@ -1098,12 +1102,12 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                                 <p>Puede ingresar esta contraseña para iniciar sesión en Ticket pixel:</p>
                                                                 <br>
                                                                 
-                                                                <p>Su contraseña es:  <span> ${Usuario.contrasenna} </span></p>
+                                                                <p>Su contraseña es:  <span> ${usuarioBD.contrasenna} </span></p>
                                                             </div>
                                                             <br>
                                                             <br>
                                                             <hr>
-                                                            <p class="footer">Este mensaje se envió a ${Usuario.correo}</p>
+                                                            <p class="footer">Este mensaje se envió a ${usuarioBD.correo}</p>
                                                             <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
                                                         
                                                         </body>

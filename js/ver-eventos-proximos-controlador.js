@@ -22,7 +22,7 @@ let mostrarCards = async () => {
 
         for (let j = 0; j < listaEventos[i]['fechas'].length; j++) {
 
-            let fechaEvento = new Date(listaEventos[i]['fechas'][j]['fecha']);
+            let fechaEvento = new Date(listaEventos[i]['fechas'][j]['fecha'] + " "+ listaEventos[i]['fechas'][j]['hora']);
             // let fechaDiaEvento = String(new Date(listaEventos[i]['fechas'][j]['fecha']).getDate() + 1);
             // let diaFechaEvento = String(fechaEvento.getDate() + 1).padStart(2, '0');
             // let fechaDiaEvento = new Date(getDate(listaEventos[i]['fechas'][j]['fecha'] + 1));
@@ -40,10 +40,16 @@ let mostrarCards = async () => {
 
             let annoEvento = fechaEvento.getFullYear();
             let mesEvento = String(fechaEvento.getMonth() + 1);
-            let fechaDiaEvento = String(fechaEvento.getDate() + 1);
+            let fechaDiaEvento = String(fechaEvento.getDate());
             let horaEvento = String(fechaEvento.getHours());
             let minutosEvento = String(fechaEvento.getMinutes());
             let segundosEvento = String(fechaEvento.getSeconds());
+
+            console.log("Fecha dividida actual: " + annoActual, mesActual, fechaDiaActual, "Hora dividida actual: " + horaActual, minutosActuales, segundosActuales);
+            console.log("Fecha dividida del evento "  + nombre + ": "+ annoEvento, mesEvento, fechaDiaEvento, "Hora dividida del evento: " + horaEvento, minutosEvento, segundosEvento);
+
+            console.log("Fecha y hora de hoy: " + fechaHoy);
+            console.log("Fecha y hora del evento " + nombre + ": ", fechaEvento);
 
 
             // ]Date.now(padStart(2, '0'));
@@ -69,11 +75,7 @@ let mostrarCards = async () => {
             // console.log("Año actual: " + annoActual, "Mes actual: " + mesActual, "Número de día actual: " + fechaDiaActual, "Hora actual (manecilla horario): " + horaActual, "Minutos actuales: " + minutosActuales, "Segundos actuales: " + segundosActuales);
             // console.log("Año del evento: " + annoEvento, "Mes del evento: " + mesEvento, "Número de día del avento: " + fechaDiaEvento, "Hora del evento (manecilla horario): " + horaEvento, "Minutos del evento: " + minutosEvento, "Segundos del evento: " + segundosEvento);
 
-            console.log("Fecha dividida actual: " + annoActual, mesActual, fechaDiaActual, "Hora dividida actual: " + horaActual, minutosActuales, segundosActuales);
-            console.log("Fecha dividida del evento: " + annoEvento, mesEvento, fechaDiaEvento, "Hora dividida del evento: " + horaEvento, minutosEvento, segundosEvento);
 
-            console.log("Fecha y hora de hoy: " + fechaHoy);
-            console.log("Fecha y hora del evento " + nombre + ": ", fechaEvento);
             
 
 
@@ -103,8 +105,12 @@ let mostrarCards = async () => {
 
                 let fecha = document.createElement('h3');
                 // for (let j = 0; j < listaEventos[i]['fechas'].length; j++) {
+
+
+                // fecha.innerText = 'Fecha: ' + fechaDiaEvento + "-" + mesEvento + "-" + annoEvento;
+
                 fecha.innerText = 'Fechas: ' + listaEventos[i]['fechas'][j]['fecha'];
-                // }
+                
 
 
                 let lugar = document.createElement('h4');
