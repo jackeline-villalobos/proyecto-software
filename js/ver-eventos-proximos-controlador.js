@@ -66,11 +66,14 @@ let mostrarCards = async () => {
 
             // console.log(nombre, fechaDiaEvento);
 
-            console.log(annoActual, mesActual, fechaDiaActual, horaActual, minutosActuales, segundosActuales);
-            console.log(annoEvento, mesEvento, fechaDiaEvento, horaEvento, minutosEvento, segundosEvento);
+            // console.log("Año actual: " + annoActual, "Mes actual: " + mesActual, "Número de día actual: " + fechaDiaActual, "Hora actual (manecilla horario): " + horaActual, "Minutos actuales: " + minutosActuales, "Segundos actuales: " + segundosActuales);
+            // console.log("Año del evento: " + annoEvento, "Mes del evento: " + mesEvento, "Número de día del avento: " + fechaDiaEvento, "Hora del evento (manecilla horario): " + horaEvento, "Minutos del evento: " + minutosEvento, "Segundos del evento: " + segundosEvento);
 
-            console.log(fechaHoy);
-            console.log(nombre, fechaEvento);
+            console.log("Fecha dividida actual: " + annoActual, mesActual, fechaDiaActual, "Hora dividida actual: " + horaActual, minutosActuales, segundosActuales);
+            console.log("Fecha dividida del evento: " + annoEvento, mesEvento, fechaDiaEvento, "Hora dividida del evento: " + horaEvento, minutosEvento, segundosEvento);
+
+            console.log("Fecha y hora de hoy: " + fechaHoy);
+            console.log("Fecha y hora del evento " + nombre + ": ", fechaEvento);
             
 
 
