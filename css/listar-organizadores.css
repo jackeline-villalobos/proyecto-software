@@ -4,11 +4,11 @@ a {
 }
 .container-filtro {
     height: 80px;
-    margin-bottom: 2%;
+    margin-bottom: 30px;
 }
 
 .container-filtro input {
-    margin: 2% 0 0 20%;
+    margin: 30px 0 0 20%;
 }
 
 .container-filtro h1 {
@@ -19,6 +19,7 @@ a {
 #tbl-organizadores {
     margin: auto;
     width: 90%;
+    margin-bottom: 100px;
 }
 
 #tbl-organizadores thead tr th {
