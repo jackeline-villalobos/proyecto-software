@@ -5,15 +5,11 @@ const btnGuardar = document.querySelector('#btn-guardar');
 const idtipoEvento = sessionStorage.getItem('tipoEvento');
 const nombretipoEvento = sessionStorage.getItem('nombretipoEvento');
 
-const inputActivo = document.querySelector("txt-activartipoEvento");
-const estadotipoEvento = sessionStorage.getItem("estado");
-
 
 
 let llenarForm = () => {
 
     inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
-    inputActivo.setAttribute(`${estadotipoEvento}`)
 
 
 }
