@@ -178,6 +178,9 @@ let obtener_datos = async () => {
                     title: 'La solicitud se envió con éxito',
                     text: 'Usted recibirá un correo en las próximas horas',
                     confirmButtonText: 'Entendido',
+                    onClose: function() {
+                        location.href = 'index.html';
+                    }
                 });
                 resetForm();
             }

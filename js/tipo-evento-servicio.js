@@ -69,23 +69,52 @@ let modificartipoEvento = async(_id, nombre, estado) => {
 }
 
 
-/*
-let verificarNombre = async(nombre) => {
+let modificarEstado = async(_id, estado) => {
+
     let resultado;
 
     await axios({
-            method: 'get',
-            url: `http://localhost:3000/api/listar-tipo-evento/${nombre}`,
-            responseType: 'json'
+            method: 'post',
+            url: 'http://localhost:3000/api/modificar-estado-tipoEvento',
+            responseType: 'json',
+            data: {
+                _id: _id,
+                estado: estado
+            }
         })
         .then(async function(res) {
             console.log(res.data);
-            resultado = await res.data.resultado;
+            resultado = await res.data;
         })
-        .catch(function(err) {
-            console.log(err);
+        .catch(function(error) {
+            console.log(error);
         });
+
 
     return resultado;
 }
-*/
+
+let eliminartipoEvento = async(_id) => {
+
+    let resultado;
+
+    await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/eliminar-tipoEvento',
+            responseType: 'json',
+            data: {
+                _id: _id,
+            }
+
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+
+
+    return resultado;
+}

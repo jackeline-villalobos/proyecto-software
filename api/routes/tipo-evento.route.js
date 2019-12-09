@@ -74,4 +74,60 @@ router.post('/modificar-tipoEvento', function(req, res) {
     );
 });
 
+
+router.post('/modificar-estado-tipoEvento', function(req, res) {
+
+    let body = req.body;
+
+    tipoEvento.updateOne({ _id: body._id }, {
+            $set: {
+                estado: body.estado
+            }
+        })
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(error) {
+            res.json({
+                resultado: false,
+                msg: 'Algo salió mal',
+                error
+            });
+        });
+
+})
+
+router.post('/eliminar-tipoEvento', function(req, res) {
+
+    let body = req.body;
+
+    tipoEvento.deleteOne({ _id: body._id },
+            /*{
+                       
+                   $set: {
+                           estado: body.estado
+                       }
+                       
+                   }   */
+        )
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(error) {
+            res.json({
+                resultado: false,
+                msg: 'Algo salió mal',
+                error
+            });
+        });
+
+})
+
+
 module.exports = router;

@@ -58,7 +58,11 @@ router.post('/registrar-recinto', function (req, res) {
                         } else {
                             console.log('No hay encargado!');
 
+                            let correo = body.correoEncargado;
+
                             let mailOptions = {
+                                
+
                                 from: 'Ticket Pixel',
                                 to: req.body.correoEncargado,
                                 subject: 'Registro de recinto',
@@ -160,9 +164,22 @@ router.post('/registrar-recinto', function (req, res) {
                                     <br>
                                     <p>Puede registrarse en la plataforma haciendo click en el botón.</p>
             
-                                    <a href="http://127.0.0.1:5503/registrar-encargado.html">
+                                    <a href="http://127.0.0.1:5503/registrar-encargado.html" id="${req.body.correoEncargado}" rel="${req.body.correoEncargado}" onclick="sessionStorage.setItem('correoEncargado' , document.getElementsByTagName("a")[0].getAttribute('rel'))">
                                         <button>Registro</button>
+                                        
                                     </a>
+
+                                    <div id="script-container">
+                                    <script>
+                                    
+                                        let rel = document.getElementsByTagName("a");
+                                        
+                                        let att = rel[0].getAttribute('rel');
+                                        
+                                        sessionStorage.setItem('correoEncargado', att);
+                                    
+                                    </script>
+                                    </div>
                                     
                                 </div>
                                 <br>
@@ -170,8 +187,10 @@ router.post('/registrar-recinto', function (req, res) {
                                 <hr>
                                 <p class="footer">Este mensaje se envió a ${req.body.correoEncargado}</p>
                                 <p class="footer">Equipo Nebula, Cenfotec 2019 </p>
-                            
+
                             </body>
+
+                            
                             
                             </html>`
                             };

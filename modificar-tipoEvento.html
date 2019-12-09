@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrar-impuestos.css">
+    <link rel="stylesheet" href="css/modificar-tipoEvento.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -119,10 +120,15 @@
             </div>
 
             <div>
-                <label for="txt-activartipoEvento">Activo</label>
-                <input type="checkbox" id="txt-activartipoEvento">
-            </div>
+                <label for="txt-activartipoEvento">Estado</label>
 
+            </div>
+            <div class="estado">
+
+                <button type="button" id="btn-activar">Activar</button>
+                <button type="button" id="btn-desactivar">Desactivar</button>
+                <button type="Eliminar" id="btn-eliminar">Eliminar</button>
+            </div>
 
             <button type="button" id="btn-guardar">Guardar</button>
 

@@ -6,9 +6,6 @@ const tableBody = document.querySelector('#tbl-organizadores tbody');
 
 let listaOrganizadores;
 
-let enviarCorreoConfirmacion = () => {
-
-};
 
 let llenarTabla = async () => {
 
@@ -51,18 +48,22 @@ let llenarTabla = async () => {
             fila.insertCell().appendChild(btnActivar).innerHTML;
             fila.insertCell().appendChild(btnDesactivar).innerHTML;
 
+            let idUsuario = listaOrganizadores[i]['_id']
             let activar_organizador = async () => {
-
                 let estado = 'activo';
-                let idUsuario = listaOrganizadores[i]['_id']
                 let resultado = await modificarEstado(idUsuario, estado);
                 console.log(resultado);
             };
 
-            let desactivar_organizador = async() => {
+            let desactivar_organizador = async () => {
                 let estado = 'inactivo';
-                let idUsuario = listaOrganizadores[i]['_id']
                 let resultado = await modificarEstado(idUsuario, estado);
+                console.log(resultado);
+            };
+
+
+            let enviar_correoConfirmacion = async () => {
+                let resultado = await enviarCorreoConfirmacion(idUsuario)
                 console.log(resultado);
             };
 
@@ -87,7 +88,7 @@ let llenarTabla = async () => {
                     reverseButtons: false
                 }).then((result) => {
                     activar_organizador();
-                    enviarCorreoConfirmacion();
+                    enviar_correoConfirmacion();
                     if (result.value) {
                         swalWithBootstrapButtons.fire(
                             'Organizador activado',
