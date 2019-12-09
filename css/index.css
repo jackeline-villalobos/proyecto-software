@@ -3,10 +3,17 @@ main {
     margin: auto;
 }
 
+
+
 /* nav a{
     font-family: 'Montserrat', sans-serif;
-}
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    margin-bottom: 15px;
+} */
 
+/*
 nav a:hover{
     color: #1EBB2D;
 } */
@@ -27,10 +34,19 @@ nav a:hover{
     padding: 0px;
 }
 
-/*.nav-superior {
+.nav-superior {
     padding-top: 30px;
     text-align: center;
     height: 30px;
+    padding-bottom: 20px;
+    
+
+}
+
+.nav-superior a{
+    /* vertical-align: center; */
+    margin-bottom: 20px;
+
 }
 
 .nav-superior div {
@@ -51,10 +67,11 @@ nav a:hover{
 
 .nav-superior .linea {
     width: 2px;
-    height: 20px;
+    height: 15px;
     background: #000000;
+    /* margin-top: 5px; */
 }
-*/
+
 
 .portada {
     background: url('../imagenes/landing-page/pexels-photo-518389.jpeg');
