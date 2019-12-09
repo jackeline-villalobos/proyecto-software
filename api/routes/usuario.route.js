@@ -785,7 +785,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                         
 
                                     } else {
-                                        Empresa.findOne({ correo: req.body.correo })
+                                        Encargado.findOne({ correo: req.body.correo })
                                             .then(function(encargadoBD) {
                                                 if (encargadoBD) {
 
