@@ -1085,4 +1085,81 @@ router.post('/editar-tarjeta-usuario', function(req, res) {
 
 
 
+//Endpoint temporal
+router.post('/agregar-notificacion', function(req, res) {
+
+    let body = req.body;
+
+    Usuario.update({_id: body._id}, {
+        $push: {
+            'notificaciones' : {
+                titulo: body.titulo,
+            descripcion: body.descripcion,
+            fecha: body.fecha
+            }
+        }        
+    })
+    .then(function(info) {
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    });
+
+});
+
+router.get('/buscar-usuario-correo/:correo', function(req, res) {
+    let correo = req.params.correo;
+
+    Usuario.findOne({ correo: correo }, function(err, usuarioBD) {
+        if (usuarioBD) {
+            res.json({
+                resultado: true,
+                usuario: usuarioBD
+            });
+        } else {
+            organizadorSolicitante.findOne({ correo: correo }, function(err, organizadorSolicitanteBD) {
+                if (organizadorSolicitanteBD) {
+                    res.json({
+                        resultado: true,
+                        usuario: organizadorSolicitanteBD
+                    });
+                } else {
+                    Empresa.findOne({ correo: correo }, function(err, empresaBD) {
+                        if (empresaBD) {
+                            res.json({
+                                resultado: true,
+                                usuario: empresaBD
+                            });
+                        } else {
+                            Encargado.findOne({ correo: correo }, function(err, encargadoBD) {
+                                if (encargadoBD) {
+                                    res.json({
+                                        resultado: true,
+                                        usuario: encargadoBD
+                                    });
+                                } else {
+                                    res.json({
+                                        resultado: false,
+                                        msg: 'El correo no se encontró'
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+
+
+
 module.exports = router;

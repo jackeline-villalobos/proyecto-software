@@ -9,6 +9,8 @@ const notificaciones = document.querySelector('#notificaciones');
 let conectado = sessionStorage.getItem('conectado');
 let gradoUsuario = sessionStorage.getItem('gradoUsuario');
 
+let correoUsuario = sessionStorage.getItem('correoUsuario');
+
 let containerFoto = document.querySelector('#foto-usuario');
 
 let fotoUsuario = document.createElement('img');
@@ -69,6 +71,36 @@ if (conectado) {
     notificaciones.classList.add('ocultar');
 }
 
+let notificacionesUsers = async () => {
+
+    let usuario;
+
+    await axios({
+        method: 'get',
+        url: `http://localhost:3000/api/buscar-usuario-correo/${correoUsuario}`,
+        responseType: 'json'
+    })
+    .then(async function(res) {
+        usuario = await res.data.usuario;
+    })
+    .catch(function(err){
+        console.log(err);
+    }); 
+
+    console.log(usuario);
+
+    let titulo = document.querySelector('#titulo-notificacion');
+    let comentario = document.querySelector('#comentario-notificacion');
+    let hora = document.querySelector('#hora-notificacion');
+
+    for(let i = 0; i < usuario.notificaciones.length ; i++){
+        let tituloNotificacion = usuario.notificaciones['titulo'];
+        console.log(tituloNotificacion);
+        //titulo.innerHTML = usuario.notificaciones.titulo;
+    }
+
+}
+
 
 
 let cerrarSesion = () => {
@@ -93,6 +125,8 @@ btnCerrarSesion.addEventListener('click', function(event){
     });
 
 });
+
+notificacionesUsers();
 
 notificacion.addEventListener('mouseover', function(e){
     e.preventDefault();
