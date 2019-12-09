@@ -145,49 +145,50 @@ let editarInformacionTarjeta = async (_id, numeroTarjeta, fechaExpiracion, codig
 
 }
 
+//Activar y desactivar tarjeta
 
+let editarEstadoTarjeta = async (_id, estado) => {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function obtener_datos(id){
-    let usuario = '';
-    let peticion = $.ajax({
-        //url de listar usuario
-        url: 'supongamos que tengo el url de listar usuario',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        data: {
-            id: id
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/editar-tarjetas-usuario',
+        responseType: 'json',
+        data:{
+            _id: _id,
+            estado: estado
         }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
     });
 
-    peticion.done(function(response){
-        usuario = response;
-    });
-
-    return usuario;
+    return resultado;
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

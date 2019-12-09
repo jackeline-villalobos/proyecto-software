@@ -3,6 +3,9 @@ const inputNumeroTarjeta = document.querySelector('#txt-numeroTarjeta');
 const inputFechaExpiracion = document.querySelector('#txt-fechaExpiracion');
 const inputCodigoSeguridad = document.querySelector('#txt-codigoSeguridad');
 const btnGuardar = document.querySelector('#btn-guardar');
+const btnActivar = documento.querySelector('#btn_activarTarjeta');
+const btnDesactivar = document.querySelector('#btn_desactivarTarjeta');
+const btnEliminar = document.querySelector('#btn_eliminarTarjeta');
 
 
 let _id = sessionStorage.getItem('idUsuario');
@@ -208,3 +211,62 @@ let obtenerDatos = () => {
 }
 
 btnGuardar.addEventListener('click', obtenerDatos);
+
+//Activar tarjeta
+
+btnActivar.addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    let estado = 'activo';
+    let error = await editarEstadoTarjeta(ObjectId, estado);
+
+    console.log(error);
+
+    if (error.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Activado con éxito',
+            text: 'La tarjeta ha sido activada',
+            confirmButtonText: 'Entendido',
+            onClose: function () {
+                location.href = 'editar-tarjetas-usuario.html';
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No se ha podido activar la tarjeta',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});
+
+//Desactivar impuestos
+
+btnDesactivar.addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    let estado = 'inactivo';
+
+    let error = await editarEstadoTarjeta(ObjectId, estado);
+
+    console.log(error);
+
+    if (error.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Desactivado con éxito',
+            text: 'La tarjeta ha sido desactivada',
+            confirmButtonText: 'Entendido',
+            onClose: function () {
+                location.href = 'listar-impuestos.html';
+            }
+        });
+    }else{
+        Swal.fire({
+            icon: 'warning',
+            title: 'No se ha podido desactivar la tarjeta',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});

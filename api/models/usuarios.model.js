@@ -21,7 +21,8 @@ const usuarioSchema = new mongoose.Schema({
         marca: { type: String, required: true, unique: false },
         numero: { type: String, required: true, unique: false },
         fechaExpiracion: { type: String, required: true, unique: false },
-        codigoSeguridad: { type: Number, required: true, unique: false }
+        codigoSeguridad: { type: Number, required: true, unique: false },
+        estado: { type: String, required: true }
     }],
     imagen: { type: String, required: true },
     grado: { type: String, required: false, unique: false },

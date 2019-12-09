@@ -1084,5 +1084,28 @@ router.post('/editar-tarjeta-usuario', function(req, res) {
 });
 
 
+router.post('/editar-tarjeta-usuario', function(req, res){
+
+    let body = req.body;
+
+    tarjeta.updateOne({_id: body._id},{
+        $set: {
+            estado: body.estado
+        }
+    })
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    });
+});
+
 
 module.exports = router;
