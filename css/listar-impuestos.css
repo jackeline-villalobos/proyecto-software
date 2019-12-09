@@ -1,13 +1,19 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 a {
     text-decoration: none;
     color: white;
 }
 .container-filtro {
     height: 80px;
+    margin-bottom: 2%;
 }
 
 .container-filtro input {
     margin: 2% 0 0 20%;
+    width: 15%;
 }
 
 #tbl-impuestos {
