@@ -29,12 +29,14 @@ let llenarTabla = async() => {
 
             let idtipoEvento = listatipoEventos[i]['_id'];
             console.log(idtipoEvento);
-            console.log(estado);
+
+            let estadotipoEvento = listatipoEventos[i]["estado"];
+            console.log(estadotipoEvento);
 
             btnEditar.addEventListener('click', function() {
                 sessionStorage.setItem('tipoEvento', idtipoEvento);
                 sessionStorage.setItem('nombretipoEvento', tipoEvento);
-                sessionStorage.setItem("estado", estado);
+                sessionStorage.setItem("estadotipoEvento", estadotipoEvento);
 
                 window.location.href = 'modificar-tipoEvento.html';
             });

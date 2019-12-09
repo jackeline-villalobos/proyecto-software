@@ -4,6 +4,9 @@ const inputNombre = document.querySelector('#txt-nombretipoEvento');
 const btnGuardar = document.querySelector('#btn-guardar');
 const idtipoEvento = sessionStorage.getItem('tipoEvento');
 const nombretipoEvento = sessionStorage.getItem('nombretipoEvento');
+const estadotipoEvento = sessionStorage.getItem("estadotipoEvento");
+
+
 
 const btnActivar = document.querySelector('#btn-activar');
 const btnDesactivar = document.querySelector('#btn-desactivar');
@@ -15,14 +18,14 @@ let llenarForm = () => {
 
     inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
 
-    /*
-    if(estado == "activo"){
+
+    if (estadotipoEvento == "activo") {
         btnActivar.classList.add("btn-estado")
     }
-    if(estado == "inactivo"){
+    if (estadotipoEvento == "inactivo") {
         btnDesactivar.classList.add("btn-estado")
     }
-    */
+
 }
 
 
@@ -82,7 +85,7 @@ let obtenerDatos = async() => {
                     sessionStorage.removeItem('tipoEvento');
 
                     sessionStorage.removeItem('nombretipoEvento');
-                    sessionStorage.removeItem("estado")
+                    sessionStorage.removeItem("estadotipoEvento")
                     location.href = 'perfil-administrador.html';
                 }
             })
@@ -110,6 +113,9 @@ btnActivar.addEventListener('click', async function() {
             text: 'El tipo de evento ha sido activado',
             confirmButtonText: "Entendido",
             onClose: function() {
+                sessionStorage.removeItem('tipoEvento');
+                sessionStorage.removeItem('nombretipoEvento');
+                sessionStorage.removeItem("estadotipoEvento")
                 location.href = 'perfil-administrador.html';
             }
         });
