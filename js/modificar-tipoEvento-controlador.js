@@ -14,8 +14,6 @@ const btnEliminar = document.querySelector('#btn-eliminar');
 let llenarForm = () => {
 
     inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
-
-
 }
 
 

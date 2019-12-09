@@ -34,6 +34,7 @@ let llenarTabla = async() => {
                 sessionStorage.setItem('tipoEvento', idtipoEvento);
                 sessionStorage.setItem('nombretipoEvento', tipoEvento);
 
+
                 window.location.href = 'modificar-tipoEvento.html';
             });
 

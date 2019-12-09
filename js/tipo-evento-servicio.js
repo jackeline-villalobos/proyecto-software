@@ -8,6 +8,7 @@ let registrartipoEvento = async(nombre) => {
                 responseType: 'json',
                 data: {
                     nombre: nombre,
+                    estado: "activo"
 
                 }
             }
