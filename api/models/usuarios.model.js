@@ -22,7 +22,7 @@ const usuarioSchema = new mongoose.Schema({
         numero: { type: String, required: true, unique: false },
         fechaExpiracion: { type: String, required: true, unique: false },
         codigoSeguridad: { type: Number, required: true, unique: false },
-        estado: { type: String, required: true }
+        estado: { type: String, required: true, unique: false }
     }],
     notificaciones: [{
         titulo: {type: String, unique: false, required: false },
