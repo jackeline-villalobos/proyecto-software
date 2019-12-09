@@ -7,6 +7,10 @@ const idImpuesto = sessionStorage.getItem('impuesto');
 const nombreImpuesto = sessionStorage.getItem('nombreImpuesto');
 const porcentajeImpuesto = sessionStorage.getItem('porcentajeImpuesto');
 
+const btnActivar = document.querySelector('#btn-activar');
+const btnDesactivar = document.querySelector('#btn-desactivar');
+const btnEliminar = document.querySelector('#btn-eliminar');
+
 
 
 let llenarForm = () => {
@@ -99,3 +103,82 @@ let obtenerDatos = async() => {
 
 llenarForm();
 btnGuardar.addEventListener('click', obtenerDatos);
+
+btnActivar.addEventListener('click', async function(e) {
+    e.preventDefault();
+
+    let estado = 'activo';
+
+    let error = await modificarEstadoImpuesto(idImpuesto, estado);
+
+    console.log(error);
+
+    if(error.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Activado con éxito',
+            text: 'El impuesto ha sido activado',
+            confirmButtonText: 'Entendido',
+            onClose: function() {
+                location.href = 'listar-impuestos.html';
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No se ha podido activar el impuesto',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});
+
+btnDesactivar.addEventListener('click',async function(e){
+    e.preventDefault();
+    let estado = 'inactivo';
+
+    let error = await modificarEstadoImpuesto(idImpuesto, estado);
+
+    console.log(error);
+
+    if(error.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Desactivado con éxito',
+            text: 'El impuesto ha sido desactivado',
+            confirmButtonText: 'Entendido',
+            onClose: function() {
+                location.href = 'listar-impuestos.html';
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No se ha podido desactivar el impuesto',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});
+
+btnEliminar.addEventListener('click',async function(e){
+    e.preventDefault();
+
+    let error = await eliminarImpuesto(idImpuesto);
+
+    if(error.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Eliminado con éxito',
+            text: 'El impuesto ha sido eliminado con éxito',
+            confirmButtonText: 'Entendido',
+            onClose: function(){
+                location.href = 'listar-impuestos.html';
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No se ha podido eliminar el impuesto',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});

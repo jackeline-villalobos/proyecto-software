@@ -23,6 +23,7 @@ let llenarTabla = async () => {
             let porcentaje = (listaImpuestos[i]['porcentaje']) * 100;
             fila.insertCell().innerHTML = listaImpuestos[i]['nombre'];
             fila.insertCell().innerHTML = porcentaje + '%';
+            fila.insertCell().innerHTML = listaImpuestos[i]['estado'];
             fila.insertCell().appendChild(btnEditar).innerHTML;
 
             let impuesto = listaImpuestos[i]['nombre'];

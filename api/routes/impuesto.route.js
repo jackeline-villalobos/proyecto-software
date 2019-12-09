@@ -94,4 +94,50 @@ router.post('/modificar-impuesto', function (req, res) {
     );
 });
 
+
+router.post('/modificar-estado-impuesto', function(req, res) {
+
+    let body = req.body;
+
+    Impuesto.updateOne({_id: body._id}, {
+      $set: {
+          estado: body.estado
+      }  
+    })
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    });
+
+});
+
+router.post('/eliminar-impuesto', function(req, res) {
+
+    let body = req.body;
+
+    Impuesto.deleteOne({_id: body._id})
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    });
+
+});
+
+
 module.exports = router;

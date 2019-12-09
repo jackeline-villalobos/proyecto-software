@@ -87,3 +87,49 @@ let modificarImpuesto = async (_id, nombre, porcentaje) => {
 
     return resultado;
 }
+
+let modificarEstadoImpuesto = async (_id, estado) => {
+
+    let resultado;
+    await axios({
+        method : 'post',
+        url: 'http://localhost:3000/api/modificar-estado-impuesto',
+        responseType: 'json',
+        data: {
+            _id: _id,
+            estado: estado
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+
+let eliminarImpuesto = async (_id) => {
+
+    let resultado;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/eliminar-impuesto',
+        responseType: 'json',
+        data: {
+            _id: _id
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
