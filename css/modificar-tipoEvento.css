@@ -1,3 +1,7 @@
+.btn-estado {
+    background-color: black;
+}
+
 #btn-activar {
     display: inline-block !important;
     margin: 2px;

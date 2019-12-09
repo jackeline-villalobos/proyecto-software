@@ -14,6 +14,15 @@ const btnEliminar = document.querySelector('#btn-eliminar');
 let llenarForm = () => {
 
     inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
+
+    /*
+    if(estado == "activo"){
+        btnActivar.classList.add("btn-estado")
+    }
+    if(estado == "inactivo"){
+        btnDesactivar.classList.add("btn-estado")
+    }
+    */
 }
 
 
