@@ -90,13 +90,18 @@ let notificacionesUsers = async () => {
     console.log(usuario);
 
     let titulo = document.querySelector('#titulo-notificacion');
-    let comentario = document.querySelector('#comentario-notificacion');
+    let comentario = document.querySelector('#descripcion-notificacion');
     let hora = document.querySelector('#hora-notificacion');
 
     for(let i = 0; i < usuario.notificaciones.length ; i++){
-        let tituloNotificacion = usuario.notificaciones['titulo'];
-        console.log(tituloNotificacion);
-        //titulo.innerHTML = usuario.notificaciones.titulo;
+        let tituloNotificacion = usuario.notificaciones[i]['titulo'];
+        let descripcionNotificacion = usuario.notificaciones[i]['descripcion'];
+        let fechaNotificacion = usuario.notificaciones[i]['fecha'];
+
+        titulo.innerHTML = tituloNotificacion;
+        comentario.innerHTML = descripcionNotificacion;
+        hora.innerHTML = fechaNotificacion;
+
     }
 
 }
