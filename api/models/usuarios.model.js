@@ -24,6 +24,11 @@ const usuarioSchema = new mongoose.Schema({
         codigoSeguridad: { type: Number, required: true, unique: false },
         estado: { type: String, required: true }
     }],
+    notificaciones: [{
+        titulo: {type: String, unique: false, required: false },
+        descripcion: {type: String, unique: false, required: false},
+        fecha: {type: Date, required: false, unique: false}
+    }],
     imagen: { type: String, required: true },
     grado: { type: String, required: false, unique: false },
     baneado: { type: Boolean, required: true, unique: false }
