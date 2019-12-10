@@ -116,64 +116,6 @@ let cambiarContrasenna = async (_id, contrasenna) => {
 
 }
 
-/*
-//Editar tarjeta
-
-let editarInformacionTarjeta = async (_id, numeroTarjeta, fechaExpiracion, codigoSeguridad, marca) =>{
-
-    let resultado;
-    await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/editar-tarjetas-usuario',
-        responseType: 'json',
-        data:{
-            _id: _id,
-            numeroTarjeta: numeroTarjeta,
-            fechaExpiracion: fechaExpiracion,
-            codigoSeguridad: codigoSeguridad,
-            marca: marca
-        }
-    })
-        .then(async function(res){
-            console.log(res.data);
-            resultado = await res.data;
-        }) 
-        .catch(function (eror){
-            console.log(err)
-        });
-
-    return resultado;
-
-}
-
-//Activar y desactivar tarjeta
-
-let editarEstadoTarjeta = async (_id, estado) => {
-
-    let resultado;
-    await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/editar-tarjetas-usuario',
-        responseType: 'json',
-        data:{
-            _id: _id,
-            estado: estado
-        }
-    })
-    .then(async function(res){
-        console.log(res.data);
-        resultado = await res.data;
-    })
-    .catch(function(err){
-        console.log(err);
-    });
-
-    return resultado;
-}
-
-
-
-*/
 
 
 
