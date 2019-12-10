@@ -51,7 +51,7 @@ let llenarEvento = async () =>{
 
         let btnComprar = document.createElement('button');
         btnComprar.classList.add('boton', 'botonVerde');
-        btnComprar.innerHTML = 'Añadir al carrito';
+        btnComprar.innerHTMLc = 'Añadir al carrito';
 
         // let btnReservar = document.createElement('button');
         // btnReservar.classList.add('boton');
@@ -84,11 +84,32 @@ let llenarEvento = async () =>{
 
 let marcarEventoFinalizado =async()=>{
 
-    let _idEvento = idEvento;
+    let resultado = await eventoFinalizado(idEvento);
+    console.log(resultado)
+    
 
-    marcarEventoFinalizado(_idEvento);
 };
 
-btn_finalizado.addEventListener('click', marcarEventoFinalizado);
+btn_finalizado.addEventListener('click', async function(){
+    Swal.fire({
+        title: '¿Desea marcar el evento como finalizado?',
+        text: "Esta acción detiene la compra de entradas y habilita funciones de interacción",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#1EBB2D',
+        cancelButtonColor: '#F2610A',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.value) {
+            marcarEventoFinalizado()
+          Swal.fire(
+            'Evento finalizado',
+            'El evento ha sido marcado como finalizado.',
+            'success'
+          )
+        }
+      })
+});
 
 llenarEvento();
