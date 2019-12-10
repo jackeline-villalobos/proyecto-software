@@ -106,11 +106,12 @@ let obtenerDatos = async() => {
 // enlaceOlvidasteContrasenna.addEventListener('click', obtenerDireccionCorreo);
 btnIngresar.addEventListener('click' || , obtenerDatos);
 
+
 btnIngresar.querySelector('#btnIngresar').addEventListener('keydown', function(e){
     var key = e.which || e.keyCode;
     if((key === 13) {
         obtenerDatos();
     });
-};
+
 
 
