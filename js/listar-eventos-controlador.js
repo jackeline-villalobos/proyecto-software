@@ -38,7 +38,7 @@ let mostrarCards = async () => {
             lugar.innerText = 'Lugar: ' + listaEventos[i]['lugar'];
 
             let precio = document.createElement('h4');
-            precio.innerText = 'Precio: ' + listaEventos[i]['precioEntrada'];
+            precio.innerText = 'Precio: ₡' + listaEventos[i]['precioEntrada'];
 
             let boton = document.createElement('button');
             boton.classList.add('btn-mas');

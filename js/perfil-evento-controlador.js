@@ -5,7 +5,7 @@ let idEvento = localStorage.getItem('idEvento');
 const imagen = document.querySelector('#imagen');
 const h2_nombreEvento = document.querySelector('#h2-nombreEvento');
 const p_descripcion = document.querySelector('#p-descripcion');
-
+const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
 
@@ -26,6 +26,9 @@ let llenarEvento = async () =>{
 
     let lugar = evento.evento.lugar;
     h5_recinto.innerHTML = lugar;
+
+    let precio = evento.evento.precioEntrada;
+    h4_precio.innerHTML = '₡'+ precio;
     
     let fechasArray = evento.evento.fechas;
 
