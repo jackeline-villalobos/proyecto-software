@@ -15,10 +15,10 @@ const input_correo = document.querySelector('#txt_correo');
 const input_telefono = document.querySelector('#txt-telefono');
 const input_genero = document.querySelector('#txt-genero');
 
-const opt_provincia = document.querySelector('#provinciaOpt');
-const opt_canton = document.querySelector('#cantonOpt');
-const opt_distrito = document.querySelector('#distritoOpt');
-const opt_genero = document.querySelector('#generoOpt')
+// const opt_provincia = document.querySelector('#provinciaOpt');
+// const opt_canton = document.querySelector('#cantonOpt');
+// const opt_distrito = document.querySelector('#distritoOpt');
+// const opt_genero = document.querySelector('#generoOpt')
 
 const btn_enviarInfo = document.querySelector('#btn-enviarInfo');
 
@@ -39,22 +39,23 @@ let mostrarInfo = async () =>{
     let correo = organizador.organizador.correo;
     let telefono = organizador.organizador.telefono;
     let genero = organizador.organizador.genero;
+    let contrasenna = organizador.organizador.contrasenna;
 
     input_nombreEmpresa.value = nombreEmpresa;
     input_cedulaJuridica.value = cedulaJuridica;
     input_experiencia.value = experiencia;
     input_nombreComercial.value = nombreComercial;
 
-    opt_provincia.innerHTML = provincia;
-    opt_canton.innerHTML = canton;
-    opt_distrito.innerHTML = distrito;
+    slt_provicias.value = provincia;
+    slt_cantones.value = canton;
+    slt_distritos.value = distrito;
 
     input_sennas.value = sennas;
     input_nombreCompleto.value = nombreCompleto;
     input_correo.value=correo;
     input_telefono.value = telefono;
 
-    opt_genero.innerHTML = genero;
+    input_genero.value = genero;
 
 };
 

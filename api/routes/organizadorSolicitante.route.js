@@ -176,7 +176,6 @@ router.post('/editar-perfil-organizador', function (req, res) {
             sennas: body.sennas,
             nombreCompleto: body.nombreCompleto,
             correo: body.correo,
-            contrasenna: body.contrasenna,
             telefono: body.telefono,
             genero: body.genero,
         }
