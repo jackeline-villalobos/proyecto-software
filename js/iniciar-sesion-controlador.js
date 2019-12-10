@@ -58,13 +58,13 @@ let obtenerDatos = async() => {
         let res = await iniciarSesion(correo, contrasenna);
         if (res.resultado) {
             let grado = sessionStorage.getItem('gradoUsuario');
-            if(grado == 2) {
+            if (grado == 2) {
                 window.location.href = 'perfil-encargado.html';
             } else {
                 window.location.href = 'index.html';
             }
 
-            
+
         } else {
             Swal.fire({
                 icon: 'warning',
@@ -107,11 +107,9 @@ let obtenerDatos = async() => {
 btnIngresar.addEventListener('click' || , obtenerDatos);
 
 
-btnIngresar.querySelector('#btnIngresar').addEventListener('keydown', function(e){
-    var key = e.which || e.keyCode;
-    if((key === 13) {
-        obtenerDatos();
-    });
-
-
-
+btnIngresar.querySelector('#btnIngresar').addEventListener('keydown', function(e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+                obtenerDatos();
+            };
+        };

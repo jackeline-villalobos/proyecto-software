@@ -21,6 +21,9 @@ let llenarForm = () => {
 
     if (estadotipoEvento == "activo") {
         btnActivar.classList.add("btn-estado")
+
+        // btnActivar.disabled = true;
+
     }
     if (estadotipoEvento == "inactivo") {
         btnDesactivar.classList.add("btn-estado")
@@ -83,7 +86,6 @@ let obtenerDatos = async() => {
                 confirmButtonText: "Entendido",
                 onClose: function() {
                     sessionStorage.removeItem('tipoEvento');
-
                     sessionStorage.removeItem('nombretipoEvento');
                     sessionStorage.removeItem("estadotipoEvento")
                     location.href = 'perfil-administrador.html';
