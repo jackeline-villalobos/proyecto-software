@@ -116,6 +116,7 @@ let cambiarContrasenna = async (_id, contrasenna) => {
 
 }
 
+/*
 //Editar tarjeta
 
 let editarInformacionTarjeta = async (_id, numeroTarjeta, fechaExpiracion, codigoSeguridad, marca) =>{
@@ -172,7 +173,7 @@ let editarEstadoTarjeta = async (_id, estado) => {
 
 
 
-
+*/
 
 
 
