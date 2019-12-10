@@ -67,7 +67,7 @@ let obtenerDatos = async () =>{
 
     if(validar()){
         Swal.fire({
-            icon: 'warning',
+            type: 'warning',
             title: 'Algunos campos se encuentran vacíos o son incorrectos',
             text: 'Por favor inténtelo de nuevo',
             confirmButtonText: 'Entendido'
@@ -77,14 +77,14 @@ let obtenerDatos = async () =>{
 
         if(error.resultado == false){
             Swal.fire({
-                icon: 'warning',
+                type: 'warning',
                 title: 'La información del perfil no se ha podido editar correctamente',
                 text: 'Por favor revise los campos en rojo',
                 confirmButtonText: 'Entendido'
             })
         }else{
             Swal.fire({
-                icon: 'success',
+                type: 'success',
                 title: 'Cambios realizados con éxito',
                 text: 'La información del perfil ha sido modificado',
                 confirmButtonText: "Entendido",
