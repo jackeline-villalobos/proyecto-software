@@ -9,7 +9,7 @@ const notificaciones = document.querySelector('#notificaciones');
 let conectado = sessionStorage.getItem('conectado');
 let gradoUsuario = sessionStorage.getItem('gradoUsuario');
 
-let correoUsuario = sessionStorage.getItem('correoUsuario');
+let userMail = sessionStorage.getItem('correoUsuario');
 
 let containerFoto = document.querySelector('#foto-usuario');
 
@@ -77,7 +77,7 @@ let notificacionesUsers = async () => {
 
     await axios({
         method: 'get',
-        url: `http://localhost:3000/api/buscar-usuario-correo/${correoUsuario}`,
+        url: `http://localhost:3000/api/buscar-usuario-correo/${userMail}`,
         responseType: 'json'
     })
     .then(async function(res) {
