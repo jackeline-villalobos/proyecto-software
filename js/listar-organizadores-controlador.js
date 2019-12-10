@@ -67,6 +67,11 @@ let llenarTabla = async () => {
                 console.log(resultado);
             };
 
+            let enviar_correoRechazo = async ()=>{
+                let resultado = await enviarCorreorRechazo(idUsuario)
+                console.log(resultado);
+            };
+
             btnActivar.addEventListener('click', async function () {
 
 
@@ -110,17 +115,54 @@ let llenarTabla = async () => {
             });
 
             btnDesactivar.addEventListener('click', async function () {
-                Swal.fire({
-                    title: '¿Desea desactivar el organizador',
-                    text: "El organizador desactivado no podrá llevar acabo acciones dentro de la aplicación",
+                // Swal.fire({
+                //     title: '¿Desea desactivar el organizador',
+                //     text: "El organizador desactivado no podrá llevar acabo acciones dentro de la aplicación",
+                //     icon: 'question',
+                //     showCancelButton: true,
+                //     confirmButtonText: 'Si, desactivar'
+                // }).then((result) => {
+                //     if (result.value) {
+                //         Swal.fire(
+                //             'Organizador desactivado',
+                //             'El estado fue cambiado a inactivo',
+                //             'success'
+                //         )
+                //         desactivar_organizador();
+                //     }
+                // })
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                })
+
+                swalWithBootstrapButtons.fire({
+                    title: '¿Desea enviar notificación de rechazo?',
+                    text: "Esta operación es necesaria si la solicitud está pendiente",
                     icon: 'question',
                     showCancelButton: true,
-                    confirmButtonText: 'Si, desactivar'
+                    confirmButtonText: 'Si, enviarlo!',
+                    cancelButtonText: 'No',
+                    reverseButtons: false
                 }).then((result) => {
+                    desactivar_organizador();
+                    enviar_correoRechazo();
                     if (result.value) {
-                        Swal.fire(
+                        swalWithBootstrapButtons.fire(
                             'Organizador desactivado',
-                            'El estado fue cambiado a inactivo',
+                            'El organizador fue notificado del estado de su solicitud',
+                            'success'
+                        )
+
+                    } else if (
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                            'Oganizador desactivado',
+                            'El organizador se cambió a desactivado',
                             'success'
                         )
                         desactivar_organizador();
