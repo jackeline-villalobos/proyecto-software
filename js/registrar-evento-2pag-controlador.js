@@ -172,7 +172,7 @@ let finalizar =()=>{
         text: 'El evento ha sido almacenado',
         confirmButtonText: 'Continuar',
         onClose: function () {
-            location.href = 'registrar-evento.html';
+            location.href = 'perfil-organizador.html';
         }
     });
 };

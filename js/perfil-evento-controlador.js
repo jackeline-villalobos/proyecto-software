@@ -8,6 +8,7 @@ const p_descripcion = document.querySelector('#p-descripcion');
 const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
+const btn_finalizado = document.querySelector('#eventoFinalizado')
 
 let llenarEvento = async () =>{
 
@@ -41,22 +42,26 @@ let llenarEvento = async () =>{
         let hora = document.createElement('h6');
         hora.innerHTML = fechasArray[i]['hora'];
         hora.classList.add('time')
+        let entradas = document.createElement('h6')
+        entradas.innerHTML = 'Entradas disponibles: '+fechasArray[i]['cantidadAsistentes'];
+        entradas.classList.add('entradas')
 
         let divBotones = document.createElement('div');
         divBotones.classList.add('botones')
 
         let btnComprar = document.createElement('button');
         btnComprar.classList.add('boton', 'botonVerde');
-        btnComprar.innerHTML = 'Comprar';
+        btnComprar.innerHTML = 'Añadir al carrito';
 
-        let btnReservar = document.createElement('button');
-        btnReservar.classList.add('boton');
-        btnReservar.innerHTML = 'Reservar';
+        // let btnReservar = document.createElement('button');
+        // btnReservar.classList.add('boton');
+        // btnReservar.innerHTML = 'Reservar';
 
         divBotones.appendChild(btnComprar);
-        divBotones.appendChild(btnReservar);
+        // divBotones.appendChild(btnReservar);
         div_fechas.appendChild(dia);
         div_fechas.appendChild(hora);
+        div_fechas.appendChild(entradas);
         div_fechas.appendChild(divBotones);
         
     }
@@ -76,5 +81,7 @@ let llenarEvento = async () =>{
 
 
 };
+
+
 
 llenarEvento();

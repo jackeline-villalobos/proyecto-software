@@ -39,8 +39,7 @@ let mostrarInfo = async () =>{
     let correo = organizador.organizador.correo;
     let telefono = organizador.organizador.telefono;
     let genero = organizador.organizador.genero;
-    let contrasenna = organizador.organizador.contrasenna;
-
+    
     input_nombreEmpresa.value = nombreEmpresa;
     input_cedulaJuridica.value = cedulaJuridica;
     input_experiencia.value = experiencia;
