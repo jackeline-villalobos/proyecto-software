@@ -1,4 +1,5 @@
 let listaBotones = document.querySelectorAll('#descuentos-impuestos a');
+let btn_finalizado = document.querySelector('#eventoFinalizado')
 
 let grado = sessionStorage.getItem('gradoUsuario');
 
@@ -11,4 +12,9 @@ if (grado == 2 || grado == 4 || grado == null) {
 } else {
     listaBotones[0].classList.remove('ocultar');
     listaBotones[1].classList.remove('ocultar');
+}
+if(grado == 3 || grado == 4 || grado == null){
+    btn_finalizado.classList.add('ocultar')
+}else{
+    btn_finalizado.classList.remove('ocultar')
 }

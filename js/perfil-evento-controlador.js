@@ -8,7 +8,6 @@ const p_descripcion = document.querySelector('#p-descripcion');
 const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
-const btn_finalizado = document.querySelector('#eventoFinalizado')
 
 let llenarEvento = async () =>{
 
@@ -51,7 +50,7 @@ let llenarEvento = async () =>{
 
         let btnComprar = document.createElement('button');
         btnComprar.classList.add('boton', 'botonVerde');
-        btnComprar.innerHTMLc = 'Añadir al carrito';
+        btnComprar.innerHTML = 'Añadir al carrito';
 
         // let btnReservar = document.createElement('button');
         // btnReservar.classList.add('boton');
