@@ -1019,7 +1019,6 @@ router.post('/editar-perfil-administrador', function(req, res) {
         }
     )
 });
-/////////////////////////////////////////
 
 
 //Cambiar contraseña
@@ -1051,7 +1050,7 @@ router.post('/primer-cambio-contrasenna', function(req, res) {
 
 });
 
-
+/*
 //Editar tarjeta
 
 router.post('/editar-tarjeta-usuario', function(req, res) {
@@ -1180,7 +1179,7 @@ router.get('/buscar-usuario-correo/:correo', function(req, res) {
             });
         }
     });
-});
+});*/
 
 
 
