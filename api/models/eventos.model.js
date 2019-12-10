@@ -31,6 +31,7 @@ const eventoSchema = new mongoose.Schema(
             }
         ],
         creador: { type: String, required: false, unique: false },
+        proximo : {type: Boolean, required: true, unique: false},
         estado: { type: String, required: true, unique: false }
     }
 

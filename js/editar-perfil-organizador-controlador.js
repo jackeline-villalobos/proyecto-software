@@ -40,19 +40,19 @@ let mostrarInfo = async () =>{
     let telefono = organizador.organizador.telefono;
     let genero = organizador.organizador.genero;
 
-    input_nombreEmpresa.setAttribute('placeholder', `${nombreEmpresa}`);
-    input_cedulaJuridica.setAttribute('placeholder', `${cedulaJuridica}`);
-    input_experiencia.setAttribute('placeholder', `${experiencia}`);
-    input_nombreComercial.setAttribute('placeholder', `${nombreComercial}`);
+    input_nombreEmpresa.value = nombreEmpresa;
+    input_cedulaJuridica.value = cedulaJuridica;
+    input_experiencia.value = experiencia;
+    input_nombreComercial.value = nombreComercial;
 
     opt_provincia.innerHTML = provincia;
     opt_canton.innerHTML = canton;
     opt_distrito.innerHTML = distrito;
 
-    input_sennas.setAttribute('placeholder', `${sennas}`);
-    input_nombreCompleto.setAttribute('placeholder', `${nombreCompleto}`);
-    input_correo.setAttribute('placeholder', `${correo}`);
-    input_telefono.setAttribute('placeholder', `${telefono}`);
+    input_sennas.value = sennas;
+    input_nombreCompleto.value = nombreCompleto;
+    input_correo.value=correo;
+    input_telefono.value = telefono;
 
     opt_genero.innerHTML = genero;
 

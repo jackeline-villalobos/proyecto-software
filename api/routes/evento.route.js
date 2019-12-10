@@ -21,6 +21,7 @@ router.post('/registrar-evento', function (req, res) {
         descripcion: body.descripcion,
         imagen: body.imagen,
         creador: body.creador,
+        proximo: true,
         estado: 'activo'
     });
 
