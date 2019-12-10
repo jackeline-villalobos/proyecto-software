@@ -206,3 +206,20 @@ let obtenerRecinto = async(nombreRecinto) =>{
         console.log(error);
     }
 };
+
+let eventoFinalizado = async (_id) =>{
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/marcar-finalizado',
+        responseType: 'json',
+        data: {
+            _id: _id,
+        }
+    })
+    .then(function(res){
+        console.log(res.data);
+    })
+    .then(function(error){
+        console.log(error);
+    });
+};

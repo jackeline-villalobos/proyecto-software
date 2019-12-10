@@ -181,4 +181,23 @@ router.get('/buscar-recinto-nombre', function(req,res){
     })
 });
 
+router.post('/marcar-finalizado', function(req, res){
+    let body = req.body;
+    Evento.updateOne({_id: body._id}, {$set: {proximo : false}},
+        function(error, eventoBD){
+            if(error){
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo modificar el evento',
+                    err
+                });
+            }else{
+                res.json({
+                    resultado: true,
+                    evento: eventoBD,
+                })
+            }
+        })
+})
+
 module.exports = router;

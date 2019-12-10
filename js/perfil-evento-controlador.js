@@ -82,6 +82,13 @@ let llenarEvento = async () =>{
 
 };
 
+let marcarEventoFinalizado =async()=>{
 
+    let _idEvento = idEvento;
+
+    marcarEventoFinalizado(_idEvento);
+};
+
+btn_finalizado.addEventListener('click', marcarEventoFinalizado);
 
 llenarEvento();
