@@ -10,7 +10,7 @@ const inputTotalIngresos = document.querySelector("#txt-totalIngresos");
 let llenarTabla = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     listaEventos = await listarEventos();
-    console.log(listaEventos);
+    //console.log(listaEventos);
 
     tableBody.innerHTML = '';
 
@@ -21,27 +21,33 @@ let llenarTabla = async() => {
 
         let precio = parseFloat(listaEventos[i]["precioEntrada"]);
 
-        let fechasArray = listaEventos.fechas;
-        for (j = 0; j < fechasArray.length; j++) {
-            let cantidadAsistentes = parseFloat(fechasArray[j]['cantidadAsistentes']);
-            let totalAsistentes = totalAsistentes + cantidadAsistentes;
+       // console.log(listaEventos);
+
+        let fechasArray = listaEventos[i]['fechas'];
+        // console.log(fechasArray);
+        for (let j = 0; j < fechasArray.length; j++) {
+            let fechasEvento = listaEventos[i]['fechas'][j];
+            //console.log(fechasEvento);
+            let cantidadAsistentes = listaEventos[i]['fechas'][j]['cantidadAsistentes'];
+            console.log(cantidadAsistentes);
+            // let totalAsistentes = totalAsistentes + cantidadAsistentes;
 
 
         }
 
         //let cantidadAsistentes = parseFloat(listaEventos[i]["cantidadAsistentes"]); // Esto lo pase al for loop j 
-        let totalEvento = totalAsistentes * listaEventos[i]["precioEntradas"];
+        //let totalEvento = totalAsistentes * listaEventos[i]["precioEntradas"];
 
         let fila = tableBody.insertRow();
         //let entradas = (listaEventos[i]['entradas vendidas']);
         fila.insertCell().innerHTML = listaEventos[i]['nombre'];
-        fila.insertCell().innerHTML = totalAsistentes;
+        //fila.insertCell().innerHTML = totalAsistentes;
         fila.insertCell().innerHTML = precio;
-        fila.insertCell().innerHTML = totalEvento;
+        //fila.insertCell().innerHTML = totalEvento;
 
-        totalIngreso = totalIngreso + totalEvento;
+        //totalIngreso = totalIngreso + totalEvento;
     }
-    inputTotalIngresos.innerHTML = totalIngreso;
+    //inputTotalIngresos.innerHTML = totalIngreso;
 
 }
 
