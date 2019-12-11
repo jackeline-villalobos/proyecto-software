@@ -50,6 +50,17 @@ let llenarEvento = async () =>{
 
         let btnComprar = document.createElement('button');
         btnComprar.classList.add('boton', 'botonVerde');
+        
+        let eventoProximo = evento.evento.proximo;
+        console.log(eventoProximo);
+        // let btnAgregarCarrito = document.querySelector('#btn-annadir-carrito');
+
+        if(eventoProximo == false) {
+          btnComprar.classList.add('ocultar');
+          entradas.innerHTML = 'Este evento ha finalizado.';
+        }
+        
+
         btnComprar.innerHTML = 'Añadir al carrito';
 
         // let btnReservar = document.createElement('button');
