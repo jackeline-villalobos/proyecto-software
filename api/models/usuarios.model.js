@@ -29,6 +29,12 @@ const usuarioSchema = new mongoose.Schema({
         descripcion: {type: String, unique: false, required: false},
         fecha: {type: Date, required: false, unique: false}
     }],
+    entradas: [{
+        idEvento: {type: String, unique: false, required: false},
+        numeroEntradas: {type: Number, unique: false, required: false},
+        fechaEvento: {type: String, unique: false, required: false},
+        compradas: {type: Boolean, unique: false, required: false}
+    }],
     imagen: { type: String, required: true },
     grado: { type: String, required: false, unique: false },
     baneado: { type: Boolean, required: true, unique: false }
