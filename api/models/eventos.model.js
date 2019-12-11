@@ -14,6 +14,7 @@ const eventoSchema = new mongoose.Schema(
                 fecha: { type: String, required: true, unique: false },
                 hora: { type: String, required: true, unique: false },
                 cantidadAsistentes: { type: String, required: true, unique: false },
+                entradasTotales: { type: String, required: true, unique: false },
             }
         ],
         precioEntrada: { type: String, required: true, unique: false },
@@ -32,7 +33,18 @@ const eventoSchema = new mongoose.Schema(
         ],
         creador: { type: String, required: false, unique: false },
         proximo : {type: Boolean, required: true, unique: false},
-        estado: { type: String, required: true, unique: false }
+        estado: { type: String, required: true, unique: false },
+        comentarios : [
+            {
+                nombreUsuario: {type: String, required: true, unique: false},
+                comentario: {type: String, required: true, unique: false}
+            }
+        ],
+        calificaciones : [
+            {
+                calificacion: {type: String, required: true, unique: false},
+            }
+        ],
     }
 
 );

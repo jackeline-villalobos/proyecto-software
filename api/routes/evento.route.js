@@ -54,6 +54,7 @@ router.post('/agregar-fecha', function (req, res) {
                     fecha: req.body.fecha,
                     hora: req.body.hora,
                     cantidadAsistentes: req.body.cantidadAsistentes,
+                    entradasTotales: req.body.cantidadAsistentes,
                 }
             }
         },
