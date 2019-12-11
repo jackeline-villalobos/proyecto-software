@@ -44,7 +44,7 @@ let llenarTabla = async() => {
         totalIngreso = totalIngreso + totalEvento;
     }
     console.log(totalIngreso);
-    inputTotalIngresos.innerHTML = totalIngreso;
+    inputTotalIngresos.innerHTML = "₡" + totalIngreso;
 
 }
 
