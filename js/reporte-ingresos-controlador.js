@@ -2,9 +2,19 @@
 
 const tableBody = document.querySelector('#tbl-impuestos tbody');
 let listaEventos;
-const inputFiltro = document.querySelector('#txt-filtro');
+
 const inputTotalIngresos = document.querySelector("#txt-totalIngresos");
 
+const btnMes = document.querySelector("#btn-mes");
+
+btnMes.addEventListener("click", function() {
+    let inputFiltro = document.getElementById('#txt-filtro');
+
+    let mes = inputFiltro.options[e.inputFiltro].value;
+    console.log(mes);
+
+
+});
 
 
 let llenarTabla = async() => {
