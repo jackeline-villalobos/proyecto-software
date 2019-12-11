@@ -14,28 +14,25 @@ a {
 #tbl-tipoEventos {
     margin-left: 30%;
     width: 30%;
+    margin-top: 2% !important;
 }
 
-#tbl-tipoEventos thead tr th {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
+thead tr th {
+    background-color: #000000 !important;
+    padding: 5% 15% !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #ffffff !important;
 }
 
-#tbl-tipoEventos tbody {
-    text-align: center;
-}
-
-#tbl-tipoEventos tbody td {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
-}
-
-#tbl-tipoEventos tbody td button {
-    margin: auto;
-}
 
 footer {
-    margin-top: 21%;
+    margin-top: 7%;
+}
+
+.input_registrar{
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
 }

@@ -21,26 +21,14 @@ a {
     width: 60%;
 }
 
-#tbl-impuestos thead tr th {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
-}
-
-#tbl-impuestos tbody { 
-    text-align: center;
-}
-
-#tbl-impuestos tbody td {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: black;
-}
-
-#tbl-impuestos tbody td button {
-    margin: auto;
+.input_registrar{
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
 }
 
 footer {
-    margin-top: 21%;
+    margin-top: 5%;
 }

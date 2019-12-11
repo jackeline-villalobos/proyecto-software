@@ -366,3 +366,29 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
 .zona-notificacion .dropdown.active {
     display: block;
 }
+
+/* Tablas */
+
+thead tr th {
+    background-color: #000000 !important;
+    padding: 2% 4% !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #ffffff !important;
+}
+
+tbody { 
+    text-align: center !important;
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+tbody td {
+    border-block-end:1px solid #000000 !important;
+    padding: 1% 0 !important;
+    color: #F2610A  !important;
+}
+
+tbody tr td button {
+    margin: auto !important;
+}

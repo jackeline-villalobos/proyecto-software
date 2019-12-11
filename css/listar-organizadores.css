@@ -8,43 +8,40 @@ a {
 }
 
 .container-filtro input {
-    margin: 30px 0 0 20%;
+    margin-left: 2.5%;
+    margin-top: 2%;
 }
 
-.container-filtro h1 {
-    display: inline-block;
-    margin-left: 8%;
-}
 
 #tbl-organizadores {
     margin: auto;
     width: 90%;
     margin-bottom: 100px;
 }
-
-#tbl-organizadores thead tr th {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
+table{
+    font-size: 12px;
 }
 
-#tbl-organizadores tbody { 
-    text-align: center;
-}
-
-#tbl-organizadores tbody td {
-    border: 2px solid #616161;
-    padding: 9px 3px;
-    color: #F2610A;
-}
-
-#tbl-organizadores tbody td button {
-    display: block;
-    margin: auto;
-    width: 80px;
-    height: 30px;
+thead tr th {
+    background-color: #000000 !important;
+    padding: 2% 1% !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #ffffff !important;
 }
 
 footer {
     margin-top: 60px;
+}
+
+button{
+    width: 70px !important;
+    margin-right: 10px !important;
+}
+
+.input_registrar{
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
 }

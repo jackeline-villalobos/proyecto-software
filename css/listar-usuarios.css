@@ -8,7 +8,8 @@ a {
 }
 
 .container-filtro input {
-    margin: 2% 0 0 20%;
+    margin-top: 3%;
+    margin-left: 8%;
 }
 
 .container-filtro h1 {
@@ -17,33 +18,29 @@ a {
 }
 
 #tbl-usuarios {
-    margin-left: 20%;
     width: 60%;
+    margin-left: 8%;
+    margin-top: 4%;
 }
 
-#tbl-usuarios thead tr th {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
+thead tr th {
+    background-color: #000000 !important;
+    padding: 2% 3% !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #ffffff !important;
 }
 
-#tbl-usuarios tbody { 
-    text-align: center;
+.input_registrar{
+    background-image: url("../imagenes/imagenes_generales/64673.png");
+    background-position: 10px 7px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    padding-left: 34px;
 }
 
-#tbl-usuarios tbody td {
-    border: 2px solid #616161;
-    padding: 1% 0;
-    color: #F2610A;
-}
 
-#tbl-usuarios tbody td button {
-    display: block;
-    margin: auto;
-    width: 80px;
-    height: 30px;
-}
 
 footer {
-    margin-top: 21%;
+    margin-top: 7%;
 }
