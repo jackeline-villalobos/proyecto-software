@@ -10,6 +10,7 @@ const aDireccion = document.querySelector('#direccion');
 const aProvincia = document.querySelector('#provincia');
 const aDistrito = document.querySelector('#distrito');
 const aCanton = document.querySelector("#canton");
+const foto = document.querySelector('#foto_perfil')
 
 const container = document.querySelector("#container-2");
 
@@ -36,6 +37,12 @@ let llenarPerfil = async() => {
     let parafo6 = document.createElement("p");
 
 
+    let imagen = usuario.imagen;
+    let img = document.createElement('img');
+    img.src = `${imagen}`;
+    img.classList.add('img');
+    foto.appendChild(img);
+    
 
     parafo1.innerHTML = usuario.primerNombre;
 
