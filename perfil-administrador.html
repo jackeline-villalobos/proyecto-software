@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="css/navegador.css">
     <link rel="stylesheet" href="css/perfil-usuario.css">
     <link rel="stylesheet" href="css/perfil-administrador.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -106,87 +107,77 @@
     </header>
 
     <main>
-        <section>
+        <section class="container_info">
 
-            <div id="main-container">
+            <div class="foto_perfil" id="foto_perfil"></div>
 
-                <div class="left-grid">
-                    <section id="container-2" style="margin-top:60px;">
-                        <a href="editar-perfil-administrador.html" style="margin-top:20px">Editar perfil</a>
+            <div id="container-2" style="margin-top:60px;">
+                <a href="editar-perfil-administrador.html" style="margin-top:20px">Editar perfil</a>
 
-                    </section>
+            </div>
 
-                </div>
+        </section>
+
+        <section class="container_divs">
+
+            <div class="container_div_item">
+                <img src="imagenes/imagenes_generales/team.png" class="i">
+                <button type="button" onclick="location.href='listar-usuarios.html'">Ver usuarios</button>
+            </div>
+
+            <div class="container_div_item">
+                <img src="imagenes/imagenes_generales/employee.png" class="i">
+                <!---<button type="button" onclick="location.href='registrar-encargado.html'">Registrar encargado</button>-->
+                <button type="button" onclick="location.href='listar-organizadores.html'"
+                    class="admin-button">Organizadores</button>
+            </div>
+
+            <div class="container_div_item">
+                <img src="imagenes/imagenes_generales/fireworks.png" class="i">
+                <button type="button" onclick="location.href='registrar-evento.html'">Registrar evento</button>
+            </div>
+
+            <div class="container_div_item">
+                <img src="imagenes/imagenes_generales/balance.png" class="i">
+                <button type="button" onclick="location.href='reporte-ingresos.html'">Ingresos</button>
+            </div>
+
+        </section>
+
+        <section class="container_card">
+            <div class="card">
+                <img src="imagenes/admin-imagenes/recinto.jpg" class="foto_card">
+                <h4>Recintos</h4>
+                <button type="button" onclick="location.href='registrar-recinto.html'" class="card_btn">Registrar
+                    recinto</button>
+                <button type="button" onclick="location.href='listar-recintos-card.html'"
+                    class="admin-button card_btn">Ver recintos</button>
+
+            </div>
+
+            <!------<div class="formulario">
+                    <img src="imagenes/imagenes_generales/piggy-bank.png" class="i">
+                    <button type="button" onclick="location.href='registrar-descuentos.html'">Registrar descuentos</button>
+                    <button type="button" onclick="location.href='listar-descuentos.html'" class="admin-button">Listar descuentos</button>
+            </div>-->
 
 
+            <div class="card">
+                <img src="imagenes/admin-imagenes/impuestos.jpg" class="foto_card">
+                <h4>Impuestos</h4>
+                <button type="button" onclick="location.href='registrar-impuestos.html'" class="card_btn">Registrar
+                    impuestos</button>
+                <button type="button" onclick="location.href='listar-impuestos.html'" class="admin-button card_btn">Ver
+                    impuestos</button>
+            </div>
 
-                <div class="right-grid">
-                    <section class="container">
-
-
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/team.png" class="i">
-                            <button type="button" onclick="location.href='listar-usuarios.html'">Ver usuarios</button>
-                        </div>
-
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/employee.png" class="i">
-                            <!---
-                            <button type="button" onclick="location.href='registrar-encargado.html'">Registrar
-                                encargado</button>
-                                -->
-                            <button type="button" onclick="location.href='listar-organizadores.html'" class="admin-button">Organizadores</button>
-                        </div>
-
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/fireworks.png" class="i">
-                            <button type="button" onclick="location.href='registrar-evento.html'">Registrar
-                                evento</button></div>
-                    </section>
-
-                    <section>
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/place.png" class="i">
-                            <button type="button" onclick="location.href='registrar-recinto.html'">Registrar
-                                recinto</button>
-                            <button type="button" onclick="location.href='listar-recintos-card.html'" class="admin-button">Ver
-                                recintos</button>
-
-                        </div>
-                        <!------
-                    <div class="formulario">
-                        <img src="imagenes/imagenes_generales/piggy-bank.png" class="i">
-                        <button type="button" onclick="location.href='registrar-descuentos.html'">Registrar
-                                    descuentos</button>
-                        <button type="button" onclick="location.href='listar-descuentos.html'" class="admin-button">Listar
-                                            descuentos</button>
-
-                    </div>
-                    -->
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/money.png" class="i">
-                            <button type="button" onclick="location.href='registrar-impuestos.html'">Registrar
-                                impuestos</button>
-                            <button type="button" onclick="location.href='listar-impuestos.html'" class="admin-button">Ver
-                                impuestos</button>
-                        </div>
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/spotlights.png" class="i">
-                            <button type="button" onclick="location.href='registrar-tipo-evento.html'">Registrar
-                                tipo de evento</button>
-                            <button type="button" onclick="location.href='listar-tipo-evento.html'" class="admin-button">Ver
-                                tipo de evento</button>
-
-                        </div>
-                    </section>
-                    <section>
-                        <div class="formulario">
-                            <img src="imagenes/imagenes_generales/balance.png" class="i">
-                            <button type="button" onclick="location.href='reporte-ingresos.html'">Ingresos</button>
-                        </div>
-                    </section>
-                </div>
-
+            <div class="card">
+                <img src="imagenes/admin-imagenes/eventos.jpg" class="foto_card">
+                <h4>Tipos de evento</h4>
+                <button type="button" onclick="location.href='registrar-tipo-evento.html'" class="card_btn">Registrar
+                    tipo de evento</button>
+                <button type="button" onclick="location.href='listar-tipo-evento.html'"
+                    class="admin-button card_btn">Ver tipo de evento</button>
             </div>
 
         </section>

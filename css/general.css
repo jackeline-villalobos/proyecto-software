@@ -14,6 +14,11 @@ Icono de la pestaña
 <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 */
 
+
+body{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 /*HEADER*/
 
 header {
