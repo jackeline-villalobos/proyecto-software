@@ -24,15 +24,16 @@ let buscarUsuarioCorreo = async () => {
 
 }
 
-let eliminarEntrada = async () => {
+let eliminarEntrada = async (idUsuario, idEntrada) => {
     let resultado;
 
     await axios({
         method: 'post',
-        url: '',
+        url: 'http://localhost:3000/api/eliminar-entrada',
         responseType: 'json',
         data: {
-            _id: _id
+            _id: idUsuario,
+            idEntrada: idEntrada
         }
     })
     .then(async function(res){

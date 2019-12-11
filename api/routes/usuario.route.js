@@ -1154,6 +1154,31 @@ router.post('/agregar-entradas', function(req, res) {
 
 });
 
+router.post('/eliminar-entrada', function(req, res) {
+
+    let body = req.body;
+
+    Usuario.update({_id: body._id}, {
+        $pull: {
+            'entradas' : {
+                _id: body.idEntrada
+            }
+        }  
+    })
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    })
+});
+
 
 
 

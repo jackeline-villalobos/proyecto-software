@@ -74,21 +74,23 @@ let llenarEvento = async () => {
     div_fechas.appendChild(entradas);
     div_fechas.appendChild(divBotones);
 
-    let asistentes = evento.evento.fechas[i]['cantidadAsistentes'];
+    let asistentes = parseInt(evento.evento.fechas[i]['cantidadAsistentes']);
 
     btnComprar.addEventListener('click', function () {
       Swal.fire({
         text: 'Ingrese el número de entradas que desea comprar',
-        input: 'number'
+        input: 'number',
+        allowEscapeKey : false,
+        allowOutsideClick: false
       }).then(function (entradas) {
-        console.log(entradas.value);
+        console.log(asistentes);
         if (entradas.value > asistentes) {
           Swal.fire({
             icon: 'warning',
-            title: 'No puedes comprar entradas más entradas de las disponibles',
+            title: 'No puedes comprar más entradas de las disponibles',
             confirmButtonText: 'Entendido'
           });
-        } else if (entradas.value <= 0) {
+        } else if (entradas.value <= 0 || entradas.value == '') {
           Swal.fire({
             icon: 'error',
             title: 'No has ingresado la cantidad de entradas',
