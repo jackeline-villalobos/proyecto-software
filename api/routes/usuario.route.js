@@ -1181,6 +1181,34 @@ router.get('/buscar-usuario-correo/:correo', function(req, res) {
     });
 });*/
 
+router.post('/agregar-entradas', function(req, res){
+    let body = req.body;
+
+    Usuario.update({_id: body._id}, {
+        $push: {
+            'entradas' : {
+                idEvento: body.idEvento,
+                numeroEntradas: body.numeroEntradas,
+                fechaEvento: body.fechaEvento,
+                compradas: false
+            }              
+        }
+    })
+    .then(function(info){
+        res.json({
+            resultado: true,
+            info: info
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        });
+    });
+
+});
+
 
 
 
