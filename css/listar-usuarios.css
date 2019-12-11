@@ -2,6 +2,7 @@ a {
     text-decoration: none;
     color: white;
 }
+
 .container-filtro {
     height: 80px;
     margin-bottom: 2%;
@@ -31,15 +32,13 @@ thead tr th {
     color: #ffffff !important;
 }
 
-.input_registrar{
+.input_registrar {
     background-image: url("../imagenes/imagenes_generales/64673.png");
     background-position: 10px 7px;
     background-size: 15px 15px;
     background-repeat: no-repeat;
     padding-left: 34px;
 }
-
-
 
 footer {
     margin-top: 7%;

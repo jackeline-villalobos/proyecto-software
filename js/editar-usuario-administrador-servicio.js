@@ -11,7 +11,6 @@ let buscarUsuario = async(correo) => {
             url: 'http://localhost:3000/api/buscar-usuario',
             responseType: 'json',
             data: {
-                _id: id,
                 correo: correo
             }
         })
@@ -26,7 +25,7 @@ let buscarUsuario = async(correo) => {
 
     return resultado;
 }
-let modificarEstado = async(correo, estado) => {
+let modificarEstado = async(id, estado) => {
 
     let resultado;
 
@@ -35,6 +34,7 @@ let modificarEstado = async(correo, estado) => {
             url: 'http://localhost:3000/api/editar-usuario-administrador',
             responseType: 'json',
             data: {
+                _id: id,
                 estado: estado
             }
         })
@@ -49,7 +49,7 @@ let modificarEstado = async(correo, estado) => {
 
     return resultado;
 }
-let modificarBaneo = async(correo, baneado) => {
+let modificarBaneo = async(id, baneado) => {
 
     let resultado;
 
@@ -58,6 +58,7 @@ let modificarBaneo = async(correo, baneado) => {
             url: 'http://localhost:3000/api/editar-usuario-administrador',
             responseType: 'json',
             data: {
+                _id: id,
                 baneado: baneado
             }
         })
