@@ -200,4 +200,29 @@ router.post('/marcar-finalizado', function(req, res){
         })
 })
 
+
+router.get('/buscar-eventos-especificos', function(req, res) {
+
+    let ids = req.params.ids
+
+    Evento.find({
+        '_id' : { 
+            $in: ids
+        }
+    })
+    .then(function(eventos){
+        res.json({
+            resultado: true,
+            eventos: eventos
+        });
+    })
+    .catch(function(err){
+        res.json({
+            resultado: false,
+            error: err
+        })
+    })
+
+});
+
 module.exports = router;

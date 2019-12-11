@@ -1051,7 +1051,7 @@ router.post('/primer-cambio-contrasenna', function(req, res) {
 
 });
 
-/*
+
 //Editar tarjeta
 
 router.post('/editar-tarjeta-usuario', function(req, res) {
@@ -1180,7 +1180,7 @@ router.get('/buscar-usuario-correo/:correo', function(req, res) {
             });
         }
     });
-});*/
+});
 
 router.post('/agregar-entradas', function(req, res) {
     let body = req.body;

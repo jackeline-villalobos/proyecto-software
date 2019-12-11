@@ -1,14 +1,6 @@
 section {
-    width: 90%;
+    width: 95%;
     margin: auto;
-}
-
-.contenedor-entrada{
-    min-height: 200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr auto;
-    grid-gap: 2%;
 }
 
 h2 {
@@ -19,88 +11,49 @@ h3 {
     font-size: 24px;
 }
 
-hr {
-    width: 100%;
-    border: 0.5px solid #F2610A;
-}
-
-/*  Contenedor de la izquierda */
-.contenedor-entrada .info-evento {
+#contenedor-entrada .entrada-container {
     display: grid;
-    grid-template-columns: 40% 1fr;
-    /* background: #E0E0E0; */
+    grid-template-columns: 1fr 30% 25%;
     grid-gap: 5%;
-    height: 100%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid #F2610A;
+    margin-bottom: 1%;
 }
 
-.contenedor-entrada .info-evento .info-evento-imagen {
-    /* margin-top: 8%; */
-    /* margin-left: 5%; */
-    max-height: 350px;
-    height: 100%;
+#contenedor-entrada .entrada-container .info-evento {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 2%;
+}
+
+
+#contenedor-entrada .entrada-container .info-evento .imagen-container img {
     width: 100%;
-}
-
-.contenedor-entrada .info-evento .info-evento-imagen img {
-    width: 100%;
     height: 100%;
 }
 
-/* Contenedor central */
-
-.contenedor-entrada .cantidad-entradas {
-    /* background: rebeccapurple; */
-}
-
-.contenedor-entrada .cantidad-entradas .titulo-entradas h2 {
-    text-align: center;
-}
-
-.contenedor-entrada .cantidad-entradas .numero-entradas div h3 {
+#contenedor-entrada .entrada-container div button {
+    width: 40%;
     display: inline-block;
-    margin-left: 15%;
-}
-
-.contenedor-entrada .cantidad-entradas .numero-entradas div button {
-    display: inline-block;
-    width: 35%;
-    margin-left: 35%;
-    height: 40px;
-}
-
-
-
-
-/* Contenedor de la derecha */
-
-.contenedor-entrada .precio-entradas .titulo-precio h2{
-    text-align: center;
-}   
-
-.contenedor-entrada .precio-entradas .precio {
-    /* background: rebeccapurple; */
-}
-
-.contenedor-entrada .precio-entradas .precio h3 {
     text-align: center;
 }
-
 
 
 /*Botón de pago*/
 
 .checkout {
-    margin-top: 1%;
+    margin-top: 2%;
     height: 50px;
 }
 
 .checkout button {
     display: block;
-    width: 10%;
+    width: 15%;
+    height: 6%;
     position: absolute;
     right: 5%;
 }
 
 footer {
-    margin-top: 4%;
+    margin-top: 13%;
 }
