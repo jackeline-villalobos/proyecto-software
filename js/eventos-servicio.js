@@ -223,3 +223,29 @@ let eventoFinalizado = async (_id) =>{
         console.log(error);
     });
 };
+
+let agregarCarritoCompras = async (idUsuario, idEvento, numeroEntradas, fechaEvento ) => {
+
+    let resultado;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/agregar-entradas',
+        responseType: 'json',
+        data: {
+            _id: idUsuario,
+            idEvento: idEvento,
+            numeroEntradas: numeroEntradas,
+            fechaEvento: fechaEvento
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
