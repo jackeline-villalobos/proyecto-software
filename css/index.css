@@ -104,8 +104,42 @@ nav a:hover{
     /* position: sticky;
     top: 20px;  */
 }
-::placeholder{
+.portada input::placeholder{
     color: #FFFFFF;
+}
+
+main span{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+}
+
+
+.filtrar-por-fecha{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+/* .filtrar-por-fecha label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.filtrar-por-fecha input{
+    margin-right: 20px;
+}
+
+.filtrar-por-fecha::placeholder{
+    color: #000000;
+}
+
+label{
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 hr{

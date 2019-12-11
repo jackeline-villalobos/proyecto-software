@@ -3,16 +3,14 @@
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/ejemplo.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/info-encargado.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
 
-    <title>Ticket pixel</title>
+    <title>Información de encargado</title>
 </head>
 
 <body>
@@ -41,12 +39,44 @@
                             <img src="imagenes/imagenes_generales/logo sin letras.png" alt="Foto de perfil">
                         </div>
                         <div class="info-notificacion">
-                            <p class="titulo-notificacion" id="titulo-notificacion"></p>
-                            <p id="descripcion-notificacion"></p>
-                            <span class="hora-notificacion" id="hora-notificacion"></span>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, ad!</p>
+                            <p>Lorem ipsum dolor sit.</p>
+                            <span class="hora-notificacion">Hace 10 minutos</span>
                         </div>
                     </div>
 
+                    <div class="notificacion">
+                        <div class="imagen-notificacion">
+                            <img src="imagenes/imagenes_generales/logo sin letras.png" alt="Foto de perfil">
+                        </div>
+                        <div class="info-notificacion">
+                            <p>Texto de ejemplo así bien pro :oo</p>
+                            <p>Lo de arriba x2</p>
+                            <span class="hora-notificacion">Hace 10 minutos</span>
+                        </div>
+                    </div>
+
+                    <div class="notificacion">
+                        <div class="imagen-notificacion">
+                            <img src="imagenes/imagenes_generales/logo sin letras.png" alt="Foto de perfil">
+                        </div>
+                        <div class="info-notificacion">
+                            <p>Texto de ejemplo así bien pro :oo</p>
+                            <p>Lo de arriba x2</p>
+                            <span class="hora-notificacion">Hace 10 minutos</span>
+                        </div>
+                    </div>
+
+                    <div class="notificacion">
+                        <div class="imagen-notificacion">
+                            <img src="imagenes/imagenes_generales/logo sin letras.png" alt="Foto de perfil">
+                        </div>
+                        <div class="info-notificacion">
+                            <p>Texto de ejemplo así bien pro :oo</p>
+                            <p>Lo de arriba x2</p>
+                            <span class="hora-notificacion">Hace 10 minutos</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -69,48 +99,56 @@
 
         </div>
     </header>
-
     <!-- frontera con ejemplo -->
-    <nav class="nav-superior">
-        <!-- <div> <a href="#">Tipos de eventos</a></div> -->
-        <!-- <div class="linea"></div> -->
-        <div><a href="ver-eventos-pasados.html">Eventos pasados</a></div>
-        <div class="linea"></div>
-        <div><a href="ver-eventos-proximos.html">Eventos próximos</a></div>
 
-    </nav>
-
-    <div class="portada">
-        <h1>EVENTOS EN COSTA RICA</h1>
-        <input type="text" id="txt-filtro" placeholder="Buscar un evento">
-
-        
-    </div>
     <main>
-        <span>Seleccione un rango de fechas para buscar eventos con esas fechas</span>
-        <div class="filtrar-por-fecha">
-            <!-- <label for="">Fecha inicio</label> -->
-            <!-- <input placeholder="Fecha inicio" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date">  -->
-            <input placeholder="Fecha inicio" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="txt-inicio">
-            <!-- <input type="date" id="txtInicio" placeholder="Fecha inicio"> -->
-    
-            <!-- <label for="">Fecha fin</label> -->
-            <!-- <input placeholder="Fecha fin" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date">  -->
-            <input placeholder="Fecha fin" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="txt-fin">
-            <!-- <input type="date" id="txtFin" placeholder="Fecha fin"> -->
-    
-            <button type="button" id="btn-buscar">Buscar</button>
-        </div>
-            
-        <hr>
+        <section class="parte_editar">
+            <a href="editar-perfil-encargado.html">Editar mi perfil</a>
 
-        <section>
-            
+            <a href="perfil-encargado.html">Mis recintos</a>
+
+            <a href="registrar-recinto.html">Crear recinto</a>
+
+            <a href="reporte-ingresos-encargado.html">Mis ingresos</a>
+        </section>
+
+        <section class="perfil">
+
+            <div class="info_perfil">
+
+                <div class="informacion-contacto">
+                    <h4 class="subtitulo">Información de encargado</h5>
+                    <div id="correo_container">
+                        <h5>Correo: </h5>
+                    </div>
+                    <div id="telefono_container">
+                        <h5>Teléfono: </h5>
+                    </div>
+                    <div id="nombreCompleto_container">
+                        <h5>Nombre: </h5>
+                    </div>
+
+                    <div id="fechaNacimiento_container">
+                        <h5>Fecha de nacimiento: </h5>
+                    </div>
+
+                    <div id="genero_container">
+                        <h5>Género: </h5>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <hr> -->
+        </section>
+        <section class="cards">
             <div id="contenedorCards">
             </div>
         </section>
 
     </main>
+
+
+
     <!-- frontera con ejemplo -->
     <footer>
 
@@ -155,24 +193,17 @@
         </div> -->
 
     </footer>
-    <!-- <div class="under-footer">
-        <a href="perfil-usuario.html">prueba perfil</a>
-    </div> -->
 
-    <script src="js/controlador-index.js"></script>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <!-- <script src="js/controlador-conectado.js"></script> -->
     <script src="js/controlador-nav.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'
-        type='text/javascript'></script>
-    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
+    <script src="js/registrar-encargado-servicio.js"></script>
 
-    <script src="js/eventos-servicio.js"></script>
-    <script src="js/listar-eventos-controlador.js"></script>
-
+    <script src="js/info-encargado-servicio.js"></script>
+    <script src="js/info-encargado-controlador.js"></script>
 </body>
 
 </html>
