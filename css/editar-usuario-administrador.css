@@ -1,0 +1,28 @@
+.container {
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    justify-content: center;
+}
+
+button {
+    margin: 20px !important;
+}
+
+.correoUsuario-css {
+    margin-left: 42%;
+    font-size: 22px;
+}
+
+
+/*
+#btn-activar {
+    display: inline-block !important;
+    margin: 2px;
+}
+
+#btn-desactivar {
+    display: inline-block !important;
+    margin: 2px;
+}
+*/

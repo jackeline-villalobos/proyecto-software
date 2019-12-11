@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de usuarios</title>
+    <title>Modificar usuario</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/listar-usuarios.css">
+    <link rel="stylesheet" href="css/registrar-impuestos.css">
+    <link rel="stylesheet" href="css/editar-usuario-administrador.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -16,6 +17,8 @@
 </head>
 
 <body>
+
+
     <header>
         <div>
             <a href="index.html"><img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-header"></a>
@@ -102,31 +105,34 @@
         </div>
     </header>
 
-    <div class="container-filtro">
-        <input type="text" id="txt-filtro" placeholder="Buscar usuario">
-        <h1>Lista de usuarios</h1>
+
+
+    <div class="main-title">
+        <h1>Modificar usuario</h1>
     </div>
 
-    <table id="tbl-usuarios">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Primer apellido</th>
-                <!-- <th>Género</th> -->
-                <th>Correo</th>
-                <th>Grado</th>
-                <th>Perfil</th>
-                <th>Estado</th>
-                <th>Baneado</th>
-                <th>Editar</th>
-            </tr>
-        </thead>
+    <main style="height:400px; justify-content: center;">
+        <div id="correoUsuario"></div>
+        <div class="container">
 
-        <tbody>
+            <div class="estado">
+                <button type="button" id="btn-activar">Activar</button>
+                <button type="button" id="btn-desactivar">Desactivar</button>
+            </div>
 
-        </tbody>
 
-    </table>
+            <div class="estadoBaneo">
+
+
+                <button type="button" id="btn-banear">Banear</button>
+                <button type="Eliminar" id="btn-desbanear">Desbanear</button>
+            </div>
+
+
+
+
+        </div>
+    </main>
 
     <footer>
 
@@ -171,13 +177,14 @@
             </div> -->
 
     </footer>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/registrar-usuarios-servicio.js"></script>
-    <script src="js/listar-usuarios-controlador.js"></script>
+    <script src="js/perfil-usuario-servicio.js"></script>
+    <script src="js/editar-usuario-administrador-controlador.js"></script>
+
 
 
 </body>

@@ -672,7 +672,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                 usuario: organizadorSolicitanteBD
                             })
 
-                            
+
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
                                 .then(function(empresaBD) {
@@ -782,7 +782,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                             usuario: empresaBD
                                         })
 
-                                        
+
 
                                     } else {
                                         Encargado.findOne({ correo: req.body.correo })
@@ -893,7 +893,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                         usuario: encargadoBD
                                                     })
 
-                                                    
+
 
                                                 } else {
                                                     res.json({
@@ -994,6 +994,31 @@ router.post('/editar-perfil-usuario', function(req, res) {
             }
         }
     )
+});
+
+
+///////////////// BANEAR // DESACTIVAR // ACTIVAR..... USUARIO 
+router.post('/editar-usuario-administrador', function(req, res) {
+    let body = req.body;
+
+    tipoEvento.updateOne({ _id: body._id }, {
+            $set: req.body
+        },
+        function(err, info) {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo modificar el usuario',
+                    error: err
+                });
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                });
+            }
+        }
+    );
 });
 
 ////////////// UPDATE ADMINISTRADOR
@@ -1181,31 +1206,31 @@ router.get('/buscar-usuario-correo/:correo', function(req, res) {
     });
 });*/
 
-router.post('/agregar-entradas', function(req, res){
+router.post('/agregar-entradas', function(req, res) {
     let body = req.body;
 
-    Usuario.update({_id: body._id}, {
-        $push: {
-            'entradas' : {
-                idEvento: body.idEvento,
-                numeroEntradas: body.numeroEntradas,
-                fechaEvento: body.fechaEvento,
-                compradas: false
-            }              
-        }
-    })
-    .then(function(info){
-        res.json({
-            resultado: true,
-            info: info
+    Usuario.update({ _id: body._id }, {
+            $push: {
+                'entradas': {
+                    idEvento: body.idEvento,
+                    numeroEntradas: body.numeroEntradas,
+                    fechaEvento: body.fechaEvento,
+                    compradas: false
+                }
+            }
+        })
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(err) {
+            res.json({
+                resultado: false,
+                error: err
+            });
         });
-    })
-    .catch(function(err){
-        res.json({
-            resultado: false,
-            error: err
-        });
-    });
 
 });
 

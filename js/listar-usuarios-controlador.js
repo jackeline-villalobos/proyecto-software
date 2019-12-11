@@ -3,13 +3,13 @@
 const inputFiltro = document.querySelector('#txt-filtro');
 const tableBody = document.querySelector('#tbl-usuarios tbody');
 
-let activar_organizador = async () => {
+let activar_organizador = async() => {
 
 
 
 };
 
-let llenarTabla = async () => {
+let llenarTabla = async() => {
     let filtro = inputFiltro.value.toLowerCase();
     let listaUsuarios = await listarUsuarios();
     console.log(listaUsuarios);
@@ -26,17 +26,35 @@ let llenarTabla = async () => {
             let btnPerfil = document.createElement('button');
             btnPerfil.innerHTML = ('Ver más')
             btnPerfil.classList.add('btn-mas');
+
+            let btnEditar = document.createElement("button");
+            btnEditar.innerHTML = ("Editar");
+            btnEditar.classList.add("btn-mas");
             fila.insertCell().innerHTML = listaUsuarios.clientes[i]['primerNombre'];
             fila.insertCell().innerHTML = listaUsuarios.clientes[i]['primerApellido'];
             //fila.insertCell().innerHTML = listaUsuarios.clientes[i]['genero'];
             fila.insertCell().innerHTML = listaUsuarios.clientes[i]['correo'];
             fila.insertCell().innerHTML = listaUsuarios.clientes[i]['grado'];
+
             fila.insertCell().appendChild(btnPerfil).innerHTML;
             btnPerfil.dataset._id = listaUsuarios.clientes[i]['_id'];
-            btnPerfil.addEventListener('click', function () {
+            fila.insertCell().innerHTML = listaUsuarios.clientes[i]["estado"];
+            btnEditar.dataset._id = listaUsuarios.clientes[i]['_id'];
+            fila.insertCell().innerHTML = listaUsuarios.clientes[i]["baneado"];
+            fila.insertCell().appendChild(btnEditar).innerHTML;
+
+
+            btnPerfil.addEventListener('click', function() {
                 let correoUsuario = listaUsuarios.clientes[i]['correo'];
                 sessionStorage.setItem('correoUsuarioPerfil', correo);
                 window.location.href = 'perfil-usuario-lista.html';
+
+
+            });
+            btnEditar.addEventListener("click", function() {
+                let correoUsuario = listaUsuarios.clientes[i]['correo'];
+                sessionStorage.setItem('correoUsuarioPerfil', correo);
+                window.location.href = 'editar-usuario-administrador.html';
             });
         };
     };
