@@ -13,17 +13,13 @@ const btnDesbanear = document.querySelector('#btn-desbanear');
 inputCorreoUsuario.innerHTML = correoUsuario;
 inputCorreoUsuario.classList.add("correoUsuario-css");
 
-let encontrarID = async() => {
-    let usuario = await buscarUsuario(correoUsuario);
-    idUsuario = usuario._id;
-    console.log(_id);
-}
+let idUsuarioPerfil = sessionStorage.getItem("idUsuarioPerfil");
 
 
 btnActivar.addEventListener('click', async function() {
     let estado = 'activo';
 
-    let resultado = await modificarEstado(idUsuario, estado);
+    let resultado = await modificarEstado(idUsuarioPerfil, estado);
 
     if (resultado.resultado == true) {
 
@@ -54,7 +50,7 @@ btnActivar.addEventListener('click', async function() {
 btnDesactivar.addEventListener('click', async function() {
     let estado = 'inactivo';
 
-    let resultado = await modificarEstado(idUsuario, estado);
+    let resultado = await modificarEstado(idUsuarioPerfil, estado);
 
     if (resultado.resultado == true) {
 
@@ -86,7 +82,7 @@ btnDesactivar.addEventListener('click', async function() {
 btnBanear.addEventListener('click', async function() {
     let baneado = true;
 
-    let resultado = await modificarBaneo(idUsuario, baneado);
+    let resultado = await modificarBaneo(idUsuarioPerfil, baneado);
 
     if (resultado.resultado == true) {
 
@@ -117,7 +113,7 @@ btnBanear.addEventListener('click', async function() {
 btnDesbanear.addEventListener('click', async function() {
     let baneado = true;
 
-    let resultado = await modificarBaneo(idUsuario, baneado);
+    let resultado = await modificarBaneo(idUsuarioPerfil, baneado);
 
     if (resultado.resultado == true) {
 
@@ -143,7 +139,3 @@ btnDesbanear.addEventListener('click', async function() {
     }
 
 });
-
-
-
-encontrarID();

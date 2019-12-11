@@ -53,6 +53,7 @@ let llenarTabla = async() => {
             });
             btnEditar.addEventListener("click", function() {
                 let correoUsuario = listaUsuarios.clientes[i]['correo'];
+                sessionStorage.setItem("idUsuarioPerfil", listaUsuarios.clientes[i]["_id"]);
                 sessionStorage.setItem('correoUsuarioPerfil', correo);
                 window.location.href = 'editar-usuario-administrador.html';
             });
