@@ -173,7 +173,7 @@ let llenarEvento = async () => {
     let calificacion = parseFloat(calificacionesArray[x]['calificacion'])
     cont = cont + calificacion;
   }
-  let promedioCalificacion = cont / calificacionesArray.length
+  let promedioCalificacion = parseFloat(cont / calificacionesArray.length).toFixed(1);
   console.log(promedioCalificacion)
     
     let calificacionCirculo = document.createElement('div')
