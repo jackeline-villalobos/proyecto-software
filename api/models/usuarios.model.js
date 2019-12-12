@@ -27,7 +27,7 @@ const usuarioSchema = new mongoose.Schema({
     notificaciones: [{
         titulo: {type: String, unique: false, required: false },
         descripcion: {type: String, unique: false, required: false},
-        fecha: {type: Date, required: false, unique: false}
+        fecha: {type: String, required: false, unique: false}
     }],
     entradas: [{
         idEvento: {type: String, unique: false, required: false},

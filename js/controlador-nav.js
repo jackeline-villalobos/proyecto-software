@@ -2,14 +2,11 @@
 const header = document.querySelector('#btns-header');
 const botonesHeader = document.querySelectorAll('#btns-header a');
 const btnCerrarSesion = document.querySelector('#btn-cerrarSesion');
-const notificacion = document.querySelector('#click-notificacion');
-const dropdown = document.querySelector('#dropdown');
-const notificaciones = document.querySelector('#notificaciones');
 
 let conectado = sessionStorage.getItem('conectado');
 let gradoUsuario = sessionStorage.getItem('gradoUsuario');
 
-let userMail = sessionStorage.getItem('correoUsuario');
+
 
 let containerFoto = document.querySelector('#foto-usuario');
 
@@ -71,40 +68,6 @@ if (conectado) {
     notificaciones.classList.add('ocultar');
 }
 
-let notificacionesUsers = async () => {
-
-    let usuario;
-
-    await axios({
-        method: 'get',
-        url: `http://localhost:3000/api/buscar-usuario-correo/${userMail}`,
-        responseType: 'json'
-    })
-    .then(async function(res) {
-        usuario = await res.data.usuario;
-    })
-    .catch(function(err){
-        console.log(err);
-    }); 
-
-    console.log(usuario);
-
-    let titulo = document.querySelector('#titulo-notificacion');
-    let comentario = document.querySelector('#descripcion-notificacion');
-    let hora = document.querySelector('#hora-notificacion');
-
-    for(let i = 0; i < usuario.notificaciones.length ; i++){
-        let tituloNotificacion = usuario.notificaciones[i]['titulo'];
-        let descripcionNotificacion = usuario.notificaciones[i]['descripcion'];
-        let fechaNotificacion = usuario.notificaciones[i]['fecha'];
-
-        titulo.innerHTML = tituloNotificacion;
-        comentario.innerHTML = descripcionNotificacion;
-        hora.innerHTML = fechaNotificacion;
-
-    }
-
-}
 
 
 
@@ -129,18 +92,6 @@ btnCerrarSesion.addEventListener('click', function(event){
         }
     });
 
-});
-
-notificacionesUsers();
-
-notificacion.addEventListener('mouseover', function(e){
-    e.preventDefault();
-    dropdown.classList.toggle('active');
-});
-
-notificacion.addEventListener('mouseout', function(e){
-    e.preventDefault();
-    dropdown.classList.toggle('active');
 });
 
 // dropdown.addEventListener('mouseover', function(e){
