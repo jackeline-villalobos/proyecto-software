@@ -14,6 +14,7 @@ const input_comentario = document.querySelector('#txt-comentario');
 const input_calificacion = document.querySelector('#txt-calificacion');
 const botonComentar = document.querySelector('#btn-comentar');
 const botonCalificar = document.querySelector('#btn-calificar');
+const container_5 = document.querySelector('#container-5');
 
 let llenarEvento = async () => {
 
@@ -67,6 +68,8 @@ let llenarEvento = async () => {
     if (eventoProximo == false) {
       btnComprar.classList.add('ocultar');
       entradas.innerHTML = 'Este evento ha finalizado.';
+    }else{
+      container_5.classList.add('ocultar');
     }
 
 
@@ -134,7 +137,13 @@ let llenarEvento = async () => {
     });
 
   }
-  /////////////////////////////
+  
+  if(gradoUsuario != 4 || gradoUsuario == null){
+
+    container_5.classList.add('ocultar')
+
+  }
+
   if(comentariosArray.length > 0){
     for (let y = 0; y < comentariosArray.length; y++) {
     let comentarioContainer = document.createElement('div');
@@ -174,7 +183,7 @@ let llenarEvento = async () => {
     cont = cont + calificacion;
   }
   let promedioCalificacion = parseFloat(cont / calificacionesArray.length).toFixed(1);
-  console.log(promedioCalificacion)
+  
     
     let calificacionCirculo = document.createElement('div')
     calificacionCirculo.classList.add('calificacionCirculo')
