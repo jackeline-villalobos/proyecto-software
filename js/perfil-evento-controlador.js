@@ -38,7 +38,7 @@ let llenarEvento = async () => {
   let fechasArray = evento.evento.fechas;
 
   let comentariosArray = evento.evento.comentarios;
-  
+
   let calificacionesArray = evento.evento.calificaciones;
 
   for (let i = 0; i < fechasArray.length; i++) {
@@ -88,7 +88,7 @@ let llenarEvento = async () => {
       Swal.fire({
         text: 'Ingrese el número de entradas que desea comprar',
         input: 'number',
-        allowEscapeKey : false,
+        allowEscapeKey: false,
         allowOutsideClick: false
       }).then(function (entradas) {
         console.log(asistentes);
@@ -134,27 +134,28 @@ let llenarEvento = async () => {
 
   }
 
-   for(let y = 0; y < comentariosArray.length; y ++){
-      let comentarioContainer = document.createElement('div');
-      comentarioContainer.classList.add('comentarioContainer');
+  for (let y = 0; y < comentariosArray.length; y++) {
+    let comentarioContainer = document.createElement('div');
+    comentarioContainer.classList.add('comentarioContainer');
 
+    //comentarioContainer.style.backgroundImage = 'url'+comentariosArray[y]['fotoUsuario']
       let fotoUsuario = document.createElement('img')
       fotoUsuario.src = comentariosArray[y]['fotoUsuario']
       fotoUsuario.classList.add('fotoUsuario')
 
-      let nombreUsuario = document.createElement('p')
-      nombreUsuario.innerHTML = comentariosArray[y]['nombreUsuario'] + ':'
-      nombreUsuario.classList.add('nombreUsuario')
+    let nombreUsuario = document.createElement('p')
+    nombreUsuario.innerHTML = comentariosArray[y]['nombreUsuario'] + ':'
+    nombreUsuario.classList.add('nombreUsuario')
 
-      let comentario = document.createElement('p')
-      comentario.innerHTML = comentariosArray[y]['comentario']
-      comentario.classList.add('comentario')
+    let comentario = document.createElement('p')
+    comentario.innerHTML = comentariosArray[y]['comentario']
+    comentario.classList.add('comentario')
 
-      comentarioContainer.appendChild(fotoUsuario)
-      comentarioContainer.appendChild(nombreUsuario)
-      comentarioContainer.appendChild(comentario)
-      mostrarComentarios.appendChild(comentarioContainer)
-   };
+    comentarioContainer.appendChild(fotoUsuario)
+    comentarioContainer.appendChild(nombreUsuario)
+    comentarioContainer.appendChild(comentario)
+    mostrarComentarios.appendChild(comentarioContainer)
+  };
 
   let nombreRecinto = evento.evento.lugar;
 
@@ -199,32 +200,32 @@ btn_finalizado.addEventListener('click', async function () {
   })
 });
 
-let validarComentario =()=>{
+let validarComentario = () => {
   let error = false;
-    if (input_comentario.value == '') {
-        error = true;
-        input_comentario.classList.add('error');
-    } else {
-        input_comentario.classList.remove('error');
-    };
-    return error;
+  if (input_comentario.value == '') {
+    error = true;
+    input_comentario.classList.add('error');
+  } else {
+    input_comentario.classList.remove('error');
+  };
+  return error;
 }
 
 
-let agregarComentario = async()=>{
+let agregarComentario = async () => {
   let fotoUsuario = sessionStorage.getItem('fotoUsuario')
-  let nombreUsuario = sessionStorage.getItem('nombreUsuario') + ' '+ sessionStorage.getItem('apellidoUsuario');
+  let nombreUsuario = sessionStorage.getItem('nombreUsuario') + ' ' + sessionStorage.getItem('apellidoUsuario');
   let comentario = input_comentario.value;
 
-  
-  
-  if(validarComentario()){
-      Swal.fire({
-          type: 'warning',
-          title: 'Comentario vacío',
-          confirmButtonText: 'Entendio'
-      })
-  }else{
+
+
+  if (validarComentario()) {
+    Swal.fire({
+      type: 'warning',
+      title: 'Comentario vacío',
+      confirmButtonText: 'Entendio'
+    })
+  } else {
     agregar_comentario(fotoUsuario, nombreUsuario, comentario)
     input_comentario.value = ''
   }
