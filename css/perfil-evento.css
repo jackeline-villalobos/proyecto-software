@@ -171,11 +171,16 @@ h1 {
     width: 50%;
     float: left;
     color: #ffffff;
+    margin-bottom: 15px;
+}
+#txt-calificacion{
+    width: 40%;
+    margin-left: 20px;
+    margin-right: 7%;
 }
 #btn-calificar{
-    display: block;
-    width: 100%;
-    
+    display: inline;
+    width: 35%;
 }
 
 #comentarios{

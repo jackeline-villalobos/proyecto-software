@@ -158,6 +158,7 @@ router.post('/agregar-calificacion', function (req, res) {
     Evento.update({ _id: req.body._id }, {
         $push: {
             'calificaciones': {
+                idUsuario: req.body.idUsuario,
                 calificacion: req.body.calificacion,
             }
         }

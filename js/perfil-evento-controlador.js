@@ -10,7 +10,9 @@ const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
 const mostrarComentarios = document.querySelector('#mostrarComentarios');
 const input_comentario = document.querySelector('#txt-comentario');
+const input_calificacion = document.querySelector('#txt-calificacion');
 const botonComentar = document.querySelector('#btn-comentar');
+const botonCalificar = document.querySelector('#btn-calificar');
 
 
 
@@ -155,7 +157,13 @@ let llenarEvento = async () => {
     comentarioContainer.appendChild(nombreUsuario)
     comentarioContainer.appendChild(comentario)
     mostrarComentarios.appendChild(comentarioContainer)
-  };
+  }; //fin for comentarios
+
+  for(let x = 0; x < calificacionesArray.length; x++){
+
+
+    
+  };//fin for calificaciones
 
   let nombreRecinto = evento.evento.lugar;
 
@@ -211,13 +219,34 @@ let validarComentario = () => {
   return error;
 }
 
+let validarCalificacion =async () => {
+  let error = false;
+  let evento = await buscarEvento(idEvento);
+  let calificacionesArray = evento.evento.calificaciones;
+  let idUsuario = sessionStorage.getItem('idUsuario')
+  for(let i = 0; i < calificacionesArray.length; i++){
+    if(idUsuario == calificacionesArray[i]['idUsuario']){
+        error = true
+        input_calificacion.classList.add('error')
+    } else {
+      input_calificacion.classList.remove('error');
+    };
+  }
+
+  if(input_calificacion.value > 5 || input_calificacion.value == ''){
+    error = true;
+    input_calificacion.classList.add('error');
+  } else {
+    input_calificacion.classList.remove('error');
+  };
+  return error;
+}
+
 
 let agregarComentario = async () => {
   let fotoUsuario = sessionStorage.getItem('fotoUsuario')
   let nombreUsuario = sessionStorage.getItem('nombreUsuario') + ' ' + sessionStorage.getItem('apellidoUsuario');
   let comentario = input_comentario.value;
-
-
 
   if (validarComentario()) {
     Swal.fire({
@@ -228,14 +257,36 @@ let agregarComentario = async () => {
   } else {
     agregar_comentario(fotoUsuario, nombreUsuario, comentario)
     input_comentario.value = ''
+    location.reload(); 
   }
 };
 
+let agregarCalificaion = async () => {
+  let idUsuario = sessionStorage.getItem('idUsuario')
+  let calificacion = input_calificacion.value;
+
+  if (validarCalificacion()) {
+    Swal.fire({
+      type: 'warning',
+      title: 'No se pudo guardar la calificación',
+      text: 'Puede que haya ingresado un valor mayor a 5 o usted ya haya calificado',
+      confirmButtonText: 'Entendio'
+    })
+  } else {
+    agregar_calificacion(idUsuario, calificacion)
+    input_calificacion.value = ''
+    location.reload(); 
+  }
+};
+
+botonCalificar.addEventListener('click', agregarCalificaion)
 botonComentar.addEventListener('click', agregarComentario)
 // botonComentar.addEventListener('click', function(e){
 //   e.preventDefault();
 //   agregarComentario();
 //   input_comentario.value = ''
 // });
+
+
 
 llenarEvento();

@@ -124,6 +124,29 @@ let agregar_comentario = async (fotoUsuario, nombreUsuario, comentario) => {
         });
 };
 
+let agregar_calificacion = async (idUsuario, calificacion) => {
+    let _id = localStorage.getItem('idEvento') ; 
+    await axios(
+        {
+            method: 'post',
+            url: 'http://localhost:3000/api/agregar-calificacion',
+            responseType: 'json',
+            data: {
+                idUsuario: idUsuario,
+                calificacion: calificacion,
+                _id: _id
+                }
+            })
+        .then(function (res) {
+            console.log(res.data);
+
+        })
+        .catch(function (error) {
+            console.log(error);
+
+        });
+};
+
 let listarEventos = async () => {
     let listaEventos;
     await axios ({
