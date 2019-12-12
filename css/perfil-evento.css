@@ -146,18 +146,79 @@ h1 {
     margin-right: 2%;
     float: left;
     border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flow-root;
+    padding-top: 75px;
 }
+#calificacionCirculo{
+    height: 90px;
+    width: 90px;
+    background: #ffffff;
+    border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+#calificacionPromedioCirculo{
+    padding-top: 15px;
+    padding-left: 24px;
+    font-weight: bold;
+}
+
+#calificacionDescripcion{
+    width: 50%;
+    float: left;
+    color: #ffffff;
+}
+#btn-calificar{
+    display: block;
+    width: 100%;
+    
+}
+
 #comentarios{
     height: 300px;
     width: 68%;
     background: #7f7f7f;
     float: left;
     border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
 }
+.tituloComentarios{
+    margin: 0px 0px 10px 0px;
+    color: #ffffff;
+    font-weight: bold;
+}
+#mostrarComentarios{
+    height: 65%;
+    margin-bottom: 1.5%;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+#divComentar{
+    height: 20%;
+    display: flow-root;
+}
+
+
 .boton {
     width: 100%;
     margin: auto;
     margin-bottom: 5px;
+}
+#txt-comentario{
+    height: 100%;
+    width: 80%;
+    float: left;
+    margin-right: 2%;
+}
+#btn-comentar{
+    width: 18%;
+    float: left;
+    margin-top: 1.5%;
 }
 
 .botonVerde {
