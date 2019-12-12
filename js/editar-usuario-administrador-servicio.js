@@ -1,6 +1,6 @@
 "use strict";
 
-
+const correoUsuarioPerfil = sessionStorage.getItem('correoUsuarioPerfil');
 
 let buscarUsuario = async(correo) => {
 
