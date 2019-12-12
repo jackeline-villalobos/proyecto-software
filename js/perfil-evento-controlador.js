@@ -8,14 +8,12 @@ const p_descripcion = document.querySelector('#p-descripcion');
 const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
+const mostrarCalificacion = document.querySelector('#mostrarCalificacion')
 const mostrarComentarios = document.querySelector('#mostrarComentarios');
 const input_comentario = document.querySelector('#txt-comentario');
 const input_calificacion = document.querySelector('#txt-calificacion');
 const botonComentar = document.querySelector('#btn-comentar');
 const botonCalificar = document.querySelector('#btn-calificar');
-
-
-
 
 let llenarEvento = async () => {
 
@@ -40,6 +38,7 @@ let llenarEvento = async () => {
   let fechasArray = evento.evento.fechas;
 
   let comentariosArray = evento.evento.comentarios;
+  
 
   let calificacionesArray = evento.evento.calificaciones;
 
@@ -135,8 +134,9 @@ let llenarEvento = async () => {
     });
 
   }
-
-  for (let y = 0; y < comentariosArray.length; y++) {
+  /////////////////////////////
+  if(comentariosArray.length > 0){
+    for (let y = 0; y < comentariosArray.length; y++) {
     let comentarioContainer = document.createElement('div');
     comentarioContainer.classList.add('comentarioContainer');
 
@@ -157,13 +157,54 @@ let llenarEvento = async () => {
     comentarioContainer.appendChild(nombreUsuario)
     comentarioContainer.appendChild(comentario)
     mostrarComentarios.appendChild(comentarioContainer)
-  }; //fin for comentarios
+  };
+  }else{
+    let noComentariosTexto = document.createElement('h6')
+    noComentariosTexto.innerHTML = 'No hay ningún comentario sobre este evento'
+    noComentariosTexto.classList.add('noComentariosTexto')
+    mostrarComentarios.appendChild(noComentariosTexto)
+  }
+   //fin for comentarios
 
+  if(calificacionesArray.length > 0){
+  
+    let cont = 0;
   for(let x = 0; x < calificacionesArray.length; x++){
-
-
+    let calificacion = parseFloat(calificacionesArray[x]['calificacion'])
+    cont = cont + calificacion;
+  }
+  let promedioCalificacion = cont / calificacionesArray.length
+  console.log(promedioCalificacion)
     
-  };//fin for calificaciones
+    let calificacionCirculo = document.createElement('div')
+    calificacionCirculo.classList.add('calificacionCirculo')
+    let calificacionPromedioh4 = document.createElement('h4')
+    calificacionPromedioh4.innerHTML = promedioCalificacion
+    calificacionPromedioh4.classList.add('calificacionPromedioh4')
+
+    let calificacionDescripcion = document.createElement('div')
+    calificacionDescripcion.classList.add('calificacionDescripcion')
+    let calificacionPromedioh6 = document.createElement('h6')
+    calificacionPromedioh6.innerHTML = promedioCalificacion + ' de 5'
+    calificacionPromedioh6.classList.add('calificacionPromedioh6')
+
+    let cantidadCalificaciones = document.createElement('h6')
+    cantidadCalificaciones.innerHTML = 'Según la opinión de ' + calificacionesArray.length + ' asistentes.'
+    cantidadCalificaciones.classList.add('cantidadCalificaciones')
+
+    calificacionDescripcion.appendChild(calificacionPromedioh6)
+    calificacionDescripcion.appendChild(cantidadCalificaciones)
+    calificacionCirculo.appendChild(calificacionPromedioh4)
+    mostrarCalificacion.appendChild(calificacionCirculo)
+    mostrarCalificacion.appendChild(calificacionDescripcion)
+
+  }else{
+    let noCalificacionesTexto = document.createElement('h6')
+    noCalificacionesTexto.innerHTML = 'No hay ninguna calificación para este evento'
+    noCalificacionesTexto.classList.add('nocalificacionesTexto')
+    mostrarCalificacion.appendChild(noCalificacionesTexto)
+  }
+  //fin for calificaciones
 
   let nombreRecinto = evento.evento.lugar;
 
@@ -177,7 +218,7 @@ let llenarEvento = async () => {
   initMap(latitud, longitud);
 
 
-};
+};// fin llenar evento
 
 let marcarEventoFinalizado = async () => {
 
@@ -219,19 +260,19 @@ let validarComentario = () => {
   return error;
 }
 
-let validarCalificacion =async () => {
+let validarCalificacion = () => {
   let error = false;
-  let evento = await buscarEvento(idEvento);
-  let calificacionesArray = evento.evento.calificaciones;
-  let idUsuario = sessionStorage.getItem('idUsuario')
-  for(let i = 0; i < calificacionesArray.length; i++){
-    if(idUsuario == calificacionesArray[i]['idUsuario']){
-        error = true
-        input_calificacion.classList.add('error')
-    } else {
-      input_calificacion.classList.remove('error');
-    };
-  }
+  // let evento = await buscarEvento(idEvento);
+  // let calificacionesArray = evento.evento.calificaciones;
+  // let idUsuario = sessionStorage.getItem('idUsuario')
+  // for(let i = 0; i < calificacionesArray.length; i++){
+  //   if(idUsuario == calificacionesArray[i]['idUsuario']){
+  //       error = true
+  //       input_calificacion.classList.add('error')
+  //   } else {
+  //     input_calificacion.classList.remove('error');
+  //   };
+  // }
 
   if(input_calificacion.value > 5 || input_calificacion.value == ''){
     error = true;
@@ -264,7 +305,7 @@ let agregarComentario = async () => {
 let agregarCalificaion = async () => {
   let idUsuario = sessionStorage.getItem('idUsuario')
   let calificacion = input_calificacion.value;
-
+  
   if (validarCalificacion()) {
     Swal.fire({
       type: 'warning',

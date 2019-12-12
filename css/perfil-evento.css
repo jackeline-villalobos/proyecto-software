@@ -151,7 +151,15 @@ h1 {
     display: flow-root;
     padding-top: 75px;
 }
-#calificacionCirculo{
+#mostrarCalificacion{
+    height: 100px;
+}
+.noCalificacionesTexto{
+    margin: 0px 0px 10px 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.calificacionCirculo{
     height: 90px;
     width: 90px;
     background: #ffffff;
@@ -160,14 +168,14 @@ h1 {
     margin-right: 30px;
     margin-left: 20px;
     margin-bottom: 20px;
+    text-align: center;
 }
-#calificacionPromedioCirculo{
-    padding-top: 15px;
-    padding-left: 24px;
+.calificacionPromedioh4{
+    padding-top: 17px;
     font-weight: bold;
 }
 
-#calificacionDescripcion{
+.calificacionDescripcion{
     width: 50%;
     float: left;
     color: #ffffff;
@@ -192,7 +200,7 @@ h1 {
     padding: 15px;
     box-sizing: border-box;
 }
-.tituloComentarios{
+.tituloComentarios, .noComentariosTexto{
     margin: 0px 0px 10px 0px;
     color: #ffffff;
     font-weight: bold;
