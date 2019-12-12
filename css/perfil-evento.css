@@ -198,6 +198,27 @@ h1 {
     border-radius: 10px;
     overflow-y: scroll;
 }
+.comentarioContainer{
+    background: #ffffff;
+    width: 97%;
+    border-radius: 10px;
+    padding: 12px 40px 12px 40px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+.fotoUsuario{
+    height: 20px;
+}
+.nombreUsuario{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+.comentario{
+    font-size: 15px;
+    margin: 0px;
+}
 #divComentar{
     height: 20%;
     display: flow-root;

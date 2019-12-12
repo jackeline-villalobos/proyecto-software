@@ -8,12 +8,17 @@ const p_descripcion = document.querySelector('#p-descripcion');
 const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
+const mostrarComentarios = document.querySelector('#mostrarComentarios');
+const input_comentario = document.querySelector('#txt-comentario');
+const botonComentar = document.querySelector('#btn-comentar');
+
+
+
 
 let llenarEvento = async () => {
 
   let evento = await buscarEvento(idEvento);
 
-  console.log(evento)
 
   let imagenSource = evento.evento.imagen;
   imagen.src = `${imagenSource}`;
@@ -31,6 +36,10 @@ let llenarEvento = async () => {
   h4_precio.innerHTML = '₡' + precio;
 
   let fechasArray = evento.evento.fechas;
+
+  let comentariosArray = evento.evento.comentarios;
+  
+  let calificacionesArray = evento.evento.calificaciones;
 
   for (let i = 0; i < fechasArray.length; i++) {
     let fecha = evento.evento.fechas[i];
@@ -52,7 +61,6 @@ let llenarEvento = async () => {
     btnComprar.classList.add('boton', 'botonVerde');
 
     let eventoProximo = evento.evento.proximo;
-    console.log(eventoProximo);
     // let btnAgregarCarrito = document.querySelector('#btn-annadir-carrito');
 
     if (eventoProximo == false) {
@@ -126,16 +134,36 @@ let llenarEvento = async () => {
 
   }
 
+   for(let y = 0; y < comentariosArray.length; y ++){
+      let comentarioContainer = document.createElement('div');
+      comentarioContainer.classList.add('comentarioContainer');
+
+      let fotoUsuario = document.createElement('img')
+      fotoUsuario.src = comentariosArray[y]['fotoUsuario']
+      fotoUsuario.classList.add('fotoUsuario')
+
+      let nombreUsuario = document.createElement('p')
+      nombreUsuario.innerHTML = comentariosArray[y]['nombreUsuario'] + ':'
+      nombreUsuario.classList.add('nombreUsuario')
+
+      let comentario = document.createElement('p')
+      comentario.innerHTML = comentariosArray[y]['comentario']
+      comentario.classList.add('comentario')
+
+      comentarioContainer.appendChild(fotoUsuario)
+      comentarioContainer.appendChild(nombreUsuario)
+      comentarioContainer.appendChild(comentario)
+      mostrarComentarios.appendChild(comentarioContainer)
+   };
+
   let nombreRecinto = evento.evento.lugar;
 
   let recinto = await obtenerRecinto(nombreRecinto);
   //console.log(recinto);
 
   let latitud = parseFloat(recinto[0].latitud);
-  console.log(latitud);
 
   let longitud = parseFloat(recinto[0].longitud);
-  console.log(longitud);
 
   initMap(latitud, longitud);
 
@@ -145,7 +173,6 @@ let llenarEvento = async () => {
 let marcarEventoFinalizado = async () => {
 
   let resultado = await eventoFinalizado(idEvento);
-  console.log(resultado)
 
 
 };
@@ -171,5 +198,43 @@ btn_finalizado.addEventListener('click', async function () {
     }
   })
 });
+
+let validarComentario =()=>{
+  let error = false;
+    if (input_comentario.value == '') {
+        error = true;
+        input_comentario.classList.add('error');
+    } else {
+        input_comentario.classList.remove('error');
+    };
+    return error;
+}
+
+
+let agregarComentario = async()=>{
+  let fotoUsuario = sessionStorage.getItem('fotoUsuario')
+  let nombreUsuario = sessionStorage.getItem('nombreUsuario') + ' '+ sessionStorage.getItem('apellidoUsuario');
+  let comentario = input_comentario.value;
+
+  
+  
+  if(validarComentario()){
+      Swal.fire({
+          type: 'warning',
+          title: 'Comentario vacío',
+          confirmButtonText: 'Entendio'
+      })
+  }else{
+    agregar_comentario(fotoUsuario, nombreUsuario, comentario)
+    input_comentario.value = ''
+  }
+};
+
+botonComentar.addEventListener('click', agregarComentario)
+// botonComentar.addEventListener('click', function(e){
+//   e.preventDefault();
+//   agregarComentario();
+//   input_comentario.value = ''
+// });
 
 llenarEvento();

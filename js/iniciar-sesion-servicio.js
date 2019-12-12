@@ -21,6 +21,8 @@ let iniciarSesion = async(correo, contrasenna) => {
                 sessionStorage.setItem('gradoUsuario', res.data.usuario.grado);
                 sessionStorage.setItem('fotoUsuario', res.data.usuario.imagen);
                 sessionStorage.setItem('correoUsuario', res.data.usuario.correo);
+                sessionStorage.setItem('nombreUsuario', res.data.usuario.primerNombre);
+                sessionStorage.setItem('apellidoUsuario', res.data.usuario.primerApellido)
             }
 
         })
