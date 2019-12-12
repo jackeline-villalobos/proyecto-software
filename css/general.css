@@ -346,17 +346,26 @@ footer li:hover, footer i:hover, footer p:hover, footer a:hover {
     background: black;
 }
 
-.zona-notificacion .dropdown .notificacion .info-notificacion p {
-    font-size: 20px;
-    font-weight: 500;
+.zona-notificacion .dropdown .notificacion .info-notificacion #titulo-notificacion {
+    font-size: 26px;
+    font-weight: bold;
     margin: 2% 0;
-    padding: 0;
+    padding: 0 2%;
+}
+
+.zona-notificacion .dropdown .notificacion .info-notificacion #descripcion-notificacion {
+    font-size: 22px;
+    
+    margin: 2% 0;
+    padding: 0 2%;
 }
 
 .zona-notificacion .dropdown .notificacion .info-notificacion .hora-notificacion {
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 16px;
+    margin: 2% 0;
+    padding: 0 2%;
 }
 
 .zona-notificacion .dropdown::before{
