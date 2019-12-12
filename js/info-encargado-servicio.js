@@ -134,7 +134,7 @@ let editarEncargado = async (_id, nombreEmpresa, cedulaJuridica, experiencia, no
     let resultado;
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/editar-perfil-organizador',
+        url: 'http://localhost:3000/api/editar-perfil-encargado',
         responseType: 'json',
         data: {
             _id: _id,
@@ -170,7 +170,7 @@ let modificarEstado = async (_id, estado) => {
 
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/modificar-estado-organizador',
+        url: 'http://localhost:3000/api/modificar-estado-encargado',
         responseType: 'json',
         data: {
             _id: _id,
