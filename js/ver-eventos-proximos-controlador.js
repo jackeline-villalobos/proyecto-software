@@ -24,7 +24,7 @@ var sumaFecha = function (d, fecha) {
     return (fechaFinal);
 }
 
-var fecha = sumaFecha(30, fecha);
+var fecha = sumaFecha(15, fecha);
 
 
 // console.log('Fecha de hoy más 30: ' + fecha);
