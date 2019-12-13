@@ -1001,7 +1001,7 @@ router.post('/editar-perfil-usuario', function(req, res) {
 router.post('/editar-usuario-administrador', function(req, res) {
     let body = req.body;
 
-    tipoEvento.updateOne({ _id: body._id }, {
+    Usuario.updateOne({ _id: body._id }, {
             $set: req.body
         },
         function(err, info) {
@@ -1057,27 +1057,27 @@ router.post('/agregar-notificacion', function(req, res) {
 
     let body = req.body;
 
-    Usuario.update({_id: body._id}, {
-        $push: {
-            'notificaciones' : {
-                titulo: body.titulo,
-            descripcion: body.descripcion,
-            fecha: body.fecha
+    Usuario.update({ _id: body._id }, {
+            $push: {
+                'notificaciones': {
+                    titulo: body.titulo,
+                    descripcion: body.descripcion,
+                    fecha: body.fecha
+                }
             }
-        }        
-    })
-    .then(function(info) {
-        res.json({
-            resultado: true,
-            info: info
+        })
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(err) {
+            res.json({
+                resultado: false,
+                error: err
+            });
         });
-    })
-    .catch(function(err){
-        res.json({
-            resultado: false,
-            error: err
-        });
-    });
 
 });
 
@@ -1158,25 +1158,25 @@ router.post('/eliminar-entrada', function(req, res) {
 
     let body = req.body;
 
-    Usuario.update({_id: body._id}, {
-        $pull: {
-            'entradas' : {
-                _id: body.idEntrada
+    Usuario.update({ _id: body._id }, {
+            $pull: {
+                'entradas': {
+                    _id: body.idEntrada
+                }
             }
-        }  
-    })
-    .then(function(info){
-        res.json({
-            resultado: true,
-            info: info
-        });
-    })
-    .catch(function(err){
-        res.json({
-            resultado: false,
-            error: err
-        });
-    })
+        })
+        .then(function(info) {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        })
+        .catch(function(err) {
+            res.json({
+                resultado: false,
+                error: err
+            });
+        })
 });
 
 

@@ -21,6 +21,7 @@ btnActivar.addEventListener('click', async function() {
 
     let resultado = await modificarEstado(idUsuarioPerfil, estado);
 
+
     if (resultado.resultado == true) {
 
         Swal.fire({
@@ -29,7 +30,7 @@ btnActivar.addEventListener('click', async function() {
             text: 'El usuario ha sido activado',
             confirmButtonText: "Entendido",
             onClose: function() {
-                sessionStorage.removeItem('correoUsuario');
+                sessionStorage.removeItem('correoUsuarioPerfil');
                 location.href = 'perfil-administrador.html';
             }
         });
@@ -56,11 +57,11 @@ btnDesactivar.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'success',
-            title: 'Activado con éxito',
+            title: 'Desactivado con éxito',
             text: 'El usuario ha sido desactivado',
             confirmButtonText: "Entendido",
             onClose: function() {
-                sessionStorage.removeItem('correoUsuario');
+                sessionStorage.removeItem('correoUsuarioPerfil');
                 location.href = 'perfil-administrador.html';
             }
         });
@@ -88,11 +89,11 @@ btnBanear.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'success',
-            title: 'Activado con éxito',
+            title: 'Baneado con éxito',
             text: 'El usuario ha sido baneado',
             confirmButtonText: "Entendido",
             onClose: function() {
-                sessionStorage.removeItem('correoUsuario');
+                sessionStorage.removeItem('correoUsuarioPerfil');
                 location.href = 'perfil-administrador.html';
             }
         });
@@ -101,7 +102,7 @@ btnBanear.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'warning',
-            title: 'El usuario no se ha podido desactivar',
+            title: 'El usuario no se ha podido banear',
             confirmButtonText: "Entendido"
         });
 
@@ -119,11 +120,11 @@ btnDesbanear.addEventListener('click', async function() {
 
         Swal.fire({
             icon: 'success',
-            title: 'Activado con éxito',
+            title: 'Desbaneado con éxito',
             text: 'El usuario ha sido desbaneado',
             confirmButtonText: "Entendido",
             onClose: function() {
-                sessionStorage.removeItem('correoUsuario');
+                sessionStorage.removeItem('correoUsuarioPerfil');
                 location.href = 'perfil-administrador.html';
             }
         });

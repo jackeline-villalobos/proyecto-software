@@ -47,3 +47,24 @@ let eliminarEntrada = async (idUsuario, idEntrada) => {
     return resultado;
 }
 
+let listarImpuestosCarrito = async () => {
+
+    let resultado;
+
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar-impuestos',
+        responseType: 'json'
+    })
+    .then(async function(res){
+        //console.log(res.data.impuestos);
+        resultado = await res.data.impuestos;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+
+}
+

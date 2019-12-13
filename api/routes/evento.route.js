@@ -133,6 +133,7 @@ router.post('/agregar-comentario', function (req, res) {
     Evento.update({ _id: req.body._id }, {
         $push: {
             'comentarios': {
+                fotoUsuario: req.body.fotoUsuario,
                 nombreUsuario: req.body.nombreUsuario,
                 comentario: req.body.comentario
             }
@@ -141,13 +142,13 @@ router.post('/agregar-comentario', function (req, res) {
         if (err) {
             return res.json({
                 resultado: false,
-                msg: 'No se pudo agregar el descuento',
+                msg: 'No se pudo agregar el comentario',
                 err
             });
         } else {
             return res.json({
                 resultado: true,
-                msg: 'Se agregó el descuento correctamente'
+                msg: 'Se agregó el comentario correctamente'
             });
         }
     });
@@ -157,20 +158,21 @@ router.post('/agregar-calificacion', function (req, res) {
     Evento.update({ _id: req.body._id }, {
         $push: {
             'calificaciones': {
-                calificacion: req.body.nombreDescuento,
+                idUsuario: req.body.idUsuario,
+                calificacion: req.body.calificacion,
             }
         }
     }, function (err) {
         if (err) {
             return res.json({
                 resultado: false,
-                msg: 'No se pudo agregar el descuento',
+                msg: 'No se pudo agregar la calificación',
                 err
             });
         } else {
             return res.json({
                 resultado: true,
-                msg: 'Se agregó el descuento correctamente'
+                msg: 'Se agregó la calificación correctamente'
             });
         }
     });

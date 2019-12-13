@@ -8,12 +8,18 @@ const p_descripcion = document.querySelector('#p-descripcion');
 const h4_precio = document.querySelector('#precio');
 const div_fechas = document.querySelector('#div-fechas');
 const h5_recinto = document.querySelector('#h5-recinto');
+const mostrarCalificacion = document.querySelector('#mostrarCalificacion')
+const mostrarComentarios = document.querySelector('#mostrarComentarios');
+const input_comentario = document.querySelector('#txt-comentario');
+const input_calificacion = document.querySelector('#txt-calificacion');
+const botonComentar = document.querySelector('#btn-comentar');
+const botonCalificar = document.querySelector('#btn-calificar');
+const container_5 = document.querySelector('#container-5');
 
 let llenarEvento = async () => {
 
   let evento = await buscarEvento(idEvento);
 
-  console.log(evento)
 
   let imagenSource = evento.evento.imagen;
   imagen.src = `${imagenSource}`;
@@ -31,6 +37,11 @@ let llenarEvento = async () => {
   h4_precio.innerHTML = '₡' + precio;
 
   let fechasArray = evento.evento.fechas;
+
+  let comentariosArray = evento.evento.comentarios;
+  
+
+  let calificacionesArray = evento.evento.calificaciones;
 
   for (let i = 0; i < fechasArray.length; i++) {
     let fecha = evento.evento.fechas[i];
@@ -52,12 +63,13 @@ let llenarEvento = async () => {
     btnComprar.classList.add('boton', 'botonVerde');
 
     let eventoProximo = evento.evento.proximo;
-    console.log(eventoProximo);
     // let btnAgregarCarrito = document.querySelector('#btn-annadir-carrito');
 
     if (eventoProximo == false) {
       btnComprar.classList.add('ocultar');
       entradas.innerHTML = 'Este evento ha finalizado.';
+    }else{
+      container_5.classList.add('ocultar');
     }
 
 
@@ -80,7 +92,7 @@ let llenarEvento = async () => {
       Swal.fire({
         text: 'Ingrese el número de entradas que desea comprar',
         input: 'number',
-        allowEscapeKey : false,
+        allowEscapeKey: false,
         allowOutsideClick: false
       }).then(function (entradas) {
         console.log(asistentes);
@@ -125,6 +137,83 @@ let llenarEvento = async () => {
     });
 
   }
+  
+  if(gradoUsuario != 4 || gradoUsuario == null){
+
+    container_5.classList.add('ocultar')
+
+  }
+
+  if(comentariosArray.length > 0){
+    for (let y = 0; y < comentariosArray.length; y++) {
+    let comentarioContainer = document.createElement('div');
+    comentarioContainer.classList.add('comentarioContainer');
+
+    //comentarioContainer.style.backgroundImage = 'url'+comentariosArray[y]['fotoUsuario']
+      let fotoUsuario = document.createElement('img')
+      fotoUsuario.src = comentariosArray[y]['fotoUsuario']
+      fotoUsuario.classList.add('fotoUsuario')
+
+    let nombreUsuario = document.createElement('p')
+    nombreUsuario.innerHTML = comentariosArray[y]['nombreUsuario'] + ':'
+    nombreUsuario.classList.add('nombreUsuario')
+
+    let comentario = document.createElement('p')
+    comentario.innerHTML = comentariosArray[y]['comentario']
+    comentario.classList.add('comentario')
+
+    comentarioContainer.appendChild(fotoUsuario)
+    comentarioContainer.appendChild(nombreUsuario)
+    comentarioContainer.appendChild(comentario)
+    mostrarComentarios.appendChild(comentarioContainer)
+  };
+  }else{
+    let noComentariosTexto = document.createElement('h6')
+    noComentariosTexto.innerHTML = 'No hay ningún comentario sobre este evento'
+    noComentariosTexto.classList.add('noComentariosTexto')
+    mostrarComentarios.appendChild(noComentariosTexto)
+  }
+   //fin for comentarios
+
+  if(calificacionesArray.length > 0){
+  
+    let cont = 0;
+  for(let x = 0; x < calificacionesArray.length; x++){
+    let calificacion = parseFloat(calificacionesArray[x]['calificacion'])
+    cont = cont + calificacion;
+  }
+  let promedioCalificacion = parseFloat(cont / calificacionesArray.length).toFixed(1);
+  
+    
+    let calificacionCirculo = document.createElement('div')
+    calificacionCirculo.classList.add('calificacionCirculo')
+    let calificacionPromedioh4 = document.createElement('h4')
+    calificacionPromedioh4.innerHTML = promedioCalificacion
+    calificacionPromedioh4.classList.add('calificacionPromedioh4')
+
+    let calificacionDescripcion = document.createElement('div')
+    calificacionDescripcion.classList.add('calificacionDescripcion')
+    let calificacionPromedioh6 = document.createElement('h6')
+    calificacionPromedioh6.innerHTML = promedioCalificacion + ' de 5'
+    calificacionPromedioh6.classList.add('calificacionPromedioh6')
+
+    let cantidadCalificaciones = document.createElement('h6')
+    cantidadCalificaciones.innerHTML = 'Según la opinión de ' + calificacionesArray.length + ' asistentes.'
+    cantidadCalificaciones.classList.add('cantidadCalificaciones')
+
+    calificacionDescripcion.appendChild(calificacionPromedioh6)
+    calificacionDescripcion.appendChild(cantidadCalificaciones)
+    calificacionCirculo.appendChild(calificacionPromedioh4)
+    mostrarCalificacion.appendChild(calificacionCirculo)
+    mostrarCalificacion.appendChild(calificacionDescripcion)
+
+  }else{
+    let noCalificacionesTexto = document.createElement('h6')
+    noCalificacionesTexto.innerHTML = 'No hay ninguna calificación para este evento'
+    noCalificacionesTexto.classList.add('nocalificacionesTexto')
+    mostrarCalificacion.appendChild(noCalificacionesTexto)
+  }
+  //fin for calificaciones
 
   let nombreRecinto = evento.evento.lugar;
 
@@ -132,20 +221,17 @@ let llenarEvento = async () => {
   //console.log(recinto);
 
   let latitud = parseFloat(recinto[0].latitud);
-  console.log(latitud);
 
   let longitud = parseFloat(recinto[0].longitud);
-  console.log(longitud);
 
   initMap(latitud, longitud);
 
 
-};
+};// fin llenar evento
 
 let marcarEventoFinalizado = async () => {
 
   let resultado = await eventoFinalizado(idEvento);
-  console.log(resultado)
 
 
 };
@@ -171,5 +257,86 @@ btn_finalizado.addEventListener('click', async function () {
     }
   })
 });
+
+let validarComentario = () => {
+  let error = false;
+  if (input_comentario.value == '') {
+    error = true;
+    input_comentario.classList.add('error');
+  } else {
+    input_comentario.classList.remove('error');
+  };
+  return error;
+}
+
+let validarCalificacion = () => {
+  let error = false;
+  // let evento = await buscarEvento(idEvento);
+  // let calificacionesArray = evento.evento.calificaciones;
+  // let idUsuario = sessionStorage.getItem('idUsuario')
+  // for(let i = 0; i < calificacionesArray.length; i++){
+  //   if(idUsuario == calificacionesArray[i]['idUsuario']){
+  //       error = true
+  //       input_calificacion.classList.add('error')
+  //   } else {
+  //     input_calificacion.classList.remove('error');
+  //   };
+  // }
+
+  if(input_calificacion.value > 5 || input_calificacion.value == ''){
+    error = true;
+    input_calificacion.classList.add('error');
+  } else {
+    input_calificacion.classList.remove('error');
+  };
+  return error;
+}
+
+
+let agregarComentario = async () => {
+  let fotoUsuario = sessionStorage.getItem('fotoUsuario')
+  let nombreUsuario = sessionStorage.getItem('nombreUsuario') + ' ' + sessionStorage.getItem('apellidoUsuario');
+  let comentario = input_comentario.value;
+
+  if (validarComentario()) {
+    Swal.fire({
+      type: 'warning',
+      title: 'Comentario vacío',
+      confirmButtonText: 'Entendio'
+    })
+  } else {
+    agregar_comentario(fotoUsuario, nombreUsuario, comentario)
+    input_comentario.value = ''
+    location.reload(); 
+  }
+};
+
+let agregarCalificaion = async () => {
+  let idUsuario = sessionStorage.getItem('idUsuario')
+  let calificacion = input_calificacion.value;
+  
+  if (validarCalificacion()) {
+    Swal.fire({
+      type: 'warning',
+      title: 'No se pudo guardar la calificación',
+      text: 'Puede que haya ingresado un valor mayor a 5 o usted ya haya calificado',
+      confirmButtonText: 'Entendio'
+    })
+  } else {
+    agregar_calificacion(idUsuario, calificacion)
+    input_calificacion.value = ''
+    location.reload(); 
+  }
+};
+
+botonCalificar.addEventListener('click', agregarCalificaion)
+botonComentar.addEventListener('click', agregarComentario)
+// botonComentar.addEventListener('click', function(e){
+//   e.preventDefault();
+//   agregarComentario();
+//   input_comentario.value = ''
+// });
+
+
 
 llenarEvento();

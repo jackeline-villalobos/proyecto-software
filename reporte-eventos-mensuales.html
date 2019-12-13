@@ -1,18 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reporte eventos mensuales</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/perfil-evento.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/listar-impuestos.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
-    <title>Perfil Evento</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 </head>
-
 
 <body>
     <header>
@@ -101,91 +102,49 @@
         </div>
     </header>
 
-    <!-- frontera con ejemplo -->
+    <h1>Reporte de eventos</h1>
 
-    <section>
-        <div id="main-container">
+    <div class="container-filtro">
 
-            <div id="container-1">
-                <div class="titulo">
-                    <h1 id="h2-nombreEvento"></h1>
-                    <p id="p-descripcion"></p>
-                    <h4 id="h5-precio">Precio: </h4>
-                    <h4 id="precio"></h4>
-                </div>
-                <div id="descuentos-impuestos">
-                    <button type="button" class="botonFinalizado" id="eventoFinalizado">Evento finalizado</button>
-                    <a href="listar-impuestos-evento.html">
-                        <button class="botonGris" type="button">Impuestos asociados</button>
-                    </a>
+        <label id="date" style="margin-left:200px"></label>
 
-                    <a href="listar-descuentos.html">
-                        <button class="botonGris" type="button">Descuentos asociados</button>
-                    </a>
-                    <a href="#">
-                        <button class="botonGris" type="button">Modificar evento</button>
-                    </a>
-                </div>
-            </div>
+        <select id="txt-filtro">
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+        <button type="button" id="btn-mes" style="margin-left:14%">Seleccionar</button>
+    </div>
 
-            <div id="container-2">
-                <div class="container_fechas">
-                    <h4 id="h5-fechas">Fechas disponibles:</h4>
-                    <div id="div-fechas">
+    <table id="tbl-impuestos" style="margin-top:100px">
+        <thead>
+            <tr>
+                <th style="font-weight: bold;">Evento</th>
+                <th style="font-weight: bold;">Fecha</th>
+                <th style="font-weight: bold;">Entradas vendidas</th>
+                <th style="font-weight: bold;">Estado</th>
+            </tr>
 
-                    </div>
-                </div>
-            </div>
-            <div id="container-3">
-                <figure class="imageContainer">
-                    <img id="imagen" src="imagenes/registrar-evento/outlined_placeholder-512.png">
-                </figure>
-            </div>
-            <div id="container-4">
-                <div class="mapa">
-                    <h4 id="h5-ubicacion"></h4>
-                    <h5 id="h5-recinto"></h5>
-                    <div id="map">
-                        <script src="js/geolocalizacion-card.js"></script>
-                    </div>
-                </div>
-            </div>
-            <div id="container-5">
-                <div id="calificacion">
-                    <div id="mostrarCalificacion">
-                        <!-- <div id="calificacionCirculo">
-                            <h4 id="calificacionPromedioCirculo">4.5</h4>
-                        </div>
-                        <div id="calificacionDescripcion">
-                            <h6 id="calificacionPromedio">4.5 de 5</h6>
-                            <h6 id="cantidadCalificaciones">Según la opinión de 43 asistentes</h6>
-                        </div> -->
-                    </div>
-                    <div>
-                        <input type="number" id="txt-calificacion" placeholder="1 a 5" max="5">
-                        <button class="boton" id="btn-calificar">Calificar</button>
-                    </div>
-                </div>
-                <div id="comentarios">
-                    <h6 class="tituloComentarios">Comentarios:</h6>
-                    <div id="mostrarComentarios">
+        </thead>
 
-                    </div>
-                    <div id="divComentar">
-                        <input type="text" id="txt-comentario" placeholder="Escriba un comentario aquí...">
-                        <button class="boton" id="btn-comentar">Comentar</button>
-                    </div>
-                </div>
+        <tbody>
 
-            </div>
-        </div>
-    </section>
+        </tbody>
 
+    </table>
 
+    </div>
 
-    <!-- frontera con ejemplo -->
-
-    <footer>
+    <footer style="margin-top:205px">
 
         <div>
             <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
@@ -228,23 +187,15 @@
             </div> -->
 
     </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
 
-    <script src="js/controlador-botones-evento.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD48V25K-8V8xeyHw647SQtIzSPwGPbO1M&callback=initMap"
-        type="text/javascript"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
-
-    <script src="js/eventos-servicio.js"></script>
-    <script src="js/perfil-evento-controlador.js"></script>
-    <script>
-        onload = "initMap()";
-    </script>
+    <script src="js/reporte-ingresos-servicio.js"></script>
+    <script src="js/reporte-eventos-mensuales-controlador.js"></script>
 
 </body>
 

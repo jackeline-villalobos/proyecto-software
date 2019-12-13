@@ -146,18 +146,120 @@ h1 {
     margin-right: 2%;
     float: left;
     border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flow-root;
+    padding-top: 75px;
 }
+#mostrarCalificacion{
+    height: 100px;
+}
+.noCalificacionesTexto{
+    margin: 0px 0px 10px 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.calificacionCirculo{
+    height: 90px;
+    width: 90px;
+    background: #ffffff;
+    border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.calificacionPromedioh4{
+    padding-top: 17px;
+    font-weight: bold;
+}
+
+.calificacionDescripcion{
+    width: 50%;
+    float: left;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+#txt-calificacion{
+    width: 40%;
+    margin-left: 20px;
+    margin-right: 7%;
+}
+#btn-calificar{
+    display: inline;
+    width: 35%;
+}
+
 #comentarios{
     height: 300px;
     width: 68%;
     background: #7f7f7f;
     float: left;
     border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
 }
+.tituloComentarios, .noComentariosTexto{
+    margin: 0px 0px 10px 0px;
+    color: #ffffff;
+    font-weight: bold;
+}
+#mostrarComentarios{
+    height: 65%;
+    margin-bottom: 1.5%;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.comentarioContainer{
+    background: #ffffff;
+    width: 97%;
+    border-radius: 10px;
+    padding: 12px 40px 12px 40px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+.fotoUsuario{
+    height: 40px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    border-radius: 50%;
+}
+.nombreUsuario{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0px 0px 10px 25px;
+    
+}
+.comentario{
+    font-size: 15px;
+    margin: 0px 0px 0px 25px;
+}
+#divComentar{
+    height: 20%;
+    display: flow-root;
+}
+
+
 .boton {
     width: 100%;
     margin: auto;
     margin-bottom: 5px;
+}
+#txt-comentario{
+    height: 100%;
+    width: 80%;
+    float: left;
+    margin-right: 2%;
+}
+#btn-comentar{
+    width: 18%;
+    float: left;
+    margin-top: 1.5%;
 }
 
 .botonVerde {

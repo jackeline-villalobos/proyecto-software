@@ -10,6 +10,13 @@ h2 {
 h3 {
     font-size: 24px;
 }
+h6 {
+    display: inline;
+}
+
+.titulo {
+    margin-bottom: 10%;
+}
 
 #contenedor-entrada #titulo-sin-entrada {
     text-align: center;
@@ -50,12 +57,18 @@ h3 {
     height: 50px;
 }
 
+.checkout h2 {
+    text-align: right;
+    margin-right: 3%;
+}
+
 .checkout button {
     display: block;
     width: 15%;
-    height: 6%;
-    position: absolute;
-    right: 5%;
+    height: 80%;
+    margin-left: 77%;
+    /* position: absolute; */
+    /* right: 5%; */
 }
 
 footer {

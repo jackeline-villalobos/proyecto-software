@@ -14,28 +14,28 @@ let mostrarInfo = async () =>{
     let encargado = await obtenerDatos();
     //console.log(organizador);
 
-    let correo = encargado.encargado.correo;
+    let correo = encargado.correo;
     let pCorreo = document.createElement('h6');
     pCorreo.innerText = correo;
     correo_container.appendChild(pCorreo);
 
-    let telefono = encargado.encargadotelefono;
+    let telefono = encargado.telefono;
     let pTelefono = document.createElement('h6');
     pTelefono.innerText = telefono;
     telefono_container.appendChild(pTelefono);
 
-    let nombreCompleto = encargado.encargado.nombreCompleto;
+    let nombreCompleto = encargado.nombreCompleto;
     let pNombreCompleto = document.createElement('h6');
     pNombreCompleto.innerText = nombreCompleto;
     nombreCompleto_container.appendChild(pNombreCompleto);
 
-    let fechaNacimiento = encargado.encargado.fechaNacimiento;
+    let fechaNacimiento = encargado.fechaNacimiento;
     let pFechaNacimiento = document.createElement('h6');
     pFechaNacimiento.innerText = fechaNacimiento;
     fechaNacimiento_container.appendChild(pFechaNacimiento);
 
 
-    let genero = encargado.encargado.genero;
+    let genero = encargado.genero;
     let pGenero = document.createElement('h6');
     pGenero.innerText = genero;
     genero_container.appendChild(pGenero);
@@ -49,11 +49,11 @@ let mostrarInfo = async () =>{
 let mostrarCards = async ()=>{
     let encargado = await obtenerDatos();
     let listaRecintos = await listaRecintos();
-    let filtro = encargado.encargado._id;
+    let filtro = encargado._id;
 
     //console.log(filtro);
     
-    for (let i = 0; i < listaEventos.length; i++) {
+    for (let i = 0; i < listaRecintos.length; i++) {
         let creador = listaRecintos[i]['creador'];
         let imagen = listaRecintos[i]['imagen'];
        
