@@ -4,6 +4,8 @@ const dropdown = document.querySelector('#dropdown');
 //const infoNotificacion = document.querySelector('#info-notificacion');
 let userMail = sessionStorage.getItem('correoUsuario');
 //const notificacionContainer = document.querySelector('#notificacion-container');
+const userState = sessionStorage.getItem('conectado');
+const userGrade = sessionStorage.getItem('gradoUsuario');
 
 let notificacionesUsers = async () => {
 
@@ -102,7 +104,9 @@ let notificacionesUsers = async () => {
     }   
 }
 
-notificacionesUsers();
+if(userGrade == 4) {
+    notificacionesUsers();
+}
 
 notificacionClick.addEventListener('click', function(e){
     e.preventDefault();
