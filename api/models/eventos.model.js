@@ -36,7 +36,6 @@ const eventoSchema = new mongoose.Schema(
         estado: { type: String, required: true, unique: false },
         comentarios : [
             {
-                idUsuario: {type: String, required: true, unique: false},
                 fotoUsuario: {type: String, required: true, unique: false},
                 nombreUsuario: {type: String, required: true, unique: false},
                 comentario: {type: String, required: true, unique: false}

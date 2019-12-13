@@ -138,7 +138,7 @@ let llenarEvento = async () => {
 
   }
   
-  if(gradoUsuario != 4 || gradoUsuario == null){
+  if(gradoUsuario == 2 || gradoUsuario == null){
 
     container_5.classList.add('ocultar')
 
