@@ -17,6 +17,9 @@ inputCorreoUsuario.classList.add("correoUsuario-css");
 
 let idUsuarioPerfil = sessionStorage.getItem("idUsuarioPerfil");
 
+let estadoUsuarioPerfil = sessionStorage.getItem("estadoUsuarioPerfil");
+let baneadoUsuarioPerfil = sessionStorage.getItem("baneadoUsuarioPerfil");
+
 //foto perfil
 
 let foto = foto_perfil;
@@ -24,6 +27,38 @@ let img = document.createElement('img');
 img.src = `${foto}`;
 img.classList.add('foto_perfil');
 container_fotoPerfil.appendChild(img);
+
+
+/*
+let obtenerFoto = () => {
+    let usuarioData = await buscarUsuario(correoUsuario);
+    console.log(usuarioData);
+    let fotoUsuario = usuarioData.imagen;
+    console.log(fotoUsuario);
+}
+*/
+
+let validarEstados = () => {
+
+    //inputNombre.setAttribute('placeholder', `${nombretipoEvento}`);
+
+
+    if (estadoUsuarioPerfil == "activo") {
+        btnActivar.classList.add("btn-estado")
+
+    }
+    if (estadoUsuarioPerfil == "inactivo") {
+        btnDesactivar.classList.add("btn-estado")
+    }
+
+    if (baneadoUsuarioPerfil == "true") {
+        btnBanear.classList.add("btn-estado");
+    }
+    if (baneadoUsuarioPerfil == "false") {
+        btnDesbanear.classList.add("btn-estado");
+    }
+
+}
 
 
 btnActivar.addEventListener('click', async function() {
@@ -150,3 +185,7 @@ btnDesbanear.addEventListener('click', async function() {
     }
 
 });
+
+
+obtenerFoto();
+validarEstados();
