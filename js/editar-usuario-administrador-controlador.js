@@ -1,7 +1,9 @@
 "use strict";
 
 const correoUsuario = sessionStorage.getItem("correoUsuarioPerfil");
-const inputCorreoUsuario = document.querySelector("#correoUsuario")
+const foto_perfil = sessionStorage.getItem("fotoUsuario");
+const container_fotoPerfil = document.querySelector('#foto_container');
+const inputCorreoUsuario = document.querySelector("#correoUsuario");
 
 
 const btnActivar = document.querySelector('#btn-activar');
@@ -14,6 +16,14 @@ inputCorreoUsuario.innerHTML = correoUsuario;
 inputCorreoUsuario.classList.add("correoUsuario-css");
 
 let idUsuarioPerfil = sessionStorage.getItem("idUsuarioPerfil");
+
+//foto perfil
+
+let foto = foto_perfil;
+let img = document.createElement('img');
+img.src = `${foto}`;
+img.classList.add('foto_perfil');
+container_fotoPerfil.appendChild(img);
 
 
 btnActivar.addEventListener('click', async function() {
