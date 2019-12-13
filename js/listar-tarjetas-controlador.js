@@ -26,14 +26,14 @@ let llenarTabla = async () => {
                     fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['fechaExpiracion'];
                     fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['marca'];
 
-                    let btnPerfil = document.createElement('button');
-                    btnPerfil.innerHTML = ('Ver más')
-                    btnPerfil.classList.add('btn-mas');
-                    btnPerfil.onclick = function  btnPerfilOnclick(){
+                    // let btnPerfil = document.createElement('button');
+                    // btnPerfil.innerHTML = ('Ver más')
+                    // btnPerfil.classList.add('btn-mas');
+                    // btnPerfil.onclick = function  btnPerfilOnclick(){
 
-                        location.href = "editar-tarjetas-usuario.html";
-                    }
-                    fila.insertCell().appendChild(btnPerfil).innerHTML;
+                    //     location.href = "editar-tarjetas-usuario.html";
+                    // }
+                    // fila.insertCell().appendChild(btnPerfil).innerHTML;
 
                 }
             }
