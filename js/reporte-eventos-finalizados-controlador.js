@@ -30,12 +30,9 @@ let validarFechas = (fechasEvento) => {
     if (d1 > d2) {
         esPasado = true;
     }
-    console.log("Validacion Fecha Evento : " + anoFechasEvento + mesFechasEvento + diaFechasEvento);
-
-
-
-
+    console.log("Validacion Fecha Evento : " + fechasEvento);
     console.log("esPasado: " + esPasado);
+
     return esPasado;
 
 }
@@ -71,9 +68,6 @@ let llenarTabla = async() => {
                 console.log(fechasEvento);
                 fila.insertCell().innerHTML = entradasVendidasTotales;
             }
-
-
-
         }
     }
 }
