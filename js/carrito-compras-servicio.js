@@ -92,3 +92,29 @@ let comprarEntrada = async (idEvento, idFecha, entradasUsuario) => {
     return resultado;
 }
 
+let agregarNotificacion = async (idUsuario, fecha, nombreEvento) =>  {
+
+    let resultado;
+
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/agregar-notificacion',
+        responseType: 'json',
+        data : {
+            _id: idUsuario,
+            titulo: 'Compra de entrada',
+            descripcion: 'Usted ha realizado una compra para el evento: ' + nombreEvento,
+            fecha: fecha
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+

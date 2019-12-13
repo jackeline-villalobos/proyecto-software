@@ -258,51 +258,66 @@ btnPagar.addEventListener('click', async function (e) {
 
     let tarjetas = new Array();
 
-    for(let i = 0; i < tarjeta.length; i++) {
+    for (let i = 0; i < tarjeta.length; i++) {
         //tarjetas['marca'] = tarjeta[i]['marca'];
-        tarjetas[i] = new Object(tarjeta[i]['marca'] + ' ' +  ocultarTarjeta(tarjeta[i]['numero']));
+        tarjetas[i] = new Object(tarjeta[i]['marca'] + ' ' + ocultarTarjeta(tarjeta[i]['numero']));
     }
 
     let listaEventos = await listarEventos();
-    //console.log(listaEventos)
+    console.log(listaEventos)
 
 
-    const { value: fruit } = await Swal.fire({
+    const alert = await Swal.fire({
         title: 'Selecciona una tarjeta',
         input: 'select',
-        inputOptions: tarjetas ,
+        inputOptions: tarjetas,
         inputPlaceholder: 'Tarjetas',
         showCancelButton: true,
         cancelButtonText: 'Cancelar',
         confirmButtonText: 'Pagar',
-        
-      })
+
+    })
 
     let resultado;
     let res;
+    let fecha = new Date();
+    let fechaHoy = fecha.getDate() + "-" + (fecha.getMonth()+1) + "-" + fecha.getFullYear();
+    console.log(fechaHoy);
     for (let i in entradas) {
         let idEntrada = entradas[i]['_id'];
         let idEvento = entradas[i]['idEvento'];
         let idFecha = entradas[i]['idFecha'];
-
+        
         let entradasUsuario = entradas[i]['numeroEntradas'];
 
+        let nombreEvento;
+
+        for(let x in listaEventos){
+            if(listaEventos[x]['_id'] == idEvento) {
+                nombreEvento = listaEventos[x]['nombre'];
+            }
+        }
+
+        console.log(nombreEvento);
 
         res = await eliminarEntrada(userID, idEntrada);
 
         resultado = await comprarEntrada(idEvento, idFecha, entradasUsuario);
 
+        let resCorreo = await agregarNotificacion(userID, fechaHoy, nombreEvento);
+
         console.log(res);
-        console.log(resultado)
+        console.log(resultado);
+        console.log(resCorreo);
     }
 
-    if(res.resultado && resultado.resultado) {
+    if (res.resultado && resultado.resultado) {
         Swal.fire({
             icon: 'success',
             title: 'Compra realizada con éxito',
             text: 'Las entradas llegarán a tu correo',
             confirmButtonText: 'Entendido',
-            onClose: function() {
+            onClose: function () {
                 location.reload();
             }
         })
@@ -310,8 +325,8 @@ btnPagar.addEventListener('click', async function (e) {
 
 })
 
-let ocultarTarjeta = (numTarjeta) =>  {
+let ocultarTarjeta = (numTarjeta) => {
 
-   let oculto = numTarjeta.replace(/.(?=.{4,}$)/g, '*');
+    let oculto = numTarjeta.replace(/.(?=.{4,}$)/g, '*');
     return oculto;
 }
