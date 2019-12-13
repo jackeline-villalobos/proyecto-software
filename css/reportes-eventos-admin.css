@@ -1,0 +1,33 @@
+.card_container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.foto_card{
+    width: 300px;
+    height: 200px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+   
+    background-color: #f3f3f3;
+    width: 300px;
+    height: 350px;
+}
+.card:hover{
+    transition: all ease 1s;
+	box-shadow: 0px 0px 40px #484848;
+	filter: grayscale(0%);
+	transform: scale(1.03);
+}
+
+.card_btn{
+    margin-left: 32.5%;
+    margin-top: 3%;
+}

@@ -10,7 +10,7 @@ main{
     background-color: #383737;
 
 
-    height: 620px;
+    height: 600px;
     width: 220px;
     font-size: 12px;
 }
@@ -19,7 +19,7 @@ main{
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    margin-top: -100px;
+    margin-top: -50px;
 }
 
 a{
@@ -35,7 +35,7 @@ p, label{
     flex-direction: row;
     justify-content: space-around !important;
     margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
 }
 
 .container_div_item{
@@ -43,9 +43,9 @@ p, label{
     flex-direction: row;
     background-color: #f1f1f1;
     
-    height: 70px;
-    width: 210px;
-    padding-top: 3.5%;
+    height: 50px;
+    width: 230px;
+    padding-top: 1.5%;
     padding-left: 2.9%;
 }
 .i{
@@ -57,7 +57,7 @@ p, label{
 .container_card{
     display: flex;
     justify-content: space-around;
-    margin-top: 3%;
+    margin-top: 5% !important;
 }
 
 
@@ -67,7 +67,7 @@ p, label{
     text-align: center;
    
     background-color: #f3f3f3;
-    width: 275px;
+    width: 220px;
     height: 350px;
 }
 .card:hover{
@@ -78,7 +78,7 @@ p, label{
 }
 
 .foto_card{
-    width: 275px;
+    width: 220px;
     height: 150px;
 }
 
