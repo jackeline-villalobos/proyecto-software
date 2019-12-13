@@ -117,7 +117,7 @@ router.post('/registrar-usuario', function(req, res) {
                     <body>
                     
                         <div>
-                            <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                            <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                             <h1>Bienvenido a Ticket pixel</h1>
                             <h4>La mejor manera de comprar entradas en linea</h4>
                         </div>
@@ -522,7 +522,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                     <body>
                     
                         <div>
-                            <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                            <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                             <h1>Bienvenido a Ticket pixel</h1>
                             <h4>La mejor manera de comprar entradas en linea</h4>
                         </div>
@@ -634,7 +634,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                 <body>
                                 
                                     <div>
-                                        <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                        <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                                         <h1>Bienvenido a Ticket pixel</h1>
                                         <h4>La mejor manera de comprar entradas en linea</h4>
                                     </div>
@@ -744,7 +744,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                             <body>
                                             
                                                 <div>
-                                                    <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                                    <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                                                     <h1>Bienvenido a Ticket pixel</h1>
                                                     <h4>La mejor manera de comprar entradas en linea</h4>
                                                 </div>
@@ -855,7 +855,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                         <body>
                                                         
                                                             <div>
-                                                                <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                                                                <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                                                                 <h1>Bienvenido a Ticket pixel</h1>
                                                                 <h4>La mejor manera de comprar entradas en linea</h4>
                                                             </div>
@@ -1131,7 +1131,7 @@ router.post('/agregar-notificacion', function(req, res) {
             <body>
             
                 <div>
-                    <img src="https://res-console.cloudinary.com/proyecto1-nebula/thumbnails/v1/image/upload/v1573759788/dWdrZ3dwbWFyZ2dqZ2l6OWVoeW0=/preview" style="height: 75px; margin-left: 25px; padding-top: 10px;" >
+                    <img src="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png" style="height: 75px; margin-left: 25px; padding-top: 10px;" alt="https://res.cloudinary.com/proyecto1-nebula/image/upload/v1573759788/ugkgwpmarggjgiz9ehym.png">
                     <h1>Bienvenido a Ticket pixel</h1>
                     <h4>La mejor manera de comprar entradas en linea</h4>
                 </div>
@@ -1315,147 +1315,8 @@ router.post('/comprar-entrada', async function(req, res) {
         });
     }
 
-
-    // Evento.findOne({ _id: body.idEvento })
-    //     .then(async function (eventoBD) {
-
-    //     let entradasRestantes = 0;
-
-    //     for(let i in eventoBD.fechas){
-    //         if(eventoBD.fecha[i]['_id'] == body.idFecha) {
-    //             entradasRestantes = eventoBD.fecha[i]['cantidadAsistentes'];
-
-    //             entradasRestantes = entradasRestantes - body.cantidadAsistentes;
-
-    //             await eventoBD.save();
-
-    //         }
-    //     }
-
-    //     res.json({
-    //         resultado: true,
-    //         evento: eventoBD
-    //     });
-
-    //     })
-    //     .catch(function (err) {
-    //         res.json({
-    //             resultado: false,
-    //             error: err
-    //         })
-    //     });
-
-    // let eventoBD = await Evento.findOne({ _id: body.idEvento });
-
-    // console.log(eventoBD.fechas);
-
-    // for (let i in eventoBD.fechas) {
-    //     if (eventoBD.fechas[i]['_id'] == body.idFecha) {
-    //         console.log('Coinciden');
-    //         eventoBD.fechas[i]['cantidadAsistentes'] = body.cantidadAsistentes;
-
-    //         await eventoBD.save();
-    //         res.json({
-    //             resultado: true,
-    //             eventoBD
-    //         });
-    //     }
-    // }
-
-    // res.json({
-    //     resultado: false,
-    //     msg: 'No coinciden'
-    // });
-
-
-
-    // Evento.updateOne({"fechas": {_id: body.idFecha}}, {$set: {cantidadAsistentes: body.cantidadAsistentes}})
-    // .then(function(info){
-    //     res.json({
-    //         resultado: true,
-    //         info: info
-    //     });
-    // })
-    // .catch(function(err){
-    //     res.json({
-    //         resultado: false,
-    //         error: err
-    //     })
-    // }); 
-
-    // Usuario.updateOne({ _id: body.idUsuario }, {
-    //     $pull: {
-    //         'entradas': {
-    //             _id: body.idEntrada
-    //         }
-    //     }
-    // })
-    // .then(function(){
-    //     //Evento.findOne({_id: body.idEvento}, {fechas: body.idFecha})
-    //     Evento.updateOne({"fechas": {_id: body.idFecha}}, {$set: body.cantidadAsistentes});
-
-    //     res.json({
-    //         resultado: true,
-    //         fecha: fecha
-    //     });
-    // })
-    // .then(function(fecha){
-
-    // })
-    // .catch(function(err){
-    //     res.json({
-    //         resultado: false,
-    //         error: err
-    //     });
-    // })
 });
 
-
-
-// router.post('/comprar-entrada', function (req, res) {
-
-//     let body = req.body;
-
-//     Usuario.updateOne({ _id: body.idUsuario }, {
-//         $pull: {
-//             'entradas': {
-//                 _id: body.idEntrada
-//             }
-//         }
-//     }).then(function (info) {
-//         let body = req.body;
-//         //Evento.findOneAndUpdate({_id: body.idEvento, 'fechas._id' : body.idFecha}, {'fechas.$.cantidadAsistentes': body.entradasRestantes})
-//         // Evento.update({ _id: body.idEvento, "fechas._id": body.idFecha },
-//         //     { "$set": { "fechas.$": {cantidadAsistentes: body.entradasRestantes }} });
-
-//         // Evento.update({
-//         //     _id: body.idEvento,
-//         //     "fechas._id": body.idFecha
-//         // },
-//         //     { $set: { "fechas.$": { cantidadAsistentes : body.entradasRestantes } } })
-
-//         // Evento.update({_id: body.idEvento,
-//         //               'fechas._id' : body.idFecha},
-//         //               {$set: {'fechas.$.cantidadAsistentes' : body.entradasRestante}})
-
-//         Evento.findOne({_id: body.idEvento}).then(function(eventoBD){
-//             eventoBD.fechas.$push({cantidadAsistentes: body.entradasRestantes});
-//         })
-
-//     }).then(function (eventoBD) {
-//         res.json({
-//             resultado: true,
-//             msg: 'Todo bien'
-//         });
-//     }).catch(function (err) {
-//         res.json({
-//             resultado: false,
-//             error: err
-//         });
-//     });
-
-
-// });
 
 
 
