@@ -121,6 +121,8 @@ let obtenerDatos = async () => {
     let latitud = inputLatitud.value;
     let longitud = inputLongitud.value;
 
+     
+
 
     let errorValidacion = await validar();
 
@@ -131,7 +133,18 @@ let obtenerDatos = async () => {
             text: 'Por favor inténtelo de nuevo',
             confirmButtonText: 'Entendido'
         })
-    } else {
+
+    } else if (verificarCorreoEncargado(encargado)) {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'El correo no está disponible',
+            text: 'El correo ya está en uso',
+            confirmButtonText: 'Entendido'
+        });
+    }
+     else {
+         
         let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion, latitud, longitud);
 
 

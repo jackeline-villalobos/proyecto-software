@@ -1,32 +1,21 @@
 "use strict";
 
-const inputCorreoElectronico = document.querySelector('#txt-correoElectronico');
 const inputTelefono = document.querySelector('#txt-telefono');
 const inputNombreCompleto = document.querySelector('#txt-nombreCompleto');
 const inputFechaDeNacimiento = document.querySelector('#txt-edad');
 const inputGenero = document.querySelector('#txt_genero');
+const urlParams = new URLSearchParams(window.location.search);
+const correoURL = urlParams.get('correo');
 
+
+console.log(correoURL);
 const btnRegistrar = document.querySelector('#btn-registrar');
 
 
 let validar = () => {
     let error = false;
-    let revisar_correo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
+    
     let validarTelefono = /^[\+]?[0-9]{4}?[-\s\.]?[0-9]{4}$/im;
-
-    if (inputCorreoElectronico.value == 0) {
-        error = true;
-        inputCorreoElectronico.classList.add('error')
-    } else {
-        inputCorreoElectronico.classList.remove('error');
-    }
-
-    if (revisar_correo.test(inputCorreoElectronico.value) == false) {
-        error = true;
-        inputCorreoElectronico.classList.add('error');
-    } else {
-        inputCorreoElectronico.classList.remove('error');
-    }
 
     if (validarTelefono.test(inputTelefono.value) == false) {
         error = true;
@@ -60,7 +49,6 @@ let validar = () => {
 };
 
 let resetForm = () => {
-    inputCorreoElectronico.value = '';
     inputTelefono.value = '';
     inputNombreCompleto.value = '';
     inputFechaDeNacimiento.value = '';
@@ -68,7 +56,7 @@ let resetForm = () => {
 };
 
 let obtenerDatos = async () => {
-    let correoElectronico = inputCorreoElectronico.value;
+    
     let telefono = inputTelefono.value;
     let nombreCompleto = inputNombreCompleto.value;
     let fechaDeNacimiento = inputFechaDeNacimiento.value;
@@ -86,7 +74,7 @@ let obtenerDatos = async () => {
 
         let edad = validarFecha(fechaDeNacimiento);
 
-        let errorCorreo = await verificarCorreo(correoElectronico);
+        let errorCorreo = await verificarCorreo(correoURL);
 
         if(!errorCorreo) {
             inputCorreoElectronico.classList.add('error');
@@ -97,7 +85,7 @@ let obtenerDatos = async () => {
                 confirmButtonText: 'Entendido'
             });
         } else {
-            let resultado = await registrarEncargado(correoElectronico, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna);
+            let resultado = await registrarEncargado(correoURL, telefono, nombreCompleto, fechaDeNacimiento, genero, contrasenna);
         
             if (!resultado.resultado) {
 
@@ -112,7 +100,10 @@ let obtenerDatos = async () => {
                     icon: 'success',
                     title: 'Registro realizado con éxito',
                     text: 'El usuario ha sido registrado',
-                    confirmButtonText: 'Entendido'
+                    confirmButtonText: 'Entendido',
+                    onClose: function() {
+                        window.location.href = 'iniciar-sesion.html';
+                    }
                 });
             }
 

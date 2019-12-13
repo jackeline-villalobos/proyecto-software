@@ -126,7 +126,7 @@ let llenarEvento = async () => {
                 title: 'Se han agregado al carrito de compras',
                 confirmButtonText: 'Entendido',
                 onClose: async function () {
-                  location.reload();
+                  window.location.href = 'carrito-compras.html'
                 }
               });
             }

@@ -164,22 +164,10 @@ router.post('/registrar-recinto', function (req, res) {
                                     <br>
                                     <p>Puede registrarse en la plataforma haciendo click en el botón.</p>
             
-                                    <a href="http://127.0.0.1:5503/registrar-encargado.html" id="${req.body.correoEncargado}" rel="${req.body.correoEncargado}" onclick="sessionStorage.setItem('correoEncargado' , document.getElementsByTagName("a")[0].getAttribute('rel'))">
+                                    <a href="http://127.0.0.1:5503/registrar-encargado.html?correo=${correo}" )">
                                         <button>Registro</button>
                                         
                                     </a>
-
-                                    <div id="script-container">
-                                    <script>
-                                    
-                                        let rel = document.getElementsByTagName("a");
-                                        
-                                        let att = rel[0].getAttribute('rel');
-                                        
-                                        sessionStorage.setItem('correoEncargado', att);
-                                    
-                                    </script>
-                                    </div>
                                     
                                 </div>
                                 <br>
