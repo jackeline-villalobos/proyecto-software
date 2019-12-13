@@ -104,7 +104,7 @@ let notificacionesUsers = async () => {
     }   
 }
 
-if(userGrade == 1) {
+if(userGrade == 4) {
     notificacionesUsers();
 }
 
