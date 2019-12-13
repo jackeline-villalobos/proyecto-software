@@ -1,8 +1,9 @@
-const notificacion = document.querySelector('#click-notificacion');
+const notificacionClick = document.querySelector('#click-notificacion');
 const dropdown = document.querySelector('#dropdown');
-const notificaciones = document.querySelector('#notificaciones');
-const infoNotificacion = document.querySelector('#info-notificacion');
+//const notificaciones = document.querySelector('#notificaciones');
+//const infoNotificacion = document.querySelector('#info-notificacion');
 let userMail = sessionStorage.getItem('correoUsuario');
+//const notificacionContainer = document.querySelector('#notificacion-container');
 
 let notificacionesUsers = async () => {
 
@@ -36,28 +37,74 @@ let notificacionesUsers = async () => {
         titulo.innerHTML = tituloNotificacion;
     
     } else {
-        for(let i = 0; i < usuario.notificaciones.length ; i++){
-            let tituloNotificacion = usuario.notificaciones[i]['titulo'];
-            let descripcionNotificacion = usuario.notificaciones[i]['descripcion'];
-            let fechaNotificacion = usuario.notificaciones[i]['fecha'];
-    
-            titulo.innerHTML = tituloNotificacion;
-            comentario.innerHTML = descripcionNotificacion;
-            hora.innerHTML = fechaNotificacion;
+        // for(let i = 0; i < usuario.notificaciones.length ; i++){
+        //     let tituloNotificacion = usuario.notificaciones[i]['titulo'];
+        //     let descripcionNotificacion = usuario.notificaciones[i]['descripcion'];
+        //     let fechaNotificacion = usuario.notificaciones[i]['fecha'];
+            
+        //     let container = document.createElement('div');
 
-            infoNotificacion.appendChild(titulo);
-            infoNotificacion.appendChild(comentario);
-            infoNotificacion.appendChild(hora);
+        //     titulo.innerHTML = tituloNotificacion;
+        //     comentario.innerHTML = descripcionNotificacion;
+        //     hora.innerHTML = fechaNotificacion;
 
-            dropdown.appendChild(infoNotificacion);
+        //     infoNotificacion.appendChild(titulo);
+        //     infoNotificacion.appendChild(comentario);
+        //     infoNotificacion.appendChild(hora);
+
+        //     notificacionContainer.appendChild(infoNotificacion);
+
+        //    // dropdown.appendChild(infoNotificacion);
     
+        // }
+
+        for(let i = 0; i< usuario.notificaciones.length; i++) {
+            let notificacion = document.createElement('div');
+            notificacion.setAttribute('class', 'notificacion');
+            notificacion.setAttribute('id', 'notificacion-container');
+
+            let imagenNotificacion = document.createElement('div');
+            imagenNotificacion.setAttribute('class', 'imagen-notificacion');
+            let imagen = document.createElement('img');
+            imagen.setAttribute('src', '../imagenes/imagenes_generales/logo sin letras.png');
+            imagenNotificacion.appendChild(imagen);
+
+            let infoNotificacion = document.createElement('div');
+            infoNotificacion.setAttribute('class', 'info-notificacion');
+            infoNotificacion.setAttribute('id', 'info-notificacion');
+
+            let tituloNotificacion = document.createElement('p');
+            tituloNotificacion.setAttribute('class', 'titulo-notificacion');
+            tituloNotificacion.setAttribute('id', 'titulo-notificacion');
+            tituloNotificacion.innerHTML = usuario.notificaciones[i]['titulo'];
+
+            let descripcionNotificacion = document.createElement('p');
+            descripcionNotificacion.setAttribute('id', 'descripcion-notificacion');
+            descripcionNotificacion.innerHTML = usuario.notificaciones[i]['descripcion'];
+
+            let fechaNotificacion = document.createElement('span');
+            fechaNotificacion.setAttribute('class', 'hora-notificacion');
+            fechaNotificacion.setAttribute('id', 'hora-notificacion');
+            fechaNotificacion.innerHTML = usuario.notificaciones[i]['fecha'];
+
+            infoNotificacion.appendChild(tituloNotificacion);
+            infoNotificacion.appendChild(descripcionNotificacion);
+            infoNotificacion.appendChild(fechaNotificacion);
+
+            notificacion.appendChild(imagenNotificacion);
+            notificacion.appendChild(infoNotificacion);
+
+            dropdown.appendChild(notificacion);
+
         }
+
+        
     }   
 }
 
 notificacionesUsers();
 
-notificacion.addEventListener('click', function(e){
+notificacionClick.addEventListener('click', function(e){
     e.preventDefault();
     dropdown.classList.toggle('active');
 });
