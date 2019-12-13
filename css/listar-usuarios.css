@@ -32,6 +32,11 @@ thead tr th {
     color: #ffffff !important;
 }
 
+td{
+    margin-left: 3.5% !important;
+    margin-right: 3.5% !important;
+}
+
 .input_registrar {
     background-image: url("../imagenes/imagenes_generales/64673.png");
     background-position: 10px 7px;
@@ -42,4 +47,15 @@ thead tr th {
 
 footer {
     margin-top: 7%;
+}
+
+.tbl-usuarios{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn-activar, .btn-desactivar{
+    width: 10px;
+    
 }
