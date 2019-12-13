@@ -8,6 +8,9 @@ const inputTotalIngresos = document.querySelector("#txt-totalIngresos");
 const btnMes = document.querySelector("#btn-mes");
 
 
+let numeroComas = (numero) => {
+    return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
 let llenarTabla = async() => {
@@ -42,17 +45,18 @@ let llenarTabla = async() => {
         let totalEvento = entradasVendidasTotales * precio;
 
 
+
         let fila = tableBody.insertRow();
         //let entradas = (listaEventos[i]['entradas vendidas']);
         fila.insertCell().innerHTML = listaEventos[i]['nombre'];
         fila.insertCell().innerHTML = entradasVendidasTotales;
-        fila.insertCell().innerHTML = "₡" + precio;
-        fila.insertCell().innerHTML = "₡" + totalEvento;
+        fila.insertCell().innerHTML = "₡" + numeroComas(precio);
+        fila.insertCell().innerHTML = "₡" + numeroComas(totalEvento);
 
         totalIngreso = totalIngreso + totalEvento;
     }
     console.log("total ingresos: " + totalIngreso);
-    inputTotalIngresos.innerHTML = "₡" + totalIngreso;
+    inputTotalIngresos.innerHTML = "₡" + numeroComas(totalIngreso);
 
 }
 
@@ -93,8 +97,8 @@ let llenarTablaMes = async(mes) => {
             if (mes === mesEvento) {
                 fila.insertCell().innerHTML = listaEventos[i]['nombre'];
                 fila.insertCell().innerHTML = entradasVendidasTotales;
-                fila.insertCell().innerHTML = "₡" + precio;
-                fila.insertCell().innerHTML = "₡" + totalEvento;
+                fila.insertCell().innerHTML = "₡" + numeroComas(precio);
+                fila.insertCell().innerHTML = "₡" + numeroComas(totalEvento);
             }
             totalIngreso = totalIngreso + totalEvento;
         }
@@ -103,7 +107,7 @@ let llenarTablaMes = async(mes) => {
 
     }
     console.log("total ingresos: " + totalIngreso);
-    inputTotalIngresos.innerHTML = "₡" + totalIngreso;
+    inputTotalIngresos.innerHTML = "₡" + numeroComas(totalIngreso);
 }
 
 
