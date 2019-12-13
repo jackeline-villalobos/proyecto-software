@@ -7,6 +7,8 @@ const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_imagen = document.querySelector('#imagePreview');
 const btn_modificar = document.querySelector('#btn-modificar-evento');
 
+const get_creador = sessionStorage.getItem('idUsuario');
+
 let idEvento = localStorage.getItem('idEvento')
 
 let listaTipoEventos;
@@ -140,7 +142,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        modificar_evento(idEvento, nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen);
+        editarEvento(idEvento, nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen);
 
         Swal.fire({
             type: 'success',
