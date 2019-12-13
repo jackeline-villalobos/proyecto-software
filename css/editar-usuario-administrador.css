@@ -1,32 +1,34 @@
-.container {
-    margin-top: 75px;
-    display: grid;
-    grid-template-columns: 200px 200px;
-    justify-content: center;
+h5{
+    text-align: center;
 }
 
-button {
-    margin: 20px !important;
+.main_conatiner{
+    display: flex;
+    flex-direction: row;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
-.correoUsuario-css {
-    margin-left: 42%;
-    font-size: 22px;
-}
-
-.aplicacion {
+.foto_container{
+    height: 300px;
+    width: 300px;
+    margin-left: 20%;
+    margin-right: 10%;
     background-color: black;
 }
 
-
-/*
-#btn-activar {
-    display: inline-block !important;
-    margin: 2px;
+.foto_perfil{
+    height: 300px;
+    width: 300px;
+    margin-right: 10%;
 }
 
-#btn-desactivar {
-    display: inline-block !important;
-    margin: 2px;
+.botones_container{
+    margin-top: 2.9%;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
-*/

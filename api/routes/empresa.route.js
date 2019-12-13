@@ -11,7 +11,7 @@ const express = require("express"),
         service : 'gmail',
         auth :{
             user : 'equiponebula2019@gmail.com',
-            pass : 'krashcenfo',
+            pass : 'krashcenfo1',
 
         }
     });
