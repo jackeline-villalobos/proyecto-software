@@ -15,8 +15,11 @@ const btnEliminar = document.querySelector('#btn-eliminar');
 
 let llenarForm = () => {
 
-    inputNombre.setAttribute('placeholder', `${nombreImpuesto}`);
-    inputPorcentaje.setAttribute('placeholder', `${porcentajeImpuesto}`);
+    inputNombre.value = nombreImpuesto;
+    inputPorcentaje.value = porcentajeImpuesto;
+
+    //inputNombre.setAttribute('placeholder', `${nombreImpuesto}`);
+    //inputPorcentaje.setAttribute('placeholder', `${porcentajeImpuesto}`);
 
 }
 
