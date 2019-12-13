@@ -63,6 +63,7 @@ background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Fi
 
 .main-section .main-container .form-container form input {
     width: 80%;
+    background: none;
 }
 
 .main-section .main-container .form-container form button,a {
