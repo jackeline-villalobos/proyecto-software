@@ -37,7 +37,7 @@ router.post('/registrar-evento', function (req, res) {
             } else {
                 res.json({
                     resultado: true,
-                    evento : eventoBD
+                    evento: eventoBD
                 });
             }
 
@@ -87,7 +87,7 @@ router.post('/agregar-descuento', function (req, res) {
         $push: {
             'descuentos': {
                 nombreDescuento: req.body.nombreDescuento,
-                porcentajeDescuento : req.body.porcentajeDescuento
+                porcentajeDescuento: req.body.porcentajeDescuento
             }
         }
     }, function (err) {
@@ -178,6 +178,35 @@ router.post('/agregar-calificacion', function (req, res) {
     });
 });
 
+router.post('/editar-evento', function (req, res) {
+    let body = req.body;
+    Evento.updateOne({ _id: body._id }, {
+        $set: {
+            tipoDeEventos: body.tipoDeEventos,
+            pais: body.pais,
+            lugar: body.lugar,
+            precioEntrada: body.precioEntrada,
+            descripcion: body.descripcion,
+            creador: body.creador,
+            imagen: body.imagen,
+        }
+    },
+        function (error, info) {
+            if (error) {
+                res.json({
+                    resultado: false,
+                    msg: 'No se pudo editar el evento',
+                    err
+                })
+            } else {
+                res.json({
+                    resultado: true,
+                    info: info
+                })
+            }
+        })
+});
+
 router.get('/listar-eventos', function (req, res) {
 
     Evento.find(
@@ -200,28 +229,28 @@ router.get('/listar-eventos', function (req, res) {
 });
 
 
-router.post('/buscar-evento-id', function(req, res){
-    Evento.findById({_id: req.body._id})
-    .then(function(eventoBD){
-        res.json({
-            resultado: true,
-            evento : eventoBD
+router.post('/buscar-evento-id', function (req, res) {
+    Evento.findById({ _id: req.body._id })
+        .then(function (eventoBD) {
+            res.json({
+                resultado: true,
+                evento: eventoBD
+            })
         })
-    })
 });
 
-router.get('/buscar-recinto-nombre', function(req,res){
+router.get('/buscar-recinto-nombre', function (req, res) {
 
     let nombreRecinto = req.query.nombreRecinto;
 
-    Recinto.find({nombreRecinto: nombreRecinto}, function(err, recintoBD){
-        if(err){
+    Recinto.find({ nombreRecinto: nombreRecinto }, function (err, recintoBD) {
+        if (err) {
             return res.json({
                 succes: false,
-                msg : 'No se ecnotró ningún Recinto',
+                msg: 'No se ecnotró ningún Recinto',
                 err
             });
-        }else{
+        } else {
             return res.json({
                 succes: true,
                 recinto: recintoBD,
@@ -230,17 +259,17 @@ router.get('/buscar-recinto-nombre', function(req,res){
     })
 });
 
-router.post('/marcar-finalizado', function(req, res){
+router.post('/marcar-finalizado', function (req, res) {
     let body = req.body;
-    Evento.updateOne({_id: body._id}, {$set: {proximo : false}},
-        function(error, eventoBD){
-            if(error){
+    Evento.updateOne({ _id: body._id }, { $set: { proximo: false } },
+        function (error, eventoBD) {
+            if (error) {
                 res.json({
                     resultado: false,
                     msg: 'No se pudo modificar el evento',
                     err
                 });
-            }else{
+            } else {
                 res.json({
                     resultado: true,
                     evento: eventoBD,
@@ -250,27 +279,27 @@ router.post('/marcar-finalizado', function(req, res){
 })
 
 
-router.get('/buscar-eventos-especificos', function(req, res) {
+router.get('/buscar-eventos-especificos', function (req, res) {
 
     let ids = req.params.ids
 
     Evento.find({
-        '_id' : { 
+        '_id': {
             $in: ids
         }
     })
-    .then(function(eventos){
-        res.json({
-            resultado: true,
-            eventos: eventos
-        });
-    })
-    .catch(function(err){
-        res.json({
-            resultado: false,
-            error: err
+        .then(function (eventos) {
+            res.json({
+                resultado: true,
+                eventos: eventos
+            });
         })
-    })
+        .catch(function (err) {
+            res.json({
+                resultado: false,
+                error: err
+            })
+        })
 
 });
 

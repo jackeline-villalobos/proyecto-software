@@ -166,13 +166,19 @@ let agregarImpuestos = () => {
 };
 
 let finalizar =()=>{
+    let gradoUsuario = sessionStorage.getItem('gradoUsuario')
     Swal.fire({
         type: 'success',
         title: 'Registro de evento finalizado',
         text: 'El evento ha sido almacenado',
         confirmButtonText: 'Continuar',
         onClose: function () {
-            location.href = 'perfil-organizador.html';
+            if(gradoUsuario == 1){
+                location.href = 'perfil-administrador.html';
+            }
+            if(gradoUsuario == 3){
+                location.href = 'perfil-organizador.html';
+            }
         }
     });
 };

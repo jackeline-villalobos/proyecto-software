@@ -5,17 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrador</title>
-    <meta name="author" content="Gabriel">
-    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
+    <title>Reporte eventos mensuales</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/listar-impuestos.css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/navegador.css">
-    <link rel="stylesheet" href="css/perfil-usuario.css">
-    <link rel="stylesheet" href="css/perfil-administrador.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
 </head>
 
 <body>
@@ -105,95 +102,50 @@
         </div>
     </header>
 
-    <main>
-        <section class="container_info">
+    <h1>Reporte de eventos</h1>
 
-            <div class="foto_perfil" id="foto_perfil"></div>
+    <div class="container-filtro">
 
-            <div id="container-2" style="margin-top:60px;">
-                <a href="editar-perfil-administrador.html" style="margin-top:20px">Editar perfil</a>
+        <label id="date" style="margin-left:200px"></label>
 
-            </div>
+        <select id="txt-filtro">
+            <option value="todos">Todo</option>
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+        <button type="button" id="btn-mes" style="margin-left:14%">Seleccionar</button>
+    </div>
 
-        </section>
+    <table id="tbl-impuestos" style="margin-top:100px">
+        <thead>
+            <tr>
+                <th style="font-weight: bold;">Evento</th>
+                <th style="font-weight: bold;">Fecha</th>
+                <th style="font-weight: bold;">Entradas vendidas</th>
+                <th style="font-weight: bold;">Estado</th>
+            </tr>
 
-        <section class="container_divs">
+        </thead>
 
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/team.png" class="i">
-                <button type="button" onclick="location.href='listar-usuarios.html'">Ver usuarios</button>
-            </div>
+        <tbody>
 
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/employee.png" class="i">
-                <!---<button type="button" onclick="location.href='registrar-encargado.html'">Registrar encargado</button>-->
-                <button type="button" onclick="location.href='listar-organizadores.html'" class="admin-button">Organizadores</button>
-            </div>
+        </tbody>
 
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/fireworks.png" class="i">
-                <button type="button" onclick="location.href='registrar-evento.html'">Registrar evento</button>
-            </div>
+    </table>
 
+    </div>
 
-
-        </section>
-
-        <section class="container_divs">
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/balance.png" class="i">
-                <button type="button" onclick="location.href='reporte-ingresos.html'">Ingresos</button>
-            </div>
-
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/balance.png" class="i">
-                <button type="button" onclick="location.href='reporte-eventos-mensuales.html'">Eventos mensuales</button>
-            </div>
-
-            <div class="container_div_item">
-                <img src="imagenes/imagenes_generales/balance.png" class="i">
-                <button type="button" onclick="location.href='reporte-eventos-finalizados.html'">Eventos finalizados</button>
-            </div>
-        </section>
-        <section class="container_card">
-            <div class="card">
-                <img src="imagenes/admin-imagenes/recinto.jpg" class="foto_card">
-                <h4>Recintos</h4>
-                <button type="button" onclick="location.href='registrar-recinto.html'" class="card_btn">Registrar
-                    recinto</button>
-                <button type="button" onclick="location.href='listar-recintos-card.html'" class="admin-button card_btn">Ver recintos</button>
-
-            </div>
-
-            <!------<div class="formulario">
-                    <img src="imagenes/imagenes_generales/piggy-bank.png" class="i">
-                    <button type="button" onclick="location.href='registrar-descuentos.html'">Registrar descuentos</button>
-                    <button type="button" onclick="location.href='listar-descuentos.html'" class="admin-button">Listar descuentos</button>
-            </div>-->
-
-
-            <div class="card">
-                <img src="imagenes/admin-imagenes/impuestos.jpg" class="foto_card">
-                <h4>Impuestos</h4>
-                <button type="button" onclick="location.href='registrar-impuestos.html'" class="card_btn">Registrar
-                    impuestos</button>
-                <button type="button" onclick="location.href='listar-impuestos.html'" class="admin-button card_btn">Ver
-                    impuestos</button>
-            </div>
-
-            <div class="card">
-                <img src="imagenes/admin-imagenes/eventos.jpg" class="foto_card">
-                <h4>Tipos de evento</h4>
-                <button type="button" onclick="location.href='registrar-tipo-evento.html'" class="card_btn">Registrar
-                    tipo de evento</button>
-                <button type="button" onclick="location.href='listar-tipo-evento.html'" class="admin-button card_btn">Ver tipo de evento</button>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
+    <footer style="margin-top:205px">
 
         <div>
             <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
@@ -236,7 +188,6 @@
             </div> -->
 
     </footer>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="js/controlador-conectado.js"></script>
@@ -244,10 +195,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script src="js/perfil-administrador-servicio.js"></script>
-    <script src="js/perfil-administrador-controlador.js"></script>
-
-
+    <script src="js/reporte-ingresos-servicio.js"></script>
+    <script src="js/reporte-eventos-mes-organizador-controlador.js"></script>
 
 </body>
 

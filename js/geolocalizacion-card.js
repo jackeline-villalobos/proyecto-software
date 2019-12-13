@@ -8,6 +8,8 @@ var longitud = -84.435435
 function initMap(latitud, longitud) {
 
     // Obicacion de las coordenadas
+    latitud = parseFloat(latitud);
+    longitud = parseFloat(longitud);
 
     var locacion = { lat: latitud, lng: longitud };
     // El mapa centrado en las coordenadas

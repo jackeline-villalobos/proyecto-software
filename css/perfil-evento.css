@@ -26,10 +26,9 @@ h1 {
 
 .titulo {
     width: 60%;
-    height: 110px;
+    height: auto;
     float: left;
 }
-
 #descuentos-impuestos {
     height: 110px;
     float: right;

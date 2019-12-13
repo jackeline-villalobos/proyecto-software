@@ -55,6 +55,8 @@ let llenarTabla = async() => {
                 let correoUsuario = listaUsuarios.clientes[i]['correo'];
                 sessionStorage.setItem("idUsuarioPerfil", listaUsuarios.clientes[i]["_id"]);
                 sessionStorage.setItem('correoUsuarioPerfil', correo);
+                sessionStorage.setItem("estadoUsuarioPerfil", listaUsuarios.clientes[i]["estado"]);
+                sessionStorage.setItem("baneadoUsuarioPerfil", listaUsuarios.clientes[i]["baneado"]);
                 window.location.href = 'editar-usuario-administrador.html';
             });
         };
