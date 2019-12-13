@@ -271,7 +271,7 @@ let eventoFinalizado = async (_id) =>{
     });
 };
 
-let agregarCarritoCompras = async (idUsuario, idEvento, numeroEntradas, fechaEvento ) => {
+let agregarCarritoCompras = async (idUsuario, idEvento, numeroEntradas, fechaEvento, fechaId ) => {
 
     let resultado;
 
@@ -283,7 +283,8 @@ let agregarCarritoCompras = async (idUsuario, idEvento, numeroEntradas, fechaEve
             _id: idUsuario,
             idEvento: idEvento,
             numeroEntradas: numeroEntradas,
-            fechaEvento: fechaEvento
+            fechaEvento: fechaEvento,
+            idFecha: fechaId
         }
     })
     .then(async function(res){

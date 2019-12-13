@@ -68,3 +68,27 @@ let listarImpuestosCarrito = async () => {
 
 }
 
+let comprarEntrada = async (idEvento, idFecha, entradasUsuario) => {
+
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/comprar-entrada',
+        responseType: 'json',
+        data: {
+            idEvento: idEvento,
+            idFecha: idFecha,
+            entradasUsuario: entradasUsuario
+        }
+    })
+    .then(async function(res){
+        console.log(res.data);
+        resultado = await res.data;
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+
+    return resultado;
+}
+

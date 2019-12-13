@@ -41,7 +41,7 @@ let llenarCarrito = async () => {
                     let impuestosPagar = [];
                     let impuestosNombres = [];
 
-                    
+
 
                     for (let x in impuestosLista) {
                         //console.log(impuestosLista[x]['nombre']);
@@ -142,14 +142,14 @@ let llenarCarrito = async () => {
 
                     let descuentoDecimales = descuento.toFixed(3);
 
-                   // console.log(descuentoDecimales);
+                    // console.log(descuentoDecimales);
 
                     precioX = precioX - (precioX * descuentoDecimales);
                     //console.log(precioX);
 
 
                     let impuesto = 0;
-                    for(let i in impuestosPagar){
+                    for (let i in impuestosPagar) {
                         impuesto = impuesto + impuestosPagar[i];
                     }
 
@@ -157,7 +157,7 @@ let llenarCarrito = async () => {
 
                     precioFinal = precioX + (precioX * impuesto);
 
-                    
+
 
                     infoPrecio.innerHTML = '₡' + (numeroComas(precioFinal));
 
@@ -167,8 +167,8 @@ let llenarCarrito = async () => {
                     console.log(precioGeneral);
 
 
-                    
-                    
+
+
                     let botonEliminar = document.createElement('button');
                     botonEliminar.setAttribute('id', 'btn-eliminar');
                     botonEliminar.innerHTML = 'Eliminar entrada'
@@ -243,11 +243,75 @@ let numeroComas = (numero) => {
     return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-btnPagar.addEventListener('click', function(e) {
+btnPagar.addEventListener('click', async function (e) {
     e.preventDefault();
 
     let precio = btnPagar.dataset.precio;
 
-    console.log(precio);
+    let usuario = await buscarUsuarioCorreo();
+    console.log(usuario.usuario.tarjeta);
+
+    let tarjeta = usuario.usuario.tarjeta;
+
+    let entradas = usuario.usuario.entradas;
+    //console.log(entradas);
+
+    let tarjetas = new Array();
+
+    for(let i = 0; i < tarjeta.length; i++) {
+        //tarjetas['marca'] = tarjeta[i]['marca'];
+        tarjetas[i] = new Object(tarjeta[i]['marca'] + ' ' +  ocultarTarjeta(tarjeta[i]['numero']));
+    }
+
+    let listaEventos = await listarEventos();
+    //console.log(listaEventos)
+
+
+    const { value: fruit } = await Swal.fire({
+        title: 'Selecciona una tarjeta',
+        input: 'select',
+        inputOptions: tarjetas ,
+        inputPlaceholder: 'Tarjetas',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Pagar',
+        
+      })
+
+    let resultado;
+    let res;
+    for (let i in entradas) {
+        let idEntrada = entradas[i]['_id'];
+        let idEvento = entradas[i]['idEvento'];
+        let idFecha = entradas[i]['idFecha'];
+
+        let entradasUsuario = entradas[i]['numeroEntradas'];
+
+
+        res = await eliminarEntrada(userID, idEntrada);
+
+        resultado = await comprarEntrada(idEvento, idFecha, entradasUsuario);
+
+        console.log(res);
+        console.log(resultado)
+    }
+
+    if(res.resultado && resultado.resultado) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Compra realizada con éxito',
+            text: 'Las entradas llegarán a tu correo',
+            confirmButtonText: 'Entendido',
+            onClose: function() {
+                location.reload();
+            }
+        })
+    }
 
 })
+
+let ocultarTarjeta = (numTarjeta) =>  {
+
+   let oculto = numTarjeta.replace(/.(?=.{4,}$)/g, '*');
+    return oculto;
+}

@@ -66,11 +66,15 @@ h6 {
     display: block;
     width: 15%;
     height: 80%;
-    margin-left: 77%;
+    margin-left: 75%;
     /* position: absolute; */
     /* right: 5%; */
 }
 
 footer {
     margin-top: 20%;
+}
+
+.swal2-styled.swal2-cancel {
+    padding: 0;
 }

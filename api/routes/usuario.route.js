@@ -8,6 +8,7 @@ const express = require('express'),
     organizadorSolicitante = require('../models/organizadorSolicitante.model'),
     Empresa = require('../models/empresa.model'),
     Encargado = require('../models/encargados.model'),
+    Evento = require('../models/eventos.model'),
     mongoose = require('mongoose');
 
 const transporter = nodeMailer.createTransport({
@@ -18,7 +19,7 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-router.post('/registrar-usuario', function(req, res) {
+router.post('/registrar-usuario', function (req, res) {
 
     let body = req.body;
 
@@ -44,7 +45,7 @@ router.post('/registrar-usuario', function(req, res) {
     });
 
     nuevoUsuario.save(
-        function(err, usuarioBD) {
+        function (err, usuarioBD) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -142,7 +143,7 @@ router.post('/registrar-usuario', function(req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function(error, info) {
+                transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);
                     } else {
@@ -161,11 +162,11 @@ router.post('/registrar-usuario', function(req, res) {
 });
 
 
-router.post('/iniciar-sesion', function(req, res) {
+router.post('/iniciar-sesion', function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 if (usuarioBD.contrasenna == req.body.contrasenna) {
                     res.json({
@@ -180,7 +181,7 @@ router.post('/iniciar-sesion', function(req, res) {
                 }
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             if (organizadorSolicitanteBD.contrasenna == req.body.contrasenna) {
                                 res.json({
@@ -195,7 +196,7 @@ router.post('/iniciar-sesion', function(req, res) {
                             }
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         if (empresaBD.contrasenna == req.body.contrasenna) {
                                             res.json({
@@ -210,7 +211,7 @@ router.post('/iniciar-sesion', function(req, res) {
                                         }
                                     } else {
                                         Encargado.findOne({ correo: req.body.correo })
-                                            .then(function(encargadoBD) {
+                                            .then(function (encargadoBD) {
                                                 if (encargadoBD) {
                                                     if (encargadoBD.contrasenna == req.body.contrasenna) {
                                                         res.json({
@@ -242,7 +243,7 @@ router.post('/iniciar-sesion', function(req, res) {
 
 
 
-router.get('/listar-usuarios', function(req, res) {
+router.get('/listar-usuarios', function (req, res) {
     // Usuario.find(function (err, usuariosBD) {
     //     if (err) {
     //         res.json({
@@ -259,13 +260,13 @@ router.get('/listar-usuarios', function(req, res) {
 
     // });
 
-    Usuario.find(function(err, usuariosBD) {
+    Usuario.find(function (err, usuariosBD) {
         if (usuariosBD) {
-            organizadorSolicitante.find(function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.find(function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
-                    Empresa.find(function(err, empresaBD) {
+                    Empresa.find(function (err, empresaBD) {
                         if (empresaBD) {
-                            Encargado.find(function(err, encargadoBD) {
+                            Encargado.find(function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: true,
@@ -306,7 +307,7 @@ router.get('/listar-usuarios', function(req, res) {
 });
 
 
-router.post('/agregar-tarjeta', function(req, res) {
+router.post('/agregar-tarjeta', function (req, res) {
     Usuario.update({ _id: req.body._id }, {
         $push: {
             'tarjeta': {
@@ -316,7 +317,7 @@ router.post('/agregar-tarjeta', function(req, res) {
                 codigoSeguridad: req.body.codigoSeguridad
             }
         }
-    }, function(err) {
+    }, function (err) {
         if (err) {
             return res.json({
                 resultado: false,
@@ -333,11 +334,11 @@ router.post('/agregar-tarjeta', function(req, res) {
 });
 
 
-router.post("/buscar-usuario", function(req, res) {
+router.post("/buscar-usuario", function (req, res) {
 
 
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 res.json({
                     resultado: true,
@@ -347,7 +348,7 @@ router.post("/buscar-usuario", function(req, res) {
                 });
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
                             res.json({
                                 resultado: true,
@@ -355,7 +356,7 @@ router.post("/buscar-usuario", function(req, res) {
                             })
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
                                         res.json({
                                             resultado: true,
@@ -445,13 +446,13 @@ router.post('/buscar-usuario', function(req, res) {
 
 
 
-router.post('/recuperar-contrasenna', function(req, res) {
+router.post('/recuperar-contrasenna', function (req, res) {
 
     console.log("data pararecuperación de contraseña");
     console.log(req.body);
     console.log("inicio de lafuncion de recuperaion de contraseña");
     Usuario.findOne({ correo: req.body.correo })
-        .then(function(usuarioBD) {
+        .then(function (usuarioBD) {
             if (usuarioBD) {
                 console.log("info de usuario encontrado");
                 console.log(usuarioBD);
@@ -547,7 +548,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                     </html>`
                 };
 
-                transporter.sendMail(mailOptions, function(error, info) {
+                transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);
                     } else {
@@ -565,7 +566,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
             } else {
                 organizadorSolicitante.findOne({ correo: req.body.correo })
-                    .then(function(organizadorSolicitanteBD) {
+                    .then(function (organizadorSolicitanteBD) {
                         if (organizadorSolicitanteBD) {
 
                             organizadorSolicitanteBD.contrasenna;
@@ -659,7 +660,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                 </html>`
                             };
 
-                            transporter.sendMail(mailOptions, function(error, info) {
+                            transporter.sendMail(mailOptions, function (error, info) {
                                 if (error) {
                                     console.log(error);
                                 } else {
@@ -675,7 +676,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                         } else {
                             Empresa.findOne({ correo: req.body.correo })
-                                .then(function(empresaBD) {
+                                .then(function (empresaBD) {
                                     if (empresaBD) {
 
                                         empresaBD.contrasenna;
@@ -769,7 +770,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                             </html>`
                                         };
 
-                                        transporter.sendMail(mailOptions, function(error, info) {
+                                        transporter.sendMail(mailOptions, function (error, info) {
                                             if (error) {
                                                 console.log(error);
                                             } else {
@@ -786,7 +787,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
 
                                     } else {
                                         Encargado.findOne({ correo: req.body.correo })
-                                            .then(function(encargadoBD) {
+                                            .then(function (encargadoBD) {
                                                 if (encargadoBD) {
 
                                                     encargadoBD.contrasenna;
@@ -880,7 +881,7 @@ router.post('/recuperar-contrasenna', function(req, res) {
                                                         </html>`
                                                     };
 
-                                                    transporter.sendMail(mailOptions, function(error, info) {
+                                                    transporter.sendMail(mailOptions, function (error, info) {
                                                         if (error) {
                                                             console.log(error);
                                                         } else {
@@ -917,31 +918,31 @@ router.post('/recuperar-contrasenna', function(req, res) {
 });
 
 
-router.get('/buscar-usuario-registro/:correo', function(req, res) {
+router.get('/buscar-usuario-registro/:correo', function (req, res) {
     let correo = req.params.correo;
 
-    Usuario.findOne({ correo: correo }, function(err, usuarioBD) {
+    Usuario.findOne({ correo: correo }, function (err, usuarioBD) {
         if (usuarioBD) {
             res.json({
                 resultado: false,
                 msg: 'El correo ya está registrado como usuario',
             });
         } else {
-            organizadorSolicitante.findOne({ correo: correo }, function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.findOne({ correo: correo }, function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
                     res.json({
                         resultado: false,
                         msg: 'El correo ya está registrado como organizador'
                     });
                 } else {
-                    Empresa.findOne({ correo: correo }, function(err, empresaBD) {
+                    Empresa.findOne({ correo: correo }, function (err, empresaBD) {
                         if (empresaBD) {
                             res.json({
                                 resultado: false,
                                 msg: 'El correo ya está registrado como empresa'
                             });
                         } else {
-                            Encargado.findOne({ correo: correo }, function(err, encargadoBD) {
+                            Encargado.findOne({ correo: correo }, function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: false,
@@ -964,22 +965,22 @@ router.get('/buscar-usuario-registro/:correo', function(req, res) {
 
 //Editar perfil usuario
 
-router.post('/editar-perfil-usuario', function(req, res) {
+router.post('/editar-perfil-usuario', function (req, res) {
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
-            $set: {
-                primerNombre: body.primerNombre,
-                segundoNombre: body.segundoNombre,
-                primerApellido: body.primerApellido,
-                segundoApellido: body.segundoApellido,
-                genero: body.genero,
-                direccion: body.direccion,
-                provincia: body.provincia,
-                canton: body.canton,
-                distrito: body.distrito
-            }
-        },
-        function(error, info) {
+        $set: {
+            primerNombre: body.primerNombre,
+            segundoNombre: body.segundoNombre,
+            primerApellido: body.primerApellido,
+            segundoApellido: body.segundoApellido,
+            genero: body.genero,
+            direccion: body.direccion,
+            provincia: body.provincia,
+            canton: body.canton,
+            distrito: body.distrito
+        }
+    },
+        function (error, info) {
             if (error) {
                 res.json({
                     resultado: false,
@@ -998,13 +999,13 @@ router.post('/editar-perfil-usuario', function(req, res) {
 
 
 ///////////////// BANEAR // DESACTIVAR // ACTIVAR..... USUARIO 
-router.post('/editar-usuario-administrador', function(req, res) {
+router.post('/editar-usuario-administrador', function (req, res) {
     let body = req.body;
 
     Usuario.updateOne({ _id: body._id }, {
-            $set: req.body
-        },
-        function(err, info) {
+        $set: req.body
+    },
+        function (err, info) {
             if (err) {
                 res.json({
                     resultado: false,
@@ -1024,16 +1025,16 @@ router.post('/editar-usuario-administrador', function(req, res) {
 
 //Cambiar contraseña
 
-router.post('/primer-cambio-contrasenna', function(req, res) {
+router.post('/primer-cambio-contrasenna', function (req, res) {
 
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
-            $set: {
-                nuevaContrasenna: body.contrasenna
-            }
-        },
+        $set: {
+            nuevaContrasenna: body.contrasenna
+        }
+    },
 
-        function(error, info) {
+        function (error, info) {
             if (error) {
                 res.json({
                     resultado: false,
@@ -1053,26 +1054,26 @@ router.post('/primer-cambio-contrasenna', function(req, res) {
 
 
 //Endpoint temporal
-router.post('/agregar-notificacion', function(req, res) {
+router.post('/agregar-notificacion', function (req, res) {
 
     let body = req.body;
 
     Usuario.update({ _id: body._id }, {
-            $push: {
-                'notificaciones': {
-                    titulo: body.titulo,
-                    descripcion: body.descripcion,
-                    fecha: body.fecha
-                }
+        $push: {
+            'notificaciones': {
+                titulo: body.titulo,
+                descripcion: body.descripcion,
+                fecha: body.fecha
             }
-        })
-        .then(function(info) {
+        }
+    })
+        .then(function (info) {
             res.json({
                 resultado: true,
                 info: info
             });
         })
-        .catch(function(err) {
+        .catch(function (err) {
             res.json({
                 resultado: false,
                 error: err
@@ -1081,31 +1082,31 @@ router.post('/agregar-notificacion', function(req, res) {
 
 });
 
-router.get('/buscar-usuario-correo/:correo', function(req, res) {
+router.get('/buscar-usuario-correo/:correo', function (req, res) {
     let correo = req.params.correo;
 
-    Usuario.findOne({ correo: correo }, function(err, usuarioBD) {
+    Usuario.findOne({ correo: correo }, function (err, usuarioBD) {
         if (usuarioBD) {
             res.json({
                 resultado: true,
                 usuario: usuarioBD
             });
         } else {
-            organizadorSolicitante.findOne({ correo: correo }, function(err, organizadorSolicitanteBD) {
+            organizadorSolicitante.findOne({ correo: correo }, function (err, organizadorSolicitanteBD) {
                 if (organizadorSolicitanteBD) {
                     res.json({
                         resultado: true,
                         usuario: organizadorSolicitanteBD
                     });
                 } else {
-                    Empresa.findOne({ correo: correo }, function(err, empresaBD) {
+                    Empresa.findOne({ correo: correo }, function (err, empresaBD) {
                         if (empresaBD) {
                             res.json({
                                 resultado: true,
                                 usuario: empresaBD
                             });
                         } else {
-                            Encargado.findOne({ correo: correo }, function(err, encargadoBD) {
+                            Encargado.findOne({ correo: correo }, function (err, encargadoBD) {
                                 if (encargadoBD) {
                                     res.json({
                                         resultado: true,
@@ -1126,26 +1127,27 @@ router.get('/buscar-usuario-correo/:correo', function(req, res) {
     });
 });
 
-router.post('/agregar-entradas', function(req, res) {
+router.post('/agregar-entradas', function (req, res) {
     let body = req.body;
 
     Usuario.update({ _id: body._id }, {
-            $push: {
-                'entradas': {
-                    idEvento: body.idEvento,
-                    numeroEntradas: body.numeroEntradas,
-                    fechaEvento: body.fechaEvento,
-                    compradas: false
-                }
+        $push: {
+            'entradas': {
+                idEvento: body.idEvento,
+                numeroEntradas: body.numeroEntradas,
+                fechaEvento: body.fechaEvento,
+                idFecha: body.idFecha,
+                compradas: false
             }
-        })
-        .then(function(info) {
+        }
+    })
+        .then(function (info) {
             res.json({
                 resultado: true,
                 info: info
             });
         })
-        .catch(function(err) {
+        .catch(function (err) {
             res.json({
                 resultado: false,
                 error: err
@@ -1154,30 +1156,211 @@ router.post('/agregar-entradas', function(req, res) {
 
 });
 
-router.post('/eliminar-entrada', function(req, res) {
+router.post('/eliminar-entrada', function (req, res) {
 
     let body = req.body;
 
     Usuario.update({ _id: body._id }, {
-            $pull: {
-                'entradas': {
-                    _id: body.idEntrada
-                }
+        $pull: {
+            'entradas': {
+                _id: body.idEntrada
             }
-        })
-        .then(function(info) {
+        }
+    })
+        .then(function (info) {
             res.json({
                 resultado: true,
                 info: info
             });
         })
-        .catch(function(err) {
+        .catch(function (err) {
             res.json({
                 resultado: false,
                 error: err
             });
         })
 });
+
+router.post('/comprar-entrada', async function (req, res) {
+
+    let body = req.body;
+
+    try {
+
+        const eventoBD = await Evento.findOne({ _id: body.idEvento });
+        //const fechasBD = await Evento.findOne({'fechas': {_id: body.idFecha}});
+        
+        let fechas = eventoBD.fechas;
+
+        let entradasUsuario = parseInt(body.entradasUsuario);
+
+        let idFecha = body.idFecha;
+
+        let entradasDisponibles = 0;
+
+        for(let i in fechas) {
+            if(fechas[i]['_id'] == idFecha) {
+
+                entradasDisponibles = fechas[i]['cantidadAsistentes'] - entradasUsuario;
+                console.log(entradasDisponibles);
+
+                eventoBD.fechas[i]['cantidadAsistentes'] = entradasDisponibles;
+
+                await eventoBD.save();
+            }
+        }
+
+        res.json({
+            resultado: true,
+            evento: eventoBD
+        });
+    } catch(err) {
+        res.json({
+            err
+        });
+    }
+    
+
+    // Evento.findOne({ _id: body.idEvento })
+    //     .then(async function (eventoBD) {
+
+    //     let entradasRestantes = 0;
+
+    //     for(let i in eventoBD.fechas){
+    //         if(eventoBD.fecha[i]['_id'] == body.idFecha) {
+    //             entradasRestantes = eventoBD.fecha[i]['cantidadAsistentes'];
+
+    //             entradasRestantes = entradasRestantes - body.cantidadAsistentes;
+
+    //             await eventoBD.save();
+
+    //         }
+    //     }
+
+    //     res.json({
+    //         resultado: true,
+    //         evento: eventoBD
+    //     });
+
+    //     })
+    //     .catch(function (err) {
+    //         res.json({
+    //             resultado: false,
+    //             error: err
+    //         })
+    //     });
+
+    // let eventoBD = await Evento.findOne({ _id: body.idEvento });
+
+    // console.log(eventoBD.fechas);
+
+    // for (let i in eventoBD.fechas) {
+    //     if (eventoBD.fechas[i]['_id'] == body.idFecha) {
+    //         console.log('Coinciden');
+    //         eventoBD.fechas[i]['cantidadAsistentes'] = body.cantidadAsistentes;
+
+    //         await eventoBD.save();
+    //         res.json({
+    //             resultado: true,
+    //             eventoBD
+    //         });
+    //     }
+    // }
+
+    // res.json({
+    //     resultado: false,
+    //     msg: 'No coinciden'
+    // });
+
+
+
+    // Evento.updateOne({"fechas": {_id: body.idFecha}}, {$set: {cantidadAsistentes: body.cantidadAsistentes}})
+    // .then(function(info){
+    //     res.json({
+    //         resultado: true,
+    //         info: info
+    //     });
+    // })
+    // .catch(function(err){
+    //     res.json({
+    //         resultado: false,
+    //         error: err
+    //     })
+    // }); 
+
+    // Usuario.updateOne({ _id: body.idUsuario }, {
+    //     $pull: {
+    //         'entradas': {
+    //             _id: body.idEntrada
+    //         }
+    //     }
+    // })
+    // .then(function(){
+    //     //Evento.findOne({_id: body.idEvento}, {fechas: body.idFecha})
+    //     Evento.updateOne({"fechas": {_id: body.idFecha}}, {$set: body.cantidadAsistentes});
+
+    //     res.json({
+    //         resultado: true,
+    //         fecha: fecha
+    //     });
+    // })
+    // .then(function(fecha){
+
+    // })
+    // .catch(function(err){
+    //     res.json({
+    //         resultado: false,
+    //         error: err
+    //     });
+    // })
+});
+
+
+
+// router.post('/comprar-entrada', function (req, res) {
+
+//     let body = req.body;
+
+//     Usuario.updateOne({ _id: body.idUsuario }, {
+//         $pull: {
+//             'entradas': {
+//                 _id: body.idEntrada
+//             }
+//         }
+//     }).then(function (info) {
+//         let body = req.body;
+//         //Evento.findOneAndUpdate({_id: body.idEvento, 'fechas._id' : body.idFecha}, {'fechas.$.cantidadAsistentes': body.entradasRestantes})
+//         // Evento.update({ _id: body.idEvento, "fechas._id": body.idFecha },
+//         //     { "$set": { "fechas.$": {cantidadAsistentes: body.entradasRestantes }} });
+
+//         // Evento.update({
+//         //     _id: body.idEvento,
+//         //     "fechas._id": body.idFecha
+//         // },
+//         //     { $set: { "fechas.$": { cantidadAsistentes : body.entradasRestantes } } })
+
+//         // Evento.update({_id: body.idEvento,
+//         //               'fechas._id' : body.idFecha},
+//         //               {$set: {'fechas.$.cantidadAsistentes' : body.entradasRestante}})
+
+//         Evento.findOne({_id: body.idEvento}).then(function(eventoBD){
+//             eventoBD.fechas.$push({cantidadAsistentes: body.entradasRestantes});
+//         })
+
+//     }).then(function (eventoBD) {
+//         res.json({
+//             resultado: true,
+//             msg: 'Todo bien'
+//         });
+//     }).catch(function (err) {
+//         res.json({
+//             resultado: false,
+//             error: err
+//         });
+//     });
+
+
+// });
 
 
 

@@ -114,8 +114,10 @@ let llenarEvento = async () => {
             let entradasCompradas = entradas.value;
             let userId = sessionStorage.getItem('idUsuario');
             let fechaCompra = fechasArray[i]['fecha'];
+            let fechaId = fechasArray[i]['_id'];
+            console.log(fechaId);
             console.log(fechaCompra);
-            let resultado = await agregarCarritoCompras(userId, idEvento, entradasCompradas, fechaCompra);
+            let resultado = await agregarCarritoCompras(userId, idEvento, entradasCompradas, fechaCompra, fechaId);
 
             if (resultado.resultado == true) {
 
