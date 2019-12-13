@@ -29,7 +29,36 @@ let registrar_evento = async(nombre, tipoDeEventos, pais, lugar, descripcion, pr
 
 };
 
+let editarEvento = async (_id, nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen) => {
 
+    let resultado;
+    await axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/editar-evento',
+        responseType: 'json',
+        data: {
+            _id: _id,
+            nombre: nombre,
+                tipoDeEventos: tipoDeEventos,
+                pais: pais,
+                lugar: lugar,
+                precioEntrada: precioEntrada,
+                descripcion: descripcion,
+                creador: creador,
+                imagen: imagen,
+        }
+    })
+        .then(async function (res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function (error) {
+            console.log(err)
+        });
+
+    return resultado;
+
+}
 
 let agregar_fecha = async (fecha, hora, cantidadAsistentes) => {
     let _id = localStorage.getItem('idEvento') ; 

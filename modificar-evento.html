@@ -3,12 +3,12 @@
 <head>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/registrar-evento.css">
+    <link rel="stylesheet" href="css/modificar-evento.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-    <title>Registrar Evento</title>
+    <title>Modificar Evento</title>
 
     <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -104,15 +104,15 @@
     <!-- frontera con ejemplo -->
     <main>
         <div class="main-container formulario">
-            <div class="h2-registrar-evento">
-                <h2>Registrar Evento</h2>
+            <div class="h2-modificar-evento">
+                <h2>Modificar Evento</h2>
             </div>
             <div class="slider-fotos-registrar-evento">
                 <figure class="imageHolder">
                     <img src="imagenes/registrar-evento/outlined_placeholder-512.png" alt="seleccionar imagen"
                         id="imagePreview">
                 </figure>
-                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Subir imagen</button>
+                <button type="button" id="btnSeleccionarImagen" class="botonImagen">Reemplazar imagen</button>
             </div>
             <form class="form-registrar-evento">
                 <div>
@@ -398,10 +398,34 @@
 
             </form>
 
-            <button type="button" id="btn-guardar-registrar-evento">Siguiente</button>
+            <div class="container2">
+                <div class="fechaYHora">
+                <h6>Fecha</h6>
+                <input type="date" id="txt-date-1" class="txt-date">
+                <input type="time" id="txt-time-1" class="txt-time">
+                <input type="number" id="txt-cantidadAsistentes" placeholder="Asistentes">
+                <button id="btn-agregarFecha">Guardar fecha</button>
+            </div>
 
+            <div class="descuentos">
+                <h6>Descuentos</h6>
+                <input type="text" id="txt-nombreDescuento" class="txt-descuento" placeholder="Nombre">
+                <input type="number" id="txt-porcentajeDescuento" class="descuento" placeholder="Porcentaje">
+                <button id="btn-agregarDescuento">Guardar descuento</button>
+            </div>
+
+            <div class="impuestos">
+                <h6>Impuestos</h6>
+                <select id="slt-impuestos" placeholder="Impuestos">
+                    <option value="sin-impuestos">Sin impuestos</option>
+                </select>
+                <button id="btn-agregarImpuesto">Guardar impuesto</button>
+            </div>
+
+            </div>
+            
+            <button type="button" id="btn-modificar-evento">Modificar evento</button>
         </div>
-
 
     </main>
     <!-- frontera con ejemplo -->
@@ -416,8 +440,8 @@
                 <li>CR Tickets</li>
             </a>
             <a href="seleccionar-tipo-organizador.html">
-                    <li>Conviértase en organizador</li>
-                </a>
+                <li>Conviértase en organizador</li>
+            </a>
             <a href="terminos-condiciones.html">Terminos y condiciones</a>
 
         </div>
@@ -449,8 +473,8 @@
 
     </footer>
 
-    <script src="js/controlador-conectado.js"></script>
-    <script src="js/controlador-nav.js"></script>
+    <!-- <script src="js/controlador-conectado.js"></script>
+    <script src="js/controlador-nav.js"></script> -->
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -466,7 +490,7 @@
     <!-- js -->
     <script src="js/imagen-servicio.js"></script>
     <script src="js/eventos-servicio.js"></script>
-    <script src="js/registrar-evento-controlador.js"></script>
+    <script src="js/modificar-evento-controlador.js"></script>
 
 </body>
 

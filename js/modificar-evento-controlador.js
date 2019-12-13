@@ -1,5 +1,3 @@
-'use strict';
-
 const input_nombre = document.querySelector('#txt-nombre');
 const input_tipoDeEventos = document.querySelector('#txt-tipoDeEventos');
 const input_pais = document.querySelector('#txt-pais');
@@ -7,10 +5,54 @@ const input_lugar = document.querySelector('#txt-lugar');
 const input_descripcion = document.querySelector('#txt-descripcion');
 const input_precioEntrada = document.querySelector('#txt-precioEntrada');
 const input_imagen = document.querySelector('#imagePreview');
-const btn_guardar = document.querySelector('#btn-guardar-registrar-evento');
+const btn_modificar = document.querySelector('#btn-modificar-evento');
 
-const get_creador = sessionStorage.getItem('idUsuario');
+let idEvento = localStorage.getItem('idEvento')
 
+let listaTipoEventos;
+
+let llenarTipoEventos = async () => {
+    listaTipoEventos = await listartipoEventos();
+    for(let i = 0; i < listaTipoEventos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listaTipoEventos[i]['nombre']
+        input_tipoDeEventos.appendChild(option)
+    }
+};
+
+let listaRecintos;
+
+let llenarRecintos = async () => {
+    listaRecintos = await listarRecintos();
+    for(let i = 0; i < listaRecintos.length; i++){
+        let option = document.createElement('option')
+        option.innerHTML = listaRecintos[i]['nombreRecinto']
+        input_lugar.appendChild(option)
+    }
+};
+
+let mostrarInfo = async()=>{
+    let evento = await buscarEvento(idEvento)
+
+    let nombre = evento.evento.nombre;
+    let tipoDeEventos = evento.evento.tipoDeEventos;
+    let pais = evento.evento.pais;
+    let lugar = evento.evento.lugar;
+    let descripcion = evento.evento.descripcion;
+    let precioEntrada = evento.evento.precioEntrada;
+    let imagen = evento.evento.imagen;
+
+    input_nombre.value = nombre;
+    input_tipoDeEventos.value = tipoDeEventos;
+    input_pais.value = pais;
+    input_lugar.value = lugar;
+    input_descripcion.value = descripcion;
+    input_precioEntrada.value = precioEntrada;
+    input_imagen.src = imagen;
+    
+
+    console.log()
+};
 
 let validar = () => {
 
@@ -98,7 +140,7 @@ let obtener_datos = () => {
         })
 
     } else {
-        registrar_evento(nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen);
+        modificar_evento(idEvento, nombre, tipoDeEventos, pais, lugar, descripcion, precioEntrada, creador, imagen);
 
         Swal.fire({
             type: 'success',
@@ -114,32 +156,8 @@ let obtener_datos = () => {
     }
 };
 
- 
-let listaTipoEventos;
-
-let llenarTipoEventos = async () => {
-    listaTipoEventos = await listartipoEventos();
-    for(let i = 0; i < listaTipoEventos.length; i++){
-        let option = document.createElement('option')
-        option.innerHTML = listaTipoEventos[i]['nombre']
-        input_tipoDeEventos.appendChild(option)
-    }
-};
-
-let listaRecintos;
-
-let llenarRecintos = async () => {
-    listaRecintos = await listarRecintos();
-    for(let i = 0; i < listaRecintos.length; i++){
-        let option = document.createElement('option')
-        option.innerHTML = listaRecintos[i]['nombreRecinto']
-        input_lugar.appendChild(option)
-    }
-};
-
 llenarRecintos();
 llenarTipoEventos();
+mostrarInfo()
 
-btn_guardar.addEventListener ('click', obtener_datos)
-
-
+btn_modificar.addEventListener ('click', obtener_datos)
