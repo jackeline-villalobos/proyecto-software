@@ -1,15 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reporte eventos finalizados</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/perfil-organizador.css">
+    <link rel="stylesheet" href="css/listar-impuestos.css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="imagenes/imagenes_generales//logo sin letras.png">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
-    <title>Perfil de organizador</title>
 </head>
 
 <body>
@@ -98,89 +101,51 @@
 
         </div>
     </header>
-    <!-- frontera con ejemplo -->
 
-    <main>
-        <section class="parte_editar">
-            <a href="editar-perfil-organizador.html">Editar mi perfil</a>
+    <h1>Reporte de eventos finalizados</h1>
 
-            <a href="perfil-organizador.html">Mis eventos</a>
+    <div class="container-filtro">
 
-            <a href="registrar-evento.html">Crear evento</a>
+        <label id="date" style="margin-left:200px"></label>
+        <!----
+        <select id="txt-filtro">
+            <option value="todos">Todo</option>
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+        <button type="button" id="btn-mes" style="margin-left:14%">Seleccionar</button>
+        -->
+    </div>
 
-            <a href="reporte-ingresos-organizador.html">Mis ingresos</a>
+    <table id="tbl-impuestos" style="margin-top:100px">
+        <thead>
+            <tr>
+                <th style="font-weight: bold;">Evento</th>
+                <th style="font-weight: bold;">Fecha</th>
+                <th style="font-weight: bold;">Entradas vendidas</th>
+            </tr>
 
-            <a href="reporte-eventos-mensuales-organizador.html">Reporte Mis eventos</a>
-        </section>
+        </thead>
 
-        <section class="perfil">
+        <tbody>
 
-            <div class="info_perfil">
+        </tbody>
 
-                <div class="informacion-empresarial">
-                    <h5 class="subtitulo">Información empresarial</h5>
-                    <div id="informacion_container">
-                        <div id="nombreEmpresa_container">
-                            <h5>Nombre de la empresa: </h5>
-                        </div>
-                        <div id="cedulaJuridica_container">
-                            <h5>Cédula jurídica: </h5>
-                        </div>
-                        <div id="experiencia_container">
-                            <h5>Años de experiencia: </h5>
-                        </div>
-                        <div id="nombreComercial_container">
-                            <h5>Nombre Comercial: </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="direccion">
-                    <h5 class="subtitulo">Dirección</h5>
-                    <div id="direccion_container">
-                        <div id="provincia_container">
-                            <h5>Provincia: </h5>
-                        </div>
-                        <div id="canton_container">
-                            <h5>Cantón: </h5>
-                        </div>
-                        <div id="distrito_container">
-                            <h5>Distrito: </h5>
-                        </div>
-                        <div id="sennas_container">
-                            <h5>Señas: </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="informamcion-contacto">
-                    <h5 class="subtitulo">Información de contacto</h5>
-                    <div id="nombre_container">
-                        <h5>Nombre: </h5>
-                    </div>
-                    <div id="correo_container">
-                        <h5>Correo: </h5>
-                    </div>
-                    <div id="telefono_container">
-                        <h5>Teléfono: </h5>
-                    </div>
-                    <div id="genero_container">
-                        <h5>Género: </h5>
-                    </div>
-                </div>
+    </table>
 
-            </div>
-            <hr>
-        </section>
-        <section class="cards">
-            <div id="contenedorCards">
-            </div>
-        </section>
+    </div>
 
-    </main>
-
-
-
-    <!-- frontera con ejemplo -->
-    <footer>
+    <footer style="margin-top:205px">
 
         <div>
             <img src="imagenes/imagenes_generales/logo_blanco.png" class="logo-footer">
@@ -215,22 +180,24 @@
             </a>
         </div>
         <!-- <div>
-            <h3>Eventos</h3>
-            <li>Deportes</li>
-            <li>Conciertos</li>
-            <li>Culturales</li>
-            <li>Comedia</li>
-        </div> -->
+                <h3>Eventos</h3>
+                <li>Deportes</li>
+                <li>Conciertos</li>
+                <li>Culturales</li>
+                <li>Comedia</li>
+            </div> -->
 
     </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="js/controlador-conectado.js"></script>
     <script src="js/controlador-nav.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/organizadorSolicitante-servicio.js"></script>
-    <script src="js/perfil-organizador-controlador.js"></script>
+
+    <script src="js/reporte-ingresos-servicio.js"></script>
+    <script src="js/reporte-eventos-finalizados-controlador.js"></script>
+
 </body>
 
 </html>
