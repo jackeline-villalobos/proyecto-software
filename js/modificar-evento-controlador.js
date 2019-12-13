@@ -53,8 +53,8 @@ let mostrarInfo = async()=>{
     input_imagen.src = imagen;
     
 
-    console.log()
-};
+ };
+
 
 let validar = () => {
 
@@ -149,9 +149,14 @@ let obtener_datos = () => {
             title: 'Datos ingresados con éxito',
             text: 'El evento ha sido almacenado',
             confirmButtonText: 'Continuar',
-            onClose: function() {
-                location.href = 'registrar-evento-2pag.html';
-             }
+            onClose: function () {
+                if(gradoUsuario == 1){
+                    location.href = 'perfil-administrador.html';
+                }
+                if(gradoUsuario == 3){
+                    location.href = 'perfil-organizador.html';
+                }
+            }
         });
         resetForm();
 
