@@ -62,6 +62,10 @@ let llenarEvento = async () => {
     let btnComprar = document.createElement('button');
     btnComprar.classList.add('boton', 'botonVerde');
 
+    if(gradoUsuario != 4){
+      btnComprar.classList.add('ocultar')
+    }
+
     let eventoProximo = evento.evento.proximo;
     // let btnAgregarCarrito = document.querySelector('#btn-annadir-carrito');
 
