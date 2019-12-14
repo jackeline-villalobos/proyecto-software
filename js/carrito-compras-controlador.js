@@ -278,61 +278,76 @@ btnPagar.addEventListener('click', async function (e) {
     console.log(listaEventos)
 
 
-    const alert = await Swal.fire({
-        title: 'Selecciona una tarjeta',
+    // const alert = await Swal.fire({
+    //     title: 'Selecciona una tarjeta',
+    //     input: 'select',
+    //     inputOptions: tarjetas,
+    //     inputPlaceholder: 'Tarjetas',
+    //     showCancelButton: true,
+    //     cancelButtonText: 'Cancelar',
+    //     confirmButtonText: 'Pagar',
+
+    // })
+
+    Swal.fire({
+        title: 'Seleccione una tarjeta',
         input: 'select',
         inputOptions: tarjetas,
-        inputPlaceholder: 'Tarjetas',
         showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Pagar',
+        confirmButtonText: 'Comprar',
+        cancelButtonText: 'Cancelar'
+    }).then(async (resultadoTarjeta) => {
+        if (resultadoTarjeta.dismiss == 'cancel') {
+            
+        } else {
+            console.log(resultadoTarjeta);
+            let resultado;
+            let res;
+            let fecha = new Date();
+            let fechaHoy = fecha.getDate() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getFullYear();
+            console.log(fechaHoy);
+            for (let i in entradas) {
+                let idEntrada = entradas[i]['_id'];
+                let idEvento = entradas[i]['idEvento'];
+                let idFecha = entradas[i]['idFecha'];
 
-    })
+                let entradasUsuario = entradas[i]['numeroEntradas'];
 
-    let resultado;
-    let res;
-    let fecha = new Date();
-    let fechaHoy = fecha.getDate() + "-" + (fecha.getMonth()+1) + "-" + fecha.getFullYear();
-    console.log(fechaHoy);
-    for (let i in entradas) {
-        let idEntrada = entradas[i]['_id'];
-        let idEvento = entradas[i]['idEvento'];
-        let idFecha = entradas[i]['idFecha'];
-        
-        let entradasUsuario = entradas[i]['numeroEntradas'];
+                let nombreEvento;
 
-        let nombreEvento;
+                for (let x in listaEventos) {
+                    if (listaEventos[x]['_id'] == idEvento) {
+                        nombreEvento = listaEventos[x]['nombre'];
+                    }
+                }
 
-        for(let x in listaEventos){
-            if(listaEventos[x]['_id'] == idEvento) {
-                nombreEvento = listaEventos[x]['nombre'];
+                console.log(nombreEvento);
+
+                res = await eliminarEntrada(userID, idEntrada);
+
+                resultado = await comprarEntrada(idEvento, idFecha, entradasUsuario);
+
+                let resCorreo = await agregarNotificacion(userID, fechaHoy, nombreEvento);
+
+                console.log(res);
+                console.log(resultado);
+                console.log(resCorreo);
             }
+
+            if (res.resultado && resultado.resultado) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Compra realizada con éxito',
+                    text: 'Las entradas llegarán a tu correo',
+                    confirmButtonText: 'Entendido',
+                    onClose: function () {
+                        location.reload();
+                    }
+                })
+            }
+
         }
-
-        console.log(nombreEvento);
-
-        res = await eliminarEntrada(userID, idEntrada);
-
-        resultado = await comprarEntrada(idEvento, idFecha, entradasUsuario);
-
-        let resCorreo = await agregarNotificacion(userID, fechaHoy, nombreEvento);
-
-        console.log(res);
-        console.log(resultado);
-        console.log(resCorreo);
-    }
-
-    if (res.resultado && resultado.resultado) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Compra realizada con éxito',
-            text: 'Las entradas llegarán a tu correo',
-            confirmButtonText: 'Entendido',
-            onClose: function () {
-                location.reload();
-            }
-        })
-    }
+    });
 
 })
 
