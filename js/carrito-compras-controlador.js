@@ -297,8 +297,14 @@ btnPagar.addEventListener('click', async function (e) {
         confirmButtonText: 'Comprar',
         cancelButtonText: 'Cancelar'
     }).then(async (resultadoTarjeta) => {
-        if (resultadoTarjeta.dismiss == 'cancel') {
-            
+        if (resultadoTarjeta.value == '') {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Debe seleccionar una tarjeta',
+                confirmButtonText: 'Entendido'
+            });
+        } else if (resultadoTarjeta.dismiss == 'cancel') {
+
         } else {
             console.log(resultadoTarjeta);
             let resultado;
@@ -327,7 +333,9 @@ btnPagar.addEventListener('click', async function (e) {
 
                 resultado = await comprarEntrada(idEvento, idFecha, entradasUsuario);
 
-                let resCorreo = await agregarNotificacion(userID, fechaHoy, nombreEvento);
+                let entradaID = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
+                let resCorreo = await agregarNotificacion(userID, fechaHoy, nombreEvento, entradaID);
 
                 console.log(res);
                 console.log(resultado);
@@ -356,3 +364,6 @@ let ocultarTarjeta = (numTarjeta) => {
     let oculto = numTarjeta.replace(/.(?=.{4,}$)/g, '*');
     return oculto;
 }
+
+
+

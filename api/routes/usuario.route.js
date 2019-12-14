@@ -1030,7 +1030,7 @@ router.post('/primer-cambio-contrasenna', function(req, res) {
     let body = req.body;
     Usuario.updateOne({ _id: body._id }, {
             $set: {
-                nuevaContrasenna: body.contrasenna
+                contrasenna: body.contrasenna
             }
         },
 
@@ -1142,6 +1142,7 @@ router.post('/agregar-notificacion', function(req, res) {
                 <div class="info_credenciales">
                     <p>Compra realizada con éxito</p>
                     <p>${body.descripcion}</p>
+                    <p>El ID de tu entrada es: ${body.entradaID}</p>
                     <br>
                     <p></p>
                 </div>

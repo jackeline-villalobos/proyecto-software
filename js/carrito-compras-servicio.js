@@ -92,7 +92,7 @@ let comprarEntrada = async (idEvento, idFecha, entradasUsuario) => {
     return resultado;
 }
 
-let agregarNotificacion = async (idUsuario, fecha, nombreEvento) =>  {
+let agregarNotificacion = async (idUsuario, fecha, nombreEvento, entradaID) =>  {
 
     let resultado;
 
@@ -104,7 +104,8 @@ let agregarNotificacion = async (idUsuario, fecha, nombreEvento) =>  {
             _id: idUsuario,
             titulo: 'Compra de entrada',
             descripcion: 'Usted ha realizado una compra para el evento: ' + nombreEvento,
-            fecha: fecha
+            fecha: fecha,
+            entradaID: entradaID
         }
     })
     .then(async function(res){

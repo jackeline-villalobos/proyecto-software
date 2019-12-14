@@ -16,12 +16,12 @@ let notificacionesUsers = async () => {
         url: `http://localhost:3000/api/buscar-usuario-correo/${userMail}`,
         responseType: 'json'
     })
-    .then(async function(res) {
-        usuario = await res.data.usuario;
-    })
-    .catch(function(err){
-        console.log(err);
-    }); 
+        .then(async function (res) {
+            usuario = await res.data.usuario;
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 
     console.log(usuario);
 
@@ -31,19 +31,41 @@ let notificacionesUsers = async () => {
 
     console.log(usuario.notificaciones.length);
 
-    if(usuario.notificaciones.length == 0) {
+    if (usuario.notificaciones.length == 0) {
 
         let tituloNotificacion = 'No tienes notificaciones';
 
+        let notificacion = document.createElement('div');
+        notificacion.setAttribute('class', 'notificacion');
+        notificacion.setAttribute('id', 'notificacion-container');
+
+        let infoNotificacion = document.createElement('div');
+        infoNotificacion.setAttribute('class', 'info-notificacion');
+        infoNotificacion.setAttribute('id', 'info-notificacion');
+
+        let imagenNotificacion = document.createElement('div');
+            imagenNotificacion.setAttribute('class', 'imagen-notificacion');
+            let imagen = document.createElement('img');
+            imagen.setAttribute('src', '../imagenes/imagenes_generales/logo sin letras.png');
+            imagenNotificacion.appendChild(imagen);
+
+        let titulo = document.createElement('p');
+        titulo.setAttribute('class', 'titulo-notificacion');
+        titulo.setAttribute('id', 'titulo-notificacion');
 
         titulo.innerHTML = tituloNotificacion;
-    
+
+        infoNotificacion.appendChild(titulo);
+        notificacion.appendChild(imagenNotificacion);
+        notificacion.appendChild(infoNotificacion);
+        dropdown.appendChild(notificacion);
+
     } else {
         // for(let i = 0; i < usuario.notificaciones.length ; i++){
         //     let tituloNotificacion = usuario.notificaciones[i]['titulo'];
         //     let descripcionNotificacion = usuario.notificaciones[i]['descripcion'];
         //     let fechaNotificacion = usuario.notificaciones[i]['fecha'];
-            
+
         //     let container = document.createElement('div');
 
         //     titulo.innerHTML = tituloNotificacion;
@@ -57,12 +79,12 @@ let notificacionesUsers = async () => {
         //     notificacionContainer.appendChild(infoNotificacion);
 
         //    // dropdown.appendChild(infoNotificacion);
-    
+
         // }
 
         //let numNotificaciones = usuario.notificaciones.length;
 
-        for(let i = usuario.notificaciones.length-1; i >= 0 ; i--) {
+        for (let i = usuario.notificaciones.length - 1; i >= 0; i--) {
             let notificacion = document.createElement('div');
             notificacion.setAttribute('class', 'notificacion');
             notificacion.setAttribute('id', 'notificacion-container');
@@ -102,15 +124,15 @@ let notificacionesUsers = async () => {
 
         }
 
-        
-    }   
+
+    }
 }
 
-if(userGrade == 4) {
+if (userGrade == 4) {
     notificacionesUsers();
 }
 
-notificacionClick.addEventListener('click', function(e){
+notificacionClick.addEventListener('click', function (e) {
     e.preventDefault();
     dropdown.classList.toggle('active');
 });
