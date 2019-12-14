@@ -39,21 +39,21 @@ let validarFechas = () => {
         input_asistentes.classList.remove('error');
     };
 
-    
+
     return error;
 };
 
-    
+
 // let validarAsistentes = async() =>{
 //     let error = false;
 //     let evento = await buscarEvento(localStorage.getItem('idEvento'));
-    
+
 //     let nombreRecinto = evento.evento.lugar;
-    
+
 //     let recinto = await obtenerRecinto(nombreRecinto);
-    
+
 //     let capacidadRecinto = recinto[0].capacidad;
-    
+
 //     if(input_asistentes.value > capacidadRecinto || input_asistentes.value == ''){
 //         error = true;
 //         input_asistentes.classList.add('error');
@@ -108,39 +108,39 @@ let resetImpuestos = () => {
 };
 
 let agregarFecha = () => {
-    
+
     let fecha = input_fecha.value;
     let hora = input_hora.value;
     let asistentes = input_asistentes.value;
-    
-    if(validarFechas()){
+
+    if (validarFechas()) {
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
             text: 'Por favor, revise los campos en rojo.',
             confirmButtonText: 'Entendio'
         })
-        
-    }else{
+
+    } else {
         agregar_fecha(fecha, hora, asistentes);
         resetFecha();
     }
 };
 
-let agregarDescuento= ()=>{
+let agregarDescuento = () => {
     let nombreDescuento = input_nombreDescuento.value.toLowerCase();
     let porcentajeDescuento = input_porcentajeDescuento.value;
 
     console.log(nombreDescuento);
-    
-    if(validarDescuentos()){
+
+    if (validarDescuentos()) {
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
             text: 'Por favor, revise los campos en rojo.',
             confirmButtonText: 'Entendio'
         })
-    }else{
+    } else {
         agregar_descuento(nombreDescuento, porcentajeDescuento);
         resetDescuentos();
     }
@@ -150,7 +150,7 @@ let agregarImpuestos = () => {
 
     let nombreImpuesto = slt_impuestos.value;
 
-    if (validarImpuestos()){
+    if (validarImpuestos()) {
         Swal.fire({
             type: 'warning',
             title: 'Algunos de los campos se encuentran incorrectos.',
@@ -165,19 +165,22 @@ let agregarImpuestos = () => {
 
 };
 
-let finalizar =()=>{
+let finalizar = () => {
     let gradoUsuario = sessionStorage.getItem('gradoUsuario')
     Swal.fire({
         type: 'success',
         title: 'Registro de evento finalizado',
         text: 'El evento ha sido almacenado',
         confirmButtonText: 'Continuar',
-        onClose: function () {
-            if(gradoUsuario == 1){
+        onClose: function() {
+            if (gradoUsuario == 1) {
                 location.href = 'perfil-administrador.html';
             }
-            if(gradoUsuario == 3){
+            if (gradoUsuario == 3) {
                 location.href = 'perfil-organizador.html';
+            }
+            if (gradoUsuario == 5) {
+                location.href = "perfil-empresa.html";
             }
         }
     });
@@ -185,7 +188,7 @@ let finalizar =()=>{
 
 let listaImpuestos;
 
-let llenarImpuestos = async () => {
+let llenarImpuestos = async() => {
     listaImpuestos = await listarImpuestos();
     for (let i = 0; i < listaImpuestos.length; i++) {
         let option = document.createElement('option')
@@ -198,17 +201,17 @@ llenarImpuestos();
 
 
 
-btn_agregarFecha.addEventListener('click', function(e){
+btn_agregarFecha.addEventListener('click', function(e) {
     e.preventDefault();
     agregarFecha();
 });
 
-btn_agregarDescuento.addEventListener('click', function(e){
+btn_agregarDescuento.addEventListener('click', function(e) {
     e.preventDefault();
     agregarDescuento();
 });
 
-btn_agregarImpuesto.addEventListener('click', function(e){
+btn_agregarImpuesto.addEventListener('click', function(e) {
     e.preventDefault();
     agregarImpuestos();
 });

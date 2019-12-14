@@ -15,7 +15,7 @@ const _id = sessionStorage.getItem('idUsuario');
 
 
 
-let mostrarInfo = async () => {
+let mostrarInfo = async() => {
 
     let usuario = await obtener_datos();
     console.log(usuario);
@@ -50,10 +50,23 @@ let mostrarInfo = async () => {
     nombre_container.appendChild(sApellido);
 
     //Informacion
- 
+
     let fechaDeNacimiento = usuario.fechaDeNacimiento;
     let fnacimiento = document.createElement('p');
-    fnacimiento.innerText = fechaDeNacimiento.substring(0,10);
+
+    let fechaFormatoViejo = fechaDeNacimiento.substring(0, 10);
+
+    console.log("fecha vieja: " + fechaFormatoViejo);
+    let ano = fechaFormatoViejo.substring(0, 4);
+    console.log("ano: " + ano);
+    let mes = fechaFormatoViejo.substring(5, 7);
+    console.log("mes: " + mes);
+    let dia = fechaFormatoViejo.substring(8, 10);
+    console.log("dia: " + dia);
+
+    let fechaNueva = dia + "-" + mes + "-" + ano;
+
+    fnacimiento.innerText = fechaNueva;
 
     fechaDeNacimiento_container.appendChild(fnacimiento)
 
