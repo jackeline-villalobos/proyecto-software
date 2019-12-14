@@ -51,8 +51,8 @@ footer {
 
 .tbl-usuarios{
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: center !important; 
+    align-content: center !important;
 }
 
 .btn-activar, .btn-desactivar{
