@@ -9,6 +9,7 @@ const h4 = document.querySelector('#h4-title');
 const h5 = document.querySelector('#h5-title');
 const h6 = document.querySelector('#h6-title');
 const parrafo = document.querySelector('#parrafo');
+const verRecinto = document.querySelector('#ver-eventos');
 
 
 const btnModificar = document.querySelector('#btn-modificar');
@@ -76,6 +77,15 @@ let llenarPerfil = async () => {
     console.log(longitud);
 
     initMap(latitud, longitud);
+
+    verRecinto.addEventListener('click', function(e){
+        
+
+        let recintoName = recinto.recinto.nombreRecinto;
+
+        sessionStorage.setItem('nombreRecinto', recintoName);
+
+    });
 
 }
 
