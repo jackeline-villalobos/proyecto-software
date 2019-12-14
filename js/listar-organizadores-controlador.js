@@ -7,7 +7,7 @@ const tableBody = document.querySelector('#tbl-organizadores tbody');
 let listaOrganizadores;
 
 
-let llenarTabla = async () => {
+let llenarTabla = async() => {
 
     let filtro = input_filtro.value.toLowerCase();
 
@@ -33,13 +33,17 @@ let llenarTabla = async () => {
 
 
             fila.insertCell().innerHTML = listaOrganizadores[i]['nombreEmpresa'];
+            /*
             fila.insertCell().innerHTML = listaOrganizadores[i]['cedulaJuridica'];
+            */
             fila.insertCell().innerHTML = listaOrganizadores[i]['experiencia'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['nombreComercial'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['provincia'];
+            /*
             fila.insertCell().innerHTML = listaOrganizadores[i]['canton'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['distrito'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['sennas'];
+            */
             fila.insertCell().innerHTML = listaOrganizadores[i]['nombreCompleto'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['correo'];
             fila.insertCell().innerHTML = listaOrganizadores[i]['telefono'];
@@ -49,30 +53,30 @@ let llenarTabla = async () => {
             fila.insertCell().appendChild(btnDesactivar).innerHTML;
 
             let idUsuario = listaOrganizadores[i]['_id']
-            let activar_organizador = async () => {
+            let activar_organizador = async() => {
                 let estado = 'activo';
                 let resultado = await modificarEstado(idUsuario, estado);
                 console.log(resultado);
             };
 
-            let desactivar_organizador = async () => {
+            let desactivar_organizador = async() => {
                 let estado = 'inactivo';
                 let resultado = await modificarEstado(idUsuario, estado);
                 console.log(resultado);
             };
 
 
-            let enviar_correoConfirmacion = async () => {
+            let enviar_correoConfirmacion = async() => {
                 let resultado = await enviarCorreoConfirmacion(idUsuario)
                 console.log(resultado);
             };
 
-            let enviar_correoRechazo = async ()=>{
+            let enviar_correoRechazo = async() => {
                 let resultado = await enviarCorreorRechazo(idUsuario)
                 console.log(resultado);
             };
 
-            btnActivar.addEventListener('click', async function () {
+            btnActivar.addEventListener('click', async function() {
 
 
                 const swalWithBootstrapButtons = Swal.mixin({
@@ -114,7 +118,7 @@ let llenarTabla = async () => {
                 })
             });
 
-            btnDesactivar.addEventListener('click', async function () {
+            btnDesactivar.addEventListener('click', async function() {
                 // Swal.fire({
                 //     title: '¿Desea desactivar el organizador',
                 //     text: "El organizador desactivado no podrá llevar acabo acciones dentro de la aplicación",
@@ -155,6 +159,7 @@ let llenarTabla = async () => {
                             'Organizador desactivado',
                             'El organizador fue notificado del estado de su solicitud',
                             'success'
+
                         )
 
                     } else if (

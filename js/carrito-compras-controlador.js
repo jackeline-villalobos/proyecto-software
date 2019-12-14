@@ -22,6 +22,17 @@ let llenarCarrito = async () => {
         titulo.innerHTML = 'No tienes ninguna entrada en tu carrito';
         contenedorEntrada.appendChild(titulo);
         btnPagar.classList.add('ocultar');
+
+        let imgContainer = document.createElement('div');
+        imgContainer.setAttribute('class', 'gifCarrito');
+
+
+        let img = document.createElement('img');
+        // img.setAttribute('class', 'gifCarrito');
+        img.setAttribute('src', 'https://cdn.dribbble.com/users/1914549/screenshots/5374040/day24.gif');
+        imgContainer.appendChild(img);
+        contenedorEntrada.appendChild(imgContainer);
+
     } else {
 
         for (let i in eventosUsuario) {

@@ -152,7 +152,7 @@ let resetForm = () => {
     input_latitud = "";
     input_longitud = "";
 };
-let obtener_datos = async () => {
+let obtener_datos = async() => {
 
     let nombreEmpresa = input_nombreEmpresa.value;
     let razonSocial = input_razonSocial.value;
@@ -194,7 +194,7 @@ let obtener_datos = async () => {
         } else {
 
             let error = await registrar_empresa(nombreEmpresa, razonSocial, cedulaJuridica, telefono, correo, direccion, provincia, canton, distrito, imagen, latitud, longitud, contrasenna);
-            
+
             if (error == false) {
                 Swal.fire({
                     icon: 'warning',
@@ -207,11 +207,14 @@ let obtener_datos = async () => {
                     icon: 'success',
                     title: 'Registro realizado con éxito',
                     text: 'El usuario ha sido registrado',
-                    confirmButtonText: 'Entendido'
+                    confirmButtonText: 'Entendido',
+                    onClose: function() {
+                        window.location.href = "iniciar-sesion.html";
+                    }
                 });
                 resetForm();
             }
-           
+
         }
     }
 
