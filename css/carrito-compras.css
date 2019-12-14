@@ -78,3 +78,9 @@ footer {
 .swal2-styled.swal2-cancel {
     padding: 0;
 }
+
+.gifCarrito {
+    /* height: -60%; */
+    width: 45%;
+    margin: auto;
+}
