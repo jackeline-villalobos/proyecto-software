@@ -18,10 +18,10 @@ const genero_container = document.querySelector('#genero_container');
 const contenedor = document.querySelector('#contenedorCards');
 
 
-let mostrarInfo = async () =>{
+let mostrarInfo = async() => {
 
     let organizador = await obtenerDatos();
-    //console.log(organizador);
+    console.log(organizador);
 
     let nombreEmpresa = organizador.organizador.nombreEmpresa;
     let pNombreEmpresa = document.createElement('h6');
@@ -52,7 +52,7 @@ let mostrarInfo = async () =>{
     let pCanton = document.createElement('h6');
     pCanton.innerText = canton;
     canton_container.appendChild(pCanton);
-    
+
     let distrito = organizador.organizador.distrito;
     let pDistrito = document.createElement('h6');
     pDistrito.innerText = distrito;
@@ -67,7 +67,7 @@ let mostrarInfo = async () =>{
     let pNombreCompleto = document.createElement('h6');
     pNombreCompleto.innerText = nombreCompleto;
     nombreCompleto_container.appendChild(pNombreCompleto);
-    
+
     let correo = organizador.organizador.correo;
     let pCorreo = document.createElement('h6');
     pCorreo.innerText = correo;
@@ -83,24 +83,26 @@ let mostrarInfo = async () =>{
     pGenero.innerText = genero;
     genero_container.appendChild(pGenero);
 
-    
-    
+
+
 };
 
-let mostrarCards = async ()=>{
+let mostrarCards = async() => {
     let organizador = await obtenerDatos();
     let listaEventos = await listarEventos();
     let filtro = organizador.organizador._id;
 
     //console.log(filtro);
-    
+
     for (let i = 0; i < listaEventos.length; i++) {
         let creador = listaEventos[i]['creador'];
         let imagen = listaEventos[i]['imagen'];
-       
-        console.log(listaEventos[i]['creador'])
-        if (creador.includes(filtro)) {
-            
+
+        console.log(creador);
+
+        if (creador == filtro) {
+            //if (creador.includes(filtro)) {
+
             let cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
@@ -129,7 +131,7 @@ let mostrarCards = async ()=>{
             boton.innerHTML = 'Ver más';
             boton.dataset._id = listaEventos[i]['_id'];
 
-            boton.addEventListener('click', function () {
+            boton.addEventListener('click', function() {
                 localStorage.setItem('idEvento', this.dataset._id);
                 window.location.href = 'perfil-evento.html';
             });
@@ -137,13 +139,13 @@ let mostrarCards = async ()=>{
             contenedor.appendChild(cardDiv);
             cardDiv.appendChild(header);
             header.appendChild(img);
-            
+
             cardDiv.appendChild(nombre);
             cardDiv.appendChild(fecha);
             cardDiv.appendChild(lugar);
             cardDiv.appendChild(precio);
             cardDiv.appendChild(boton);
-            
+
         }
     };
 }
