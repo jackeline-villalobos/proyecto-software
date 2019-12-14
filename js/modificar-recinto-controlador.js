@@ -134,16 +134,7 @@ let obtenerDatos = async () => {
             confirmButtonText: 'Entendido'
         })
 
-    } else if (verificarCorreoEncargado(encargado)) {
-
-        Swal.fire({
-            icon: 'warning',
-            title: 'El correo no está disponible',
-            text: 'El correo ya está en uso',
-            confirmButtonText: 'Entendido'
-        });
-    }
-     else {
+    } else {
          
         let error = await modificarRecinto(idRecinto, imagenCloudinary, encargado, recinto, capacidad, capacidadEspeciales, provincia, direccion, latitud, longitud);
 

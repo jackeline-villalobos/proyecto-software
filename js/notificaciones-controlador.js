@@ -60,7 +60,9 @@ let notificacionesUsers = async () => {
     
         // }
 
-        for(let i = 0; i< usuario.notificaciones.length; i++) {
+        //let numNotificaciones = usuario.notificaciones.length;
+
+        for(let i = usuario.notificaciones.length-1; i >= 0 ; i--) {
             let notificacion = document.createElement('div');
             notificacion.setAttribute('class', 'notificacion');
             notificacion.setAttribute('id', 'notificacion-container');

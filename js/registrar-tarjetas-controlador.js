@@ -179,7 +179,10 @@ let obtenerDatos = () => {
         Swal.fire({
             icon: 'success',
             title: 'Se agregó la tarjeta correctamente',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            onClose: function(){
+                window.location.href = '../perfil-usuario.html';
+            }
         });
     }
 
