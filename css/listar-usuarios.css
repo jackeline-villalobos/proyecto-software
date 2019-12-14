@@ -32,7 +32,7 @@ thead tr th {
     color: #ffffff !important;
 }
 
-td{
+td {
     margin-left: 3.5% !important;
     margin-right: 3.5% !important;
 }
@@ -49,13 +49,14 @@ footer {
     margin-top: 7%;
 }
 
-.tbl-usuarios{
+.tbl-usuarios {
     display: flex;
-    justify-content: center !important; 
+    justify-content: center !important;
     align-content: center !important;
+    margin-left: 15%;
 }
 
-.btn-activar, .btn-desactivar{
+.btn-activar,
+.btn-desactivar {
     width: 10px;
-    
 }
