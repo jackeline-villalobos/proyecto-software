@@ -22,7 +22,8 @@ let llenarTabla = async () => {
                 if (marca.includes(filtro)) {
 
                     let fila = tableBody.insertRow();
-                    fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['numero'];
+                    let numTarjeta = ocultarTarjeta(listaUsuarios[i]['tarjeta'][y]['numero']);
+                    fila.insertCell().innerHTML = numTarjeta;
                     fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['fechaExpiracion'];
                     fila.insertCell().innerHTML = listaUsuarios[i]['tarjeta'][y]['marca'];
 
@@ -49,5 +50,10 @@ let llenarTabla = async () => {
 }
 
 llenarTabla();
+let ocultarTarjeta = (numTarjeta) => {
+
+    let oculto = numTarjeta.replace(/.(?=.{4,}$)/g, '*');
+    return oculto;
+}
 
 inputFiltro.addEventListener('keyup', llenarTabla);

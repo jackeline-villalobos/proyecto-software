@@ -5,4 +5,6 @@ if (grado == 2 ) {
 
 } else if(grado == 3) {
     window.location.href = '../perfil-organizador.html';
+} else if(grado == 5) {
+    window.location.href = '../perfil-empresa.html';
 }
