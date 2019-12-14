@@ -173,7 +173,7 @@ btnEliminar.addEventListener('click', async function(e) {
 
         Swal.fire({
             icon: 'success',
-            title: 'Desactivado con éxito',
+            title: 'Eliminado con éxito',
             text: 'El tipo de evento ha sido eliminado',
             confirmButtonText: "Entendido",
             onClose: function() {
