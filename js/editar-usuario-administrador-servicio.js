@@ -8,7 +8,7 @@ let buscarUsuario = async(correo) => {
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/buscar-usuario',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/buscar-usuario',
             responseType: 'json',
             data: {
                 correo: correo
@@ -31,7 +31,7 @@ let modificarEstado = async(id, estado) => {
 
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/editar-usuario-administrador',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/editar-usuario-administrador',
             responseType: 'json',
             data: {
                 _id: id,
@@ -55,7 +55,7 @@ let modificarBaneo = async(id, baneado) => {
 
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/editar-usuario-administrador',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/editar-usuario-administrador',
             responseType: 'json',
             data: {
                 _id: id,

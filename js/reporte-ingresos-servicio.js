@@ -6,7 +6,7 @@ let listarEventos = async() => {
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-eventos',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/listar-eventos',
             responseType: 'json'
         })
         .then(function(res) {

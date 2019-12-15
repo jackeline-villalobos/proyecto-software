@@ -1,18 +1,18 @@
 'use strict';
 
-let verificarCorreo = async (correo) => {
+let verificarCorreo = async(correo) => {
     let resultado;
 
     await axios({
-        method: 'get',
-        url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
-        responseType: 'json'
-    })
-        .then(async function (res) {
+            method: 'get',
+            url: `https://proyecto-software-prod.herokuapp.com/api/buscar-usuario-registro/${correo}`,
+            responseType: 'json'
+        })
+        .then(async function(res) {
             console.log(res.data);
             resultado = await res.data.resultado;
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log(err);
         });
 
@@ -20,18 +20,17 @@ let verificarCorreo = async (correo) => {
 }
 
 
-let registrar_encargado = async (correo, telefono, nombreCompleto, fechaNacimiento, genero) => {
+let registrar_encargado = async(correo, telefono, nombreCompleto, fechaNacimiento, genero) => {
 
     let resultado;
 
     let pcontrasenna = generarContrasenna();
-    await axios(
-        {
+    await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/registrar-organizadorSolicitante',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/registrar-organizadorSolicitante',
             responseType: 'json',
             data: {
-               
+
                 correo: correo,
                 contrasenna: pcontrasenna,
                 telefono: telefono,
@@ -39,16 +38,15 @@ let registrar_encargado = async (correo, telefono, nombreCompleto, fechaNacimien
                 fechaNacimiento: fechaNacimiento,
                 genero: genero
             }
-        }
-    )
-        .then(async function (res) {
+        })
+        .then(async function(res) {
             console.log(res.data);
             resultado = await res.data;
         })
 
-        .catch(function (error) {
-            console.log(error);
-        });
+    .catch(function(error) {
+        console.log(error);
+    });
 
     return resultado;
 
@@ -74,89 +72,89 @@ function generarContrasenna() {
     return contrasenna;
 };
 
-let listar_encargados = async () => {
+let listar_encargados = async() => {
 
     let lista_encargados;
 
     await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api//listar-encargado',
-        responseType: 'json'
-    })
-        .then(function (res) {
+            method: 'get',
+            url: 'https://proyecto-software-prod.herokuapp.com/api//listar-encargado',
+            responseType: 'json'
+        })
+        .then(function(res) {
             console.log(res.data);
             lista_encargados = res.data.encargados;
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         });
     return lista_encargados;
 };
 
 const idUsuario = sessionStorage.getItem('idUsuario');
-let obtenerDatos = async () => {
+let obtenerDatos = async() => {
 
     let encargado;
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/buscar-encargado-id',
-        data: {
-            _id: idUsuario,
-        }
-    })
-        .then(async function (res) {
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/buscar-encargado-id',
+            data: {
+                _id: idUsuario,
+            }
+        })
+        .then(async function(res) {
             encargado = await res.data;
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         })
     return encargado;
 };
 
-let listarRecintos = async () => {
+let listarRecintos = async() => {
     let listaRecintos;
     await axios({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-eventos',
-        responseType: 'json'
-    })
-        .then(function (res) {
+            method: 'get',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/listar-eventos',
+            responseType: 'json'
+        })
+        .then(function(res) {
             listaEventos = res.data.eventos;
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         });
     return listaRecintos;
 };
 
-let editarEncargado = async (_id, nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
+let editarEncargado = async(_id, nombreEmpresa, cedulaJuridica, experiencia, nombreComercial, provincia, canton, distrito, sennas, nombreCompleto, correo, telefono, genero) => {
 
     let resultado;
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/editar-perfil-encargado',
-        responseType: 'json',
-        data: {
-            _id: _id,
-            nombreEmpresa: nombreEmpresa,
-            cedulaJuridica: cedulaJuridica,
-            experiencia: experiencia,
-            nombreComercial: nombreComercial,
-            provincia: provincia,
-            canton: canton,
-            distrito: distrito,
-            sennas: sennas,
-            nombreCompleto: nombreCompleto,
-            correo: correo,
-            telefono: telefono,
-            genero: genero
-        }
-    })
-        .then(async function (res) {
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/editar-perfil-encargado',
+            responseType: 'json',
+            data: {
+                _id: _id,
+                nombreEmpresa: nombreEmpresa,
+                cedulaJuridica: cedulaJuridica,
+                experiencia: experiencia,
+                nombreComercial: nombreComercial,
+                provincia: provincia,
+                canton: canton,
+                distrito: distrito,
+                sennas: sennas,
+                nombreCompleto: nombreCompleto,
+                correo: correo,
+                telefono: telefono,
+                genero: genero
+            }
+        })
+        .then(async function(res) {
             console.log(res.data);
             resultado = await res.data;
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(err)
         });
 
@@ -164,69 +162,69 @@ let editarEncargado = async (_id, nombreEmpresa, cedulaJuridica, experiencia, no
 
 }
 
-let modificarEstado = async (_id, estado) => {
+let modificarEstado = async(_id, estado) => {
 
     let resultado;
 
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/modificar-estado-encargado',
-        responseType: 'json',
-        data: {
-            _id: _id,
-            estado: estado
-        }
-    })
-    .then(async function(res) {
-        console.log(res.data);
-        resultado = await res.data
-    })
-    .catch(function(error){
-        console.log(error);
-    }); 
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/modificar-estado-encargado',
+            responseType: 'json',
+            data: {
+                _id: _id,
+                estado: estado
+            }
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 
 
     return resultado;
 }
 
-let enviarCorreoConfirmacion = async(_id) =>{
+let enviarCorreoConfirmacion = async(_id) => {
     let resultado;
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/enviar-correo-confirmacion',
-        responseType: 'json',
-        data: {
-            _id: _id,
-        }
-    })
-    .then(async function(res) {
-        console.log(res.data);
-        resultado= await res.data;
-    })
-    .catch(function(error) {
-        console.log(error)
-    });
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/enviar-correo-confirmacion',
+            responseType: 'json',
+            data: {
+                _id: _id,
+            }
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 
     return resultado;
 };
 
-let enviarCorreoRechazo = async(_id) =>{
+let enviarCorreoRechazo = async(_id) => {
     let resultado;
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/enviar-correo-rechazo',
-        responseType: 'json',
-        data: {
-            _id: _id,
-        }
-    })
-    .then(async function(res) {
-        console.log(res.data);
-        resultado= await res.data;
-    })
-    .catch(function(error) {
-        console.log(error)
-    });
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/enviar-correo-rechazo',
+            responseType: 'json',
+            data: {
+                _id: _id,
+            }
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 
     return resultado;
 };

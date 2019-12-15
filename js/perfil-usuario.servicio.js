@@ -11,7 +11,7 @@ let obtener_datos = async() => {
     await axios({
 
             method: "post",
-            url: "http://localhost:3000/api/buscar-usuario",
+            url: "https://proyecto-software-prod.herokuapp.com/api/buscar-usuario",
             responseType: "JSON",
             data: {
                 _id: _id,
@@ -37,7 +37,7 @@ let perfilUsuario = async() => {
     await axios({
 
             method: "post",
-            url: "http://localhost:3000/api/buscar-usuario",
+            url: "https://proyecto-software-prod.herokuapp.com/api/buscar-usuario",
             responseType: "JSON",
             data: {
                 correo: correoUsuario
@@ -62,7 +62,7 @@ let editarInformacionUsuario = async(_id, primerNombre, segundoNombre, primerApe
     let resultado;
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/editar-perfil-usuario',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/editar-perfil-usuario',
             responseType: 'json',
             data: {
                 _id: _id,
@@ -97,7 +97,7 @@ let cambiarContrasenna = async(_id, contrasenna) => {
     let resultado;
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/primer-cambio-contrasenna',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/primer-cambio-contrasenna',
             responseType: 'json',
             data: {
                 _id: _id,
@@ -115,4 +115,3 @@ let cambiarContrasenna = async(_id, contrasenna) => {
     return resultado;
 
 }
-
