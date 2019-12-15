@@ -7,19 +7,19 @@ let userMail = sessionStorage.getItem('correoUsuario');
 const userState = sessionStorage.getItem('conectado');
 const userGrade = sessionStorage.getItem('gradoUsuario');
 
-let notificacionesUsers = async () => {
+let notificacionesUsers = async() => {
 
     let usuario;
 
     await axios({
-        method: 'get',
-        url: `http://localhost:3000/api/buscar-usuario-correo/${userMail}`,
-        responseType: 'json'
-    })
-        .then(async function (res) {
+            method: 'get',
+            url: `https://proyecto-software-prod.herokuapp.com/api/buscar-usuario-correo/${userMail}`,
+            responseType: 'json'
+        })
+        .then(async function(res) {
             usuario = await res.data.usuario;
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log(err);
         });
 
@@ -44,10 +44,10 @@ let notificacionesUsers = async () => {
         infoNotificacion.setAttribute('id', 'info-notificacion');
 
         let imagenNotificacion = document.createElement('div');
-            imagenNotificacion.setAttribute('class', 'imagen-notificacion');
-            let imagen = document.createElement('img');
-            imagen.setAttribute('src', '../imagenes/imagenes_generales/logo sin letras.png');
-            imagenNotificacion.appendChild(imagen);
+        imagenNotificacion.setAttribute('class', 'imagen-notificacion');
+        let imagen = document.createElement('img');
+        imagen.setAttribute('src', '../imagenes/imagenes_generales/logo sin letras.png');
+        imagenNotificacion.appendChild(imagen);
 
         let titulo = document.createElement('p');
         titulo.setAttribute('class', 'titulo-notificacion');
@@ -132,7 +132,7 @@ if (userGrade == 4) {
     notificacionesUsers();
 }
 
-notificacionClick.addEventListener('click', function (e) {
+notificacionClick.addEventListener('click', function(e) {
     e.preventDefault();
     dropdown.classList.toggle('active');
 });

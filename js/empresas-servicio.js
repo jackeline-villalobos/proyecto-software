@@ -4,17 +4,17 @@ let verificarCorreo = async(correo) => {
     let resultado;
 
     await axios({
-        method: 'get',
-        url: `http://localhost:3000/api/buscar-usuario-registro/${correo}`,
-        responseType: 'json'
-    })
-    .then( async function(res){
-        console.log(res.data);
-        resultado = await res.data.resultado;
-    })
-    .catch(function(err){
-        console.log(err);
-    });
+            method: 'get',
+            url: `https://proyecto-software-prod.herokuapp.com/api/buscar-usuario-registro/${correo}`,
+            responseType: 'json'
+        })
+        .then(async function(res) {
+            console.log(res.data);
+            resultado = await res.data.resultado;
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
 
     return resultado;
 }
@@ -24,7 +24,7 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
 
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/registrar-empresa',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/registrar-empresa',
             responseType: 'json',
             data: {
                 nombreEmpresa: nombreEmpresa,
@@ -59,37 +59,37 @@ let registrar_empresa = async(nombreEmpresa, razonSocial, cedulaJuridica, telefo
 };
 
 const idUsuario = sessionStorage.getItem('idUsuario');
-let obtenerDatos = async () =>{
+let obtenerDatos = async() => {
 
     let empresa;
     await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/buscar-empresa-id',
-        data: {
-            _id: idUsuario,
-        }
-    })
-    .then(async function(res){
-        empresa = await res.data;
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+            method: 'post',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/buscar-empresa-id',
+            data: {
+                _id: idUsuario,
+            }
+        })
+        .then(async function(res) {
+            empresa = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
     return empresa;
 };
 
-let listarEventos = async () => {
+let listarEventos = async() => {
     let listaEventos;
-    await axios ({
-        method: 'get',
-        url: 'http://localhost:3000/api/listar-eventos',
-        responseType: 'json'
-    })
-    .then(function(res){
-        listaEventos = res.data.eventos;
-    })
-    .catch(function(error){
-        console.log(error);
-    });
+    await axios({
+            method: 'get',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/listar-eventos',
+            responseType: 'json'
+        })
+        .then(function(res) {
+            listaEventos = res.data.eventos;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
     return listaEventos;
 };

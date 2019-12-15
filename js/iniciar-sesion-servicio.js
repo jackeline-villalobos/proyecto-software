@@ -4,7 +4,7 @@ let iniciarSesion = async(correo, contrasenna) => {
     let resultado;
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/iniciar-sesion',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/iniciar-sesion',
             responseType: 'json',
             data: {
                 correo: correo,

@@ -7,22 +7,22 @@ let enviarContrasennaPreviamenteGuardada = async(correo) => {
 
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/recuperar-contrasenna',
+        url: 'https://proyecto-software-prod.herokuapp.com/api/recuperar-contrasenna',
         responseType: 'json',
         data: {
             correo: correo,
             // contrasenna: contrasenna,
-           
+
         }
     })
 
     .then(async function(res) {
-        console.log(res.data);
-        resultado= await res.data;
-    })
-    .catch(function(error) {
-        console.log(error)
-    });
+            console.log(res.data);
+            resultado = await res.data;
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 
     return resultado;
 
@@ -41,7 +41,7 @@ let enviarContrasennaPreviamenteGuardada = async(correo) => {
 //         data: {
 //             correo: correo,
 //             contrasenna: contrasenna,
-           
+
 //         }
 //     })
 

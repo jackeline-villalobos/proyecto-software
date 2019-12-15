@@ -4,7 +4,7 @@ let registrartipoEvento = async(nombre) => {
     let resultado;
     await axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/registrar-tipo-evento',
+                url: 'https://proyecto-software-prod.herokuapp.com/api/registrar-tipo-evento',
                 responseType: 'json',
                 data: {
                     nombre: nombre,
@@ -30,7 +30,7 @@ let listartipoEventos = async() => {
     let listatipoEventos;
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-tipo-evento',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/listar-tipo-evento',
             responseType: 'json'
         })
         .then(function(res) {
@@ -49,7 +49,7 @@ let modificartipoEvento = async(_id, nombre, estado) => {
     let resultado;
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/modificar-tipoEvento',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/modificar-tipoEvento',
             responseType: 'json',
             data: {
                 _id: _id,
@@ -76,7 +76,7 @@ let modificarEstado = async(_id, estado) => {
 
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/modificar-estado-tipoEvento',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/modificar-estado-tipoEvento',
             responseType: 'json',
             data: {
                 _id: _id,
@@ -101,7 +101,7 @@ let eliminartipoEvento = async(_id) => {
 
     await axios({
             method: 'post',
-            url: 'http://localhost:3000/api/eliminar-tipoEvento',
+            url: 'https://proyecto-software-prod.herokuapp.com/api/eliminar-tipoEvento',
             responseType: 'json',
             data: {
                 _id: _id,

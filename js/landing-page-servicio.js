@@ -8,14 +8,14 @@ let validar = () => {
     let validarCorreo = /^[a-z._\d]+@[a-z\d]+\.[a-z]+\.?[a-z]+?$/;
     let error = false;
 
-    if(inputCorreo.value == 0) {
+    if (inputCorreo.value == 0) {
         error = true;
         inputCorreo.classList.add('error');
     } else {
         inputCorreo.classList.remove('error');
     }
 
-    if(validarCorreo.test(inputCorreo.value) == false) {
+    if (validarCorreo.test(inputCorreo.value) == false) {
         error = true;
         inputCorreo.classList.add('error');
     }
@@ -25,25 +25,25 @@ let validar = () => {
 }
 
 
-let mandarInfo = async () => {
+let mandarInfo = async() => {
     const correo = inputCorreo.value;
     console.log(correo);
 
-    if(!validar()) {
+    if (!validar()) {
         await axios({
-            method: 'post',
-            url: 'http://localhost:3000/api/mail-landing-page',
-            responseType: 'json',
-            data : {
-                correo: correo
-            }
-        })
-        .then(function(res){
-            console.log(res.data.msg);
-        })
-        .catch(function(err){
-            console.log(err);
-        });
+                method: 'post',
+                url: 'https://proyecto-software-prod.herokuapp.com/api/mail-landing-page',
+                responseType: 'json',
+                data: {
+                    correo: correo
+                }
+            })
+            .then(function(res) {
+                console.log(res.data.msg);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
 
         Swal.fire({
             position: 'top-end',
@@ -51,9 +51,9 @@ let mandarInfo = async () => {
             title: 'Se te ha enviado la información',
             showConfirmButton: false,
             timer: 1500
-          })
+        })
 
-        
+
     } else {
         console.log('No se pudo envíar el correo');
     }
